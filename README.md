@@ -81,6 +81,32 @@ repository, export the values in a local shell and run:
 bash scripts/github/set-aws-cd-secrets.sh Hushnetwork-social/hush-voting-website
 ```
 
+## CD contract
+
+Deployment is handled by GitHub Actions in `.github/workflows/cd.yml`.
+
+Trigger tag:
+
+```text
+HushVotingWebsite-vMAJOR.MINOR.PATCH
+```
+
+Published image:
+
+```text
+ghcr.io/hushnetwork-social/hush-voting-website:<version>
+```
+
+AWS runtime:
+
+- Container name: `HushVotingWebSite`
+- Local port: `127.0.0.1:3005`
+- Public domain: `https://www.hushvoting.com`
+- Apex domain: `https://hushvoting.com`, redirected to `https://www.hushvoting.com`
+- Backend reference, when needed by public pages: `https://api.hushnetwork.social`
+
+The website container is expected to expose HTTP on container port `80`.
+
 ## License
 
 MIT
