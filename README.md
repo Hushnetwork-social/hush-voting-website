@@ -52,6 +52,35 @@ HUSH_CI_E2E_DOTNET_FILTER=Category=E2E&Category=HappyPath&Category!=LONG_RUNNING
 HUSH_CI_GHERKIN_TAG_EXPRESSION=@HappyPath and not @LONG_RUNNING
 ```
 
+## AWS CD secrets
+
+AWS deployment should use the same secret model as the existing HushNetwork website deployment.
+
+Required GitHub Actions secrets:
+
+- `AWS_HOST`
+- `AWS_SSH_PRIVATE_KEY`
+- `AWS_SSH_USER`
+- `GHCR_TOKEN`
+- `GHCR_USERNAME`
+
+Optional contact-form secrets, if the public website includes SMTP-backed contact forms:
+
+- `CONTACT_TO_EMAIL`
+- `CONTACT_FROM_EMAIL`
+- `CONTACT_SMTP_HOST`
+- `CONTACT_SMTP_PORT`
+- `CONTACT_SMTP_SECURE`
+- `CONTACT_SMTP_USER`
+- `CONTACT_SMTP_PASS`
+
+GitHub does not expose existing secret values for copying between repositories. To configure this
+repository, export the values in a local shell and run:
+
+```bash
+bash scripts/github/set-aws-cd-secrets.sh Hushnetwork-social/hush-voting-website
+```
+
 ## License
 
 MIT
