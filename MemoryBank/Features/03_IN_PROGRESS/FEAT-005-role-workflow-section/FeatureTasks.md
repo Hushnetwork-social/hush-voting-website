@@ -47,17 +47,17 @@ Implementation must preserve the narrow feature boundary:
 
 ## Task inventory by phase
 
-| Phase   | Focus              | Key tasks                                                                                                                                      | Status  |
-| ------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| Phase 0 | Health check       | Inspect repository status, existing landing components, tests, design-system exports, and known validation/tooling debt before changing source | PENDING |
-| Phase 1 | Planning analysis  | Create `planning-analysis-report.md`, confirm content contracts, file boundaries, accessibility model, responsive strategy, and test plan      | PENDING |
-| Phase 2 | Data layer         | Add typed static role-section constants for header copy, role order, icon names, titles, and approved descriptions                             | PENDING |
-| Phase 3 | Business logic     | Keep behavior static; confirm there is no dynamic data, state machine, workflow routing, card interaction, API call, or role permission logic  | PENDING |
-| Phase 4 | Presentation logic | Create/export `RoleWorkflowSection` with semantic section, heading relationship, role list/card markup, and non-focusable card structure       | PENDING |
-| Phase 5 | User interface     | Apply Sovereign Shield surfaces, spacing, typography, icon styling, radius, subtle optional tonal lift, and responsive grid behavior           | PENDING |
-| Phase 6 | Integration        | Compose the section after `TrustModelSection` on the homepage without changing Header navigation or unrelated sections                         | PENDING |
-| Phase 7 | Testing and polish | Add/update component/unit tests, run canonical validation labels, perform accessibility/responsive review, and format changed files            | PENDING |
-| Phase 8 | Final checkpoint   | Verify acceptance traceability, evidence completeness, docs consistency, review readiness, and handoff quality                                 | PENDING |
+| Phase   | Focus              | Key tasks                                                                                                                                      | Status    |
+| ------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| Phase 0 | Health check       | Inspect repository status, existing landing components, tests, design-system exports, and known validation/tooling debt before changing source | COMPLETED |
+| Phase 1 | Planning analysis  | Create `planning-analysis-report.md`, confirm content contracts, file boundaries, accessibility model, responsive strategy, and test plan      | COMPLETED |
+| Phase 2 | Data layer         | Add typed static role-section constants for header copy, role order, icon names, titles, and approved descriptions                             | COMPLETED |
+| Phase 3 | Business logic     | Keep behavior static; confirm there is no dynamic data, state machine, workflow routing, card interaction, API call, or role permission logic  | COMPLETED |
+| Phase 4 | Presentation logic | Create/export `RoleWorkflowSection` with semantic section, heading relationship, role list/card markup, and non-focusable card structure       | COMPLETED |
+| Phase 5 | User interface     | Apply Sovereign Shield surfaces, spacing, typography, icon styling, radius, subtle optional tonal lift, and responsive grid behavior           | COMPLETED |
+| Phase 6 | Integration        | Compose the section after `TrustModelSection` on the homepage without changing Header navigation or unrelated sections                         | COMPLETED |
+| Phase 7 | Testing and polish | Add/update component/unit tests, run canonical validation labels, perform accessibility/responsive review, and format changed files            | COMPLETED |
+| Phase 8 | Final checkpoint   | Verify acceptance traceability, evidence completeness, docs consistency, review readiness, and handoff quality                                 | COMPLETED |
 
 ## Dependencies and assumptions
 

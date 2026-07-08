@@ -2,7 +2,7 @@
 
 **Feature ID**: FEAT-005
 **Parent Epic**: EPIC-001
-**Status**: In Progress
+**Status**: Completed
 
 ## Summary
 
@@ -16,12 +16,15 @@ Create a static Role Workflow homepage section with four responsive role cards: 
 ## Hepha Deep-Dive Decisions
 
 - FEAT-005 is confirmed as a narrow static landing-section feature.
+- The Approved Role Card Contract in this document is frozen for refinement, design decisions, implementation planning, and tests.
+- Implementation must use the exact order, role titles, Material Symbol icon names, and approved descriptions from the Approved Role Card Contract with no copy changes.
 - The section must be rendered on the homepage at `id="roles"` and remain compatible with the existing `#roles` navigation target.
-- The role-card copy source of truth is embedded in this FeatureDescription in the Approved Role Card Contract table.
 - The visual model is a tonal responsive role-card grid using surface-container fills, spacing, radius, decorative icons, and no default bright borders.
-- The implementation boundary is a section-only landing component composed in the homepage route; navigation remains unchanged.
+- The implementation pattern is one deterministic landing component composed in the thin homepage route.
+- Existing homepage navigation remains unchanged.
 - The feature includes no navigation rewrite, backend work, user-specific workflow logic, or dynamic data loading.
-- The implementation must include unit tests and canonical package-script validation.
+- Verification scope includes unit tests plus canonical package-script validation.
+- Unit tests must cover the section id, card order, exact copy, decorative icons, and non-interactivity.
 
 ## Scope
 
@@ -50,11 +53,12 @@ Each role card must include:
 
 ## Implementation Boundary
 
-- Create a landing section component for the Role Workflow content.
+- Create one deterministic landing section component for the Role Workflow content.
 - Compose the section in the thin homepage route.
 - Set the outer section target to `id="roles"`.
 - Leave existing homepage navigation and `#roles` links unchanged.
 - Keep cards informational, static, non-interactive, and unfocusable.
+- Do not introduce backend calls, dynamic data loading, content management, or role-specific application logic.
 
 ## Visual Requirements
 
@@ -64,6 +68,7 @@ Each role card must include:
 - Do not stack visually heavy cards inside visually heavy containers.
 - Use borders only if needed for subtle state or emphasis, not as the default layout separator.
 - Decorative icons must support the card’s visual identity without becoming primary content.
+- The section should feel like a cohesive static landing-page section rather than an interactive workflow launcher.
 
 ## Accessibility Requirements
 
@@ -82,6 +87,23 @@ Each role card must include:
 - Desktop: cards may render as a four-column grid when width permits.
 - Text must wrap naturally without truncating approved descriptions.
 - The section must remain usable across supported viewport sizes.
+
+## Test Requirements
+
+Unit tests must verify:
+
+- The homepage renders a Role Workflow section with `id="roles"`.
+- The section contains exactly four role cards.
+- The cards render in this DOM and visual order:
+  1. Organizations
+  2. Voters
+  3. Trustees
+  4. Auditors
+- Each card renders the exact approved role title, Material Symbol icon name, and approved description copy from the Approved Role Card Contract.
+- Material Symbol icons are decorative and do not create redundant accessible names or screen-reader output.
+- Cards are non-interactive and do not render links, buttons, click handlers, or keyboard focus targets.
+
+Canonical package-script validation must pass for the changed frontend package.
 
 ## Out of Scope
 
@@ -112,8 +134,28 @@ Each role card must include:
 - Unit tests verify that the section and all four role cards render correctly.
 - Unit tests verify the exact approved role description copy.
 - Unit tests verify decorative icon accessibility behavior.
+- Unit tests verify card non-interactivity.
 - Canonical package-script validation passes for the changed frontend package.
 
 ## Validation
 
-Proceed with FEAT-005 as a confirmed static Role Workflow homepage section linked by the existing `#roles` navigation, with no navigation rewrite or backend scope. The Approved Role Card Contract in this document is authoritative for refinement, design decisions, implementation planning, and tests.
+Proceed with FEAT-005 as a confirmed static Role Workflow homepage section linked by the existing `#roles` navigation, with no navigation rewrite or backend scope. The Approved Role Card Contract in this document is authoritative and frozen for refinement, design decisions, implementation planning, and tests.
+
+## Implementation Summary
+
+FEAT-005 implemented a static, responsive Role Workflow homepage section at `id="roles"` with four role cards (Organizations, Voters, Trustees, Auditors).
+
+**Files Created:**
+- `src/components/landing/RoleWorkflowSection.tsx` — Presentation component
+
+**Files Modified:**
+- `src/components/landing/constants.ts` — Added `RoleCard` interface and `ROLE_WORKFLOW_SECTION` constant
+- `src/components/landing/index.ts` — Added barrel exports
+- `src/routes/index.tsx` — Composed `<RoleWorkflowSection />` after `<TrustModelSection />`
+- `tests/unit/landing.test.tsx` — Added 18 tests
+
+**Final Validation:**
+- `pnpm format:check` — PASS
+- `pnpm typecheck` — PASS
+- `pnpm test:unit` — 88/88 PASS
+- `pnpm build` — PASS

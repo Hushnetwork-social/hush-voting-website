@@ -53,11 +53,6 @@ Demonstrate that FEAT-005 looks and behaves like a restrained Sovereign Shield h
 - `manual-review-ready`
 - `code-review`
 
-## Quality Gate Evidence
-
-| Gate | Decision | Evidence / Justification |
-| ---- | -------- | ------------------------ |
-
 ## Styling Decisions Applied
 
 | Aspect             | Implementation                                                                                                                                                  |

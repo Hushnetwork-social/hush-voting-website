@@ -43,11 +43,6 @@ Demonstrate that FEAT-005 does not drift into authenticated application workflow
 - `component-render-tests` if component code is touched in this phase
 - `manual-review-ready`
 
-## Quality Gate Evidence
-
-| Gate | Decision | Evidence / Justification |
-| ---- | -------- | ------------------------ |
-
 ## Confirmation Record
 
 - **No state machine, useState, useEffect, server action, route loader, API call, form action, auth check, or role-specific permission logic** is required. FEAT-005 is a deterministic static marketing section.
