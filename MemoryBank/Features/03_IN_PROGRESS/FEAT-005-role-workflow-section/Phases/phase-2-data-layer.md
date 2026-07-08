@@ -48,12 +48,12 @@ Ensure the role workflow copy and icons are centralized, stable, type-safe, and 
 
 ## Quality Gate Evidence
 
-| Gate | Decision | Evidence / Justification |
-| --- | --- | --- |
-| Changed files | recorded | `src/components/landing/constants.ts` — added `RoleCard` interface and `ROLE_WORKFLOW_SECTION` constant with section header copy and four role cards. `src/components/landing/index.ts` — added `ROLE_WORKFLOW_SECTION` and `RoleCard` to barrel exports. |
-| Tests | satisfied | `pnpm typecheck` — passed (no errors). `pnpm test:unit` — all 70 existing tests pass; static data changes are type-safe and do not break existing coverage. |
-| Gherkin/Playwright E2E | not applicable | Phase 2 changes static data only and does not yet introduce browser-rendered UI behavior. |
-| Code review | waived | Static data addition only — no behavioral logic, no conditional rendering code. The data is fully deterministic (`as const`) and type-checked. Component/render tests (Phase 7) will assert exact copy. |
+| Gate                   | Decision       | Evidence / Justification                                                                                                                                                                                                                                  |
+| ---------------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Changed files          | recorded       | `src/components/landing/constants.ts` — added `RoleCard` interface and `ROLE_WORKFLOW_SECTION` constant with section header copy and four role cards. `src/components/landing/index.ts` — added `ROLE_WORKFLOW_SECTION` and `RoleCard` to barrel exports. |
+| Tests                  | satisfied      | `pnpm typecheck` — passed (no errors). `pnpm test:unit` — all 70 existing tests pass; static data changes are type-safe and do not break existing coverage.                                                                                               |
+| Gherkin/Playwright E2E | not applicable | Phase 2 changes static data only and does not yet introduce browser-rendered UI behavior.                                                                                                                                                                 |
+| Code review            | waived         | Static data addition only — no behavioral logic, no conditional rendering code. The data is fully deterministic (`as const`) and type-checked. Component/render tests (Phase 7) will assert exact copy.                                                   |
 
 ## Acceptance criteria
 

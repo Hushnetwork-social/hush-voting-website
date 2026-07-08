@@ -56,30 +56,31 @@ Demonstrate that FEAT-005 looks and behaves like a restrained Sovereign Shield h
 ## Quality Gate Evidence
 
 | Gate | Decision | Evidence / Justification |
-| --- | --- | --- |
+| ---- | -------- | ------------------------ |
+
 ## Styling Decisions Applied
 
-| Aspect | Implementation |
-|--------|----------------|
-| Section spacing | `py-[var(--spacing-xl)]` desktop, `py-[var(--spacing-lg)]` mobile, standard page gutters via `px-[var(--spacing-gutter)]` / `px-[var(--spacing-margin-mobile)]` |
-| Responsive grid | `grid-cols-1` (mobile), `sm:grid-cols-2` (tablet), `lg:grid-cols-4` (desktop) |
-| Card surface | `bg-surface-container-high` with `rounded-[var(--radius-lg)]` padding |
-| Hover treatment | Subtle tonal lift: `hover:bg-surface-container-highest` with `transition-colors duration-200` — non-essential, no hidden content |
-| Icon styling | `text-primary` at headline-lg × 1.2 scale |
-| Heading | `h2` with `font-size-headline-lg` clamp (same as TrustModelSection) |
-| Role titles | `h3` with `font-size-headline-sm` Hanken Grotesk |
-| Descriptions | `text-on-surface-variant` with `font-size-body-md` Hanken Grotesk |
-| Eyebrow | JetBrains Mono `font-size-label-sm`, uppercase, `text-on-surface-variant` |
-| No bright outlines | Tonal surface fill used instead of border-heavy card pattern |
+| Aspect             | Implementation                                                                                                                                                  |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Section spacing    | `py-[var(--spacing-xl)]` desktop, `py-[var(--spacing-lg)]` mobile, standard page gutters via `px-[var(--spacing-gutter)]` / `px-[var(--spacing-margin-mobile)]` |
+| Responsive grid    | `grid-cols-1` (mobile), `sm:grid-cols-2` (tablet), `lg:grid-cols-4` (desktop)                                                                                   |
+| Card surface       | `bg-surface-container-high` with `rounded-[var(--radius-lg)]` padding                                                                                           |
+| Hover treatment    | Subtle tonal lift: `hover:bg-surface-container-highest` with `transition-colors duration-200` — non-essential, no hidden content                                |
+| Icon styling       | `text-primary` at headline-lg × 1.2 scale                                                                                                                       |
+| Heading            | `h2` with `font-size-headline-lg` clamp (same as TrustModelSection)                                                                                             |
+| Role titles        | `h3` with `font-size-headline-sm` Hanken Grotesk                                                                                                                |
+| Descriptions       | `text-on-surface-variant` with `font-size-body-md` Hanken Grotesk                                                                                               |
+| Eyebrow            | JetBrains Mono `font-size-label-sm`, uppercase, `text-on-surface-variant`                                                                                       |
+| No bright outlines | Tonal surface fill used instead of border-heavy card pattern                                                                                                    |
 
 ## Quality Gate Evidence
 
-| Gate | Decision | Evidence / Justification |
-| --- | --- | --- |
-| Changed files | recorded | `src/components/landing/RoleWorkflowSection.tsx` — added subtle hover treatment (`hover:bg-surface-container-highest`, `transition-colors`). Styling was already integrated in Phase 4 component creation; this phase added the hover polish. |
-| Tests | satisfied | `pnpm typecheck` — passed. `pnpm test:unit` — all 70 existing tests pass. Render/styling assertions deferred to Phase 7. |
-| Gherkin/Playwright E2E | waived | UI is fully static and deterministic. No interactive behavior, no API calls, no dynamic content. Component render tests (Phase 7) and manual responsive review verify the visual output. |
-| Code review | waived | Styling follows the established `TrustModelSection.tsx` pattern with same token references, cn utility, and section geometry. No behavioral logic change. |
+| Gate                   | Decision  | Evidence / Justification                                                                                                                                                                                                                      |
+| ---------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Changed files          | recorded  | `src/components/landing/RoleWorkflowSection.tsx` — added subtle hover treatment (`hover:bg-surface-container-highest`, `transition-colors`). Styling was already integrated in Phase 4 component creation; this phase added the hover polish. |
+| Tests                  | satisfied | `pnpm typecheck` — passed. `pnpm test:unit` — all 70 existing tests pass. Render/styling assertions deferred to Phase 7.                                                                                                                      |
+| Gherkin/Playwright E2E | waived    | UI is fully static and deterministic. No interactive behavior, no API calls, no dynamic content. Component render tests (Phase 7) and manual responsive review verify the visual output.                                                      |
+| Code review            | waived    | Styling follows the established `TrustModelSection.tsx` pattern with same token references, cn utility, and section geometry. No behavioral logic change.                                                                                     |
 
 ## Acceptance criteria
 

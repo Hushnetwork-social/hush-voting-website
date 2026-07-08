@@ -49,12 +49,12 @@ Ensure implementation workers have one canonical planning source for copy, acces
 
 ## Quality Gate Evidence
 
-| Gate | Decision | Evidence / Justification |
-| --- | --- | --- |
-| Changed files | recorded | `planning-analysis-report.md` — created with content contracts, accessibility model, responsive strategy, component architecture, test strategy, and risks. `phase-1-planning-analysis.md` — phase evidence updated. |
-| Tests | not applicable | Phase 1 is planning-only and does not change executable behavior. |
-| Gherkin/Playwright E2E | not applicable | Phase 1 has no browser/UI behavior change. |
-| Code review | not applicable | Phase 1 produces planning documentation only; implementation review begins when code changes. |
+| Gate                   | Decision       | Evidence / Justification                                                                                                                                                                                             |
+| ---------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Changed files          | recorded       | `planning-analysis-report.md` — created with content contracts, accessibility model, responsive strategy, component architecture, test strategy, and risks. `phase-1-planning-analysis.md` — phase evidence updated. |
+| Tests                  | not applicable | Phase 1 is planning-only and does not change executable behavior.                                                                                                                                                    |
+| Gherkin/Playwright E2E | not applicable | Phase 1 has no browser/UI behavior change.                                                                                                                                                                           |
+| Code review            | not applicable | Phase 1 produces planning documentation only; implementation review begins when code changes.                                                                                                                        |
 
 ## Acceptance criteria
 

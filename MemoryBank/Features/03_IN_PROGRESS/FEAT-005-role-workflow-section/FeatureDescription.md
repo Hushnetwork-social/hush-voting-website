@@ -41,12 +41,12 @@ Each role card must include:
 
 ## Approved Role Card Contract
 
-| Order | Role | Material Symbol Icon | Approved Description |
-| --- | --- | --- | --- |
-| 1 | Organizations | `corporate_fare` | Create and govern election parameters, define voter rolls, and establish timing protocols. |
-| 2 | Voters | `groups` | Securely claim eligibility through private ID providers and cast cryptographically masked ballots. |
-| 3 | Trustees | `key` | Approve governed actions and manage distributed decryption keys. |
-| 4 | Auditors | `rule` | Review protocol evidence and package integrity through the standalone verifier suite. |
+| Order | Role          | Material Symbol Icon | Approved Description                                                                               |
+| ----- | ------------- | -------------------- | -------------------------------------------------------------------------------------------------- |
+| 1     | Organizations | `corporate_fare`     | Create and govern election parameters, define voter rolls, and establish timing protocols.         |
+| 2     | Voters        | `groups`             | Securely claim eligibility through private ID providers and cast cryptographically masked ballots. |
+| 3     | Trustees      | `key`                | Approve governed actions and manage distributed decryption keys.                                   |
+| 4     | Auditors      | `rule`               | Review protocol evidence and package integrity through the standalone verifier suite.              |
 
 ## Implementation Boundary
 

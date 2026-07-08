@@ -46,7 +46,8 @@ Demonstrate that FEAT-005 does not drift into authenticated application workflow
 ## Quality Gate Evidence
 
 | Gate | Decision | Evidence / Justification |
-| --- | --- | --- |
+| ---- | -------- | ------------------------ |
+
 ## Confirmation Record
 
 - **No state machine, useState, useEffect, server action, route loader, API call, form action, auth check, or role-specific permission logic** is required. FEAT-005 is a deterministic static marketing section.
@@ -56,12 +57,12 @@ Demonstrate that FEAT-005 does not drift into authenticated application workflow
 
 ## Quality Gate Evidence
 
-| Gate | Decision | Evidence / Justification |
-| --- | --- | --- |
-| Changed files | not applicable | Phase 3 is confirmation-only with no code changes. Only this phase evidence file was updated. |
-| Tests | not applicable | Phase 3 makes no executable changes; behavioral assertions deferred to Phase 7 component tests. |
+| Gate                   | Decision       | Evidence / Justification                                                                                      |
+| ---------------------- | -------------- | ------------------------------------------------------------------------------------------------------------- |
+| Changed files          | not applicable | Phase 3 is confirmation-only with no code changes. Only this phase evidence file was updated.                 |
+| Tests                  | not applicable | Phase 3 makes no executable changes; behavioral assertions deferred to Phase 7 component tests.               |
 | Gherkin/Playwright E2E | not applicable | Phase 3 owns static behavior constraints and should not introduce browser/UI behavior requiring E2E evidence. |
-| Code review | not applicable | Phase 3 produces no code change to review. |
+| Code review            | not applicable | Phase 3 produces no code change to review.                                                                    |
 
 ## Acceptance criteria
 

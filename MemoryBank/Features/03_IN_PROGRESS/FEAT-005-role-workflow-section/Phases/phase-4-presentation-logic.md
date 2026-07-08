@@ -53,12 +53,12 @@ Ensure the section exists as an independently testable landing component with st
 
 ## Quality Gate Evidence
 
-| Gate | Decision | Evidence / Justification |
-| --- | --- | --- |
-| Changed files | recorded | `src/components/landing/RoleWorkflowSection.tsx` — new component with semantic section, heading relationship, four role cards, decorative icons. `src/components/landing/index.ts` — added `RoleWorkflowSection` and `RoleWorkflowSectionProps` to barrel exports. |
-| Tests | satisfied | `pnpm typecheck` — passed. `pnpm test:unit` — all 70 existing tests pass. Render-level assertions deferred to Phase 7 per the phase plan. |
-| Gherkin/Playwright E2E | waived | Component is fully static and deterministic (no state, no effects, no API calls). Render assertions in Phase 7 provide the coverage via component/unit tests. Manual browser review in Phase 5/6 will confirm visual behavior. |
-| Code review | waived | Presentation component follows the established `TrustModelSection.tsx` pattern exactly (same semantic structure, heading relationship, cn utility, token references, section geometry). Static deterministic component with no behavioral logic. Review will be performed in Phase 7 as part of full verification. |
+| Gate                   | Decision  | Evidence / Justification                                                                                                                                                                                                                                                                                           |
+| ---------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Changed files          | recorded  | `src/components/landing/RoleWorkflowSection.tsx` — new component with semantic section, heading relationship, four role cards, decorative icons. `src/components/landing/index.ts` — added `RoleWorkflowSection` and `RoleWorkflowSectionProps` to barrel exports.                                                 |
+| Tests                  | satisfied | `pnpm typecheck` — passed. `pnpm test:unit` — all 70 existing tests pass. Render-level assertions deferred to Phase 7 per the phase plan.                                                                                                                                                                          |
+| Gherkin/Playwright E2E | waived    | Component is fully static and deterministic (no state, no effects, no API calls). Render assertions in Phase 7 provide the coverage via component/unit tests. Manual browser review in Phase 5/6 will confirm visual behavior.                                                                                     |
+| Code review            | waived    | Presentation component follows the established `TrustModelSection.tsx` pattern exactly (same semantic structure, heading relationship, cn utility, token references, section geometry). Static deterministic component with no behavioral logic. Review will be performed in Phase 7 as part of full verification. |
 
 ## Acceptance criteria
 

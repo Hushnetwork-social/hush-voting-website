@@ -13,14 +13,14 @@
 
 ## Validation Findings
 
-| Check | Result |
-| --- | --- |
-| FeatureDescription.md exists | Pass |
-| FeatureTasks.md exists | Pass |
-| Phase files exist (9 phases: 0-8) | Pass — all phase files present |
-| Branch `feat/FEAT-005-role-workflow-section` | Pass — already on correct branch |
+| Check                                        | Result                                                                 |
+| -------------------------------------------- | ---------------------------------------------------------------------- |
+| FeatureDescription.md exists                 | Pass                                                                   |
+| FeatureTasks.md exists                       | Pass                                                                   |
+| Phase files exist (9 phases: 0-8)            | Pass — all phase files present                                         |
+| Branch `feat/FEAT-005-role-workflow-section` | Pass — already on correct branch                                       |
 | No unrelated dirty files blocking transition | Pass — changes are only the FEAT folder move + EPIC description update |
-| Pre-existing ESLint config gap | Noted — known project-level issue, not a FEAT-005 blocker |
+| Pre-existing ESLint config gap               | Noted — known project-level issue, not a FEAT-005 blocker              |
 
 ## First Unresolved Phase
 

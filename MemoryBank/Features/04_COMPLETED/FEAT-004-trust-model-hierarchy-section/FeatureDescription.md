@@ -64,23 +64,23 @@ Out of scope:
 
 The following copy is locked for FEAT-004 and should be used directly by implementation and tests.
 
-| Element                      | Exact copy                                                                                                        |
-| ---------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| Section anchor               | `trust`                                                                                                           |
-| Eyebrow label                | `Foundational Integrity`                                                                                          |
-| Heading (h2)                 | `The Trust Model Hierarchy`                                                                                       |
+| Element                      | Exact copy                                                                                                                                                       |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Section anchor               | `trust`                                                                                                                                                          |
+| Eyebrow label                | `Foundational Integrity`                                                                                                                                         |
+| Heading (h2)                 | `The Trust Model Hierarchy`                                                                                                                                      |
 | Supporting copy              | `HushVoting! coordinates election eligibility, participation, private choice, and evidence artifacts on top of HushNetwork's privacy and blockchain foundation.` |
-| HushVoting card label        | `HushVoting!`                                                                                                     |
-| HushVoting trust label       | `The Application Interface & Orchestration Layer`                                                                 |
-| HushVoting capability chip 1 | `Eligibility` → icon: `person_check`                                                                              |
-| HushVoting capability chip 2 | `Participation` → icon: `how_to_vote`                                                                             |
-| HushVoting capability chip 3 | `Private Choice` → icon: `security`                                                                               |
-| HushVoting capability chip 4 | `Artifacts` → icon: `inventory_2`                                                                                 |
-| HushNetwork card label       | `HushNetwork`                                                                                                     |
-| HushNetwork trust label      | `The Trust, Privacy, and Blockchain Foundation`                                                                   |
-| HushNetwork trust label 1    | `ZERO-KNOWLEDGE PROOFS`                                                                                           |
-| HushNetwork trust label 2    | `IMMUTABLE LEDGER`                                                                                                |
-| HushNetwork trust label 3    | `ENCRYPTED SHARDS`                                                                                                |
+| HushVoting card label        | `HushVoting!`                                                                                                                                                    |
+| HushVoting trust label       | `The Application Interface & Orchestration Layer`                                                                                                                |
+| HushVoting capability chip 1 | `Eligibility` → icon: `person_check`                                                                                                                             |
+| HushVoting capability chip 2 | `Participation` → icon: `how_to_vote`                                                                                                                            |
+| HushVoting capability chip 3 | `Private Choice` → icon: `security`                                                                                                                              |
+| HushVoting capability chip 4 | `Artifacts` → icon: `inventory_2`                                                                                                                                |
+| HushNetwork card label       | `HushNetwork`                                                                                                                                                    |
+| HushNetwork trust label      | `The Trust, Privacy, and Blockchain Foundation`                                                                                                                  |
+| HushNetwork trust label 1    | `ZERO-KNOWLEDGE PROOFS`                                                                                                                                          |
+| HushNetwork trust label 2    | `IMMUTABLE LEDGER`                                                                                                                                               |
+| HushNetwork trust label 3    | `ENCRYPTED SHARDS`                                                                                                                                               |
 
 ## Visual Implementation Requirements
 

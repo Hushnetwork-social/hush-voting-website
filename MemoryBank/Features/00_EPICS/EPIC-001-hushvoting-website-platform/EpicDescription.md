@@ -42,7 +42,7 @@ HushVoting currently has no public-facing web presence. The product's sophistica
 
 **Formal new implementation.** This is greenfield work. The repository exists with project metadata and a prototype HTML/CSS design, but there is no framework scaffold, build tooling, deployment pipeline, or production code. Everything from project scaffolding to deployment must be built from scratch.
 
-The design exists as a high-fidelity HTML prototype (`MemoryBank/Overview/Prototype/`) using Tailwind CSS with a CDN script. Production implementation must convert this to proper Tailwind configuration, component structure, and framework routing.
+The design exists as a high-fidelity HTML prototype ([`code.html`](../../../Overview/Prototype/stitch_hushvoting_privacy_governance_platform_072026/hushvoting_landing_page/code.html)) using Tailwind CSS with a CDN script, backed by the [Sovereign Shield design system](../../../Overview/Prototype/stitch_hushvoting_privacy_governance_platform_072026/sovereign_shield/DESIGN.md). The visual language follows the [HushVoting Visual Language rules](../../../../../hush-memory-bank/Features/00_EPICS/EPIC-013-protocol-omega-governed-remote-voting/HushVotingVisualLanguage.md) shared with the authenticated web client (prefer complementary surface colors over white outline borders). Production implementation must convert the prototype to proper Tailwind configuration, component structure, and framework routing.
 
 ## Features Breakdown
 
@@ -52,7 +52,7 @@ The design exists as a high-fidelity HTML prototype (`MemoryBank/Overview/Protot
 | FEAT-002   | Design System Implementation (Sovereign Shield) | COMPLETED   | FEAT-001     |          |
 | FEAT-003   | Hero Section and Navigation                     | COMPLETED   | FEAT-002     |          |
 | FEAT-004   | Trust Model Hierarchy Section                   | COMPLETED   |              |          |
-| FEAT-005   | Role Workflow Section                           | SUBMITTED   |              |          |
+| FEAT-005   | Role Workflow Section                           | IN PROGRESS |              |          |
 | FEAT-006   | Protocol Evidence and Platform Readiness        | SUBMITTED   |              |          |
 | FEAT-007   | Footer, Utility Pages and Contact Path          | SUBMITTED   |              |          |
 | FEAT-008   | Responsive Design and Mobile Optimization       | SUBMITTED   |              |          |
@@ -65,12 +65,12 @@ The design exists as a high-fidelity HTML prototype (`MemoryBank/Overview/Protot
 **State:** InProgress
 **Progress:** 50% (4/8 features complete)
 
-| Status      | Count | Features                                                                                                                      |
-| ----------- | ----- | ----------------------------------------------------------------------------------------------------------------------------- |
-| Completed   | 4     | FEAT-001 Project Scaffolding, FEAT-002 Design System, FEAT-003 Hero Section and Nav, FEAT-004 Trust Model Hierarchy Section  |
-| In Progress | 0     | -                                                                                                                             |
-| Ready       | 0     | -                                                                                                                             |
-| Submitted   | 4     | Roles, Protocol Evidence, Footer/Utility, Responsive, CI/CD                                                                   |
+| Status      | Count | Features                                                                                                                    |
+| ----------- | ----- | --------------------------------------------------------------------------------------------------------------------------- |
+| Completed   | 4     | FEAT-001 Project Scaffolding, FEAT-002 Design System, FEAT-003 Hero Section and Nav, FEAT-004 Trust Model Hierarchy Section |
+| In Progress | 1     | -                                                                                                                           |
+| Ready       | 0     | -                                                                                                                           |
+| Submitted   | 3     | Roles, Protocol Evidence, Footer/Utility, Responsive, CI/CD                                                                 |
 
 ## Dependency Flow Diagram
 
@@ -130,7 +130,7 @@ flowchart TD
     class F2 completed
     class F3 completed
     class F4 completed
-    class F5 notStarted
+    class F5 inProgress
     class F6 notStarted
     class F7 notStarted
     class F8 notStarted
@@ -149,7 +149,7 @@ flowchart TD
 
 ### Feature 2: Design System Implementation (Sovereign Shield) (FEAT-002)
 
-**User Story:** Implement a reusable component library and Tailwind CSS configuration using all Sovereign Shield design tokens from DESIGN.md: color tokens, typography scales, spacing, border radius. Build Button (primary/secondary/ghost), Section, Card, InsetWell, MetricCard, StatusChip, IconLabel components. Follow HushVoting Visual Language rules. Document usage in STYLEGUIDE.md.
+**User Story:** Implement a reusable component library and Tailwind CSS configuration using all [Sovereign Shield](../../../Overview/Prototype/stitch_hushvoting_privacy_governance_platform_072026/sovereign_shield/DESIGN.md) design tokens: color tokens, typography scales, spacing, border radius. Build Button (primary/secondary/ghost), Section, Card, InsetWell, MetricCard, StatusChip, IconLabel components. Follow [HushVoting Visual Language](../../../../../hush-memory-bank/Features/00_EPICS/EPIC-013-protocol-omega-governed-remote-voting/HushVotingVisualLanguage.md) rules (complementary surfaces over white outlines). Document usage in STYLEGUIDE.md.
 
 **Scope:** Generated from EPIC EPIC-001 - HushVoting Website Platform and Initial Design.
 **Backlink:** - EPIC: EPIC-001 - HushVoting Website Platform and Initial Design
@@ -240,10 +240,11 @@ flowchart TD
   - `MetricCard` (label + dark value well for metrics).
   - `StatusChip` (pill-shaped status indicators).
   - `IconLabel` (Material Symbol + text combination).
-- Follow HushVoting Visual Language rules (from EPIC-013 design baseline):
+- Follow [HushVoting Visual Language](../../../../../hush-memory-bank/Features/00_EPICS/EPIC-013-protocol-omega-governed-remote-voting/HushVotingVisualLanguage.md) rules:
   - Prefer complementary surface colors over white outline borders.
   - Use borders only for focus, selected, warning, or error states.
   - Avoid stacking visually heavy cards inside visually heavy cards.
+  - Use the Sovereign Shield DESIGN.md as the color/typography/spacing source of truth.
 - Document component usage in a `STYLEGUIDE.md`.
 
 **Dependencies:** Feature 1 (Project Scaffolding)
@@ -574,7 +575,7 @@ This EPIC follows the landing page design established in the prototype at `Memor
 | FEAT-002   | COMPLETED   | 2026-07-08 | 2026-07-08 | Design system tokens, components, tests    |
 | FEAT-003   | COMPLETED   | 2026-07-08 | 2026-07-08 | Hero section and navigation implementation |
 | FEAT-004   | COMPLETED   | 2026-07-08 | 2026-07-08 | Trust Model Hierarchy section              |
-| FEAT-005   | SUBMITTED   | 2026-07-08 |            |                                            |
+| FEAT-005   | IN PROGRESS | 2026-07-08 |            |                                            |
 | FEAT-006   | SUBMITTED   | 2026-07-08 |            |                                            |
 | FEAT-007   | SUBMITTED   | 2026-07-08 |            |                                            |
 | FEAT-008   | SUBMITTED   | 2026-07-08 |            |                                            |
@@ -592,13 +593,23 @@ This EPIC follows the landing page design established in the prototype at `Memor
 
 ## References
 
-- [README.md - Repository Context](../README.md)
-- [Sovereign Shield DESIGN.md](../Overview/Prototype/stitch_hushvoting_privacy_governance_platform_072026/sovereign_shield/DESIGN.md)
-- [Prototype HTML](../Overview/Prototype/stitch_hushvoting_privacy_governance_platform_072026/hushvoting_landing_page/code.html)
-- [HushVoting Visual Language](../../../../hush-memory-bank/Features/00_EPICS/EPIC-013-protocol-omega-governed-remote-voting/HushVotingVisualLanguage.md)
-- [EPIC-013 Design Baseline](../../../../hush-memory-bank/Features/00_EPICS/EPIC-013-protocol-omega-governed-remote-voting/DesignBaseline.md)
-- [TechDecision: Framework Selection](../Overview/TechDecision-Framework-Selection.md)
-- [HushNetwork CD Scripts](https://github.com/Hushnetwork-social/hush-website/tree/main/scripts/github)
+### Design System & Visual Language
+
+- [Sovereign Shield DESIGN.md](../../../Overview/Prototype/stitch_hushvoting_privacy_governance_platform_072026/sovereign_shield/DESIGN.md) — Complete design system with color tokens, typography scales, spacing, elevation, shapes, and component specs.
+- [HushVoting Visual Language](../../../../../hush-memory-bank/Features/00_EPICS/EPIC-013-protocol-omega-governed-remote-voting/HushVotingVisualLanguage.md) — Visual rules for complementary surfaces over outline-heavy UI, shared with the authenticated HushVoting web client.
+- [EPIC-013 Design Baseline](../../../../../hush-memory-bank/Features/00_EPICS/EPIC-013-protocol-omega-governed-remote-voting/DesignBaseline.md) — Broader design baseline for all HushVoting surfaces (navigation, role model, lifecycle, accessibility).
+
+### Prototype Assets
+
+- [Landing Page HTML](../../../Overview/Prototype/stitch_hushvoting_privacy_governance_platform_072026/hushvoting_landing_page/code.html) — High-fidelity prototype of the full landing page with Sovereign Shield design tokens applied.
+- [Landing Page Screenshot](../../../Overview/Prototype/stitch_hushvoting_privacy_governance_platform_072026/hushvoting_landing_page/screen.png) — Visual reference of the prototype rendering.
+- [HushVoting Logo](../../../Overview/Prototype/stitch_hushvoting_privacy_governance_platform_072026/hushvoting_logo.png/screen.png) — Brand mark used in the hero section.
+
+### Technology & Project Context
+
+- [README.md](../../../../README.md) — Repository context, CD contract, deployment configuration.
+- [TechDecision: Framework Selection](../../../Overview/TechDecision-Framework-Selection.md) — Framework selection analysis and confirmed decision (TanStack Start).
+- [HushNetwork CD Scripts](https://github.com/Hushnetwork-social/hush-website/tree/main/scripts/github) — Reference CD deployment scripts.
 
 ## Hepha Deep-Dive Decisions
 
