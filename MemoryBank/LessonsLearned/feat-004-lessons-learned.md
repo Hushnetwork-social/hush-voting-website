@@ -33,6 +33,7 @@ FEAT-004 implemented the static, responsive Trust Model Hierarchy section for th
 **Successful fix:** Ran `npx prettier --write` on the 5 non-auto-generated files that failed formatting. Auto-generated `src/routeTree.gen.ts` was excluded per prior lesson.
 
 **Prevention rule:** During complete-feature final validation, when `pnpm format:check` reports failures, inspect whether the failures are:
+
 - FEAT-owned files (must fix before completion)
 - Prior-FEAT stale files (fix as Boy Scout cleanup)
 - Auto-generated files (exclude from format check)
@@ -46,11 +47,13 @@ Fix all non-auto-generated files regardless of which FEAT created them. This kee
 ### Lesson 3: Static Section Component Size — 150 Lines Is Acceptable
 
 **Observation:** The `TrustModelSection.tsx` component is ~150 lines. While this is not "thin" in the traditional sense, it is acceptable because:
+
 - The component is fully deterministic (no state, no hooks, no effects, no data loading)
 - It renders two cards, a connector, glow, and section header with clear comment separators
 - The alternative (splitting into sub-components for what is essentially one render tree) would add abstraction overhead without meaningful reuse
 
 **Prevention rule:** For static sections that render 2-3 sub-elements with a clear vertical hierarchy, a single component up to ~200 lines is acceptable if it is:
+
 - Fully deterministic (no `useState`, `useEffect`, `useReducer`, etc.)
 - Clearly sectioned with comments
 - Not duplicating any existing reusable pattern
@@ -79,6 +82,7 @@ Future FEATs that notice duplication between sections (e.g., common card pattern
 **Observation:** Material Symbol icons on capability chips are marked `aria-hidden="true"` because each chip already has visible text that conveys the same information. This is the correct accessibility pattern for decorative icons with accompanying text labels.
 
 **Prevention rule:** When a visual element (icon, glyph, symbol) accompanies visible text that fully conveys the meaning, mark the visual element as `aria-hidden="true"`. Do not add `aria-label` or screen-reader text to the icon — the visible text already serves that purpose. This applies to:
+
 - Capability chip icons
 - Trust labels (plain text, no icons needed)
 - Any future icon+text combination where the text is unambiguous
@@ -87,10 +91,10 @@ Future FEATs that notice duplication between sections (e.g., common card pattern
 
 ## Operational Rules Summary
 
-| Context | Rule | Source |
-|---------|------|--------|
-| Copy contract | Audit FeatureDescription.md Content Contract against refinement decisions before Phase 1 | Lesson 1 |
-| Format check | Fix formatting in all non-auto-generated files, including stale prior-FEAT docs | Lesson 2 |
-| Static component size | Up to ~200 lines is acceptable for fully deterministic, sectioned components | Lesson 3 |
-| Fragment anchor | No navigation changes needed when upstream FEAT already linked the fragment | Lesson 4 |
-| Decorative icons | Mark icons `aria-hidden="true"` when accompanied by visible text | Lesson 5 |
+| Context               | Rule                                                                                     | Source   |
+| --------------------- | ---------------------------------------------------------------------------------------- | -------- |
+| Copy contract         | Audit FeatureDescription.md Content Contract against refinement decisions before Phase 1 | Lesson 1 |
+| Format check          | Fix formatting in all non-auto-generated files, including stale prior-FEAT docs          | Lesson 2 |
+| Static component size | Up to ~200 lines is acceptable for fully deterministic, sectioned components             | Lesson 3 |
+| Fragment anchor       | No navigation changes needed when upstream FEAT already linked the fragment              | Lesson 4 |
+| Decorative icons      | Mark icons `aria-hidden="true"` when accompanied by visible text                         | Lesson 5 |

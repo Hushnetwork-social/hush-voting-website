@@ -20,11 +20,15 @@ export { MobileNavDisclosure } from "./MobileNavDisclosure";
 export { TrustModelSection } from "./TrustModelSection";
 export type { TrustModelSectionProps } from "./TrustModelSection";
 
+export { RoleWorkflowSection } from "./RoleWorkflowSection";
+export type { RoleWorkflowSectionProps } from "./RoleWorkflowSection";
+
 export {
   BRAND_TEXT,
   NAV_LINKS,
   HERO_COPY,
   CTAS,
   TRUST_SECTION,
+  ROLE_WORKFLOW_SECTION,
 } from "./constants";
-export type { CtaDefinition, CapabilityChip } from "./constants";
+export type { CtaDefinition, CapabilityChip, RoleCard } from "./constants";

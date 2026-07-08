@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "~/components/landing/Header";
 import { HeroSection } from "~/components/landing/HeroSection";
 import { TrustModelSection } from "~/components/landing/TrustModelSection";
+import { RoleWorkflowSection } from "~/components/landing/RoleWorkflowSection";
 import "../../styles/app.css";
 
 export const Route = createFileRoute("/")({
@@ -15,6 +16,7 @@ function HomePage() {
       <main>
         <HeroSection />
         <TrustModelSection />
+        <RoleWorkflowSection />
       </main>
     </>
   );

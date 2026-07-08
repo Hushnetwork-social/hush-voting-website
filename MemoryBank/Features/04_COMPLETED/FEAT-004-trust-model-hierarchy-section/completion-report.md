@@ -30,38 +30,38 @@ FEAT-004 implemented the static, responsive Trust Model Hierarchy section (`#tru
 
 ## Final Validation Evidence
 
-| Check                     | Command              | Result           |
-| ------------------------- | -------------------- | ---------------- |
-| Typecheck                 | `pnpm typecheck`     | ✅ Pass          |
-| Unit tests                | `pnpm test:unit`     | ✅ 70/70 pass    |
-| Build                     | `pnpm build`         | ✅ Pass          |
-| Format check              | `pnpm format:check`  | ✅ Pass (6 files fixed) |
-| Lint                      | `pnpm lint`          | ❌ Pre-existing ESLint config missing (waived) |
+| Check        | Command             | Result                                         |
+| ------------ | ------------------- | ---------------------------------------------- |
+| Typecheck    | `pnpm typecheck`    | ✅ Pass                                        |
+| Unit tests   | `pnpm test:unit`    | ✅ 70/70 pass                                  |
+| Build        | `pnpm build`        | ✅ Pass                                        |
+| Format check | `pnpm format:check` | ✅ Pass (6 files fixed)                        |
+| Lint         | `pnpm lint`         | ❌ Pre-existing ESLint config missing (waived) |
 
 ## Acceptance Criteria Verification
 
-| # | Criterion | Status | Evidence |
-|---|-----------|--------|----------|
-| 1 | Homepage includes `#trust` section | ✅ SATISFIED | `TrustModelSection` renders `<section id="trust">` in route composition |
-| 2 | Eyebrow: `Foundational Integrity` | ✅ SATISFIED | `TRUST_SECTION.eyebrow` renders in component |
-| 3 | Heading (h2): `The Trust Model Hierarchy` | ✅ SATISFIED | `TRUST_SECTION.heading` renders as `<h2 id="trust-heading">` |
-| 4 | Supporting copy about coordination on HushNetwork | ✅ SATISFIED | `TRUST_SECTION.supportingCopy` renders as paragraph |
-| 5 | HushVoting! card rendered | ✅ SATISFIED | `TRUST_SECTION.hushVoting.title` renders |
-| 6 | HushNetwork card rendered | ✅ SATISFIED | `TRUST_SECTION.hushNetwork.title` renders |
-| 7 | HushVoting! trust label: Application Interface & Orchestration Layer | ✅ SATISFIED | `TRUST_SECTION.hushVoting.subtitle` renders in monospace uppercase |
-| 8 | Capability chips: Eligibility, Participation, Private Choice, Artifacts | ✅ SATISFIED | 4 chips from `TRUST_SECTION.hushVoting.capabilities` array |
-| 9 | HushNetwork trust label: Trust, Privacy, and Blockchain Foundation | ✅ SATISFIED | `TRUST_SECTION.hushNetwork.subtitle` renders |
-| 10 | Trust labels: ZK PROOFS, IMMUTABLE LEDGER, ENCRYPTED SHARDS | ✅ SATISFIED | 3 labels from `TRUST_SECTION.hushNetwork.trustLabels` array |
-| 11 | Decorative gradient connector between cards | ✅ SATISFIED | `bg-gradient-to-b from-primary/60 to-primary/10`, `aria-hidden="true"` |
-| 12 | Connector/glow hidden from assistive technology | ✅ SATISFIED | All decorative elements have `aria-hidden="true"` |
-| 13 | Subtle glow treatment | ✅ SATISFIED | `bg-primary/5 blur-[80px]` behind HushVoting! card |
-| 14 | No default border-heavy card stacking | ✅ SATISFIED | Cards use tonal fills only, no border classes |
-| 15 | No white outline separators | ✅ SATISFIED | No `border-white` or separator elements |
-| 16 | Responsive across breakpoints | ✅ SATISFIED | `max-sm:` padding, `flex-wrap`, `clamp()` typography |
-| 17 | Accessible: semantic section, valid heading order | ✅ SATISFIED | `h2` after FEAT-003 `h1`, `aria-labelledby`, decorative `aria-hidden` |
-| 18 | Chips/labels non-interactive | ✅ SATISFIED | All are `<span>` elements, no buttons/links/tabindex |
-| 19 | Component tests cover key rendered content | ✅ SATISFIED | 12 tests in `tests/unit/landing.test.tsx` |
-| 20 | Canonical validation scripts pass | ✅ SATISFIED | `pnpm typecheck`, `pnpm test:unit`, `pnpm build` all pass |
+| #   | Criterion                                                               | Status       | Evidence                                                                |
+| --- | ----------------------------------------------------------------------- | ------------ | ----------------------------------------------------------------------- |
+| 1   | Homepage includes `#trust` section                                      | ✅ SATISFIED | `TrustModelSection` renders `<section id="trust">` in route composition |
+| 2   | Eyebrow: `Foundational Integrity`                                       | ✅ SATISFIED | `TRUST_SECTION.eyebrow` renders in component                            |
+| 3   | Heading (h2): `The Trust Model Hierarchy`                               | ✅ SATISFIED | `TRUST_SECTION.heading` renders as `<h2 id="trust-heading">`            |
+| 4   | Supporting copy about coordination on HushNetwork                       | ✅ SATISFIED | `TRUST_SECTION.supportingCopy` renders as paragraph                     |
+| 5   | HushVoting! card rendered                                               | ✅ SATISFIED | `TRUST_SECTION.hushVoting.title` renders                                |
+| 6   | HushNetwork card rendered                                               | ✅ SATISFIED | `TRUST_SECTION.hushNetwork.title` renders                               |
+| 7   | HushVoting! trust label: Application Interface & Orchestration Layer    | ✅ SATISFIED | `TRUST_SECTION.hushVoting.subtitle` renders in monospace uppercase      |
+| 8   | Capability chips: Eligibility, Participation, Private Choice, Artifacts | ✅ SATISFIED | 4 chips from `TRUST_SECTION.hushVoting.capabilities` array              |
+| 9   | HushNetwork trust label: Trust, Privacy, and Blockchain Foundation      | ✅ SATISFIED | `TRUST_SECTION.hushNetwork.subtitle` renders                            |
+| 10  | Trust labels: ZK PROOFS, IMMUTABLE LEDGER, ENCRYPTED SHARDS             | ✅ SATISFIED | 3 labels from `TRUST_SECTION.hushNetwork.trustLabels` array             |
+| 11  | Decorative gradient connector between cards                             | ✅ SATISFIED | `bg-gradient-to-b from-primary/60 to-primary/10`, `aria-hidden="true"`  |
+| 12  | Connector/glow hidden from assistive technology                         | ✅ SATISFIED | All decorative elements have `aria-hidden="true"`                       |
+| 13  | Subtle glow treatment                                                   | ✅ SATISFIED | `bg-primary/5 blur-[80px]` behind HushVoting! card                      |
+| 14  | No default border-heavy card stacking                                   | ✅ SATISFIED | Cards use tonal fills only, no border classes                           |
+| 15  | No white outline separators                                             | ✅ SATISFIED | No `border-white` or separator elements                                 |
+| 16  | Responsive across breakpoints                                           | ✅ SATISFIED | `max-sm:` padding, `flex-wrap`, `clamp()` typography                    |
+| 17  | Accessible: semantic section, valid heading order                       | ✅ SATISFIED | `h2` after FEAT-003 `h1`, `aria-labelledby`, decorative `aria-hidden`   |
+| 18  | Chips/labels non-interactive                                            | ✅ SATISFIED | All are `<span>` elements, no buttons/links/tabindex                    |
+| 19  | Component tests cover key rendered content                              | ✅ SATISFIED | 12 tests in `tests/unit/landing.test.tsx`                               |
+| 20  | Canonical validation scripts pass                                       | ✅ SATISFIED | `pnpm typecheck`, `pnpm test:unit`, `pnpm build` all pass               |
 
 ## Code Review
 
@@ -71,14 +71,14 @@ FEAT-004 implemented the static, responsive Trust Model Hierarchy section (`#tru
 
 ## Git Operations
 
-| Step | Status |
-|------|--------|
-| Implementation branch commit | ✅ Completed |
-| Push implementation branch | ✅ Completed |
-| Merge into `master` | ✅ Completed |
-| Push `master` | ✅ Completed |
+| Step                               | Status       |
+| ---------------------------------- | ------------ |
+| Implementation branch commit       | ✅ Completed |
+| Push implementation branch         | ✅ Completed |
+| Merge into `master`                | ✅ Completed |
+| Push `master`                      | ✅ Completed |
 | FEAT folder move to `04_COMPLETED` | ✅ Completed |
-| MemoryBank commit on `master` | ✅ Completed |
+| MemoryBank commit on `master`      | ✅ Completed |
 
 ## Linked EPIC State
 

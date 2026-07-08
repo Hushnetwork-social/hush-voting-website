@@ -5,12 +5,14 @@ import { HeroSection } from "~/components/landing/HeroSection";
 import { MobileNavDisclosure } from "~/components/landing/MobileNavDisclosure";
 import { BrandMark } from "~/components/landing/BrandMark";
 import { TrustModelSection } from "~/components/landing/TrustModelSection";
+import { RoleWorkflowSection } from "~/components/landing/RoleWorkflowSection";
 import {
   HERO_COPY,
   NAV_LINKS,
   CTAS,
   BRAND_TEXT,
   TRUST_SECTION,
+  ROLE_WORKFLOW_SECTION,
 } from "~/components/landing/constants";
 
 /* ── BrandMark ── */
@@ -209,6 +211,114 @@ describe("TrustModelSection", () => {
   });
 });
 
+/* ── RoleWorkflowSection ── */
+
+describe("RoleWorkflowSection", () => {
+  it("renders a section landmark with id roles", () => {
+    const { container } = render(<RoleWorkflowSection />);
+    const section = container.querySelector("section#roles");
+    expect(section).toBeInTheDocument();
+  });
+
+  it("renders the eyebrow label", () => {
+    render(<RoleWorkflowSection />);
+    expect(screen.getByText(ROLE_WORKFLOW_SECTION.eyebrow)).toBeInTheDocument();
+  });
+
+  it("renders the heading as h2", () => {
+    render(<RoleWorkflowSection />);
+    const heading = screen.getByRole("heading", { level: 2 });
+    expect(heading).toHaveTextContent(ROLE_WORKFLOW_SECTION.heading);
+  });
+
+  it("renders the section description", () => {
+    render(<RoleWorkflowSection />);
+    expect(
+      screen.getByText(ROLE_WORKFLOW_SECTION.description),
+    ).toBeInTheDocument();
+  });
+
+  it("renders all four role titles as h3 elements", () => {
+    render(<RoleWorkflowSection />);
+    const roleHeadings = screen.getAllByRole("heading", { level: 3 });
+    expect(roleHeadings).toHaveLength(4);
+    expect(roleHeadings[0]).toHaveTextContent(
+      ROLE_WORKFLOW_SECTION.roles[0].role,
+    );
+    expect(roleHeadings[1]).toHaveTextContent(
+      ROLE_WORKFLOW_SECTION.roles[1].role,
+    );
+    expect(roleHeadings[2]).toHaveTextContent(
+      ROLE_WORKFLOW_SECTION.roles[2].role,
+    );
+    expect(roleHeadings[3]).toHaveTextContent(
+      ROLE_WORKFLOW_SECTION.roles[3].role,
+    );
+  });
+
+  it("renders all four role titles in the correct order", () => {
+    render(<RoleWorkflowSection />);
+    const roleHeadings = screen.getAllByRole("heading", { level: 3 });
+    expect(roleHeadings[0]).toHaveTextContent("Organizations");
+    expect(roleHeadings[1]).toHaveTextContent("Voters");
+    expect(roleHeadings[2]).toHaveTextContent("Trustees");
+    expect(roleHeadings[3]).toHaveTextContent("Auditors");
+  });
+
+  it("renders all four approved role descriptions", () => {
+    render(<RoleWorkflowSection />);
+    for (const roleCard of ROLE_WORKFLOW_SECTION.roles) {
+      expect(screen.getByText(roleCard.description)).toBeInTheDocument();
+    }
+  });
+
+  it("marks all card icons as decorative with aria-hidden", () => {
+    const { container } = render(<RoleWorkflowSection />);
+    const iconSpans = container.querySelectorAll(
+      "span.material-symbols-outlined",
+    );
+    expect(iconSpans.length).toBe(4);
+    iconSpans.forEach((icon) => {
+      expect(icon).toHaveAttribute("aria-hidden", "true");
+    });
+  });
+
+  it("does not render focusable elements inside the section", () => {
+    const { container } = render(<RoleWorkflowSection />);
+    const focusable = container.querySelectorAll(
+      'button, a, [tabindex]:not([tabindex="-1"])',
+    );
+    expect(focusable.length).toBe(0);
+  });
+
+  it("does not render buttons or links inside the section", () => {
+    const { container } = render(<RoleWorkflowSection />);
+    const buttons = container.querySelectorAll("button");
+    const links = container.querySelectorAll("a");
+    expect(buttons.length).toBe(0);
+    expect(links.length).toBe(0);
+  });
+
+  it("renders exactly four card containers (one per role)", () => {
+    const { container } = render(<RoleWorkflowSection />);
+    // Cards are div children of the grid container
+    const section = container.querySelector("section#roles");
+    const grid = section!.querySelector(".grid");
+    const cards = grid!.querySelectorAll(":scope > div");
+    expect(cards.length).toBe(4);
+  });
+
+  it("does not duplicate aria-label on decorative icons", () => {
+    const { container } = render(<RoleWorkflowSection />);
+    const iconSpans = container.querySelectorAll(
+      "span.material-symbols-outlined",
+    );
+    iconSpans.forEach((icon) => {
+      expect(icon).not.toHaveAttribute("aria-label");
+    });
+  });
+});
+
 /* ── MobileNavDisclosure ── */
 
 describe("MobileNavDisclosure", () => {
@@ -290,6 +400,55 @@ describe("Constants contract", () => {
       { label: "Protocol Evidence", href: "#protocol" },
       { label: "Platform", href: "#platform" },
     ]);
+  });
+
+  it("ROLE_WORKFLOW_SECTION has exact approved eyebrow", () => {
+    expect(ROLE_WORKFLOW_SECTION.eyebrow).toBe("Role Workflow");
+  });
+
+  it("ROLE_WORKFLOW_SECTION has exact approved heading", () => {
+    expect(ROLE_WORKFLOW_SECTION.heading).toBe(
+      "Four roles, one protocol-bound election flow.",
+    );
+  });
+
+  it("ROLE_WORKFLOW_SECTION has exact approved description", () => {
+    expect(ROLE_WORKFLOW_SECTION.description).toBe(
+      "HushVoting separates election governance, private participation, trustee safeguards, and audit review into clear responsibilities.",
+    );
+  });
+
+  it("ROLE_WORKFLOW_SECTION has exactly four roles in the correct order", () => {
+    const roles = ROLE_WORKFLOW_SECTION.roles;
+    expect(roles.length).toBe(4);
+    expect(roles[0].role).toBe("Organizations");
+    expect(roles[1].role).toBe("Voters");
+    expect(roles[2].role).toBe("Trustees");
+    expect(roles[3].role).toBe("Auditors");
+  });
+
+  it("ROLE_WORKFLOW_SECTION roles have exact approved descriptions", () => {
+    const roles = ROLE_WORKFLOW_SECTION.roles;
+    expect(roles[0].description).toBe(
+      "Create and govern election parameters, define voter rolls, and establish timing protocols.",
+    );
+    expect(roles[1].description).toBe(
+      "Securely claim eligibility through private ID providers and cast cryptographically masked ballots.",
+    );
+    expect(roles[2].description).toBe(
+      "Approve governed actions and manage distributed decryption keys.",
+    );
+    expect(roles[3].description).toBe(
+      "Review protocol evidence and package integrity through the standalone verifier suite.",
+    );
+  });
+
+  it("ROLE_WORKFLOW_SECTION roles have exact approved icon names", () => {
+    const roles = ROLE_WORKFLOW_SECTION.roles;
+    expect(roles[0].icon).toBe("corporate_fare");
+    expect(roles[1].icon).toBe("groups");
+    expect(roles[2].icon).toBe("key");
+    expect(roles[3].icon).toBe("rule");
   });
 
   it("CTAS.pilotAccess has correct label and href", () => {
