@@ -17,6 +17,7 @@ function HomePage() {
       <h1
         className="font-bold tracking-tight"
         style={{
+          fontFamily: "var(--font-family-hanken)",
           fontSize: "var(--font-size-display-lg)",
           fontWeight: "var(--font-weight-display-lg)",
           lineHeight: "var(--line-height-display-lg)",
@@ -26,7 +27,9 @@ function HomePage() {
         HushVoting!
       </h1>
       <p
+        className="mt-4"
         style={{
+          fontFamily: "var(--font-family-hanken)",
           fontSize: "var(--font-size-headline-md)",
           fontWeight: "var(--font-weight-headline-md)",
           lineHeight: "var(--line-height-headline-md)",
@@ -35,20 +38,20 @@ function HomePage() {
       >
         Governed remote voting for serious organizations
       </p>
-      <div style={{ marginTop: "var(--spacing-lg)" }}>
-        <span
-          className="px-4 py-2 rounded-lg"
-          style={{
-            backgroundColor: "var(--color-primary)",
-            color: "var(--color-on-primary)",
-            fontSize: "var(--font-size-label-md)",
-            fontWeight: "var(--font-weight-label-md)",
-            fontFamily: "var(--font-family-jetbrains)",
-            letterSpacing: "var(--letter-spacing-label-md)",
-          }}
-        >
-          SCAFFOLD READY
-        </span>
+      <div
+        className="mt-10"
+        style={{
+          fontFamily: "var(--font-family-jetbrains)",
+          fontSize: "var(--font-size-label-md)",
+          fontWeight: "var(--font-weight-label-md)",
+          letterSpacing: "var(--letter-spacing-label-md)",
+          backgroundColor: "var(--color-primary)",
+          color: "var(--color-on-primary)",
+          padding: "var(--spacing-xs) var(--spacing-sm)",
+          borderRadius: "var(--radius-default)",
+        }}
+      >
+        SCAFFOLD READY
       </div>
     </main>
   );

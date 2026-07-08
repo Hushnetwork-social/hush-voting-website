@@ -31,8 +31,8 @@ This feature is limited to foundational readiness. It must prove that the reposi
 | 1 | Planning Analysis | COMPLETED | `planning-analysis-report.md` canonical implementation plan |
 | 2 | Data Layer | COMPLETED | Dependency, package metadata, lockfile, environment/type contracts |
 | 3 | Business Logic | COMPLETED | TanStack Start application bootstrap, routing/runtime conventions |
-| 4 | Presentation Logic | PENDING | Root layout, route shell, metadata/error/loading conventions |
-| 5 | User Interface | PENDING | Tailwind/Sovereign Shield tokens, global styles, minimal styled scaffold |
+| 4 | Presentation Logic | COMPLETED | Root layout, route shell, metadata/error/loading conventions |
+| 5 | User Interface | COMPLETED | Tailwind/Sovereign Shield tokens, global styles, minimal styled scaffold |
 | 6 | Integration | PENDING | CI script compatibility, production-start readiness, Gherkin/Playwright harness wiring |
 | 7 | Testing & Polish | PENDING | Unit, lint/typecheck/format, and happy-path E2E verification foundation |
 | 8 | Final Checkpoint | PENDING | README handoff, fallback documentation, final evidence summary |
