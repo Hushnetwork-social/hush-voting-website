@@ -27,7 +27,7 @@ test.describe("Scaffold Happy Path", () => {
 
     // Verify the tagline is rendered
     await expect(
-      page.getByText("Governed remote voting for serious organizations")
+      page.getByText("Governed remote voting for serious organizations"),
     ).toBeVisible();
 
     // Verify scaffold ready badge is rendered

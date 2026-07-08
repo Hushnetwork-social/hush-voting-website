@@ -1,13 +1,13 @@
 # EPIC-001: HushVoting Website Platform and Initial Design
 
-| Field | Value |
-|-------|-------|
-| Epic ID | EPIC-001 |
-| State | InProgress |
-| Created | 2026-07-08 |
-| Target Completion | TBD - define during planning |
-| Owner | TBD |
-| Priority | Critical |
+| Field              | Value                                                                             |
+| ------------------ | --------------------------------------------------------------------------------- |
+| Epic ID            | EPIC-001                                                                          |
+| State              | InProgress                                                                        |
+| Created            | 2026-07-08                                                                        |
+| Target Completion  | TBD - define during planning                                                      |
+| Owner              | TBD                                                                               |
+| Priority           | Critical                                                                          |
 | External Reference | hush-voting-website README.md, Prototype Overview, Sovereign Shield Design System |
 
 ## Executive Summary
@@ -46,31 +46,31 @@ The design exists as a high-fidelity HTML prototype (`MemoryBank/Overview/Protot
 
 ## Features Breakdown
 
-| Feature ID | Title | Status | Dependencies | Priority |
-|------------|-------|--------|--------------|----------|
-| FEAT-001 | Project Scaffolding & Build Infrastructure | COMPLETED |  |  |
-| FEAT-002 | Design System Implementation (Sovereign Shield) | SUBMITTED |  |  |
-| FEAT-003 | Hero Section and Navigation | SUBMITTED |  |  |
-| FEAT-004 | Trust Model Hierarchy Section | SUBMITTED |  |  |
-| FEAT-005 | Role Workflow Section | SUBMITTED |  |  |
-| FEAT-006 | Protocol Evidence and Platform Readiness | SUBMITTED |  |  |
-| FEAT-007 | Footer, Utility Pages and Contact Path | SUBMITTED |  |  |
-| FEAT-008 | Responsive Design and Mobile Optimization | SUBMITTED |  |  |
-| TBD | CI/CD and AWS Deployment Pipeline | SUBMITTED | FEAT-001 | P1 |
+| Feature ID | Title                                           | Status      | Dependencies | Priority |
+| ---------- | ----------------------------------------------- | ----------- | ------------ | -------- |
+| FEAT-001   | Project Scaffolding & Build Infrastructure      | COMPLETED   |              |          |
+| FEAT-002   | Design System Implementation (Sovereign Shield) | IN PROGRESS | FEAT-001     |          |
+| FEAT-003   | Hero Section and Navigation                     | SUBMITTED   |              |          |
+| FEAT-004   | Trust Model Hierarchy Section                   | SUBMITTED   |              |          |
+| FEAT-005   | Role Workflow Section                           | SUBMITTED   |              |          |
+| FEAT-006   | Protocol Evidence and Platform Readiness        | SUBMITTED   |              |          |
+| FEAT-007   | Footer, Utility Pages and Contact Path          | SUBMITTED   |              |          |
+| FEAT-008   | Responsive Design and Mobile Optimization       | SUBMITTED   |              |          |
+| TBD        | CI/CD and AWS Deployment Pipeline               | SUBMITTED   | FEAT-001     | P1       |
 
 > Feature IDs are assigned when created via the future `create-epic-features` or `submit-feature` workflow.
 
 ## Epic Progress
 
 **State:** InProgress
-**Progress:** 11% (1/9 features complete)
+**Progress:** 13% (1/8 features complete)
 
-| Status | Count | Features |
-|--------|-------|----------|
-| Completed | 1 | FEAT-001 Project Scaffolding |
-| In Progress | 0 | - |
-| Ready | 0 | - |
-| Submitted | 8 | Design System, Hero/Nav, Trust Model, Roles, Protocol Evidence, Footer/Utility, Responsive, CI/CD |
+| Status      | Count | Features                                                                           |
+| ----------- | ----- | ---------------------------------------------------------------------------------- |
+| Completed   | 1     | FEAT-001 Project Scaffolding                                                       |
+| In Progress | 1     | -                                                                                  |
+| Ready       | 0     | Design System                                                                      |
+| Submitted   | 6     | Hero/Nav, Trust Model, Roles, Protocol Evidence, Footer/Utility, Responsive, CI/CD |
 
 ## Dependency Flow Diagram
 
@@ -112,7 +112,7 @@ flowchart TD
         F17[Responsive Design and Mobile Optimization]
 
     class F10 completed
-    class F11 notStarted
+    class F11 ready
     class F12 notStarted
     class F13 notStarted
     class F14 notStarted
@@ -128,17 +128,16 @@ flowchart TD
 
     class F1 completed
     class F2 inProgress
-    class F3 designed
-    class F4 designed
-    class F5 designed
-    class F6 designed
-    class F7 designed
-    class F8 designed
+    class F3 notStarted
+    class F4 notStarted
+    class F5 notStarted
+    class F6 notStarted
+    class F7 notStarted
+    class F8 notStarted
     class F9 designed
 ```
 
 ## Feature Details
-
 
 ### Feature 1: Project Scaffolding & Build Infrastructure (FEAT-001)
 
@@ -148,7 +147,6 @@ flowchart TD
 **Backlink:** - EPIC: EPIC-001 - HushVoting Website Platform and Initial Design
 **Dependencies:** None
 
-
 ### Feature 2: Design System Implementation (Sovereign Shield) (FEAT-002)
 
 **User Story:** Implement a reusable component library and Tailwind CSS configuration using all Sovereign Shield design tokens from DESIGN.md: color tokens, typography scales, spacing, border radius. Build Button (primary/secondary/ghost), Section, Card, InsetWell, MetricCard, StatusChip, IconLabel components. Follow HushVoting Visual Language rules. Document usage in STYLEGUIDE.md.
@@ -156,7 +154,6 @@ flowchart TD
 **Scope:** Generated from EPIC EPIC-001 - HushVoting Website Platform and Initial Design.
 **Backlink:** - EPIC: EPIC-001 - HushVoting Website Platform and Initial Design
 **Dependencies:** None
-
 
 ### Feature 3: Hero Section and Navigation (FEAT-003)
 
@@ -166,7 +163,6 @@ flowchart TD
 **Backlink:** - EPIC: EPIC-001 - HushVoting Website Platform and Initial Design
 **Dependencies:** None
 
-
 ### Feature 4: Trust Model Hierarchy Section (FEAT-004)
 
 **User Story:** Build the Trust Model Hierarchy section with an eyebrow label, headline, two layered cards (HushVoting! and HushNetwork), capability chips and trust labels, gradient connector, and subtle glow.
@@ -174,7 +170,6 @@ flowchart TD
 **Scope:** Generated from EPIC EPIC-001 - HushVoting Website Platform and Initial Design.
 **Backlink:** - EPIC: EPIC-001 - HushVoting Website Platform and Initial Design
 **Dependencies:** None
-
 
 ### Feature 5: Role Workflow Section (FEAT-005)
 
@@ -184,7 +179,6 @@ flowchart TD
 **Backlink:** - EPIC: EPIC-001 - HushVoting Website Platform and Initial Design
 **Dependencies:** None
 
-
 ### Feature 6: Protocol Evidence and Platform Readiness (FEAT-006)
 
 **User Story:** Implement the Protocol Evidence section with left column Protocol Omega description and right column 6 evidence category items in a 2x3 grid with inset wells, plus the Platform Readiness section with 3 deployment cards and a horizontal claim boundary bar with badges.
@@ -193,7 +187,6 @@ flowchart TD
 **Backlink:** - EPIC: EPIC-001 - HushVoting Website Platform and Initial Design
 **Dependencies:** None
 
-
 ### Feature 7: Footer, Utility Pages and Contact Path (FEAT-007)
 
 **User Story:** Build the footer with branding, tagline, legal links, and a final CTA section above it; scaffold utility pages for Privacy Policy, Terms of Service, Security Audit; implement contact path with mailto or form scaffold.
@@ -201,7 +194,6 @@ flowchart TD
 **Scope:** Generated from EPIC EPIC-001 - HushVoting Website Platform and Initial Design.
 **Backlink:** - EPIC: EPIC-001 - HushVoting Website Platform and Initial Design
 **Dependencies:** None
-
 
 ### Feature 8: Responsive Design and Mobile Optimization (FEAT-008)
 
@@ -216,6 +208,7 @@ flowchart TD
 **User Story:** As a HushVoting developer, I want a working project scaffold with the selected React framework, Tailwind CSS, pnpm package management, TypeScript configuration, and a valid `package.json` with build/dev/test scripts so that the team can begin implementing pages immediately.
 
 **Scope:**
+
 - Initialize with **TanStack Start** (RC) as the full-stack React framework (confirmed decision, see `MemoryBank/Overview/TechDecision-Framework-Selection.md`).
 - Initialize the project with `pnpm` as the package manager.
 - Configure Tailwind CSS with the Sovereign Shield design tokens (colors, typography, spacing, border radius from the DESIGN.md specification).
@@ -233,6 +226,7 @@ flowchart TD
 **User Story:** As a designer, I want the Sovereign Shield design tokens (colors, typography, spacing, shapes) implemented as a reusable Tailwind CSS configuration and component library so that all website sections share consistent visual language without duplicating styles.
 
 **Scope:**
+
 - Implement full Tailwind CSS configuration from the Sovereign Shield `DESIGN.md`:
   - All color tokens (surface tiers, primary, secondary, tertiary, error, outline, inverse).
   - Typography scales (display-lg, headline-lg, headline-md, body-lg, body-md, label-md, label-sm) with correct font families (Hanken Grotesk, JetBrains Mono).
@@ -259,6 +253,7 @@ flowchart TD
 **User Story:** As a visiting organization representative, I want an impactful hero section and clear navigation so that I immediately understand what HushVoting does and can explore sections easily.
 
 **Scope:**
+
 - **Top Navigation Bar:**
   - HushVoting! brand logo/name (left).
   - Section anchor links: Trust Model, Roles, Protocol Evidence, Platform (center on desktop, hamburger on mobile).
@@ -280,6 +275,7 @@ flowchart TD
 **User Story:** As a prospective customer, I want to understand the trust architecture — how HushVoting application guarantees sit on top of HushNetwork's blockchain and cryptographic foundation.
 
 **Scope:**
+
 - Section with label eyebrow: "Foundational Integrity."
 - Section headline: "The Trust Model Hierarchy."
 - **Top Layer Card (HushVoting!):**
@@ -301,6 +297,7 @@ flowchart TD
 **User Story:** As a site visitor, I want to see the four participant roles in HushVoting elections so that I understand who does what.
 
 **Scope:**
+
 - Four role cards in a responsive grid (1 col mobile, 2 col tablet, 4 col desktop).
 - **Organizations:** Create and govern election parameters, define voter rolls, establish timing protocols.
 - **Voters:** Securely claim eligibility through private ID providers and cast cryptographically masked ballots.
@@ -320,6 +317,7 @@ flowchart TD
 **User Story:** As a technical evaluator, I want to see the Protocol Omega evidence categories and the platform deployment readiness so that I can assess the product's technical maturity.
 
 **Scope:**
+
 - **Protocol Evidence Section:**
   - Left column: "Protocol Omega" headline, description text, verified badge.
   - Right column: 6 evidence category items in a 2x3 grid:
@@ -345,6 +343,7 @@ flowchart TD
 **User Story:** As a site visitor, I want to find legal information, security details, and a way to contact the HushVoting team.
 
 **Scope:**
+
 - **Footer:**
   - HushVoting! brand.
   - Tagline: "HushVoting! is a product of HushNetwork."
@@ -369,6 +368,7 @@ flowchart TD
 **User Story:** As a mobile user, I want the website to be fully readable and navigable on my phone so that I can learn about HushVoting on any device.
 
 **Scope:**
+
 - Mobile-first responsive verification of all sections.
 - Hamburger navigation menu on mobile.
 - Touch target sizes ≥ 48px height for all interactive elements.
@@ -385,6 +385,7 @@ flowchart TD
 **User Story:** As an operator, I want automated build, test, and deployment so that every tagged release reaches www.hushvoting.com without manual intervention.
 
 **Scope:**
+
 - GitHub Actions workflow for CI:
   - Run on push and PR.
   - Validate build (`pnpm build`).
@@ -408,18 +409,18 @@ flowchart TD
 
 ## Technology Stack Summary
 
-| Layer | Technology | Rationale |
-|-------|-----------|-----------|
-| **Framework** | TanStack Start (RC) | Confirmed. See `MemoryBank/Overview/TechDecision-Framework-Selection.md` |
-| **Package Manager** | pnpm | Fast, disk-efficient, strict dependency resolution |
-| **CSS** | Tailwind CSS v4+ | Utility-first, aligns with Sovereign Shield design tokens |
-| **Fonts** | Hanken Grotesk + JetBrains Mono + Material Symbols | Typography and iconography per Sovereign Shield |
-| **Language** | TypeScript (strict) | Type safety across the full stack |
-| **Build Tool** | Vite (via framework) | Fast HMR, fast builds (or Turbopack if Next.js chosen) |
-| **Testing** | Vitest (unit), Playwright (E2E) | Aligns with existing HushNetwork testing patterns |
-| **Container** | Docker (multi-stage) | Production deployment |
-| **Hosting** | AWS (per CD contract) | Follows existing HushNetwork deployment pattern |
-| **CI/CD** | GitHub Actions | Existing HushNetwork CI infrastructure |
+| Layer               | Technology                                         | Rationale                                                                |
+| ------------------- | -------------------------------------------------- | ------------------------------------------------------------------------ |
+| **Framework**       | TanStack Start (RC)                                | Confirmed. See `MemoryBank/Overview/TechDecision-Framework-Selection.md` |
+| **Package Manager** | pnpm                                               | Fast, disk-efficient, strict dependency resolution                       |
+| **CSS**             | Tailwind CSS v4+                                   | Utility-first, aligns with Sovereign Shield design tokens                |
+| **Fonts**           | Hanken Grotesk + JetBrains Mono + Material Symbols | Typography and iconography per Sovereign Shield                          |
+| **Language**        | TypeScript (strict)                                | Type safety across the full stack                                        |
+| **Build Tool**      | Vite (via framework)                               | Fast HMR, fast builds (or Turbopack if Next.js chosen)                   |
+| **Testing**         | Vitest (unit), Playwright (E2E)                    | Aligns with existing HushNetwork testing patterns                        |
+| **Container**       | Docker (multi-stage)                               | Production deployment                                                    |
+| **Hosting**         | AWS (per CD contract)                              | Follows existing HushNetwork deployment pattern                          |
+| **CI/CD**           | GitHub Actions                                     | Existing HushNetwork CI infrastructure                                   |
 
 ## Wireframes (Design Reference)
 
@@ -527,13 +528,13 @@ This EPIC follows the landing page design established in the prototype at `Memor
 
 ### Key State Variants
 
-| State | Behavior |
-|-------|----------|
-| **Loading** | Skeleton components: nav bar + hero skeleton. Content sections appear progressively. |
-| **Empty** | N/A (static marketing site; no user-generated content lists). |
-| **Error** | 404 page with HushVoting branding and "Return home" CTA. Network error fallback with retry. |
-| **Mobile Nav Open** | Full-screen overlay or slide-in drawer with section links + CTA button. |
-| **Pilot Access Click** | Smooth scroll to contact form section OR open mailto link OR navigate to contact page. |
+| State                  | Behavior                                                                                    |
+| ---------------------- | ------------------------------------------------------------------------------------------- |
+| **Loading**            | Skeleton components: nav bar + hero skeleton. Content sections appear progressively.        |
+| **Empty**              | N/A (static marketing site; no user-generated content lists).                               |
+| **Error**              | 404 page with HushVoting branding and "Return home" CTA. Network error fallback with retry. |
+| **Mobile Nav Open**    | Full-screen overlay or slide-in drawer with section links + CTA button.                     |
+| **Pilot Access Click** | Smooth scroll to contact form section OR open mailto link OR navigate to contact page.      |
 
 ## Out of Scope
 
@@ -547,36 +548,36 @@ This EPIC follows the landing page design established in the prototype at `Memor
 
 ## Risks and Mitigations
 
-| Risk | Impact | Likelihood | Mitigation |
-|------|--------|------------|------------|
-| TanStack Start RC instability during implementation | H | M | Pin to specific RC version. Have React Router v7 Framework Mode as fallback. Document fallback path in TechDecision doc. |
-| Framework decision delay blocks scaffolding | H | M | Keep the decision window short. The TechDecision doc recommends TanStack Start with clear rationale. Owner confirmation should take ≤ 1 week. |
-| AWS deployment differs from existing HushNetwork website pattern | M | L | Use existing HushNetwork CD scripts as reference. The README.md already defines the CD contract. |
-| Design inconsistency with existing HushVoting web client visual language | M | L | Both follow the same Sovereign Shield design system and HushVoting Visual Language rules from the hush-memory-bank. |
-| CI secrets not provisioned for new repo | H | L | Document exact secrets needed in the EPIC. Provide copy-commands from README.md. |
-| E2E test infrastructure not set up for static/marketing site | L | L | E2E for a marketing site focuses on navigation, responsive layout, and CTA interactions — simpler than election workflows. |
+| Risk                                                                     | Impact | Likelihood | Mitigation                                                                                                                                    |
+| ------------------------------------------------------------------------ | ------ | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| TanStack Start RC instability during implementation                      | H      | M          | Pin to specific RC version. Have React Router v7 Framework Mode as fallback. Document fallback path in TechDecision doc.                      |
+| Framework decision delay blocks scaffolding                              | H      | M          | Keep the decision window short. The TechDecision doc recommends TanStack Start with clear rationale. Owner confirmation should take ≤ 1 week. |
+| AWS deployment differs from existing HushNetwork website pattern         | M      | L          | Use existing HushNetwork CD scripts as reference. The README.md already defines the CD contract.                                              |
+| Design inconsistency with existing HushVoting web client visual language | M      | L          | Both follow the same Sovereign Shield design system and HushVoting Visual Language rules from the hush-memory-bank.                           |
+| CI secrets not provisioned for new repo                                  | H      | L          | Document exact secrets needed in the EPIC. Provide copy-commands from README.md.                                                              |
+| E2E test infrastructure not set up for static/marketing site             | L      | L          | E2E for a marketing site focuses on navigation, responsive layout, and CTA interactions — simpler than election workflows.                    |
 
 ## Progress Tracking
 
-| Feature ID | Status | Started | Completed | Notes |
-|------------|--------|---------|-----------|-------|
-| TBD | SUBMITTED | - | - | Project Scaffolding & Build Infrastructure |
-| TBD | SUBMITTED | - | - | Design System Implementation |
-| TBD | SUBMITTED | - | - | Hero Section and Navigation |
-| TBD | SUBMITTED | - | - | Trust Model Hierarchy Section |
-| TBD | SUBMITTED | - | - | Role Workflow Section |
-| TBD | SUBMITTED | - | - | Protocol Evidence & Platform Readiness |
-| TBD | SUBMITTED | - | - | Footer, Utility Pages & Contact |
-| TBD | SUBMITTED | - | - | Responsive Design & Mobile Optimization |
-| TBD | SUBMITTED | - | - | CI/CD and AWS Deployment |
-| FEAT-001 | COMPLETED | 2026-07-08 | 2026-07-08 | |
-| FEAT-002 | SUBMITTED | 2026-07-08 | | |
-| FEAT-003 | SUBMITTED | 2026-07-08 | | |
-| FEAT-004 | SUBMITTED | 2026-07-08 | | |
-| FEAT-005 | SUBMITTED | 2026-07-08 | | |
-| FEAT-006 | SUBMITTED | 2026-07-08 | | |
-| FEAT-007 | SUBMITTED | 2026-07-08 | | |
-| FEAT-008 | SUBMITTED | 2026-07-08 | | |
+| Feature ID | Status      | Started    | Completed  | Notes                                      |
+| ---------- | ----------- | ---------- | ---------- | ------------------------------------------ |
+| TBD        | SUBMITTED   | -          | -          | Project Scaffolding & Build Infrastructure |
+| TBD        | SUBMITTED   | -          | -          | Design System Implementation               |
+| TBD        | SUBMITTED   | -          | -          | Hero Section and Navigation                |
+| TBD        | SUBMITTED   | -          | -          | Trust Model Hierarchy Section              |
+| TBD        | SUBMITTED   | -          | -          | Role Workflow Section                      |
+| TBD        | SUBMITTED   | -          | -          | Protocol Evidence & Platform Readiness     |
+| TBD        | SUBMITTED   | -          | -          | Footer, Utility Pages & Contact            |
+| TBD        | SUBMITTED   | -          | -          | Responsive Design & Mobile Optimization    |
+| TBD        | SUBMITTED   | -          | -          | CI/CD and AWS Deployment                   |
+| FEAT-001   | COMPLETED   | 2026-07-08 | 2026-07-08 |                                            |
+| FEAT-002   | IN PROGRESS | 2026-07-08 |            | Refined; task/phase handoff generated.     |
+| FEAT-003   | SUBMITTED   | 2026-07-08 |            |                                            |
+| FEAT-004   | SUBMITTED   | 2026-07-08 |            |                                            |
+| FEAT-005   | SUBMITTED   | 2026-07-08 |            |                                            |
+| FEAT-006   | SUBMITTED   | 2026-07-08 |            |                                            |
+| FEAT-007   | SUBMITTED   | 2026-07-08 |            |                                            |
+| FEAT-008   | SUBMITTED   | 2026-07-08 |            |                                            |
 
 **Overall Progress:** 1/9 features complete (11%)
 

@@ -57,24 +57,24 @@ Prove the scaffold uses the HushVoting visual foundation without implementing th
 
 ## Quality Gate Evidence
 
-| Gate | Decision | Evidence / Justification |
-| --- | --- | --- |
-| Changed files | recorded | `styles/app.css` (Tailwind v4 @theme with full Sovereign Shield tokens + font imports), `src/routes/index.tsx` (token-styled scaffold homepage consuming CSS variables), `vite.config.ts` (Tailwind Vite plugin) |
-| Tests | satisfied | Build verification: `pnpm vite build` succeeds, producing CSS (20.84 KB) with token-based styles. The styles/app.css is compiled and bundled correctly by Tailwind v4. |
-| Gherkin/Playwright E2E | waived | UI token verification requires browser rendering (visual proof). This is established in Phase 6/7 with Playwright. The build compilation confirms Tailwind and CSS variables are valid and resolved. |
-| Code review | waived | Styling configuration follows standard Tailwind v4 patterns. Sovereign Shield tokens mirror the DESIGN.md spec exactly. Visual-language guidance is followed. Review at Phase 8 final checkpoint. |
+| Gate                   | Decision  | Evidence / Justification                                                                                                                                                                                         |
+| ---------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Changed files          | recorded  | `styles/app.css` (Tailwind v4 @theme with full Sovereign Shield tokens + font imports), `src/routes/index.tsx` (token-styled scaffold homepage consuming CSS variables), `vite.config.ts` (Tailwind Vite plugin) |
+| Tests                  | satisfied | Build verification: `pnpm vite build` succeeds, producing CSS (20.84 KB) with token-based styles. The styles/app.css is compiled and bundled correctly by Tailwind v4.                                           |
+| Gherkin/Playwright E2E | waived    | UI token verification requires browser rendering (visual proof). This is established in Phase 6/7 with Playwright. The build compilation confirms Tailwind and CSS variables are valid and resolved.             |
+| Code review            | waived    | Styling configuration follows standard Tailwind v4 patterns. Sovereign Shield tokens mirror the DESIGN.md spec exactly. Visual-language guidance is followed. Review at Phase 8 final checkpoint.                |
 
 ### Token Coverage Summary
 
-| Token Category | Source | Count |
-|---------------|--------|-------|
-| Surface colors | DESIGN.md | 16 surface tokens |
-| Primary/Secondary/Tertiary | DESIGN.md | 16 accent tokens |
-| Error | DESIGN.md | 4 error tokens |
-| Typography scales | DESIGN.md | 7 type scales (display-lg through label-sm) |
-| Font families | DESIGN.md | Hanken Grotesk + JetBrains Mono + Material Symbols |
-| Spacing | DESIGN.md | 7 spacing levels + gutter + mobile margin |
-| Border radius | DESIGN.md | 6 radius levels |
+| Token Category             | Source    | Count                                              |
+| -------------------------- | --------- | -------------------------------------------------- |
+| Surface colors             | DESIGN.md | 16 surface tokens                                  |
+| Primary/Secondary/Tertiary | DESIGN.md | 16 accent tokens                                   |
+| Error                      | DESIGN.md | 4 error tokens                                     |
+| Typography scales          | DESIGN.md | 7 type scales (display-lg through label-sm)        |
+| Font families              | DESIGN.md | Hanken Grotesk + JetBrains Mono + Material Symbols |
+| Spacing                    | DESIGN.md | 7 spacing levels + gutter + mobile margin          |
+| Border radius              | DESIGN.md | 6 radius levels                                    |
 
 All tokens match the Sovereign Shield DESIGN.md specification.
 

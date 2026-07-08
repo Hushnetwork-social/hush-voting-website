@@ -1,95 +1,95 @@
 ---
 name: Sovereign Shield
 colors:
-  surface: '#091422'
-  surface-dim: '#091422'
-  surface-bright: '#303a49'
-  surface-container-lowest: '#050e1d'
-  surface-container-low: '#121c2a'
-  surface-container: '#16202f'
-  surface-container-high: '#202a3a'
-  surface-container-highest: '#2b3545'
-  on-surface: '#d9e3f7'
-  on-surface-variant: '#cac4d4'
-  inverse-surface: '#d9e3f7'
-  inverse-on-surface: '#273140'
-  outline: '#948e9d'
-  outline-variant: '#494552'
-  surface-tint: '#cebdff'
-  primary: '#cebdff'
-  on-primary: '#381385'
-  primary-container: '#a78bfa'
-  on-primary-container: '#3c1989'
-  inverse-primary: '#674bb5'
-  secondary: '#b9c6e8'
-  on-secondary: '#23304b'
-  secondary-container: '#3c4965'
-  on-secondary-container: '#abb8da'
-  tertiary: '#d0bcff'
-  on-tertiary: '#3c0091'
-  tertiary-container: '#ab88ff'
-  on-tertiary-container: '#40009b'
-  error: '#ffb4ab'
-  on-error: '#690005'
-  error-container: '#93000a'
-  on-error-container: '#ffdad6'
-  primary-fixed: '#e8ddff'
-  primary-fixed-dim: '#cebdff'
-  on-primary-fixed: '#21005e'
-  on-primary-fixed-variant: '#4f319c'
-  secondary-fixed: '#d8e2ff'
-  secondary-fixed-dim: '#b9c6e8'
-  on-secondary-fixed: '#0d1b35'
-  on-secondary-fixed-variant: '#3a4763'
-  tertiary-fixed: '#e9ddff'
-  tertiary-fixed-dim: '#d0bcff'
-  on-tertiary-fixed: '#23005c'
-  on-tertiary-fixed-variant: '#5516be'
-  background: '#091422'
-  on-background: '#d9e3f7'
-  surface-variant: '#2b3545'
+  surface: "#091422"
+  surface-dim: "#091422"
+  surface-bright: "#303a49"
+  surface-container-lowest: "#050e1d"
+  surface-container-low: "#121c2a"
+  surface-container: "#16202f"
+  surface-container-high: "#202a3a"
+  surface-container-highest: "#2b3545"
+  on-surface: "#d9e3f7"
+  on-surface-variant: "#cac4d4"
+  inverse-surface: "#d9e3f7"
+  inverse-on-surface: "#273140"
+  outline: "#948e9d"
+  outline-variant: "#494552"
+  surface-tint: "#cebdff"
+  primary: "#cebdff"
+  on-primary: "#381385"
+  primary-container: "#a78bfa"
+  on-primary-container: "#3c1989"
+  inverse-primary: "#674bb5"
+  secondary: "#b9c6e8"
+  on-secondary: "#23304b"
+  secondary-container: "#3c4965"
+  on-secondary-container: "#abb8da"
+  tertiary: "#d0bcff"
+  on-tertiary: "#3c0091"
+  tertiary-container: "#ab88ff"
+  on-tertiary-container: "#40009b"
+  error: "#ffb4ab"
+  on-error: "#690005"
+  error-container: "#93000a"
+  on-error-container: "#ffdad6"
+  primary-fixed: "#e8ddff"
+  primary-fixed-dim: "#cebdff"
+  on-primary-fixed: "#21005e"
+  on-primary-fixed-variant: "#4f319c"
+  secondary-fixed: "#d8e2ff"
+  secondary-fixed-dim: "#b9c6e8"
+  on-secondary-fixed: "#0d1b35"
+  on-secondary-fixed-variant: "#3a4763"
+  tertiary-fixed: "#e9ddff"
+  tertiary-fixed-dim: "#d0bcff"
+  on-tertiary-fixed: "#23005c"
+  on-tertiary-fixed-variant: "#5516be"
+  background: "#091422"
+  on-background: "#d9e3f7"
+  surface-variant: "#2b3545"
 typography:
   display-lg:
     fontFamily: Hanken Grotesk
     fontSize: 48px
-    fontWeight: '700'
+    fontWeight: "700"
     lineHeight: 56px
     letterSpacing: -0.02em
   headline-lg:
     fontFamily: Hanken Grotesk
     fontSize: 32px
-    fontWeight: '600'
+    fontWeight: "600"
     lineHeight: 40px
   headline-lg-mobile:
     fontFamily: Hanken Grotesk
     fontSize: 24px
-    fontWeight: '600'
+    fontWeight: "600"
     lineHeight: 32px
   headline-md:
     fontFamily: Hanken Grotesk
     fontSize: 24px
-    fontWeight: '500'
+    fontWeight: "500"
     lineHeight: 32px
   body-lg:
     fontFamily: Hanken Grotesk
     fontSize: 18px
-    fontWeight: '400'
+    fontWeight: "400"
     lineHeight: 28px
   body-md:
     fontFamily: Hanken Grotesk
     fontSize: 16px
-    fontWeight: '400'
+    fontWeight: "400"
     lineHeight: 24px
   label-md:
     fontFamily: JetBrains Mono
     fontSize: 14px
-    fontWeight: '500'
+    fontWeight: "500"
     lineHeight: 20px
     letterSpacing: 0.05em
   label-sm:
     fontFamily: JetBrains Mono
     fontSize: 12px
-    fontWeight: '500'
+    fontWeight: "500"
     lineHeight: 16px
     letterSpacing: 0.05em
 rounded:
@@ -118,13 +118,14 @@ This design system is engineered for high-stakes digital governance where privac
 The personality is calm, serious, and institutionally credible. It avoids the frantic energy of typical consumer apps in favor of a measured, rhythmic interface that respects the user's focus during the voting process. Visual metaphors are rooted in security—shielding, enclosure, and clarity—to reassure the user that their intent is protected by robust cryptography.
 
 Key stylistic pillars:
+
 - **Calm surfaces:** Low-contrast transitions between deep blue and purple-grey backgrounds.
 - **Technical precision:** Monospaced-inspired alignment without the clutter, utilizing clean sans-serif type.
 - **Premium restraint:** No decorative shadows or excessive layering; depth is communicated through tonal shifts.
 
 ## Colors
 
-The palette is anchored in a spectrum of deep night-blues and technical purples, creating a "dark value" environment that minimizes eye strain and maximizes the feeling of a secure vault. 
+The palette is anchored in a spectrum of deep night-blues and technical purples, creating a "dark value" environment that minimizes eye strain and maximizes the feeling of a secure vault.
 
 - **Primary Purple (#A78BFA):** Reserved for primary actions, focus states, and the brand mark representation. It provides high legibility against the dark backgrounds.
 - **Surface Strategy:** We use a tiered system of dark values rather than shadows. The `background_deep` serves as the canvas, while `surface_main` and `surface_secondary` define functional areas.
@@ -160,7 +161,7 @@ This design system eschews traditional drop shadows to maintain its "flat-techni
 
 ## Shapes
 
-The shape language is **Rounded**, balancing the technical seriousness with an approachable, human-centric feel. 
+The shape language is **Rounded**, balancing the technical seriousness with an approachable, human-centric feel.
 
 - **Standard Radius:** 0.5rem (8px) for cards, panels, and large buttons.
 - **Large Radius:** 1rem (16px) for main content containers and "Booths."
@@ -170,24 +171,29 @@ The shape language is **Rounded**, balancing the technical seriousness with an a
 ## Components
 
 ### Buttons
+
 - **Primary:** Filled with `Primary Purple`, text in `Deep Background`. No shadow. On hover, brighten to `Light Purple`.
-- **Secondary:** Filled with `Surface Secondary`, text in `Text Primary`. 
+- **Secondary:** Filled with `Surface Secondary`, text in `Text Primary`.
 - **Keyboard Focus:** A 2px solid `Primary Purple` ring with a 2px offset.
 
 ### Calm Panels (Cards)
+
 - Avoid stacking cards. Use large, full-width or half-width panels with `#23304B` fill.
 - No borders. Use the tonal difference against the `#111827` background to define the edge.
 
 ### Input Fields
+
 - Use the `well_dark` (#151C33) background.
 - Labels are always positioned above the field using `label-sm` in Monospace.
 - Internal padding should be generous (12px 16px).
 
 ### Voting Chips
+
 - Used for selecting candidates. These should behave like large, toggleable buttons.
 - **Unselected:** `surface_secondary` fill.
 - **Selected:** `well_dark` fill with a `Primary Purple` 2px border and a checkmark icon.
 
 ### Technical Info-Graphics
-- Use clean, vector-based strokes in `Primary Purple` and `Neutral`. 
+
+- Use clean, vector-based strokes in `Primary Purple` and `Neutral`.
 - Avoid gradients or skeuomorphism. Keep data visualizations flat and geometric.

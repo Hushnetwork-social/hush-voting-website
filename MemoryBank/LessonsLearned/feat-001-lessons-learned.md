@@ -17,6 +17,7 @@ FEAT-001 initialized a TanStack Start RC project scaffold with pnpm, Tailwind CS
 **Root cause:** Partial migration. The entry points and Vite plugin were updated, but build scripts, dependency list, and type references were left in the old state.
 
 **Successful fix:** During complete-feature final validation, the build failed with `commonjs--resolver id.endsWith is not a function`. Investigation revealed the mismatch. Fix involved:
+
 1. Adding `nitro` and `@vitejs/plugin-react` as proper dependencies
 2. Updating `vite.config.ts` with the `nitro()` Vite plugin and explicit `srcDirectory`
 3. Replacing `vinxi` scripts with `vite dev`, `vite build && tsc --noEmit`, `node .output/server/index.mjs`
@@ -24,6 +25,7 @@ FEAT-001 initialized a TanStack Start RC project scaffold with pnpm, Tailwind CS
 5. Removing stale `/// <reference types="vinxi/types/client" />` from `src/client.tsx`
 
 **Prevention rule:** When migrating from one framework package name to another (e.g., `@tanstack/start` → `@tanstack/react-start`), audit the entire dependency and script contract:
+
 - Check `package.json` scripts against the new framework's official example
 - Check all type references (`/// <reference types="..." />`)
 - Check `vite.config.ts` (or equivalent) against the new framework's pattern
@@ -57,11 +59,13 @@ FEAT-001 initialized a TanStack Start RC project scaffold with pnpm, Tailwind CS
 **Successful fix:** Added `import { nitro } from "nitro/vite"` and `nitro()` to `vite.config.ts`, plus `nitro` as a devDependency. Also added `@vitejs/plugin-react` which the `tanstackStart()` plugin may require for JSX transform in certain configurations.
 
 **Prevention rule:** When setting up TanStack Start, always reference the official basic example's `vite.config.ts`:
+
 ```
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 import { nitro } from 'nitro/vite'
 import viteReact from '@vitejs/plugin-react'
 ```
+
 The `nitro()` plugin is required for production server builds. The `srcDirectory` option must be set explicitly when the source is in `src/`.
 
 **Apply to:** All FEATs using TanStack Start, and any future framework setup.
@@ -94,10 +98,10 @@ The `nitro()` plugin is required for production server builds. The `srcDirectory
 
 ## Operational Rules Summary
 
-| Context | Rule |
-|---------|------|
-| Framework migration | Audit all type references, scripts, and dependencies after any package rename |
-| Build verification | Always test canonical `package.json` scripts, not direct tool invocations |
-| TanStack Start setup | Include `nitro()` and `@vitejs/plugin-react` in Vite config |
-| CSS imports | Place external `@import url()` before `@import "tailwindcss"` |
-| CI script sync | Update CI scripts when build tooling changes |
+| Context              | Rule                                                                          |
+| -------------------- | ----------------------------------------------------------------------------- |
+| Framework migration  | Audit all type references, scripts, and dependencies after any package rename |
+| Build verification   | Always test canonical `package.json` scripts, not direct tool invocations     |
+| TanStack Start setup | Include `nitro()` and `@vitejs/plugin-react` in Vite config                   |
+| CSS imports          | Place external `@import url()` before `@import "tailwindcss"`                 |
+| CI script sync       | Update CI scripts when build tooling changes                                  |

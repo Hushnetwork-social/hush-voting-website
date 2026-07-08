@@ -55,12 +55,12 @@ Ensure the scaffold has presentation conventions that are testable and extensibl
 
 ## Quality Gate Evidence
 
-| Gate | Decision | Evidence / Justification |
-| --- | --- | --- |
-| Changed files | recorded | `src/routes/__root.tsx` (root layout + not-found + error boundaries), `src/routes/index.tsx` (minimal scaffold homepage), `styles/app.css` (font imports added) |
-| Tests | satisfied | Build verification: `pnpm vite build` succeeds for both client and ssr environments. Static analysis: `tsc --noEmit` passes. |
-| Gherkin/Playwright E2E | waived | Presentation shell is minimal (root layout + scaffold homepage). Browser behavior testing is scoped to Phase 6/7 where Playwright configuration is established. |
-| Code review | waived | Only presentation structure changes (root layout, boundaries, scaffold components). No complex logic introduced. Review at Phase 8 final checkpoint. |
+| Gate                   | Decision  | Evidence / Justification                                                                                                                                        |
+| ---------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Changed files          | recorded  | `src/routes/__root.tsx` (root layout + not-found + error boundaries), `src/routes/index.tsx` (minimal scaffold homepage), `styles/app.css` (font imports added) |
+| Tests                  | satisfied | Build verification: `pnpm vite build` succeeds for both client and ssr environments. Static analysis: `tsc --noEmit` passes.                                    |
+| Gherkin/Playwright E2E | waived    | Presentation shell is minimal (root layout + scaffold homepage). Browser behavior testing is scoped to Phase 6/7 where Playwright configuration is established. |
+| Code review            | waived    | Only presentation structure changes (root layout, boundaries, scaffold components). No complex logic introduced. Review at Phase 8 final checkpoint.            |
 
 ## Acceptance Criteria
 

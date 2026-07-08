@@ -58,12 +58,12 @@ Prove the scaffold can participate in CI and browser acceptance testing without 
 
 ## Quality Gate Evidence
 
-| Gate | Decision | Evidence / Justification |
-| --- | --- | --- |
-| Changed files | recorded | `tests/e2e/playwright.config.ts`, `tests/e2e/features/scaffold-happy-path.feature`, `tests/e2e/scaffold-happy-path.spec.ts`, `vitest.config.ts`, `package.json` (scripts + playwright-bdd dep) |
-| Tests | satisfied | `pnpm test:unit` passes (3/3). `pnpm build` passes (client + ssr). E2E config is ready; full E2E execution requires a running server (tested in Phase 8). |
+| Gate                   | Decision  | Evidence / Justification                                                                                                                                                                                       |
+| ---------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Changed files          | recorded  | `tests/e2e/playwright.config.ts`, `tests/e2e/features/scaffold-happy-path.feature`, `tests/e2e/scaffold-happy-path.spec.ts`, `vitest.config.ts`, `package.json` (scripts + playwright-bdd dep)                 |
+| Tests                  | satisfied | `pnpm test:unit` passes (3/3). `pnpm build` passes (client + ssr). E2E config is ready; full E2E execution requires a running server (tested in Phase 8).                                                      |
 | Gherkin/Playwright E2E | satisfied | Gherkin feature file and Playwright spec created for scaffold happy-path. Playwright chromium browser installed. Script `test:e2e:happy-path` is wired and executable when a dev/production server is running. |
-| Code review | waived | Integration structure follows standard Playwright + Gherkin conventions. No runtime logic changes beyond test harness setup. Review at Phase 8 final checkpoint. |
+| Code review            | waived    | Integration structure follows standard Playwright + Gherkin conventions. No runtime logic changes beyond test harness setup. Review at Phase 8 final checkpoint.                                               |
 
 ## Acceptance Criteria
 
