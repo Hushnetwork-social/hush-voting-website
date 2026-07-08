@@ -6,6 +6,9 @@ import { MobileNavDisclosure } from "~/components/landing/MobileNavDisclosure";
 import { BrandMark } from "~/components/landing/BrandMark";
 import { TrustModelSection } from "~/components/landing/TrustModelSection";
 import { RoleWorkflowSection } from "~/components/landing/RoleWorkflowSection";
+import { ProtocolEvidenceSection } from "~/components/landing/ProtocolEvidenceSection";
+import { PlatformReadinessSection } from "~/components/landing/PlatformReadinessSection";
+import { ClaimBoundaryBar } from "~/components/landing/ClaimBoundaryBar";
 import {
   HERO_COPY,
   NAV_LINKS,
@@ -581,5 +584,160 @@ describe("FEAT-006 Constants contract", () => {
     for (const badge of PLATFORM_READINESS_SECTION.claimBadges) {
       expect(badge.fill).toBe(1);
     }
+  });
+});
+
+/* ── FEAT-006 Component Render Tests ── */
+
+describe("ProtocolEvidenceSection", () => {
+  it("renders a section landmark with id protocol", () => {
+    const { container } = render(<ProtocolEvidenceSection />);
+    const section = container.querySelector("section#protocol");
+    expect(section).toBeInTheDocument();
+  });
+
+  it("renders the Protocol Omega heading as h2", () => {
+    render(<ProtocolEvidenceSection />);
+    const heading = screen.getByRole("heading", { level: 2 });
+    expect(heading).toHaveTextContent("Protocol Omega");
+  });
+
+  it("renders the protocol narrative text", () => {
+    render(<ProtocolEvidenceSection />);
+    expect(
+      screen.getByText(PROTOCOL_EVIDENCE_SECTION.narrative),
+    ).toBeInTheDocument();
+  });
+
+  it("renders the 100% Mathematically Verifiable badge", () => {
+    render(<ProtocolEvidenceSection />);
+    expect(
+      screen.getByText("100% Mathematically Verifiable"),
+    ).toBeInTheDocument();
+  });
+
+  it("renders all six evidence item labels", () => {
+    render(<ProtocolEvidenceSection />);
+    for (const item of PROTOCOL_EVIDENCE_SECTION.items) {
+      expect(screen.getByText(item.label)).toBeInTheDocument();
+    }
+  });
+
+  it("marks evidence item icons as decorative with aria-hidden", () => {
+    const { container } = render(<ProtocolEvidenceSection />);
+    const icons = container.querySelectorAll(
+      "section#protocol span.material-symbols-outlined",
+    );
+    expect(icons.length).toBeGreaterThanOrEqual(6);
+    icons.forEach((icon) => {
+      expect(icon).toHaveAttribute("aria-hidden", "true");
+    });
+  });
+
+  it("does not render focusable elements", () => {
+    const { container } = render(<ProtocolEvidenceSection />);
+    const focusable = container.querySelectorAll(
+      'button, a, [tabindex]:not([tabindex="-1"])',
+    );
+    expect(focusable.length).toBe(0);
+  });
+
+  it("does not render border-white classes", () => {
+    const { container } = render(<ProtocolEvidenceSection />);
+    const whiteBorders = container.querySelectorAll('[class*="border-white"]');
+    expect(whiteBorders.length).toBe(0);
+  });
+});
+
+describe("PlatformReadinessSection", () => {
+  it("renders a section landmark with id platform", () => {
+    const { container } = render(<PlatformReadinessSection />);
+    const section = container.querySelector("section#platform");
+    expect(section).toBeInTheDocument();
+  });
+
+  it("renders the Universal Deployment Readiness heading as h2", () => {
+    render(<PlatformReadinessSection />);
+    const heading = screen.getByRole("heading", { level: 2 });
+    expect(heading).toHaveTextContent("Universal Deployment Readiness");
+  });
+
+  it("renders all three deployment card headlines as h3 elements", () => {
+    render(<PlatformReadinessSection />);
+    const cardHeadings = screen.getAllByRole("heading", { level: 3 });
+    expect(cardHeadings).toHaveLength(3);
+    expect(cardHeadings[0]).toHaveTextContent("PWA-First");
+    expect(cardHeadings[1]).toHaveTextContent("Electrobun-Ready");
+    expect(cardHeadings[2]).toHaveTextContent("Mobile Native");
+  });
+
+  it("renders all three deployment card descriptions", () => {
+    render(<PlatformReadinessSection />);
+    for (const card of PLATFORM_READINESS_SECTION.cards) {
+      expect(screen.getByText(card.description)).toBeInTheDocument();
+    }
+  });
+
+  it("marks card icons as decorative with aria-hidden", () => {
+    const { container } = render(<PlatformReadinessSection />);
+    const icons = container.querySelectorAll(
+      "section#platform span.material-symbols-outlined",
+    );
+    expect(icons.length).toBeGreaterThanOrEqual(3);
+    icons.forEach((icon) => {
+      expect(icon).toHaveAttribute("aria-hidden", "true");
+    });
+  });
+
+  it("does not render focusable elements", () => {
+    const { container } = render(<PlatformReadinessSection />);
+    const focusable = container.querySelectorAll(
+      'button, a, [tabindex]:not([tabindex="-1"])',
+    );
+    expect(focusable.length).toBe(0);
+  });
+
+  it("does not render border-white classes", () => {
+    const { container } = render(<PlatformReadinessSection />);
+    const whiteBorders = container.querySelectorAll('[class*="border-white"]');
+    expect(whiteBorders.length).toBe(0);
+  });
+});
+
+describe("ClaimBoundaryBar", () => {
+  it("renders a list with claim boundary label", () => {
+    const { container } = render(<ClaimBoundaryBar />);
+    const listContainer = container.querySelector('[role="list"]');
+    expect(listContainer).toBeInTheDocument();
+  });
+
+  it("renders all five claim badge labels", () => {
+    render(<ClaimBoundaryBar />);
+    for (const badge of PLATFORM_READINESS_SECTION.claimBadges) {
+      expect(screen.getByText(badge.label)).toBeInTheDocument();
+    }
+  });
+
+  it("renders exactly five list items", () => {
+    const { container } = render(<ClaimBoundaryBar />);
+    const items = container.querySelectorAll('[role="listitem"]');
+    expect(items.length).toBe(5);
+  });
+
+  it("marks claim icons as decorative with aria-hidden", () => {
+    const { container } = render(<ClaimBoundaryBar />);
+    const icons = container.querySelectorAll('[role="list"] span.material-symbols-outlined');
+    expect(icons.length).toBe(5);
+    icons.forEach((icon) => {
+      expect(icon).toHaveAttribute("aria-hidden", "true");
+    });
+  });
+
+  it("does not render focusable elements", () => {
+    const { container } = render(<ClaimBoundaryBar />);
+    const focusable = container.querySelectorAll(
+      'button, a, [tabindex]:not([tabindex="-1"])',
+    );
+    expect(focusable.length).toBe(0);
   });
 });

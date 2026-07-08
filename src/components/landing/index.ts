@@ -23,6 +23,15 @@ export type { TrustModelSectionProps } from "./TrustModelSection";
 export { RoleWorkflowSection } from "./RoleWorkflowSection";
 export type { RoleWorkflowSectionProps } from "./RoleWorkflowSection";
 
+export { ProtocolEvidenceSection } from "./ProtocolEvidenceSection";
+export type { ProtocolEvidenceSectionProps } from "./ProtocolEvidenceSection";
+
+export { PlatformReadinessSection } from "./PlatformReadinessSection";
+export type { PlatformReadinessSectionProps } from "./PlatformReadinessSection";
+
+export { ClaimBoundaryBar } from "./ClaimBoundaryBar";
+export type { ClaimBoundaryBarProps } from "./ClaimBoundaryBar";
+
 export {
   BRAND_TEXT,
   NAV_LINKS,
