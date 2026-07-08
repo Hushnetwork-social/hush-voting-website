@@ -49,7 +49,7 @@ The design exists as a high-fidelity HTML prototype (`MemoryBank/Overview/Protot
 | Feature ID | Title                                           | Status      | Dependencies | Priority |
 | ---------- | ----------------------------------------------- | ----------- | ------------ | -------- |
 | FEAT-001   | Project Scaffolding & Build Infrastructure      | COMPLETED   |              |          |
-| FEAT-002   | Design System Implementation (Sovereign Shield) | IN PROGRESS | FEAT-001     |          |
+| FEAT-002   | Design System Implementation (Sovereign Shield) | COMPLETED   | FEAT-001     |          |
 | FEAT-003   | Hero Section and Navigation                     | SUBMITTED   |              |          |
 | FEAT-004   | Trust Model Hierarchy Section                   | SUBMITTED   |              |          |
 | FEAT-005   | Role Workflow Section                           | SUBMITTED   |              |          |
@@ -63,14 +63,14 @@ The design exists as a high-fidelity HTML prototype (`MemoryBank/Overview/Protot
 ## Epic Progress
 
 **State:** InProgress
-**Progress:** 13% (1/8 features complete)
+**Progress:** 22% (2/9 features complete)
 
 | Status      | Count | Features                                                                           |
 | ----------- | ----- | ---------------------------------------------------------------------------------- |
-| Completed   | 1     | FEAT-001 Project Scaffolding                                                       |
-| In Progress | 1     | -                                                                                  |
-| Ready       | 0     | Design System                                                                      |
-| Submitted   | 6     | Hero/Nav, Trust Model, Roles, Protocol Evidence, Footer/Utility, Responsive, CI/CD |
+| Completed   | 2     | FEAT-001 Project Scaffolding, FEAT-002 Design System                                |
+| In Progress | 0     | -                                                                                  |
+| Ready       | 0     | -                                                                                  |
+| Submitted   | 7     | Hero/Nav, Trust Model, Roles, Protocol Evidence, Footer/Utility, Responsive, CI/CD |
 
 ## Dependency Flow Diagram
 
@@ -112,7 +112,7 @@ flowchart TD
         F17[Responsive Design and Mobile Optimization]
 
     class F10 completed
-    class F11 ready
+    class F11 completed
     class F12 notStarted
     class F13 notStarted
     class F14 notStarted
@@ -571,7 +571,7 @@ This EPIC follows the landing page design established in the prototype at `Memor
 | TBD        | SUBMITTED   | -          | -          | Responsive Design & Mobile Optimization    |
 | TBD        | SUBMITTED   | -          | -          | CI/CD and AWS Deployment                   |
 | FEAT-001   | COMPLETED   | 2026-07-08 | 2026-07-08 |                                            |
-| FEAT-002   | IN PROGRESS | 2026-07-08 |            | Refined; task/phase handoff generated.     |
+| FEAT-002   | COMPLETED   | 2026-07-08 | 2026-07-08 | Design system tokens, components, tests    |
 | FEAT-003   | SUBMITTED   | 2026-07-08 |            |                                            |
 | FEAT-004   | SUBMITTED   | 2026-07-08 |            |                                            |
 | FEAT-005   | SUBMITTED   | 2026-07-08 |            |                                            |
@@ -579,7 +579,7 @@ This EPIC follows the landing page design established in the prototype at `Memor
 | FEAT-007   | SUBMITTED   | 2026-07-08 |            |                                            |
 | FEAT-008   | SUBMITTED   | 2026-07-08 |            |                                            |
 
-**Overall Progress:** 1/9 features complete (11%)
+**Overall Progress:** 2/9 features complete (22%)
 
 ## Next Steps
 
