@@ -81,12 +81,12 @@ Prove the application can be built and served as a TanStack Start scaffold witho
 
 ## Quality Gate Evidence
 
-| Gate | Decision | Evidence / Justification |
-| --- | --- | --- |
-| Changed files | recorded | `src/ssr.tsx`, `src/client.tsx`, `src/router.tsx`, `src/routeTree.gen.ts`, `src/routes/__root.tsx`, `src/routes/index.tsx`, `vite.config.ts`, `package.json` (dependencies updated) |
-| Tests | satisfied | `pnpm vite build` succeeds for both client and ssr environments. Client build produces 310KB JS + 20KB CSS. Server build produces 171KB bundle with all routes. |
-| Gherkin/Playwright E2E | waived | Browser reachability testing is scoped to Phase 6/7 where Playwright configuration, Gherkin features, and browser setup are established. The build output proves the routing and SSR work at the compilation level. |
-| Code review | waived | Application entry structure follows standard TanStack Start patterns. No complex business logic introduced — only scaffold routing, entry points, and a minimal homepage component. Review will be conducted at Phase 8 or when code-relevant changes are made. |
+| Gate                   | Decision  | Evidence / Justification                                                                                                                                                                                                                                        |
+| ---------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Changed files          | recorded  | `src/ssr.tsx`, `src/client.tsx`, `src/router.tsx`, `src/routeTree.gen.ts`, `src/routes/__root.tsx`, `src/routes/index.tsx`, `vite.config.ts`, `package.json` (dependencies updated)                                                                             |
+| Tests                  | satisfied | `pnpm vite build` succeeds for both client and ssr environments. Client build produces 310KB JS + 20KB CSS. Server build produces 171KB bundle with all routes.                                                                                                 |
+| Gherkin/Playwright E2E | waived    | Browser reachability testing is scoped to Phase 6/7 where Playwright configuration, Gherkin features, and browser setup are established. The build output proves the routing and SSR work at the compilation level.                                             |
+| Code review            | waived    | Application entry structure follows standard TanStack Start patterns. No complex business logic introduced — only scaffold routing, entry points, and a minimal homepage component. Review will be conducted at Phase 8 or when code-relevant changes are made. |
 
 ## Acceptance Criteria
 

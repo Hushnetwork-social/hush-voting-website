@@ -29,10 +29,8 @@ describe("Scaffold Configuration", () => {
 
   it("Tailwind CSS is configured", async () => {
     const pkg = await import("../../package.json");
-    const hasTailwind =
-      "tailwindcss" in (pkg.devDependencies ?? {});
-    const hasTailwindVite =
-      "@tailwindcss/vite" in (pkg.devDependencies ?? {});
+    const hasTailwind = "tailwindcss" in (pkg.devDependencies ?? {});
+    const hasTailwindVite = "@tailwindcss/vite" in (pkg.devDependencies ?? {});
     expect(hasTailwind || hasTailwindVite).toBe(true);
   });
 });

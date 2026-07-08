@@ -6,7 +6,9 @@
 
 ## Summary
 
-Initialize a TanStack Start RC project scaffold with pnpm, Tailwind CSS configured with Sovereign Shield design tokens, TypeScript strict mode, ESLint/Prettier, and package.json scripts (`dev`, `build`, `start`, `test:unit`, `test:e2e:happy-path`). Set up directory structure, README conventions, and the initial Gherkin-driven Playwright E2E acceptance test foundation. During implementation, select the current TanStack Start RC, pin the exact resolved version, commit the lockfile, and document concrete React Router v7 fallback triggers.
+Initialize a TanStack Start RC project scaffold with pnpm, Tailwind CSS configured with Sovereign Shield design tokens, TypeScript strict mode, ESLint/Prettier, and package.json scripts (`dev`, `build`, `start`, `test:unit`, `test:e2e:happy-path`). Set up directory structure, README conventions, and the initial Gherkin-driven Playwright E2E acceptance test foundation.
+
+During implementation, select the current TanStack Start RC by following official React Start example parity, pin the exact resolved `@tanstack/react-start` RC version, commit the lockfile, and document concrete React Router v7 fallback triggers. Scaffold readiness is accepted through canonical scripts, bounded development and production smoke checks, and an audit for stale build commands in `.github/workflows/` and `scripts/ci/`.
 
 ## Source
 
@@ -15,14 +17,18 @@ Initialize a TanStack Start RC project scaffold with pnpm, Tailwind CSS configur
 
 ## Hepha Deep-Dive Decisions
 
-- FEAT-001 uses the **Full scaffold readiness contract** acceptance criteria set.
-- The scaffold must prove install, development, production build, production start, unit test, and happy-path E2E script readiness.
+- FEAT-001 uses the **Canonical scripts plus CI audit** validation contract.
+- The scaffold must prove install, canonical `package.json` script readiness, bounded development and production smoke checks, and stale-command audit readiness.
+- `.github/workflows/` and `scripts/ci/` must be audited for stale build, test, install, or package-manager commands if those paths exist.
 - Gherkin-based Playwright E2E acceptance tests must be established from the start of the project.
 - FEAT-001 is limited to foundational build and tooling infrastructure.
 - Product pages, CI/CD deployment, authentication, persistence, and production hosting are explicitly out of scope for this feature.
-- The TanStack Start RC version must be selected during implementation as the current available RC, pinned to an exact version, recorded in `package.json`, and preserved through the committed lockfile.
+- The TanStack Start RC setup authority is **official React Start example parity**.
+- The implementation must pin the current exact `@tanstack/react-start` RC version and verify scaffold configuration against the official example, including `package.json`, `vite.config.ts`, `nitro()`, React plugin setup, `srcDirectory`, and type references.
 - The README must document the exact pinned TanStack Start RC version and concrete React Router v7 fallback triggers.
-- The minimum Sovereign Shield token baseline is core Tailwind theme tokens for color, radius, spacing, and typography, plus visible smoke usage in the scaffolded page.
+- The minimum Sovereign Shield token baseline is core Tailwind theme tokens for color, radius, spacing, and typography.
+- Token smoke usage must be a small non-product scaffold shell that visibly proves color, radius, spacing, and typography tokens are active.
+- CSS/font setup must keep imports ordered or use HTML font links to avoid brittle style initialization.
 - Long-running readiness checks must use bounded automated smoke checks: scripted startup, browser reachability verification, and automatic teardown for development and production server validation.
 
 ## Scope
@@ -32,18 +38,20 @@ FEAT-001 establishes the project foundation required for later feature refinemen
 Included:
 
 - TanStack Start RC application scaffold.
+- Official React Start example parity check for the selected TanStack Start RC.
 - pnpm-based dependency and script workflow.
 - Committed pnpm lockfile.
 - Strict TypeScript configuration.
 - ESLint and Prettier configuration.
 - Tailwind CSS setup with Sovereign Shield design tokens.
-- Minimal tokenized scaffold page proving Tailwind and Sovereign Shield token usage.
+- Minimal non-product tokenized scaffold shell proving Tailwind and Sovereign Shield token usage.
 - Initial directory structure and README conventions.
 - Unit test command wiring.
 - Gherkin-driven Playwright E2E happy-path acceptance test wiring.
-- Pinned TanStack Start RC dependency version.
+- Pinned exact `@tanstack/react-start` RC dependency version.
 - Documented React Router v7 fallback criteria.
 - Bounded smoke validation for dev server and production start readiness.
+- Audit of `.github/workflows/` and `scripts/ci/` for stale build commands when those paths exist.
 
 Excluded:
 
@@ -62,8 +70,15 @@ Excluded:
 - The project uses `pnpm` as the package manager.
 - `package.json` declares pnpm as the required package manager where supported.
 - The pnpm lockfile is committed.
-- The TanStack Start RC dependency is pinned to a specific exact RC version rather than a floating range.
+- The `@tanstack/react-start` dependency is pinned to a specific exact RC version rather than a floating range.
 - The exact pinned TanStack Start RC version is documented in the README.
+- The scaffold setup is checked against official React Start example parity, including:
+  - `package.json`;
+  - `vite.config.ts`;
+  - `nitro()` usage;
+  - React plugin setup;
+  - `srcDirectory`;
+  - type references.
 - The scaffold includes README documentation describing:
   - local setup;
   - required package manager;
@@ -76,7 +91,7 @@ Excluded:
 
 ### Build and Runtime Scripts
 
-The root `package.json` includes and supports the following scripts:
+The root `package.json` includes and supports the following canonical scripts:
 
 - `dev`
 - `build`
@@ -84,7 +99,7 @@ The root `package.json` includes and supports the following scripts:
 - `test:unit`
 - `test:e2e:happy-path`
 
-The scaffold may include additional helper scripts such as linting, formatting, type checking, or smoke-test internals, but the scripts above are required.
+The scaffold may include additional helper scripts such as linting, formatting, type checking, CI audit helpers, or smoke-test internals, but the scripts above are required.
 
 The scaffold is considered ready only when:
 
@@ -93,7 +108,8 @@ The scaffold is considered ready only when:
 - `pnpm build` produces a production build;
 - `pnpm start` starts the built application;
 - `pnpm test:unit` executes successfully;
-- `pnpm test:e2e:happy-path` executes the initial happy-path E2E acceptance test successfully.
+- `pnpm test:e2e:happy-path` executes the initial happy-path E2E acceptance test successfully;
+- `.github/workflows/` and `scripts/ci/` are audited for stale build, test, install, or package-manager commands when those paths exist.
 
 ### TypeScript, Linting, and Formatting
 
@@ -113,6 +129,9 @@ The scaffold is considered ready only when:
   - spacing tokens;
   - typography tokens.
 - The initial scaffold includes visible styling usage that proves Tailwind and the Sovereign Shield token configuration are active.
+- Token smoke usage is limited to a small non-product scaffold shell.
+- The scaffold shell visibly demonstrates color, radius, spacing, and typography tokens without introducing product page implementation.
+- CSS imports are kept ordered, or font loading is handled through HTML font links, so styling initialization remains clear and maintainable.
 - The token smoke usage remains minimal and must not become product page implementation.
 
 ### Gherkin E2E Acceptance Testing
@@ -134,6 +153,13 @@ Long-running scaffold readiness checks must be automated without becoming brittl
 - Tests validate reachability and scaffold readiness, not implementation details that would make later feature work fragile.
 - The happy-path E2E flow may own the browser reachability checks when it cleanly covers the required dev or production server startup path.
 
+### CI Command Audit
+
+- If `.github/workflows/` exists, workflow files are checked for stale install, build, test, package-manager, or script commands that conflict with the canonical pnpm scaffold.
+- If `scripts/ci/` exists, CI helper scripts are checked for stale install, build, test, package-manager, or script commands that conflict with the canonical pnpm scaffold.
+- Any stale command found during the audit is updated or removed as part of scaffold readiness.
+- The audit does not require implementing CI/CD deployment for this feature.
+
 ### React Router v7 Fallback Criteria
 
 The README documents fallback criteria for replacing or deferring TanStack Start RC usage in favor of React Router v7 if the selected TanStack Start RC blocks foundational project readiness.
@@ -148,13 +174,15 @@ Concrete fallback triggers include:
 - the RC blocks a compatible TypeScript strict-mode setup without unreasonable workarounds;
 - the RC forces routing conventions that are not maintainable for the planned website;
 - the RC prevents stable Gherkin/Playwright happy-path execution;
-- the RC requires fragile or undocumented workarounds for normal scaffold operation.
+- the RC requires fragile or undocumented workarounds for normal scaffold operation;
+- official React Start example parity cannot be achieved for the selected RC without undermining the scaffold’s maintainability.
 
 Any fallback decision must be documented before implementation changes are made. The documentation must state:
 
 - the pinned TanStack Start RC version tested;
 - the failing readiness requirement;
 - the evidence from the bounded validation attempt;
+- the official example parity gap, when relevant;
 - why React Router v7 is the safer fallback for the scaffold.
 
 ## Validation
@@ -172,4 +200,10 @@ Validation requires successful execution of the scaffold readiness contract:
 
 Development and production server validation must be performed through bounded automated smoke checks with browser reachability verification and automatic teardown.
 
-A successful FEAT-001 outcome proves that the project can be installed, developed, built, served, linted/formatted by convention, unit-tested, and acceptance-tested through the initial Gherkin Playwright happy path.
+Validation also requires:
+
+- official React Start example parity verification for the pinned `@tanstack/react-start` RC;
+- audit of `.github/workflows/` and `scripts/ci/` for stale build, test, install, or package-manager commands when those paths exist;
+- README documentation of the pinned RC version, project conventions, testing conventions, and React Router v7 fallback criteria.
+
+A successful FEAT-001 outcome proves that the project can be installed, developed, built, served, linted/formatted by convention, unit-tested, acceptance-tested through the initial Gherkin Playwright happy path, and kept free of stale scaffold commands in local CI-related project files.

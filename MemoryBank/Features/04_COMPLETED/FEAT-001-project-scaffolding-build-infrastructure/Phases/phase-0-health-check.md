@@ -44,12 +44,12 @@ Validate requirements and repository baseline before changing scaffold files.
 
 ## Quality Gate Evidence
 
-| Gate | Decision | Evidence / Justification |
-| --- | --- | --- |
-| Changed files | not applicable | Health-check-only phase. No production code was changed. `FeatureDescription.md` status updated from `Ready To Develop` to `In Progress` via start transition; `start-feature-report.md` created. |
-| Tests | not applicable | Health-check-only phase; no production behavior or test harness is introduced. |
-| Gherkin/Playwright E2E | not applicable | Health-check-only phase occurs before browser behavior is implemented. |
-| Code review | not applicable | Health-check-only phase; only status/metadata documentation was updated. |
+| Gate                   | Decision       | Evidence / Justification                                                                                                                                                                          |
+| ---------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Changed files          | not applicable | Health-check-only phase. No production code was changed. `FeatureDescription.md` status updated from `Ready To Develop` to `In Progress` via start transition; `start-feature-report.md` created. |
+| Tests                  | not applicable | Health-check-only phase; no production behavior or test harness is introduced.                                                                                                                    |
+| Gherkin/Playwright E2E | not applicable | Health-check-only phase occurs before browser behavior is implemented.                                                                                                                            |
+| Code review            | not applicable | Health-check-only phase; only status/metadata documentation was updated.                                                                                                                          |
 
 ## Acceptance Criteria
 
@@ -65,13 +65,13 @@ Phase 0 may complete only when the implementation worker records either “no bl
 
 ### Validation Results
 
-| Check | Result | Details |
-|-------|--------|---------|
-| Unresolved validation markers | ✅ No blockers | No `[NEEDS VALIDATION]` found in any FEAT or EPIC document. |
-| Conflicting framework artifacts | ✅ None | Repository is greenfield — only `.gitignore`, `LICENSE`, `README.md`, `.github/workflows/`, `scripts/`, and `MemoryBank/` exist. No framework artifacts present. |
-| CI graceful skip before `package.json` | ✅ Confirmed | `scripts/ci/run-frontend-ci.sh` exits 0 when `package.json` doesn't exist. |
-| CI contract requirements | ✅ Understood | Future `package.json` must define `packageManager` (pnpm), scripts: `build`, `test:unit`, `test:e2e:happy-path`. Lockfile `pnpm-lock.yaml` must be committed. CD requires `Dockerfile`. |
-| Scope boundaries | ✅ Clear | No product pages, auth, persistence, backend, or production hosting in scope. |
+| Check                                  | Result         | Details                                                                                                                                                                                 |
+| -------------------------------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Unresolved validation markers          | ✅ No blockers | No `[NEEDS VALIDATION]` found in any FEAT or EPIC document.                                                                                                                             |
+| Conflicting framework artifacts        | ✅ None        | Repository is greenfield — only `.gitignore`, `LICENSE`, `README.md`, `.github/workflows/`, `scripts/`, and `MemoryBank/` exist. No framework artifacts present.                        |
+| CI graceful skip before `package.json` | ✅ Confirmed   | `scripts/ci/run-frontend-ci.sh` exits 0 when `package.json` doesn't exist.                                                                                                              |
+| CI contract requirements               | ✅ Understood  | Future `package.json` must define `packageManager` (pnpm), scripts: `build`, `test:unit`, `test:e2e:happy-path`. Lockfile `pnpm-lock.yaml` must be committed. CD requires `Dockerfile`. |
+| Scope boundaries                       | ✅ Clear       | No product pages, auth, persistence, backend, or production hosting in scope.                                                                                                           |
 
 ### CI/Docker Requirements for Future Phases
 

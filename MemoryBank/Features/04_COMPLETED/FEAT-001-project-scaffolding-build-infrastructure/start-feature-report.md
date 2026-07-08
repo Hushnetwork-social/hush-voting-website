@@ -6,16 +6,16 @@
 
 ## Transition Summary
 
-| Field | Value |
-|-------|-------|
-| Feature ID | FEAT-001 |
-| Folder | `03_IN_PROGRESS/FEAT-001-project-scaffolding-build-infrastructure` |
-| Previous Status | Already in `03_IN_PROGRESS` (folder move was performed previously) |
-| Branch | `feat/FEAT-001-project-scaffolding-build-infrastructure` |
-| Source Folder | `02_READY_TO_DEVELOP` (moved previously) |
-| Target Folder | `03_IN_PROGRESS` (current) |
+| Field                 | Value                                                               |
+| --------------------- | ------------------------------------------------------------------- |
+| Feature ID            | FEAT-001                                                            |
+| Folder                | `03_IN_PROGRESS/FEAT-001-project-scaffolding-build-infrastructure`  |
+| Previous Status       | Already in `03_IN_PROGRESS` (folder move was performed previously)  |
+| Branch                | `feat/FEAT-001-project-scaffolding-build-infrastructure`            |
+| Source Folder         | `02_READY_TO_DEVELOP` (moved previously)                            |
+| Target Folder         | `03_IN_PROGRESS` (current)                                          |
 | Stale Status Repaired | `FeatureDescription.md` updated: `Ready To Develop` → `In Progress` |
-| Phase 0 Status | PENDING (first unresolved phase) |
+| Phase 0 Status        | PENDING (first unresolved phase)                                    |
 
 ## Validation Findings
 

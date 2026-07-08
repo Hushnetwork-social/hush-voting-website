@@ -1,15 +1,15 @@
 # Technology Decision: Full-Stack React Framework for HushVoting Website
 
-| Field | Value |
-|-------|-------|
-| Scope | EPIC-001 |
-| Status | DECIDED ✅ |
-| Decision | TanStack Start (Release Candidate) with React Router v7 fallback |
-| Approved By | EPIC-001 Owner |
-| Approval Date | 2026-07-08 |
-| Author | EPIC-001 context |
-| Created | 2026-07-08 |
-| Related EPIC | EPIC-001: HushVoting Website Platform & Initial Design |
+| Field         | Value                                                            |
+| ------------- | ---------------------------------------------------------------- |
+| Scope         | EPIC-001                                                         |
+| Status        | DECIDED ✅                                                       |
+| Decision      | TanStack Start (Release Candidate) with React Router v7 fallback |
+| Approved By   | EPIC-001 Owner                                                   |
+| Approval Date | 2026-07-08                                                       |
+| Author        | EPIC-001 context                                                 |
+| Created       | 2026-07-08                                                       |
+| Related EPIC  | EPIC-001: HushVoting Website Platform & Initial Design           |
 
 ## Context
 
@@ -27,18 +27,19 @@ This is an open architectural decision for EPIC-001. The framework choice affect
 
 ## Evaluation Criteria
 
-| Criterion | Weight | Why It Matters |
-|-----------|--------|----------------|
-| Developer Experience | High | Fast iteration cycles for a marketing/product website; the team should feel productive, not fight the framework |
-| Deployment Flexibility | High | The website must deploy to AWS (per README.md CD contract); vendor lock-in is a risk |
-| Type Safety | Medium | Good-to-have for a marketing website; critical for future interactive sections |
-| Ecosystem Maturity | Medium | The website is a public-facing product surface; stability matters |
-| Production Readiness | High | Must ship to production without blocking on framework instability |
-| Portability / Future-Proofing | Medium | HushVoting may grow interactive server needs; framework should not limit options |
+| Criterion                     | Weight | Why It Matters                                                                                                  |
+| ----------------------------- | ------ | --------------------------------------------------------------------------------------------------------------- |
+| Developer Experience          | High   | Fast iteration cycles for a marketing/product website; the team should feel productive, not fight the framework |
+| Deployment Flexibility        | High   | The website must deploy to AWS (per README.md CD contract); vendor lock-in is a risk                            |
+| Type Safety                   | Medium | Good-to-have for a marketing website; critical for future interactive sections                                  |
+| Ecosystem Maturity            | Medium | The website is a public-facing product surface; stability matters                                               |
+| Production Readiness          | High   | Must ship to production without blocking on framework instability                                               |
+| Portability / Future-Proofing | Medium | HushVoting may grow interactive server needs; framework should not limit options                                |
 
 ## Option A: Next.js (Vercel)
 
 **Strengths:**
+
 - Battle-tested at massive scale, largest community in React ecosystem
 - Mature RSC (React Server Components) support
 - Automatic image optimization, font loading
@@ -46,6 +47,7 @@ This is an open architectural decision for EPIC-001. The framework choice affect
 - Next.js 15 (App Router) is production-grade stable
 
 **Weaknesses:**
+
 - **Vendor lock-in concern:** Many features work best or only on Vercel (ISR, Image Optimization, Middleware at Edge only). Self-hosting requires additional configuration and carries limitations.
 - **Development performance:** Slow dev server startup (seconds, scales poorly with project size), slow HMR even with Turbopack, high CPU/RAM consumption during development.
 - **Convention-over-configuration:** Deeply opinionated structure. Fighting the framework for non-standard setups is costly.
@@ -55,6 +57,7 @@ This is an open architectural decision for EPIC-001. The framework choice affect
 ## Option B: TanStack Start (TanStack Router + Vite/Rsbuild)
 
 **Strengths:**
+
 - **Deployment agnostic:** Built on Vite and Rsbuild builds. Deploy to AWS, Cloudflare, Netlify, Railway, Fly.io, Vercel (via Nitro), or any Node.js host. No vendor-specific features required.
 - **Development performance:** Instant dev server startup (Vite/Rsbuild), lightning-fast HMR, lightweight CPU/RAM usage.
 - **Type safety first:** End-to-end type-safe routing, server functions, loaders. Industry-leading type-safe routing via TanStack Router.
@@ -65,6 +68,7 @@ This is an open architectural decision for EPIC-001. The framework choice affect
 - **TanStack ecosystem alignment:** Official TanStack Query, Form, Table integrations if the website grows interactive data surfaces.
 
 **Weaknesses:**
+
 - **Release Candidate stage (not v1):** Feature-complete and API-stable, but not yet formally v1. Road to v1 should be quick, but risk exists for edge cases or breaking changes before v1.
 - **Smaller community:** Growing but significantly smaller than Next.js. Fewer blog posts, Stack Overflow answers, and third-party examples.
 - **RSC support is experimental:** Not yet a primary paradigm; uses client-led composition approach rather than RSC-first.
@@ -73,12 +77,14 @@ This is an open architectural decision for EPIC-001. The framework choice affect
 ## Option C: React Router v7 (Framework Mode)
 
 **Strengths:**
+
 - Web standards-first approach (fetch, FormData, Headers)
 - Progressive enhancement (works without JavaScript by default)
 - Vite-based, fast dev performance
 - Evolution of Remix, strong community
 
 **Weaknesses:**
+
 - Less type-safe than TanStack Start (no type-first architecture)
 - No built-in SWR caching (requires manual integration)
 - Weaker server function middleware model
@@ -102,6 +108,7 @@ Rationale:
 6. **TanStack ecosystem alignment:** HushVoting's authenticated web client or future interactive surfaces may benefit from TanStack Query and Router. Using TanStack Start now establishes consistent patterns.
 
 **Risk Mitigation for Release Candidate status:**
+
 - Pin to a specific RC version in `package.json`
 - Freeze the framework version at the start of EPIC-001 implementation
 - If blocking issues emerge during EPIC-001 FEATs, switch to React Router v7 (Framework Mode) as fallback — same Vite ecosystem, similar architecture

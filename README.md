@@ -54,17 +54,17 @@ pnpm test:e2e:happy-path
 
 ## Available Scripts
 
-| Script | Description |
-|--------|-------------|
-| `pnpm dev` | Start development server with HMR |
-| `pnpm build` | Production build (client + server) |
-| `pnpm start` | Start production server |
-| `pnpm test:unit` | Run unit tests (Vitest) |
-| `pnpm test:e2e:happy-path` | Run happy-path E2E tests (Playwright) |
-| `pnpm typecheck` | TypeScript type checking (`tsc --noEmit`) |
-| `pnpm lint` | Run ESLint |
-| `pnpm format` | Format code with Prettier |
-| `pnpm format:check` | Check formatting without writing |
+| Script                     | Description                               |
+| -------------------------- | ----------------------------------------- |
+| `pnpm dev`                 | Start development server with HMR         |
+| `pnpm build`               | Production build (client + server)        |
+| `pnpm start`               | Start production server                   |
+| `pnpm test:unit`           | Run unit tests (Vitest)                   |
+| `pnpm test:e2e:happy-path` | Run happy-path E2E tests (Playwright)     |
+| `pnpm typecheck`           | TypeScript type checking (`tsc --noEmit`) |
+| `pnpm lint`                | Run ESLint                                |
+| `pnpm format`              | Format code with Prettier                 |
+| `pnpm format:check`        | Check formatting without writing          |
 
 ## Framework
 
@@ -130,18 +130,18 @@ hush-voting-website/
 
 ## Technology Stack
 
-| Layer | Technology | Version |
-|-------|-----------|---------|
-| Framework | TanStack Start | 1.168.27 (pinned) |
-| Router | TanStack Router | 1.170.17 |
-| UI Library | React | ^19 |
-| CSS | Tailwind CSS v4 + Sovereign Shield | ^4 |
-| TypeScript | TypeScript strict mode | ~5.7 |
-| Package Manager | pnpm | 11.9.0 |
-| Unit Testing | Vitest | ^3 |
-| E2E Testing | Playwright + Gherkin | ^1.52 |
-| Linting | ESLint | ^9 |
-| Formatting | Prettier | ^3 |
+| Layer           | Technology                         | Version           |
+| --------------- | ---------------------------------- | ----------------- |
+| Framework       | TanStack Start                     | 1.168.27 (pinned) |
+| Router          | TanStack Router                    | 1.170.17          |
+| UI Library      | React                              | ^19               |
+| CSS             | Tailwind CSS v4 + Sovereign Shield | ^4                |
+| TypeScript      | TypeScript strict mode             | ~5.7              |
+| Package Manager | pnpm                               | 11.9.0            |
+| Unit Testing    | Vitest                             | ^3                |
+| E2E Testing     | Playwright + Gherkin               | ^1.52             |
+| Linting         | ESLint                             | ^9                |
+| Formatting      | Prettier                           | ^3                |
 
 ## Design System: Sovereign Shield
 

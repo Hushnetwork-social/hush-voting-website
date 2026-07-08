@@ -60,26 +60,26 @@ Ensure a future developer can use the scaffold without reading implementation hi
 
 ## Final Verification Evidence
 
-| Check | Result | Details |
-|-------|--------|---------|
-| `pnpm install` | ✅ Pass | Lockfile resolved, dependencies installed |
-| `pnpm build` | ✅ Pass | Client (310KB JS + 20KB CSS) + Server (171KB) |
-| `pnpm test:unit` | ✅ Pass | 3/3 tests passing |
-| `pnpm typecheck` | ✅ Pass | `tsc --noEmit` clean |
-| `pnpm dev` | ✅ Starts | Vite dev server starts on port 3000 |
-| Production server | ✅ Starts | Nitro server starts |
-| Tests/e2e harness | ✅ Ready | Playwright config + Gherkin feature + spec created |
-| Sovereign Shield tokens | ✅ Implemented | 40+ tokens in Tailwind v4 @theme |
-| No scope slip | ✅ Confirmed | No product pages, auth, persistence, backend, deployment |
+| Check                   | Result         | Details                                                  |
+| ----------------------- | -------------- | -------------------------------------------------------- |
+| `pnpm install`          | ✅ Pass        | Lockfile resolved, dependencies installed                |
+| `pnpm build`            | ✅ Pass        | Client (310KB JS + 20KB CSS) + Server (171KB)            |
+| `pnpm test:unit`        | ✅ Pass        | 3/3 tests passing                                        |
+| `pnpm typecheck`        | ✅ Pass        | `tsc --noEmit` clean                                     |
+| `pnpm dev`              | ✅ Starts      | Vite dev server starts on port 3000                      |
+| Production server       | ✅ Starts      | Nitro server starts                                      |
+| Tests/e2e harness       | ✅ Ready       | Playwright config + Gherkin feature + spec created       |
+| Sovereign Shield tokens | ✅ Implemented | 40+ tokens in Tailwind v4 @theme                         |
+| No scope slip           | ✅ Confirmed   | No product pages, auth, persistence, backend, deployment |
 
 ## Quality Gate Evidence
 
-| Gate | Decision | Evidence / Justification |
-| --- | --- | --- |
-| Changed files | recorded | Comprehensive list in commit history. Key files: `package.json`, `tsconfig.json`, `vite.config.ts`, `src/*`, `styles/app.css`, `tests/*`, `vitest.config.ts`, `prettier.config.js`, `README.md`, `.env.example`, `pnpm-lock.yaml` |
-| Tests | satisfied | `pnpm test:unit` — 3/3 pass. `tsc --noEmit` — clean. `pnpm build` — client + ssr success. E2E harness ready. |
+| Gate                   | Decision  | Evidence / Justification                                                                                                                                                                                                                                            |
+| ---------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Changed files          | recorded  | Comprehensive list in commit history. Key files: `package.json`, `tsconfig.json`, `vite.config.ts`, `src/*`, `styles/app.css`, `tests/*`, `vitest.config.ts`, `prettier.config.js`, `README.md`, `.env.example`, `pnpm-lock.yaml`                                   |
+| Tests                  | satisfied | `pnpm test:unit` — 3/3 pass. `tsc --noEmit` — clean. `pnpm build` — client + ssr success. E2E harness ready.                                                                                                                                                        |
 | Gherkin/Playwright E2E | satisfied | Gherkin feature file created (`scaffold-happy-path.feature`). Playwright spec created (`scaffold-happy-path.spec.ts`). Playwright chromium browser installed. Script `test:e2e:happy-path` wired. Full E2E execution requires a running server (verified to start). |
-| Code review | waived | All changes are scaffold-only configuration, routing, and test infrastructure. No production-feature business logic, UI components, or data-layer code was introduced. Review should be conducted before FEAT-001 acceptance/code review phase. |
+| Code review            | waived    | All changes are scaffold-only configuration, routing, and test infrastructure. No production-feature business logic, UI components, or data-layer code was introduced. Review should be conducted before FEAT-001 acceptance/code review phase.                     |
 
 ## Readiness Summary
 

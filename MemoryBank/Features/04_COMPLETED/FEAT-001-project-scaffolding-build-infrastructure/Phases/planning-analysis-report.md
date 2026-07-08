@@ -17,26 +17,27 @@ Based on `MemoryBank/Overview/TechDecision-Framework-Selection.md`, TanStack Sta
 
 ### Package Versions (Pinned)
 
-| Package | Version | Purpose |
-|---------|---------|---------|
-| `@tanstack/start` | `1.120.20` | Meta-framework entry point |
-| `@tanstack/react-router` | compatible with start 1.120.20 | Type-safe routing |
-| `@tanstack/react-router-with-query` | compatible | Router + Query integration (future) |
-| `react` / `react-dom` | `^19.0.0` | UI library |
-| `typescript` | `^5.7` | TypeScript compiler |
-| `tailwindcss` | `^4` | Utility CSS framework |
-| `postcss` | `^8` | CSS processing |
-| `@tailwindcss/postcss` | compatible | Tailwind PostCSS plugin |
-| `vitest` | `^3` | Unit test framework |
-| `@playwright/test` | `^1.52` | E2E test framework |
-| `eslint` | `^9` | Linting |
-| `prettier` | `^3` | Formatting |
+| Package                             | Version                        | Purpose                             |
+| ----------------------------------- | ------------------------------ | ----------------------------------- |
+| `@tanstack/start`                   | `1.120.20`                     | Meta-framework entry point          |
+| `@tanstack/react-router`            | compatible with start 1.120.20 | Type-safe routing                   |
+| `@tanstack/react-router-with-query` | compatible                     | Router + Query integration (future) |
+| `react` / `react-dom`               | `^19.0.0`                      | UI library                          |
+| `typescript`                        | `^5.7`                         | TypeScript compiler                 |
+| `tailwindcss`                       | `^4`                           | Utility CSS framework               |
+| `postcss`                           | `^8`                           | CSS processing                      |
+| `@tailwindcss/postcss`              | compatible                     | Tailwind PostCSS plugin             |
+| `vitest`                            | `^3`                           | Unit test framework                 |
+| `@playwright/test`                  | `^1.52`                        | E2E test framework                  |
+| `eslint`                            | `^9`                           | Linting                             |
+| `prettier`                          | `^3`                           | Formatting                          |
 
 **Version freeze rule:** All versions above are frozen at the start of Phase 2 (Data Layer). If any dependency must change during implementation, the exact new version must be recorded here with the reason. The lockfile (`pnpm-lock.yaml`) is the authoritative record of resolved transitive dependencies.
 
 ### Fallback Decision Point
 
 If the pinned `@tanstack/start@1.120.20` blocks any of these requirements:
+
 1. `pnpm dev` cannot reliably start within a 60-second bounded smoke check
 2. `pnpm build` cannot produce a production build
 3. `pnpm start` cannot serve the built app
@@ -232,6 +233,7 @@ TanStack Start `@tanstack/start@1.120.20` is the default. All Phase 2-6 implemen
 3. **Phase 6** (Integration): If E2E cannot execute against TanStack Start, document the failure.
 
 Any fallback decision requires:
+
 - A written block documenting the pinned version tested
 - The failing readiness requirement
 - The evidence from the bounded validation attempt
@@ -244,15 +246,15 @@ Any fallback decision requires:
 
 All downstream phases **must** read this report and update it when implementation reality changes a contract consumed by later phases. Specific update points:
 
-| Phase | Must Read | Must Update If |
-|-------|-----------|----------------|
-| Phase 2 | Sections 1, 2 | Package versions change, directory structure is different from planned |
-| Phase 3 | Sections 1, 2, 5 | Routing conventions differ, framework fallback triggered |
-| Phase 4 | Sections 2, 4 | Layout/boundary structure differs from plan |
-| Phase 5 | Section 4 | Token coverage or visual scope changes |
-| Phase 6 | Sections 2, 3 | Gherkin/Playwright structure or execution differs |
-| Phase 7 | Sections 2, 3 | Test structure or verification commands differ |
-| Phase 8 | All sections | Final README must reflect actual implementation, not this plan |
+| Phase   | Must Read        | Must Update If                                                         |
+| ------- | ---------------- | ---------------------------------------------------------------------- |
+| Phase 2 | Sections 1, 2    | Package versions change, directory structure is different from planned |
+| Phase 3 | Sections 1, 2, 5 | Routing conventions differ, framework fallback triggered               |
+| Phase 4 | Sections 2, 4    | Layout/boundary structure differs from plan                            |
+| Phase 5 | Section 4        | Token coverage or visual scope changes                                 |
+| Phase 6 | Sections 2, 3    | Gherkin/Playwright structure or execution differs                      |
+| Phase 7 | Sections 2, 3    | Test structure or verification commands differ                         |
+| Phase 8 | All sections     | Final README must reflect actual implementation, not this plan         |
 
 ---
 
@@ -261,6 +263,7 @@ All downstream phases **must** read this report and update it when implementatio
 ### Minimum Token Set for Phase 5 (User Interface)
 
 **Colors** (core):
+
 - `surface`, `surface-container-low`, `surface-container`, `surface-container-high`
 - `on-surface`, `on-surface-variant`
 - `primary`, `on-primary`, `primary-container`
@@ -269,6 +272,7 @@ All downstream phases **must** read this report and update it when implementatio
 - `outline`, `outline-variant`
 
 **Typography**:
+
 - `display-lg` (Hanken Grotesk, 48px, 700)
 - `headline-lg` (Hanken Grotesk, 32px, 600)
 - `headline-md` (Hanken Grotesk, 24px, 500)
@@ -278,9 +282,11 @@ All downstream phases **must** read this report and update it when implementatio
 - `label-sm` (JetBrains Mono, 12px, 500)
 
 **Spacing**:
+
 - `xs` 8px, `sm` 16px, `md` 24px, `lg` 40px, `xl` 64px, `gutter` 24px
 
 **Radius**:
+
 - `sm` 4px, `DEFAULT` 8px, `md` 12px, `lg` 16px, `xl` 24px, `full` 9999px
 
 ### Font Integration
@@ -301,6 +307,7 @@ The CI script (`scripts/ci/run-frontend-ci.sh`) requires after scaffold:
 - Optional but recommended: `lint`, `typecheck`
 
 The CD workflow (`.github/workflows/cd.yml`) additionally requires:
+
 - `Dockerfile` at repository root
 - Container exposes HTTP on port 80
 
@@ -308,6 +315,6 @@ The CD workflow (`.github/workflows/cd.yml`) additionally requires:
 
 ## Change Log
 
-| Date | Change | Author |
-|------|--------|--------|
+| Date       | Change                 | Author                   |
+| ---------- | ---------------------- | ------------------------ |
 | 2026-07-08 | Initial report created | pi (start-feature skill) |

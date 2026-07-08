@@ -46,12 +46,12 @@ Provide a stable implementation plan and prevent hidden framework, test, or dire
 
 ## Quality Gate Evidence
 
-| Gate | Decision | Evidence / Justification |
-| --- | --- | --- |
-| Changed files | recorded | `Phases/planning-analysis-report.md` — canonical implementation planning artifact created with framework version strategy, directory conventions, Gherkin/Playwright mapping, UI scope boundaries, and fallback criteria. |
-| Tests | not applicable | Planning-only phase; automated tests are introduced in Phase 7. |
-| Gherkin/Playwright E2E | not applicable | Planning-only phase; E2E harness is designed and mapped in the report (Section 3) but not executed here. Test execution begins in Phase 6/7. |
-| Code review | not applicable | Planning-only documentation phase. No production code or configuration changed. Framework/fallback contracts match the approved TechDecision document. Report must be reviewed if downstream phases cause contract changes. |
+| Gate                   | Decision       | Evidence / Justification                                                                                                                                                                                                    |
+| ---------------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Changed files          | recorded       | `Phases/planning-analysis-report.md` — canonical implementation planning artifact created with framework version strategy, directory conventions, Gherkin/Playwright mapping, UI scope boundaries, and fallback criteria.   |
+| Tests                  | not applicable | Planning-only phase; automated tests are introduced in Phase 7.                                                                                                                                                             |
+| Gherkin/Playwright E2E | not applicable | Planning-only phase; E2E harness is designed and mapped in the report (Section 3) but not executed here. Test execution begins in Phase 6/7.                                                                                |
+| Code review            | not applicable | Planning-only documentation phase. No production code or configuration changed. Framework/fallback contracts match the approved TechDecision document. Report must be reviewed if downstream phases cause contract changes. |
 
 ## Acceptance Criteria
 

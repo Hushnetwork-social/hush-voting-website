@@ -59,12 +59,12 @@ Make the scaffold maintainable and verifiable before README/final checkpoint wor
 
 ## Quality Gate Evidence
 
-| Gate | Decision | Evidence / Justification |
-| --- | --- | --- |
-| Changed files | recorded | `tests/unit/scaffold.test.ts`, `vitest.config.ts`, `prettier.config.js` |
-| Tests | satisfied | `pnpm test:unit` — 1 test file, 3 tests, all passed. `tsc --noEmit` — clean (no errors). `pnpm build` — client + ssr built successfully. |
-| Gherkin/Playwright E2E | waived | Happy-path E2E spec was created in Phase 6; no further E2E changes in this phase. Full E2E execution requires a running server (tested in Phase 8 final checkpoint). |
-| Code review | waived | Testing and configuration changes only. No production logic changed. Review at Phase 8 final checkpoint. |
+| Gate                   | Decision  | Evidence / Justification                                                                                                                                             |
+| ---------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Changed files          | recorded  | `tests/unit/scaffold.test.ts`, `vitest.config.ts`, `prettier.config.js`                                                                                              |
+| Tests                  | satisfied | `pnpm test:unit` — 1 test file, 3 tests, all passed. `tsc --noEmit` — clean (no errors). `pnpm build` — client + ssr built successfully.                             |
+| Gherkin/Playwright E2E | waived    | Happy-path E2E spec was created in Phase 6; no further E2E changes in this phase. Full E2E execution requires a running server (tested in Phase 8 final checkpoint). |
+| Code review            | waived    | Testing and configuration changes only. No production logic changed. Review at Phase 8 final checkpoint.                                                             |
 
 ## Acceptance Criteria
 

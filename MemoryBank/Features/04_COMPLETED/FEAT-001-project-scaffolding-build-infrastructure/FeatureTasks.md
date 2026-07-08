@@ -12,30 +12,30 @@ This feature is limited to foundational readiness. It must prove that the reposi
 
 ## Linked EPIC / Acceptance Traceability
 
-| Source | Requirement | Planned Evidence Labels |
-| --- | --- | --- |
-| FEAT-001 Project Scaffold | TanStack Start RC scaffold, pinned framework dependency, maintainable directory structure, `pnpm` package manager | build, static-analysis, manual-review-ready |
-| FEAT-001 Build and Runtime Scripts | `package.json` exposes `dev`, `build`, `start`, `test:unit`, `test:e2e:happy-path`; readiness for install, dev server, production build, production start, unit tests, E2E | build, unit-tests, ui-tests, full-verification |
-| FEAT-001 TypeScript/Lint/Formatting | Strict TypeScript, ESLint, Prettier, documented conventions | static-analysis, manual-review-ready |
-| FEAT-001 Tailwind and Design Tokens | Tailwind installed/configured; Sovereign Shield tokens represented; minimal styled usage proves active config | build, ui-tests, manual-review-ready |
-| FEAT-001 Gherkin E2E | Playwright plus Gherkin acceptance structure; initial happy path reaches the served app | ui-tests, affected-tests |
-| FEAT-001 React Router v7 fallback | README records fallback criteria before implementation changes if TanStack Start blocks readiness | manual-review-ready |
-| EPIC-001 Success Criteria | TanStack Start initialized and pinned; CI/CD later consumes build/test scripts | build, unit-tests, ui-tests, integration-tests |
-| TechDecision Framework Selection | TanStack Start RC approved with React Router v7 fallback and version freeze | manual-review-ready |
+| Source                              | Requirement                                                                                                                                                                | Planned Evidence Labels                        |
+| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| FEAT-001 Project Scaffold           | TanStack Start RC scaffold, pinned framework dependency, maintainable directory structure, `pnpm` package manager                                                          | build, static-analysis, manual-review-ready    |
+| FEAT-001 Build and Runtime Scripts  | `package.json` exposes `dev`, `build`, `start`, `test:unit`, `test:e2e:happy-path`; readiness for install, dev server, production build, production start, unit tests, E2E | build, unit-tests, ui-tests, full-verification |
+| FEAT-001 TypeScript/Lint/Formatting | Strict TypeScript, ESLint, Prettier, documented conventions                                                                                                                | static-analysis, manual-review-ready           |
+| FEAT-001 Tailwind and Design Tokens | Tailwind installed/configured; Sovereign Shield tokens represented; minimal styled usage proves active config                                                              | build, ui-tests, manual-review-ready           |
+| FEAT-001 Gherkin E2E                | Playwright plus Gherkin acceptance structure; initial happy path reaches the served app                                                                                    | ui-tests, affected-tests                       |
+| FEAT-001 React Router v7 fallback   | README records fallback criteria before implementation changes if TanStack Start blocks readiness                                                                          | manual-review-ready                            |
+| EPIC-001 Success Criteria           | TanStack Start initialized and pinned; CI/CD later consumes build/test scripts                                                                                             | build, unit-tests, ui-tests, integration-tests |
+| TechDecision Framework Selection    | TanStack Start RC approved with React Router v7 fallback and version freeze                                                                                                | manual-review-ready                            |
 
 ## Phase Inventory
 
-| Phase | Name | Status | Primary Output |
-| --- | --- | --- | --- |
-| 0 | Health Check | COMPLETED | Baseline repo and requirement sanity check |
-| 1 | Planning Analysis | COMPLETED | `planning-analysis-report.md` canonical implementation plan |
-| 2 | Data Layer | COMPLETED | Dependency, package metadata, lockfile, environment/type contracts |
-| 3 | Business Logic | COMPLETED | TanStack Start application bootstrap, routing/runtime conventions |
-| 4 | Presentation Logic | COMPLETED | Root layout, route shell, metadata/error/loading conventions |
-| 5 | User Interface | COMPLETED | Tailwind/Sovereign Shield tokens, global styles, minimal styled scaffold |
-| 6 | Integration | COMPLETED | CI script compatibility, production-start readiness, Gherkin/Playwright harness wiring |
-| 7 | Testing & Polish | COMPLETED | Unit, lint/typecheck/format, and happy-path E2E verification foundation |
-| 8 | Final Checkpoint | COMPLETED | README handoff, fallback documentation, final evidence summary |
+| Phase | Name               | Status    | Primary Output                                                                         |
+| ----- | ------------------ | --------- | -------------------------------------------------------------------------------------- |
+| 0     | Health Check       | COMPLETED | Baseline repo and requirement sanity check                                             |
+| 1     | Planning Analysis  | COMPLETED | `planning-analysis-report.md` canonical implementation plan                            |
+| 2     | Data Layer         | COMPLETED | Dependency, package metadata, lockfile, environment/type contracts                     |
+| 3     | Business Logic     | COMPLETED | TanStack Start application bootstrap, routing/runtime conventions                      |
+| 4     | Presentation Logic | COMPLETED | Root layout, route shell, metadata/error/loading conventions                           |
+| 5     | User Interface     | COMPLETED | Tailwind/Sovereign Shield tokens, global styles, minimal styled scaffold               |
+| 6     | Integration        | COMPLETED | CI script compatibility, production-start readiness, Gherkin/Playwright harness wiring |
+| 7     | Testing & Polish   | COMPLETED | Unit, lint/typecheck/format, and happy-path E2E verification foundation                |
+| 8     | Final Checkpoint   | COMPLETED | README handoff, fallback documentation, final evidence summary                         |
 
 ## Task Inventory by Phase
 
