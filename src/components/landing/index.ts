@@ -20,6 +20,9 @@ export { MobileNavDisclosure } from "./MobileNavDisclosure";
 export { TrustModelSection } from "./TrustModelSection";
 export type { TrustModelSectionProps } from "./TrustModelSection";
 
+export { RoleWorkflowSection } from "./RoleWorkflowSection";
+export type { RoleWorkflowSectionProps } from "./RoleWorkflowSection";
+
 export {
   BRAND_TEXT,
   NAV_LINKS,
