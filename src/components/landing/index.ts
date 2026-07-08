@@ -30,5 +30,14 @@ export {
   CTAS,
   TRUST_SECTION,
   ROLE_WORKFLOW_SECTION,
+  PROTOCOL_EVIDENCE_SECTION,
+  PLATFORM_READINESS_SECTION,
 } from "./constants";
-export type { CtaDefinition, CapabilityChip, RoleCard } from "./constants";
+export type {
+  CtaDefinition,
+  CapabilityChip,
+  RoleCard,
+  ProtocolEvidenceItem,
+  DeploymentCard,
+  ClaimBadge,
+} from "./constants";

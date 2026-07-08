@@ -137,3 +137,148 @@ export const ROLE_WORKFLOW_SECTION = {
     },
   ] as const satisfies readonly RoleCard[],
 } as const;
+
+/* ── FEAT-006: Protocol Evidence Section ── */
+
+/** A single protocol evidence category item. */
+export interface ProtocolEvidenceItem {
+  readonly key: string;
+  readonly label: string;
+  readonly icon: string;
+  readonly description: string;
+}
+
+/** Protocol evidence section copy and evidence items. */
+export const PROTOCOL_EVIDENCE_SECTION = {
+  /** The section heading / badge label */
+  heading: "Protocol Omega",
+  /** Short narrative copy for the left column */
+  narrative:
+    "Protocol Omega is the cryptographic backbone of HushVoting!. Every vote is shielded by zero-knowledge proofs, distributed trustee keys, and an immutable audit trail. The evidence categories below demonstrate how the protocol ensures eligibility, privacy, integrity, and verifiability across the full election lifecycle.",
+  /** Protocol Omega badge */
+  badge: {
+    label: "100% Mathematically Verifiable",
+    icon: "verified",
+  },
+  /** Six evidence category items in approved order */
+  items: [
+    {
+      key: "cryptographicReceipts",
+      label: "Cryptographic Receipts",
+      icon: "receipt_long",
+      description:
+        "Evidence that voting activity can produce voter-verifiable receipts without exposing vote choices.",
+    },
+    {
+      key: "eligibilityProofs",
+      label: "Eligibility Proofs",
+      icon: "how_to_reg",
+      description:
+        "Evidence that voter eligibility can be proven without turning the public result into an identity list.",
+    },
+    {
+      key: "anonymousBallots",
+      label: "Anonymous Ballots",
+      icon: "shield_lock",
+      description:
+        "Evidence that private ballot handling is a first-class protocol property.",
+    },
+    {
+      key: "tamperEvidentRecords",
+      label: "Tamper-Evident Records",
+      icon: "database",
+      description:
+        "Evidence that election records are structured for integrity checks and audit review.",
+    },
+    {
+      key: "verifiableTally",
+      label: "Verifiable Tally",
+      icon: "verified",
+      description:
+        "Evidence that outcomes are designed to be independently checked.",
+    },
+    {
+      key: "auditEvidence",
+      label: "Audit Evidence",
+      icon: "fact_check",
+      description:
+        "Evidence packages are designed to support organizational review and post-election audit workflows.",
+    },
+  ] as const satisfies readonly ProtocolEvidenceItem[],
+} as const;
+
+/* ── FEAT-006: Platform Readiness Section ── */
+
+/** A single deployment readiness card. */
+export interface DeploymentCard {
+  readonly key: string;
+  readonly headline: string;
+  readonly icon: string;
+  readonly description: string;
+}
+
+/** A single claim boundary badge. */
+export interface ClaimBadge {
+  readonly label: string;
+  readonly icon: string;
+  readonly fill: 0 | 1;
+}
+
+/** Platform readiness section copy, deployment cards, and claim badges. */
+export const PLATFORM_READINESS_SECTION = {
+  heading: "Universal Deployment Readiness",
+  description:
+    "HushVoting! is designed for real organizational deployment across web, desktop, and mobile surfaces — without compromising on privacy, auditability, or operational control.",
+  /** Three deployment readiness cards in approved order */
+  cards: [
+    {
+      key: "pwaFirst",
+      headline: "PWA-First",
+      icon: "install_mobile",
+      description:
+        "Installable web deployment path designed for fast access, broad device reach, and low operational friction.",
+    },
+    {
+      key: "electrobunReady",
+      headline: "Electrobun-Ready",
+      icon: "desktop_windows",
+      description:
+        "Desktop packaging path prepared for secure organizational environments and dedicated election workstations.",
+    },
+    {
+      key: "mobileNative",
+      headline: "Mobile Native",
+      icon: "phone_iphone",
+      description:
+        "Mobile-native delivery path reserved for future app-store distribution and device-specific voting experiences.",
+    },
+  ] as const satisfies readonly DeploymentCard[],
+  /** Five claim boundary badges in approved order (all FILL 1) */
+  claimBadges: [
+    {
+      label: "Designed for organizational remote voting",
+      icon: "groups",
+      fill: 1,
+    },
+    {
+      label: "Privacy-first",
+      icon: "privacy_tip",
+      fill: 1,
+    },
+    {
+      label: "Verifiable outcomes",
+      icon: "verified",
+      fill: 1,
+    },
+    {
+      label: "Audit-ready evidence packages",
+      icon: "fact_check",
+      fill: 1,
+    },
+    {
+      label: "Enabled by HushNetwork",
+      icon: "hub",
+      fill: 1,
+    },
+  ] as const satisfies readonly ClaimBadge[],
+} as const;

@@ -13,6 +13,8 @@ import {
   BRAND_TEXT,
   TRUST_SECTION,
   ROLE_WORKFLOW_SECTION,
+  PROTOCOL_EVIDENCE_SECTION,
+  PLATFORM_READINESS_SECTION,
 } from "~/components/landing/constants";
 
 /* ── BrandMark ── */
@@ -464,5 +466,120 @@ describe("Constants contract", () => {
   it("CTAS.navPilotAccess has correct label and href", () => {
     expect(CTAS.navPilotAccess.label).toBe("Pilot Access");
     expect(CTAS.navPilotAccess.href).toBe("#pilot-access");
+  });
+});
+
+/* ── FEAT-006 Constants Contract ── */
+
+describe("FEAT-006 Constants contract", () => {
+  it("PROTOCOL_EVIDENCE_SECTION has exact approved heading", () => {
+    expect(PROTOCOL_EVIDENCE_SECTION.heading).toBe("Protocol Omega");
+  });
+
+  it("PROTOCOL_EVIDENCE_SECTION has a narrative string", () => {
+    expect(PROTOCOL_EVIDENCE_SECTION.narrative.length).toBeGreaterThan(50);
+  });
+
+  it("PROTOCOL_EVIDENCE_SECTION badge has correct label and icon", () => {
+    expect(PROTOCOL_EVIDENCE_SECTION.badge.label).toBe(
+      "100% Mathematically Verifiable",
+    );
+    expect(PROTOCOL_EVIDENCE_SECTION.badge.icon).toBe("verified");
+  });
+
+  it("PROTOCOL_EVIDENCE_SECTION exports exactly six evidence items in approved order", () => {
+    const items = PROTOCOL_EVIDENCE_SECTION.items;
+    expect(items.length).toBe(6);
+
+    expect(items[0].key).toBe("cryptographicReceipts");
+    expect(items[0].label).toBe("Cryptographic Receipts");
+    expect(items[0].icon).toBe("receipt_long");
+
+    expect(items[1].key).toBe("eligibilityProofs");
+    expect(items[1].label).toBe("Eligibility Proofs");
+    expect(items[1].icon).toBe("how_to_reg");
+
+    expect(items[2].key).toBe("anonymousBallots");
+    expect(items[2].label).toBe("Anonymous Ballots");
+    expect(items[2].icon).toBe("shield_lock");
+
+    expect(items[3].key).toBe("tamperEvidentRecords");
+    expect(items[3].label).toBe("Tamper-Evident Records");
+    expect(items[3].icon).toBe("database");
+
+    expect(items[4].key).toBe("verifiableTally");
+    expect(items[4].label).toBe("Verifiable Tally");
+    expect(items[4].icon).toBe("verified");
+
+    expect(items[5].key).toBe("auditEvidence");
+    expect(items[5].label).toBe("Audit Evidence");
+    expect(items[5].icon).toBe("fact_check");
+  });
+
+  it("PROTOCOL_EVIDENCE_SECTION items have descriptions", () => {
+    for (const item of PROTOCOL_EVIDENCE_SECTION.items) {
+      expect(item.description.length).toBeGreaterThan(10);
+    }
+  });
+
+  it("PLATFORM_READINESS_SECTION has exact approved heading", () => {
+    expect(PLATFORM_READINESS_SECTION.heading).toBe(
+      "Universal Deployment Readiness",
+    );
+  });
+
+  it("PLATFORM_READINESS_SECTION has a description string", () => {
+    expect(PLATFORM_READINESS_SECTION.description.length).toBeGreaterThan(50);
+  });
+
+  it("PLATFORM_READINESS_SECTION exports exactly three deployment cards in approved order", () => {
+    const cards = PLATFORM_READINESS_SECTION.cards;
+    expect(cards.length).toBe(3);
+
+    expect(cards[0].key).toBe("pwaFirst");
+    expect(cards[0].headline).toBe("PWA-First");
+    expect(cards[0].icon).toBe("install_mobile");
+
+    expect(cards[1].key).toBe("electrobunReady");
+    expect(cards[1].headline).toBe("Electrobun-Ready");
+    expect(cards[1].icon).toBe("desktop_windows");
+
+    expect(cards[2].key).toBe("mobileNative");
+    expect(cards[2].headline).toBe("Mobile Native");
+    expect(cards[2].icon).toBe("phone_iphone");
+  });
+
+  it("PLATFORM_READINESS_SECTION cards have descriptions", () => {
+    for (const card of PLATFORM_READINESS_SECTION.cards) {
+      expect(card.description.length).toBeGreaterThan(10);
+    }
+  });
+
+  it("PLATFORM_READINESS_SECTION exports exactly five claim badges in approved order", () => {
+    const badges = PLATFORM_READINESS_SECTION.claimBadges;
+    expect(badges.length).toBe(5);
+
+    expect(badges[0].label).toBe(
+      "Designed for organizational remote voting",
+    );
+    expect(badges[0].icon).toBe("groups");
+
+    expect(badges[1].label).toBe("Privacy-first");
+    expect(badges[1].icon).toBe("privacy_tip");
+
+    expect(badges[2].label).toBe("Verifiable outcomes");
+    expect(badges[2].icon).toBe("verified");
+
+    expect(badges[3].label).toBe("Audit-ready evidence packages");
+    expect(badges[3].icon).toBe("fact_check");
+
+    expect(badges[4].label).toBe("Enabled by HushNetwork");
+    expect(badges[4].icon).toBe("hub");
+  });
+
+  it("PLATFORM_READINESS_SECTION claim badges all have fill 1", () => {
+    for (const badge of PLATFORM_READINESS_SECTION.claimBadges) {
+      expect(badge.fill).toBe(1);
+    }
   });
 });
