@@ -50,12 +50,12 @@ Verify that existing navigation to `#roles` now resolves to the new section with
 
 ## Quality Gate Evidence
 
-| Gate                   | Decision | Evidence / Justification                                                                                                                                     |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Changed files          | recorded | `src/routes/index.tsx` — added `RoleWorkflowSection` import and composed after `<TrustModelSection />`. Multiple MemoryBank docs formatted.                  |
-| Tests                  | satisfied | `pnpm typecheck` — passed. `pnpm test:unit` — all 70 existing tests pass. `pnpm build` — passed (client + SSR + Nitro). Component render assertions for integration deferred to Phase 7. |
-| Gherkin/Playwright E2E | waived   | Integration is a pure composition of a deterministic static component into a thin route. No navigation changes, interactive behavior, or API calls. Component render tests (Phase 7) and clean build provide sufficient coverage. |
-| Code review            | waived   | Integration follows the exact same pattern as `TrustModelSection` — import from barrel, compose in route JSX. No behavioral changes or navigation rewrites. |
+| Gate                   | Decision  | Evidence / Justification                                                                                                                                                                                                          |
+| ---------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Changed files          | recorded  | `src/routes/index.tsx` — added `RoleWorkflowSection` import and composed after `<TrustModelSection />`. Multiple MemoryBank docs formatted.                                                                                       |
+| Tests                  | satisfied | `pnpm typecheck` — passed. `pnpm test:unit` — all 70 existing tests pass. `pnpm build` — passed (client + SSR + Nitro). Component render assertions for integration deferred to Phase 7.                                          |
+| Gherkin/Playwright E2E | waived    | Integration is a pure composition of a deterministic static component into a thin route. No navigation changes, interactive behavior, or API calls. Component render tests (Phase 7) and clean build provide sufficient coverage. |
+| Code review            | waived    | Integration follows the exact same pattern as `TrustModelSection` — import from barrel, compose in route JSX. No behavioral changes or navigation rewrites.                                                                       |
 
 ## Acceptance criteria
 
