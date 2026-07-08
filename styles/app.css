@@ -155,3 +155,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* ── Shared Utilities ── */
+
+/**
+ * Apply to section containers whose anchor target would be hidden behind
+ * the fixed header. FEAT-004 through FEAT-008 must use this class on
+ * their top-level section elements.
+ *
+ * The value matches the header height (h-16 = 64px) plus comfortable
+ * padding. Adjust if header height changes.
+ */
+.section-anchor {
+  scroll-margin-top: 80px;
+}

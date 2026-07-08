@@ -3,7 +3,7 @@
 | Field              | Value                                                                             |
 | ------------------ | --------------------------------------------------------------------------------- |
 | Epic ID            | EPIC-001                                                                          |
-| State              | InProgress                                                                        |
+| State | InProgress |
 | Created            | 2026-07-08                                                                        |
 | Target Completion  | TBD - define during planning                                                      |
 | Owner              | TBD                                                                               |
@@ -50,7 +50,7 @@ The design exists as a high-fidelity HTML prototype (`MemoryBank/Overview/Protot
 | ---------- | ----------------------------------------------- | ----------- | ------------ | -------- |
 | FEAT-001   | Project Scaffolding & Build Infrastructure      | COMPLETED   |              |          |
 | FEAT-002   | Design System Implementation (Sovereign Shield) | COMPLETED   | FEAT-001     |          |
-| FEAT-003   | Hero Section and Navigation                     | SUBMITTED   |              |          |
+| FEAT-003   | Hero Section and Navigation                     | IN PROGRESS |              |          |
 | FEAT-004   | Trust Model Hierarchy Section                   | SUBMITTED   |              |          |
 | FEAT-005   | Role Workflow Section                           | SUBMITTED   |              |          |
 | FEAT-006   | Protocol Evidence and Platform Readiness        | SUBMITTED   |              |          |
@@ -63,14 +63,14 @@ The design exists as a high-fidelity HTML prototype (`MemoryBank/Overview/Protot
 ## Epic Progress
 
 **State:** InProgress
-**Progress:** 22% (2/9 features complete)
+**Progress:** 25% (2/8 features complete)
 
 | Status      | Count | Features                                                                           |
 | ----------- | ----- | ---------------------------------------------------------------------------------- |
 | Completed   | 2     | FEAT-001 Project Scaffolding, FEAT-002 Design System                                |
-| In Progress | 0     | -                                                                                  |
+| In Progress | 1 | -                                                                                  |
 | Ready       | 0     | -                                                                                  |
-| Submitted   | 7     | Hero/Nav, Trust Model, Roles, Protocol Evidence, Footer/Utility, Responsive, CI/CD |
+| Submitted   | 5 | Hero/Nav, Trust Model, Roles, Protocol Evidence, Footer/Utility, Responsive, CI/CD |
 
 ## Dependency Flow Diagram
 
@@ -127,8 +127,8 @@ flowchart TD
     classDef cancelled fill:#dc3545,color:white,stroke:#c82333
 
     class F1 completed
-    class F2 inProgress
-    class F3 notStarted
+    class F2 completed
+    class F3 inProgress
     class F4 notStarted
     class F5 notStarted
     class F6 notStarted
@@ -572,7 +572,7 @@ This EPIC follows the landing page design established in the prototype at `Memor
 | TBD        | SUBMITTED   | -          | -          | CI/CD and AWS Deployment                   |
 | FEAT-001   | COMPLETED   | 2026-07-08 | 2026-07-08 |                                            |
 | FEAT-002   | COMPLETED   | 2026-07-08 | 2026-07-08 | Design system tokens, components, tests    |
-| FEAT-003   | SUBMITTED   | 2026-07-08 |            |                                            |
+| FEAT-003   | IN PROGRESS | 2026-07-08 |            |                                            |
 | FEAT-004   | SUBMITTED   | 2026-07-08 |            |                                            |
 | FEAT-005   | SUBMITTED   | 2026-07-08 |            |                                            |
 | FEAT-006   | SUBMITTED   | 2026-07-08 |            |                                            |
