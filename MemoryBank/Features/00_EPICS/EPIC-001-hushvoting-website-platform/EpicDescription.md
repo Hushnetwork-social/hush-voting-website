@@ -31,7 +31,7 @@ HushVoting currently has no public-facing web presence. The product's sophistica
 - [ ] The website is publicly deployed at www.hushvoting.com with CD pipeline in place.
 - [ ] All pages render the HushVoting Sovereign Shield design system consistently (colors, typography, spacing, components).
 - [ ] The landing page communicates the product value proposition, trust model hierarchy, role structure, protocol evidence capabilities, and platform readiness.
-- [ ] TanStack Start is initialized in the scaffold, pinned to a specific RC version, with React Router v7 fallback documented.
+- [x] TanStack Start is initialized in the scaffold, pinned to a specific RC version, with React Router v7 fallback documented.
 - [ ] CI/CD pipeline validates builds, runs tests, and deploys to AWS on tag push.
 - [ ] The website is fully responsive: desktop, tablet, and mobile render correctly.
 - [ ] Navigation to sections (Trust Model, Roles, Protocol Evidence, Platform) works via anchor links and the top nav bar.
@@ -48,7 +48,7 @@ The design exists as a high-fidelity HTML prototype (`MemoryBank/Overview/Protot
 
 | Feature ID | Title | Status | Dependencies | Priority |
 |------------|-------|--------|--------------|----------|
-| FEAT-001 | Project Scaffolding & Build Infrastructure | IN PROGRESS |  |  |
+| FEAT-001 | Project Scaffolding & Build Infrastructure | COMPLETED |  |  |
 | FEAT-002 | Design System Implementation (Sovereign Shield) | SUBMITTED |  |  |
 | FEAT-003 | Hero Section and Navigation | SUBMITTED |  |  |
 | FEAT-004 | Trust Model Hierarchy Section | SUBMITTED |  |  |
@@ -63,14 +63,14 @@ The design exists as a high-fidelity HTML prototype (`MemoryBank/Overview/Protot
 ## Epic Progress
 
 **State:** InProgress
-**Progress:** 0% (0/8 features complete)
+**Progress:** 11% (1/9 features complete)
 
 | Status | Count | Features |
 |--------|-------|----------|
-| Completed | 0 | - |
-| In Progress | 1 | - |
+| Completed | 1 | FEAT-001 Project Scaffolding |
+| In Progress | 0 | - |
 | Ready | 0 | - |
-| Submitted | 7 | Project Scaffolding, Design System, Hero/Nav, Trust Model, Roles, Protocol Evidence, Footer/Utility, Responsive, CI/CD |
+| Submitted | 8 | Design System, Hero/Nav, Trust Model, Roles, Protocol Evidence, Footer/Utility, Responsive, CI/CD |
 
 ## Dependency Flow Diagram
 
@@ -111,7 +111,7 @@ flowchart TD
         F16[Footer, Utility Pages and Contact Path]
         F17[Responsive Design and Mobile Optimization]
 
-    class F10 notStarted
+    class F10 completed
     class F11 notStarted
     class F12 notStarted
     class F13 notStarted
@@ -126,15 +126,15 @@ flowchart TD
     classDef completed fill:#28a745,color:white,stroke:#1e7e34
     classDef cancelled fill:#dc3545,color:white,stroke:#c82333
 
-    class F1 inProgress
-    class F2 notStarted
-    class F3 notStarted
-    class F4 notStarted
-    class F5 notStarted
-    class F6 notStarted
-    class F7 notStarted
-    class F8 notStarted
-    class F9 notStarted
+    class F1 completed
+    class F2 inProgress
+    class F3 designed
+    class F4 designed
+    class F5 designed
+    class F6 designed
+    class F7 designed
+    class F8 designed
+    class F9 designed
 ```
 
 ## Feature Details
@@ -569,7 +569,7 @@ This EPIC follows the landing page design established in the prototype at `Memor
 | TBD | SUBMITTED | - | - | Footer, Utility Pages & Contact |
 | TBD | SUBMITTED | - | - | Responsive Design & Mobile Optimization |
 | TBD | SUBMITTED | - | - | CI/CD and AWS Deployment |
-| FEAT-001 | IN PROGRESS | 2026-07-08 | | |
+| FEAT-001 | COMPLETED | 2026-07-08 | 2026-07-08 | |
 | FEAT-002 | SUBMITTED | 2026-07-08 | | |
 | FEAT-003 | SUBMITTED | 2026-07-08 | | |
 | FEAT-004 | SUBMITTED | 2026-07-08 | | |
@@ -578,7 +578,7 @@ This EPIC follows the landing page design established in the prototype at `Memor
 | FEAT-007 | SUBMITTED | 2026-07-08 | | |
 | FEAT-008 | SUBMITTED | 2026-07-08 | | |
 
-**Overall Progress:** 0/9 features complete (0%)
+**Overall Progress:** 1/9 features complete (11%)
 
 ## Next Steps
 
