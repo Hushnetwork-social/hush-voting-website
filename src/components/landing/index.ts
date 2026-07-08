@@ -17,5 +17,14 @@ export type { HeroSectionProps } from "./HeroSection";
 
 export { MobileNavDisclosure } from "./MobileNavDisclosure";
 
-export { BRAND_TEXT, NAV_LINKS, HERO_COPY, CTAS } from "./constants";
-export type { CtaDefinition } from "./constants";
+export { TrustModelSection } from "./TrustModelSection";
+export type { TrustModelSectionProps } from "./TrustModelSection";
+
+export {
+  BRAND_TEXT,
+  NAV_LINKS,
+  HERO_COPY,
+  CTAS,
+  TRUST_SECTION,
+} from "./constants";
+export type { CtaDefinition, CapabilityChip } from "./constants";

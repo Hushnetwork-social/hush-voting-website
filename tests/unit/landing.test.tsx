@@ -4,11 +4,13 @@ import { Header } from "~/components/landing/Header";
 import { HeroSection } from "~/components/landing/HeroSection";
 import { MobileNavDisclosure } from "~/components/landing/MobileNavDisclosure";
 import { BrandMark } from "~/components/landing/BrandMark";
+import { TrustModelSection } from "~/components/landing/TrustModelSection";
 import {
   HERO_COPY,
   NAV_LINKS,
   CTAS,
   BRAND_TEXT,
+  TRUST_SECTION,
 } from "~/components/landing/constants";
 
 /* ── BrandMark ── */
@@ -118,6 +120,92 @@ describe("HeroSection", () => {
     const brandMarks = container.querySelectorAll('[aria-hidden="true"]');
     // The glow div and brand mark should both be decorative
     expect(brandMarks.length).toBeGreaterThanOrEqual(1);
+  });
+});
+
+/* ── TrustModelSection ── */
+
+describe("TrustModelSection", () => {
+  it("renders a section landmark with id trust", () => {
+    const { container } = render(<TrustModelSection />);
+    const section = container.querySelector("section#trust");
+    expect(section).toBeInTheDocument();
+  });
+
+  it("renders the eyebrow label", () => {
+    render(<TrustModelSection />);
+    expect(screen.getByText(TRUST_SECTION.eyebrow)).toBeInTheDocument();
+  });
+
+  it("renders the heading as h2", () => {
+    render(<TrustModelSection />);
+    const heading = screen.getByRole("heading", { level: 2 });
+    expect(heading).toHaveTextContent(TRUST_SECTION.heading);
+  });
+
+  it("renders the supporting copy", () => {
+    render(<TrustModelSection />);
+    // Supporting copy is not a heading; use text query
+    expect(screen.getByText(TRUST_SECTION.supportingCopy)).toBeInTheDocument();
+  });
+
+  it("renders HushVoting! card title", () => {
+    render(<TrustModelSection />);
+    expect(
+      screen.getByText(TRUST_SECTION.hushVoting.title),
+    ).toBeInTheDocument();
+  });
+
+  it("renders HushVoting! trust label", () => {
+    render(<TrustModelSection />);
+    expect(
+      screen.getByText(TRUST_SECTION.hushVoting.subtitle),
+    ).toBeInTheDocument();
+  });
+
+  it("renders all HushVoting capability chips", () => {
+    render(<TrustModelSection />);
+    for (const chip of TRUST_SECTION.hushVoting.capabilities) {
+      expect(screen.getByText(chip.label)).toBeInTheDocument();
+    }
+  });
+
+  it("renders HushNetwork card title", () => {
+    render(<TrustModelSection />);
+    expect(
+      screen.getByText(TRUST_SECTION.hushNetwork.title),
+    ).toBeInTheDocument();
+  });
+
+  it("renders HushNetwork trust label", () => {
+    render(<TrustModelSection />);
+    expect(
+      screen.getByText(TRUST_SECTION.hushNetwork.subtitle),
+    ).toBeInTheDocument();
+  });
+
+  it("renders all HushNetwork trust labels", () => {
+    render(<TrustModelSection />);
+    for (const label of TRUST_SECTION.hushNetwork.trustLabels) {
+      expect(screen.getByText(label)).toBeInTheDocument();
+    }
+  });
+
+  it("does not render focusable elements for chips or labels", () => {
+    const { container } = render(<TrustModelSection />);
+    const focusable = container.querySelectorAll(
+      'button, a, [tabindex]:not([tabindex="-1"])',
+    );
+    // The only focusable element should be none — chips/labels are spans
+    expect(focusable.length).toBe(0);
+  });
+
+  it("does not render buttons or links inside the section", () => {
+    const { container } = render(<TrustModelSection />);
+    const buttons = container.querySelectorAll("button");
+    const links = container.querySelectorAll("a");
+    expect(buttons.length).toBe(0);
+    expect(links.length).toBe(0);
   });
 });
 

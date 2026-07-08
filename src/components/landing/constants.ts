@@ -57,3 +57,39 @@ export const CTAS = {
     variant: "primary",
   } satisfies CtaDefinition,
 } as const;
+
+/* ── FEAT-004: Trust Model Hierarchy Section ── */
+
+/** A single capability chip for the trust model cards. */
+export interface CapabilityChip {
+  readonly label: string;
+  readonly icon: string;
+}
+
+export const TRUST_SECTION = {
+  eyebrow: "Foundational Integrity",
+  heading: "The Trust Model Hierarchy",
+  supportingCopy:
+    "HushVoting! coordinates election eligibility, participation, private choice, and evidence artifacts on top of HushNetwork's privacy and blockchain foundation.",
+
+  hushVoting: {
+    title: "HushVoting!",
+    subtitle: "The Application Interface & Orchestration Layer",
+    capabilities: [
+      { label: "Eligibility", icon: "person_check" },
+      { label: "Participation", icon: "how_to_vote" },
+      { label: "Private Choice", icon: "security" },
+      { label: "Artifacts", icon: "inventory_2" },
+    ] as const satisfies readonly CapabilityChip[],
+  },
+
+  hushNetwork: {
+    title: "HushNetwork",
+    subtitle: "The Trust, Privacy, and Blockchain Foundation",
+    trustLabels: [
+      "ZERO-KNOWLEDGE PROOFS",
+      "IMMUTABLE LEDGER",
+      "ENCRYPTED SHARDS",
+    ] as const satisfies readonly string[],
+  },
+} as const;
