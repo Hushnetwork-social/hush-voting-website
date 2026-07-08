@@ -93,6 +93,8 @@ export function RoleWorkflowSection({ className }: RoleWorkflowSectionProps) {
               "rounded-[var(--radius-lg)]",
               "bg-surface-container-high p-[var(--spacing-md)]",
               "max-sm:p-[var(--spacing-sm)]",
+              "transition-colors duration-200",
+              "hover:bg-surface-container-highest",
             )}
           >
             {/* Decorative icon */}
