@@ -562,9 +562,7 @@ describe("FEAT-006 Constants contract", () => {
     const badges = PLATFORM_READINESS_SECTION.claimBadges;
     expect(badges.length).toBe(5);
 
-    expect(badges[0].label).toBe(
-      "Designed for organizational remote voting",
-    );
+    expect(badges[0].label).toBe("Designed for organizational remote voting");
     expect(badges[0].icon).toBe("groups");
 
     expect(badges[1].label).toBe("Privacy-first");
@@ -726,7 +724,9 @@ describe("ClaimBoundaryBar", () => {
 
   it("marks claim icons as decorative with aria-hidden", () => {
     const { container } = render(<ClaimBoundaryBar />);
-    const icons = container.querySelectorAll('[role="list"] span.material-symbols-outlined');
+    const icons = container.querySelectorAll(
+      '[role="list"] span.material-symbols-outlined',
+    );
     expect(icons.length).toBe(5);
     icons.forEach((icon) => {
       expect(icon).toHaveAttribute("aria-hidden", "true");

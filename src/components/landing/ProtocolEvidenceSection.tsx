@@ -109,10 +109,7 @@ export function ProtocolEvidenceSection({
             {items.map((item) => (
               <InsetWell
                 key={item.key}
-                className={cn(
-                  "flex flex-col gap-2",
-                  "p-[var(--spacing-sm)]",
-                )}
+                className={cn("flex flex-col gap-2", "p-[var(--spacing-sm)]")}
               >
                 {/* Decorative icon */}
                 <span
