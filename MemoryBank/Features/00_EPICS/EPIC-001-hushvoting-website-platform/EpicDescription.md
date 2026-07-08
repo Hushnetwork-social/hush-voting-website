@@ -51,7 +51,7 @@ The design exists as a high-fidelity HTML prototype (`MemoryBank/Overview/Protot
 | FEAT-001   | Project Scaffolding & Build Infrastructure      | COMPLETED   |              |          |
 | FEAT-002   | Design System Implementation (Sovereign Shield) | COMPLETED   | FEAT-001     |          |
 | FEAT-003   | Hero Section and Navigation                     | COMPLETED   | FEAT-002     |          |
-| FEAT-004   | Trust Model Hierarchy Section                   | IN PROGRESS |              |          |
+| FEAT-004   | Trust Model Hierarchy Section                   | COMPLETED   |              |          |
 | FEAT-005   | Role Workflow Section                           | SUBMITTED   |              |          |
 | FEAT-006   | Protocol Evidence and Platform Readiness        | SUBMITTED   |              |          |
 | FEAT-007   | Footer, Utility Pages and Contact Path          | SUBMITTED   |              |          |
@@ -63,14 +63,14 @@ The design exists as a high-fidelity HTML prototype (`MemoryBank/Overview/Protot
 ## Epic Progress
 
 **State:** InProgress
-**Progress:** 38% (3/8 features complete)
+**Progress:** 50% (4/8 features complete)
 
-| Status      | Count | Features                                                                            |
-| ----------- | ----- | ----------------------------------------------------------------------------------- |
-| Completed   | 3     | FEAT-001 Project Scaffolding, FEAT-002 Design System, FEAT-003 Hero Section and Nav |
-| In Progress | 1     | -                                                                                   |
-| Ready       | 0     | Trust Model                                                                         |
-| Submitted   | 4     | Roles, Protocol Evidence, Footer/Utility, Responsive, CI/CD                         |
+| Status      | Count | Features                                                                                                                      |
+| ----------- | ----- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Completed   | 4     | FEAT-001 Project Scaffolding, FEAT-002 Design System, FEAT-003 Hero Section and Nav, FEAT-004 Trust Model Hierarchy Section  |
+| In Progress | 0     | -                                                                                                                             |
+| Ready       | 0     | -                                                                                                                             |
+| Submitted   | 4     | Roles, Protocol Evidence, Footer/Utility, Responsive, CI/CD                                                                   |
 
 ## Dependency Flow Diagram
 
@@ -129,7 +129,7 @@ flowchart TD
     class F1 completed
     class F2 completed
     class F3 completed
-    class F4 inProgress
+    class F4 completed
     class F5 notStarted
     class F6 notStarted
     class F7 notStarted
@@ -573,13 +573,13 @@ This EPIC follows the landing page design established in the prototype at `Memor
 | FEAT-001   | COMPLETED   | 2026-07-08 | 2026-07-08 |                                            |
 | FEAT-002   | COMPLETED   | 2026-07-08 | 2026-07-08 | Design system tokens, components, tests    |
 | FEAT-003   | COMPLETED   | 2026-07-08 | 2026-07-08 | Hero section and navigation implementation |
-| FEAT-004   | IN PROGRESS | 2026-07-08 |            | Refined and moved to Ready To Develop      |
+| FEAT-004   | COMPLETED   | 2026-07-08 | 2026-07-08 | Trust Model Hierarchy section              |
 | FEAT-005   | SUBMITTED   | 2026-07-08 |            |                                            |
 | FEAT-006   | SUBMITTED   | 2026-07-08 |            |                                            |
 | FEAT-007   | SUBMITTED   | 2026-07-08 |            |                                            |
 | FEAT-008   | SUBMITTED   | 2026-07-08 |            |                                            |
 
-**Overall Progress:** 3/9 features complete (33%)
+**Overall Progress:** 4/9 features complete (44%)
 
 ## Next Steps
 
