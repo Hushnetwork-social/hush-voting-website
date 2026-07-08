@@ -2,7 +2,7 @@
 
 **Feature ID**: FEAT-004  
 **Parent Epic**: EPIC-001  
-**Status**: Ready To Refine
+**Status**: Completed
 
 ## Summary
 
@@ -64,21 +64,23 @@ Out of scope:
 
 The following copy is locked for FEAT-004 and should be used directly by implementation and tests.
 
-| Element                       | Exact copy                                                                 |
-| ----------------------------- | -------------------------------------------------------------------------- |
-| Section anchor                | `trust`                                                                    |
-| Eyebrow label                 | `Trust model hierarchy`                                                    |
-| Headline                      | `HushVoting! coordinates decisions on top of the HushNetwork trust layer.` |
-| HushVoting card label         | `HushVoting!`                                                              |
-| HushVoting trust label        | `Governed voting layer`                                                    |
-| HushVoting capability chip 1  | `Remote elections`                                                         |
-| HushVoting capability chip 2  | `Governed participation`                                                   |
-| HushVoting capability chip 3  | `Verifiable outcomes`                                                      |
-| HushNetwork card label        | `HushNetwork`                                                              |
-| HushNetwork trust label       | `Network trust layer`                                                      |
-| HushNetwork capability chip 1 | `Private coordination`                                                     |
-| HushNetwork capability chip 2 | `Resilient identity`                                                       |
-| HushNetwork capability chip 3 | `Trust infrastructure`                                                     |
+| Element                      | Exact copy                                                                                                        |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Section anchor               | `trust`                                                                                                           |
+| Eyebrow label                | `Foundational Integrity`                                                                                          |
+| Heading (h2)                 | `The Trust Model Hierarchy`                                                                                       |
+| Supporting copy              | `HushVoting! coordinates election eligibility, participation, private choice, and evidence artifacts on top of HushNetwork's privacy and blockchain foundation.` |
+| HushVoting card label        | `HushVoting!`                                                                                                     |
+| HushVoting trust label       | `The Application Interface & Orchestration Layer`                                                                 |
+| HushVoting capability chip 1 | `Eligibility` → icon: `person_check`                                                                              |
+| HushVoting capability chip 2 | `Participation` → icon: `how_to_vote`                                                                             |
+| HushVoting capability chip 3 | `Private Choice` → icon: `security`                                                                               |
+| HushVoting capability chip 4 | `Artifacts` → icon: `inventory_2`                                                                                 |
+| HushNetwork card label       | `HushNetwork`                                                                                                     |
+| HushNetwork trust label      | `The Trust, Privacy, and Blockchain Foundation`                                                                   |
+| HushNetwork trust label 1    | `ZERO-KNOWLEDGE PROOFS`                                                                                           |
+| HushNetwork trust label 2    | `IMMUTABLE LEDGER`                                                                                                |
+| HushNetwork trust label 3    | `ENCRYPTED SHARDS`                                                                                                |
 
 ## Visual Implementation Requirements
 
@@ -98,17 +100,17 @@ The following copy is locked for FEAT-004 and should be used directly by impleme
 ## Acceptance Criteria
 
 - The homepage includes a Trust Model Hierarchy section with a stable `#trust` anchor.
-- The section includes the locked eyebrow label: `Trust model hierarchy`.
-- The section includes the locked headline: `HushVoting! coordinates decisions on top of the HushNetwork trust layer.`
+- The section includes the locked eyebrow label: `Foundational Integrity`.
+- The section includes the locked headline: `The Trust Model Hierarchy`.
 - The section renders two visually layered cards:
   - one for `HushVoting!`;
   - one for `HushNetwork`.
 - The HushVoting! card includes:
-  - trust label: `Governed voting layer`;
-  - capability chips: `Remote elections`, `Governed participation`, `Verifiable outcomes`.
+  - trust label: `The Application Interface & Orchestration Layer`;
+  - capability chips: `Eligibility`, `Participation`, `Private Choice`, `Artifacts`.
 - The HushNetwork card includes:
-  - trust label: `Network trust layer`;
-  - capability chips: `Private coordination`, `Resilient identity`, `Trust infrastructure`.
+  - trust label: `The Trust, Privacy, and Blockchain Foundation`;
+  - trust labels: `ZERO-KNOWLEDGE PROOFS`, `IMMUTABLE LEDGER`, `ENCRYPTED SHARDS`.
 - The two cards are visually connected with a custom decorative gradient connector or equivalent hierarchy treatment.
 - The connector and glow treatments are decorative and hidden from assistive technology.
 - The section uses subtle glow and tonal surface styling consistent with the HushVoting website visual language.

@@ -94,12 +94,12 @@ FEAT-003 implemented the landing page top navigation bar and hero section for th
 
 ## Operational Rules Summary
 
-| Context | Rule | Source |
-|---------|------|--------|
-| Mobile disclosure | Do not add `role="region"` on wrapper when inner `<nav>` exists | Lesson 1 |
-| Hidden panels | Use `visibility: hidden` (plus opacity/pointer-events) to remove from a11y tree | Lesson 2 |
-| Format check | Run prettier check at phase boundaries, not just complete-feature | Lesson 3 |
-| Route composition | Keep routes as thin composition layers; feature logic in component directories | Lesson 4 |
-| Interim anchors | Use fragment-only hrefs for planned-but-not-implemented sections | Lesson 5 |
-| CTA elements | Use `<a>` for navigation links, `<button>` for actions only | Lesson 6 |
-| ESLint config | Ensure eslint.config.js exists when ESLint 9+ is installed | Lesson 7 |
+| Context           | Rule                                                                            | Source   |
+| ----------------- | ------------------------------------------------------------------------------- | -------- |
+| Mobile disclosure | Do not add `role="region"` on wrapper when inner `<nav>` exists                 | Lesson 1 |
+| Hidden panels     | Use `visibility: hidden` (plus opacity/pointer-events) to remove from a11y tree | Lesson 2 |
+| Format check      | Run prettier check at phase boundaries, not just complete-feature               | Lesson 3 |
+| Route composition | Keep routes as thin composition layers; feature logic in component directories  | Lesson 4 |
+| Interim anchors   | Use fragment-only hrefs for planned-but-not-implemented sections                | Lesson 5 |
+| CTA elements      | Use `<a>` for navigation links, `<button>` for actions only                     | Lesson 6 |
+| ESLint config     | Ensure eslint.config.js exists when ESLint 9+ is installed                      | Lesson 7 |

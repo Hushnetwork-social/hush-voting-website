@@ -14,6 +14,7 @@ FEAT-002 implemented the Sovereign Shield design system foundation for the HushV
 ### Token Contract (styles/app.css)
 
 All Sovereign Shield tokens from `DESIGN.md` are represented in the Tailwind v4 `@theme` block:
+
 - **Color tokens**: All surface, primary, secondary, tertiary, error, outline, background, surface-variant, and fixed-variant tokens (70+ individual tokens)
 - **Typography tokens**: display-lg, headline-lg, headline-lg-mobile, headline-md, body-lg, body-md, label-md, label-sm with correct font families (Hanken Grotesk, JetBrains Mono)
 - **Spacing tokens**: base, xs, sm, md, lg, xl, gutter, margin-mobile, max-width-content
@@ -22,19 +23,20 @@ All Sovereign Shield tokens from `DESIGN.md` are represented in the Tailwind v4 
 
 ### Component Library (src/components/ui/)
 
-| Component    | File              | Variants/Features                                 |
-|-------------|-------------------|---------------------------------------------------|
-| Button      | Button.tsx        | primary, secondary, ghost; sizes sm/md/lg; loading state; disabled; focus-visible ring |
-| Section     | Section.tsx       | Layout primitive with optional eyebrow, title, description, actions, responsive gutters |
-| Card         | Card.tsx          | Tonal variants (default, high, highest); optional accent; no default border |
-| InsetWell    | InsetWell.tsx     | Recessed surface container for supporting content |
-| MetricCard   | MetricCard.tsx    | Label + value + optional description; fallback for empty value |
-| StatusChip   | StatusChip.tsx    | Pill indicator with tones (default, positive, neutral, warning, error); optional icon |
-| IconLabel    | IconLabel.tsx     | Material Symbol + text; accessible icon behavior |
+| Component  | File           | Variants/Features                                                                       |
+| ---------- | -------------- | --------------------------------------------------------------------------------------- |
+| Button     | Button.tsx     | primary, secondary, ghost; sizes sm/md/lg; loading state; disabled; focus-visible ring  |
+| Section    | Section.tsx    | Layout primitive with optional eyebrow, title, description, actions, responsive gutters |
+| Card       | Card.tsx       | Tonal variants (default, high, highest); optional accent; no default border             |
+| InsetWell  | InsetWell.tsx  | Recessed surface container for supporting content                                       |
+| MetricCard | MetricCard.tsx | Label + value + optional description; fallback for empty value                          |
+| StatusChip | StatusChip.tsx | Pill indicator with tones (default, positive, neutral, warning, error); optional icon   |
+| IconLabel  | IconLabel.tsx  | Material Symbol + text; accessible icon behavior                                        |
 
 ### Documentation (STYLEGUIDE.md)
 
 Comprehensive styleguide covering:
+
 - Token reference tables (colors, typography, spacing, radius)
 - Component APIs with props, variants, states, accessibility expectations
 - Usage examples for all 7 components
@@ -50,12 +52,12 @@ Comprehensive styleguide covering:
 
 ## Validation Results
 
-| Check               | Status | Details                          |
-|--------------------|--------|----------------------------------|
-| `pnpm build`       | PASS   | Vite + Nitro + tsc --noEmit      |
-| `pnpm test:unit`   | PASS   | 34/34 tests passing              |
-| `pnpm format:check` | PASS  | Prettier style check             |
-| Code Review        | APPROVED | Phase 3 code review — no blocking findings |
+| Check               | Status   | Details                                    |
+| ------------------- | -------- | ------------------------------------------ |
+| `pnpm build`        | PASS     | Vite + Nitro + tsc --noEmit                |
+| `pnpm test:unit`    | PASS     | 34/34 tests passing                        |
+| `pnpm format:check` | PASS     | Prettier style check                       |
+| Code Review         | APPROVED | Phase 3 code review — no blocking findings |
 
 ## Scope Boundaries
 

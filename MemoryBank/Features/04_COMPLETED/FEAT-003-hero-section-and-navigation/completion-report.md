@@ -29,58 +29,59 @@ All in-scope items from FeatureDescription.md are implemented:
 
 ## Files Created
 
-| File | Purpose |
-| --- | --- |
-| `src/components/landing/constants.ts` | Static nav/CTA/copy constants |
-| `src/components/landing/BrandMark.tsx` | Token-based SVG brand mark fallback |
-| `src/components/landing/MobileNavDisclosure.tsx` | Accessible mobile menu disclosure |
-| `src/components/landing/Header.tsx` | Fixed top navigation bar |
-| `src/components/landing/HeroSection.tsx` | Hero section with copy, CTAs, glow |
-| `src/components/landing/index.ts` | Barrel exports |
-| `tests/unit/landing.test.tsx` | 24 unit tests for landing components |
+| File                                             | Purpose                              |
+| ------------------------------------------------ | ------------------------------------ |
+| `src/components/landing/constants.ts`            | Static nav/CTA/copy constants        |
+| `src/components/landing/BrandMark.tsx`           | Token-based SVG brand mark fallback  |
+| `src/components/landing/MobileNavDisclosure.tsx` | Accessible mobile menu disclosure    |
+| `src/components/landing/Header.tsx`              | Fixed top navigation bar             |
+| `src/components/landing/HeroSection.tsx`         | Hero section with copy, CTAs, glow   |
+| `src/components/landing/index.ts`                | Barrel exports                       |
+| `tests/unit/landing.test.tsx`                    | 24 unit tests for landing components |
 
 ## Files Modified
 
-| File | Change |
-| --- | --- |
+| File                   | Change                                              |
+| ---------------------- | --------------------------------------------------- |
 | `src/routes/index.tsx` | Replaced scaffold content with Header + HeroSection |
-| `styles/app.css` | Added `.section-anchor` scroll-margin utility |
-| `vitest.config.ts` | Added `~` path alias for test resolution |
+| `styles/app.css`       | Added `.section-anchor` scroll-margin utility       |
+| `vitest.config.ts`     | Added `~` path alias for test resolution            |
 
 ## Final Validation Results
 
-| Check | Result |
-| --- | --- |
-| `pnpm typecheck` | ✅ Passed |
-| `pnpm build` | ✅ Passed (Vite client + SSR + Nitro) |
-| `pnpm test:unit` | ✅ 58/58 tests pass (3 suites) |
+| Check               | Result                                   |
+| ------------------- | ---------------------------------------- |
+| `pnpm typecheck`    | ✅ Passed                                |
+| `pnpm build`        | ✅ Passed (Vite client + SSR + Nitro)    |
+| `pnpm test:unit`    | ✅ 58/58 tests pass (3 suites)           |
 | `pnpm format:check` | ✅ Fixed formatting on 23 FEAT-003 files |
 
 ## Phase Summary
 
-| Phase | Status | Duration |
-| --- | --- | --- |
-| Phase 0 — Health Check | COMPLETED | ~1 min |
-| Phase 1 — Planning Analysis | COMPLETED | ~2 min |
-| Phase 2 — Data Layer | COMPLETED | ~1 min |
-| Phase 3 — Business Logic | COMPLETED | ~2 min |
-| Phase 4 — Presentation Logic | COMPLETED | ~1 min |
-| Phase 5 — User Interface | COMPLETED | ~1 min |
-| Phase 6 — Integration | COMPLETED | ~1 min |
-| Phase 7 — Testing & Polish | COMPLETED | ~2 min |
-| Phase 8 — Final Checkpoint | COMPLETED | ~1 min |
+| Phase                        | Status    | Duration |
+| ---------------------------- | --------- | -------- |
+| Phase 0 — Health Check       | COMPLETED | ~1 min   |
+| Phase 1 — Planning Analysis  | COMPLETED | ~2 min   |
+| Phase 2 — Data Layer         | COMPLETED | ~1 min   |
+| Phase 3 — Business Logic     | COMPLETED | ~2 min   |
+| Phase 4 — Presentation Logic | COMPLETED | ~1 min   |
+| Phase 5 — User Interface     | COMPLETED | ~1 min   |
+| Phase 6 — Integration        | COMPLETED | ~1 min   |
+| Phase 7 — Testing & Polish   | COMPLETED | ~2 min   |
+| Phase 8 — Final Checkpoint   | COMPLETED | ~1 min   |
 
 ## Code Reviews
 
-| Phase | Verdict | Findings |
-| --- | --- | --- |
-| Phase 3 — Business Logic | APPROVED | 2 NOTE findings fixed before report |
-| Phase 4 — Presentation Logic | APPROVED | No findings |
-| Phase 5 — User Interface | APPROVED | No findings |
+| Phase                        | Verdict  | Findings                            |
+| ---------------------------- | -------- | ----------------------------------- |
+| Phase 3 — Business Logic     | APPROVED | 2 NOTE findings fixed before report |
+| Phase 4 — Presentation Logic | APPROVED | No findings                         |
+| Phase 5 — User Interface     | APPROVED | No findings                         |
 
 ## Linked EPIC Status
 
 EPIC-001 (HushVoting Website Platform and Initial Design):
+
 - FEAT-001: COMPLETED
 - FEAT-002: COMPLETED
 - FEAT-003: Now COMPLETED ✅
@@ -90,10 +91,10 @@ EPIC-001 remains **InProgress** — 3 of 9 child features completed (33%).
 
 ## Handoff Contracts for Future FEATs
 
-| FEAT | Contract |
-| --- | --- |
-| FEAT-004 (Trust Model) | Apply `.section-anchor` to `#trust` container. Nav link label stable. |
-| FEAT-005 (Roles) | Apply `.section-anchor` to `#roles` container. Nav link label stable. |
+| FEAT                           | Contract                                                                                                    |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------- |
+| FEAT-004 (Trust Model)         | Apply `.section-anchor` to `#trust` container. Nav link label stable.                                       |
+| FEAT-005 (Roles)               | Apply `.section-anchor` to `#roles` container. Nav link label stable.                                       |
 | FEAT-006 (Protocol & Platform) | Apply `.section-anchor` to `#protocol` and `#platform`. Hero CTA `View verifier model` targets `#protocol`. |
-| FEAT-007 (Footer/Contact) | Replace or satisfy `#pilot-access` anchor target. |
-| FEAT-008 (Responsive) | FEAT-003 nav/hero already responsive. May adjust globally. |
+| FEAT-007 (Footer/Contact)      | Replace or satisfy `#pilot-access` anchor target.                                                           |
+| FEAT-008 (Responsive)          | FEAT-003 nav/hero already responsive. May adjust globally.                                                  |

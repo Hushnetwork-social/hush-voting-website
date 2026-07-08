@@ -3,7 +3,7 @@
 | Field              | Value                                                                             |
 | ------------------ | --------------------------------------------------------------------------------- |
 | Epic ID            | EPIC-001                                                                          |
-| State | InProgress |
+| State              | InProgress                                                                        |
 | Created            | 2026-07-08                                                                        |
 | Target Completion  | TBD - define during planning                                                      |
 | Owner              | TBD                                                                               |
@@ -65,12 +65,12 @@ The design exists as a high-fidelity HTML prototype (`MemoryBank/Overview/Protot
 **State:** InProgress
 **Progress:** 38% (3/8 features complete)
 
-| Status      | Count | Features                                                                           |
-| ----------- | ----- | ---------------------------------------------------------------------------------- |
+| Status      | Count | Features                                                                            |
+| ----------- | ----- | ----------------------------------------------------------------------------------- |
 | Completed   | 3     | FEAT-001 Project Scaffolding, FEAT-002 Design System, FEAT-003 Hero Section and Nav |
-| In Progress | 1 | -                                                                                  |
-| Ready       | 0 | Trust Model                                                                        |
-| Submitted   | 4 | Roles, Protocol Evidence, Footer/Utility, Responsive, CI/CD                        |
+| In Progress | 1     | -                                                                                   |
+| Ready       | 0     | Trust Model                                                                         |
+| Submitted   | 4     | Roles, Protocol Evidence, Footer/Utility, Responsive, CI/CD                         |
 
 ## Dependency Flow Diagram
 
@@ -572,8 +572,8 @@ This EPIC follows the landing page design established in the prototype at `Memor
 | TBD        | SUBMITTED   | -          | -          | CI/CD and AWS Deployment                   |
 | FEAT-001   | COMPLETED   | 2026-07-08 | 2026-07-08 |                                            |
 | FEAT-002   | COMPLETED   | 2026-07-08 | 2026-07-08 | Design system tokens, components, tests    |
-| FEAT-003   | COMPLETED   | 2026-07-08 | 2026-07-08 | Hero section and navigation implementation   |
-| FEAT-004   | IN PROGRESS | 2026-07-08 |            | Refined and moved to Ready To Develop       |
+| FEAT-003   | COMPLETED   | 2026-07-08 | 2026-07-08 | Hero section and navigation implementation |
+| FEAT-004   | IN PROGRESS | 2026-07-08 |            | Refined and moved to Ready To Develop      |
 | FEAT-005   | SUBMITTED   | 2026-07-08 |            |                                            |
 | FEAT-006   | SUBMITTED   | 2026-07-08 |            |                                            |
 | FEAT-007   | SUBMITTED   | 2026-07-08 |            |                                            |

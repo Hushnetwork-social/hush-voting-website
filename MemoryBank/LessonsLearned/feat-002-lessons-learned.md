@@ -86,11 +86,11 @@ FEAT-002 implemented the Sovereign Shield design system foundation: Tailwind v4 
 
 ## Operational Rules Summary
 
-| Context | Rule | Source |
-|---------|------|--------|
-| Token audit | Audit every token family member individually against DESIGN.md YAML keys | Lesson 1 |
-| Shared utilities | Locate `cn` and types adjacent to UI components in same directory | Lesson 2 |
+| Context           | Rule                                                                     | Source   |
+| ----------------- | ------------------------------------------------------------------------ | -------- |
+| Token audit       | Audit every token family member individually against DESIGN.md YAML keys | Lesson 1 |
+| Shared utilities  | Locate `cn` and types adjacent to UI components in same directory        | Lesson 2 |
 | Test dependencies | Add jsdom and @testing-library/react when planning React component tests | Lesson 3 |
-| Visual language | Prefer tonal surface separation over borders; borders for state only | Lesson 4 |
-| Code review | Clearly separate REQUIRED vs NOTE findings | Lesson 5 |
-| Format check | Run format check before git operations; auto-generated files exempt | Lesson 6 |
+| Visual language   | Prefer tonal surface separation over borders; borders for state only     | Lesson 4 |
+| Code review       | Clearly separate REQUIRED vs NOTE findings                               | Lesson 5 |
+| Format check      | Run format check before git operations; auto-generated files exempt      | Lesson 6 |
