@@ -69,7 +69,7 @@ Out of scope: new marketing copy, new product sections, replacing the design sys
 | Phase 4 | Presentation logic | Patch component behavior and semantic markup, especially `Header`, `MobileNavDisclosure`, `HeroSection`, link semantics, IDs, and accessibility state               | COMPLETED |
 | Phase 5 | User interface     | Patch tokenized classes for grids, gutters, typography, hero/logo sizing, wrapping, touch targets, focus states, and approved mobile disclosure surface             | COMPLETED |
 | Phase 6 | Integration        | Compose and verify homepage/route-level contracts, package-level validation scripts, FEAT-008 E2E integration, generated route artifacts, and CSS baseline ordering | COMPLETED |
-| Phase 7 | Testing and polish | Expand/repair unit/component and Playwright/Gherkin coverage for the viewport matrix, computed styles, bounding boxes, visual language, and formatting              | PENDING   |
+| Phase 7 | Testing and polish | Expand/repair unit/component and Playwright/Gherkin coverage for the viewport matrix, computed styles, bounding boxes, visual language, and formatting              | COMPLETED |
 | Phase 8 | Final checkpoint   | Confirm acceptance traceability, phase evidence, code-review readiness, documentation consistency, and handoff quality before complete-feature                      | PENDING   |
 
 ## Dependencies and assumptions
