@@ -51,12 +51,12 @@ The website visually follows the FEAT-008 responsive matrix and HushVoting visua
 
 ## Quality Gate Evidence
 
-| Gate                   | Decision | Evidence / Justification                                                                                                                                                                   |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Changed files          | recorded | No production files changed this phase — all UI classes were already correct from prior FEATs. Phase 4 handled the breakpoint/touch-target component patches. |
-| Tests                  | satisfied | Existing unit tests pass (197 tests). Phase 7 will add Playwright E2E coverage for viewport behavior. |
-| Gherkin/Playwright E2E | waived | UI class correctness will be verified by Phase 7 E2E tests (viewport matrix, bounding-box, computed-style). Pure class audit phase — no new browser behavior to test yet. |
-| Code review            | waived | No production code changes this phase. Pre-existing UI classes reviewed during Phase 1 audit. Code review deferred to Phase 8 final checkpoint. |
+| Gate                   | Decision  | Evidence / Justification                                                                                                                                                  |
+| ---------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Changed files          | recorded  | No production files changed this phase — all UI classes were already correct from prior FEATs. Phase 4 handled the breakpoint/touch-target component patches.             |
+| Tests                  | satisfied | Existing unit tests pass (197 tests). Phase 7 will add Playwright E2E coverage for viewport behavior.                                                                     |
+| Gherkin/Playwright E2E | waived    | UI class correctness will be verified by Phase 7 E2E tests (viewport matrix, bounding-box, computed-style). Pure class audit phase — no new browser behavior to test yet. |
+| Code review            | waived    | No production code changes this phase. Pre-existing UI classes reviewed during Phase 1 audit. Code review deferred to Phase 8 final checkpoint.                           |
 
 ## Acceptance criteria
 

@@ -49,12 +49,12 @@ All future implementation phases share one durable source for breakpoint, compon
 
 ## Quality Gate Evidence
 
-| Gate                   | Decision       | Evidence / Justification                                                                                                                                             |
-| ---------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Changed files          | recorded       | `planning-analysis-report.md` (new) in the FEAT folder.                                                                                                              |
-| Tests                  | not applicable | This phase is documentation/planning-only; no executable behavior changes are expected.                                                                              |
-| Gherkin/Playwright E2E | not applicable | This phase is documentation/planning-only and has no browser/UI behavior change.                                                                                     |
-| Code review            | not applicable | This phase produces planning documentation only; implementation review begins when code changes.                                                                     |
+| Gate                   | Decision       | Evidence / Justification                                                                         |
+| ---------------------- | -------------- | ------------------------------------------------------------------------------------------------ |
+| Changed files          | recorded       | `planning-analysis-report.md` (new) in the FEAT folder.                                          |
+| Tests                  | not applicable | This phase is documentation/planning-only; no executable behavior changes are expected.          |
+| Gherkin/Playwright E2E | not applicable | This phase is documentation/planning-only and has no browser/UI behavior change.                 |
+| Code review            | not applicable | This phase produces planning documentation only; implementation review begins when code changes. |
 
 ## Acceptance criteria
 

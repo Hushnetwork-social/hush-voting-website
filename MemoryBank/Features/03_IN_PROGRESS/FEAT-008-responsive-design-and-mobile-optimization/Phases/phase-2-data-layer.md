@@ -46,12 +46,12 @@ Responsive assertions and component patches use typed, centralized metadata inst
 
 ## Quality Gate Evidence
 
-| Gate                   | Decision  | Evidence / Justification                                                                                                                                                                   |
-| ---------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Changed files          | recorded  | `tests/e2e/fixtures/responsive.ts` (new) — typed viewport, layout, touch-target, gutter, and selector metadata. |
-| Tests                  | waived    | Pure typed data constants only — no runtime logic. Contract is tested implicitly when E2E tests import and use these values in Phase 7. Metadata contract tests are not useful here. |
-| Gherkin/Playwright E2E | not applicable | This phase adds test fixture data only; no browser/UI behavior change.                                                                                                                    |
-| Code review            | waived    | Pure data constants with no executable logic. Risk is limited to incorrect constant values, which will be caught by Phase 7 E2E assertions. Code review deferred to Phase 7 integration review. |
+| Gate                   | Decision       | Evidence / Justification                                                                                                                                                                        |
+| ---------------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Changed files          | recorded       | `tests/e2e/fixtures/responsive.ts` (new) — typed viewport, layout, touch-target, gutter, and selector metadata.                                                                                 |
+| Tests                  | waived         | Pure typed data constants only — no runtime logic. Contract is tested implicitly when E2E tests import and use these values in Phase 7. Metadata contract tests are not useful here.            |
+| Gherkin/Playwright E2E | not applicable | This phase adds test fixture data only; no browser/UI behavior change.                                                                                                                          |
+| Code review            | waived         | Pure data constants with no executable logic. Risk is limited to incorrect constant values, which will be caught by Phase 7 E2E assertions. Code review deferred to Phase 7 integration review. |
 
 ## Acceptance criteria
 

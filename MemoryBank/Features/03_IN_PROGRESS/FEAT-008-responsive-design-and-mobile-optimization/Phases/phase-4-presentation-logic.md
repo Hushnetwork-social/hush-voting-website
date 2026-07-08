@@ -48,12 +48,12 @@ Responsive behavior has correct semantic structure before UI class polish and br
 
 ## Quality Gate Evidence
 
-| Gate                   | Decision  | Evidence / Justification                                                                                                                                                                   |
-| ---------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Gate                   | Decision  | Evidence / Justification                                                                                                                                                                                                                                                                        |
+| ---------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Changed files          | recorded  | `src/components/landing/Header.tsx` (breakpoint + touch targets), `src/components/landing/MobileNavDisclosure.tsx` (breakpoint), `src/components/landing/BrandMark.tsx` (size prop), `src/components/landing/HeroSection.tsx` (brand size), `src/components/landing/Footer.tsx` (touch targets) |
-| Tests                  | satisfied | Existing unit tests (197 tests pass). Phase 7 will add Playwright E2E for browser/UI behavior. |
-| Gherkin/Playwright E2E | waived    | Component behavior changes (breakpoint + touch target) will be verified by Phase 7 E2E tests. No runtime behavior changes outside of class/style patches. |
-| Code review            | waived    | Focused class/breakpoint changes in 5 well-understood components. No new complex logic. Code review deferred to Phase 8 final checkpoint for broader review. |
+| Tests                  | satisfied | Existing unit tests (197 tests pass). Phase 7 will add Playwright E2E for browser/UI behavior.                                                                                                                                                                                                  |
+| Gherkin/Playwright E2E | waived    | Component behavior changes (breakpoint + touch target) will be verified by Phase 7 E2E tests. No runtime behavior changes outside of class/style patches.                                                                                                                                       |
+| Code review            | waived    | Focused class/breakpoint changes in 5 well-understood components. No new complex logic. Code review deferred to Phase 8 final checkpoint for broader review.                                                                                                                                    |
 
 ## Acceptance criteria
 

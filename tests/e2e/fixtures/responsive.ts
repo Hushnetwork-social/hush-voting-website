@@ -73,10 +73,7 @@ export const BREAKPOINT_MAX: Record<BreakpointLabel, number> = {
 } as const;
 
 /** Expected navigation mode by breakpoint. */
-export const NAV_MODE: Record<
-  BreakpointLabel,
-  "hamburger" | "inline"
-> = {
+export const NAV_MODE: Record<BreakpointLabel, "hamburger" | "inline"> = {
   mobile: "hamburger",
   tablet: "hamburger",
   desktop: "inline",
