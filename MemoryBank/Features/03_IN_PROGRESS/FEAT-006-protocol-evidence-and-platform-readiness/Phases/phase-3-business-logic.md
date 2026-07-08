@@ -39,33 +39,37 @@ Sovereign Shield CSS is now included in SSR HTML output via the TanStack Start r
 ## Required evidence
 
 ### css-runtime-baseline ✓
+
 - SSR manifest for root route includes `css:["/assets/index-Dy0Mnok2.css"]`
 - TanStack Start client will inject `<link rel="stylesheet">` during hydration
 - Build succeeds: `pnpm build` — all environments built cleanly (client, SSR, Nitro)
 - Typecheck passes: `pnpm typecheck` — clean
 
 ### visual-language-baseline ✓ (structural evidence)
+
 - Fix is structural; full browser validation delegated to Phase 7 E2E tests
 - The manifest-based CSS injection is the TanStack Start canonical approach
 
 ### typecheck ✓
+
 `pnpm typecheck` — passes clean.
 
 ### build ✓
+
 `pnpm build` — all three environments (client, SSR, Nitro) build successfully. CSS file is 41.72 KB (gzip: 7.70 KB).
 
 ### No dynamic business logic ✓
+
 Confirmed: no backend calls, route loaders, server actions, proof generation, evidence lookup, election state, or verifier execution logic was added.
 
 ## Quality Gate Evidence
 
-| Gate | Decision | Evidence / Justification |
-| --- | --- | --- |
-| Changed files | satisfied | `src/routes/__root.tsx` — added CSS import. `src/routes/index.tsx` — removed CSS import. |
-| Tests | waived | The CSS fix is structural (build-system/SSR injection). Focused browser E2E validation is deferred to Phase 7 where it can be tested against running server. Unit tests cannot detect SSR `<link>` injection. |
-| Gherkin/Playwright E2E | waived | Deferred to Phase 7. The pre-existing `visual-language-baseline` E2E tests will validate the CSS loading at that phase. |
-| Code review | waived | Phase 3 makes a single import-line change with no runtime logic. Code review will be performed in Phase 8 (final checkpoint). |
-
+| Gate                   | Decision  | Evidence / Justification                                                                                                                                                                                      |
+| ---------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Changed files          | satisfied | `src/routes/__root.tsx` — added CSS import. `src/routes/index.tsx` — removed CSS import.                                                                                                                      |
+| Tests                  | waived    | The CSS fix is structural (build-system/SSR injection). Focused browser E2E validation is deferred to Phase 7 where it can be tested against running server. Unit tests cannot detect SSR `<link>` injection. |
+| Gherkin/Playwright E2E | waived    | Deferred to Phase 7. The pre-existing `visual-language-baseline` E2E tests will validate the CSS loading at that phase.                                                                                       |
+| Code review            | waived    | Phase 3 makes a single import-line change with no runtime logic. Code review will be performed in Phase 8 (final checkpoint).                                                                                 |
 
 ## Completion gate
 

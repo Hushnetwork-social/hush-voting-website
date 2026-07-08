@@ -45,49 +45,54 @@ All FEAT-006 components are visually consistent with Sovereign Shield and indepe
 ## Required evidence
 
 ### typecheck ✓
+
 `pnpm typecheck` — passes clean.
 
 ### unit-tests ✓
+
 `pnpm test:unit` — 119 tests pass, including:
+
 - ProtocolEvidenceSection: section#protocol, heading, narrative, badge, 6 labels, decorative icons, no focusable, no border-white
 - PlatformReadinessSection: section#platform, heading, 3 h3 cards, descriptions, decorative icons, no focusable, no border-white
 - ClaimBoundaryBar: role="list", 5 items, 5 decorative icons, no focusable
 
 ### component-render-tests ✓
+
 All component tests verify proper rendering with token-based styling.
 
 ### responsive-review ✓
+
 - Protocol section: `lg:grid-cols-2` for desktop left/right → single column mobile
 - Evidence grid: `sm:grid-cols-2` for tablet 2-column → single column mobile
 - Deployment cards: `sm:grid-cols-2 lg:grid-cols-3` responsive
 - Claim badges: `flex-wrap` for wrapping on small screens
 
 ### no-white-border-regression ✓
+
 Tested in both ProtocolEvidenceSection and PlatformReadinessSection component tests — 0 `.border-white` matches.
 
 ### Visual language compliance summary
 
-| Requirement | Status |
-| --- | --- |
-| Full-width bg-surface-container-low band on Protocol Evidence | ✓ Outer section has `bg-surface-container-low` |
-| InsetWell recessed items with 2x3 grid | ✓ Using `InsetWell` + responsive grid |
-| Hanken Grotesk for heading/body | ✓ Via `fontFamily: var(--font-family-hanken)` |
-| JetBrains Mono for labels | ✓ Via `fontFamily: var(--font-family-jetbrains)` |
-| Tokenized spacing/radius | ✓ Via CSS custom properties |
-| Deployment cards with tonal fills, no white borders | ✓ `bg-surface-container`, no border classes |
-| Claim bar with wrapping badges, filled icons | ✓ `flex-wrap`, `fontVariationSettings: 'FILL' 1` |
-| No border-white | ✓ 0 matches in component tests |
-| No heavy-card-inside-card | ✓ InsetWell is recessed, not card-based |
+| Requirement                                                   | Status                                           |
+| ------------------------------------------------------------- | ------------------------------------------------ |
+| Full-width bg-surface-container-low band on Protocol Evidence | ✓ Outer section has `bg-surface-container-low`   |
+| InsetWell recessed items with 2x3 grid                        | ✓ Using `InsetWell` + responsive grid            |
+| Hanken Grotesk for heading/body                               | ✓ Via `fontFamily: var(--font-family-hanken)`    |
+| JetBrains Mono for labels                                     | ✓ Via `fontFamily: var(--font-family-jetbrains)` |
+| Tokenized spacing/radius                                      | ✓ Via CSS custom properties                      |
+| Deployment cards with tonal fills, no white borders           | ✓ `bg-surface-container`, no border classes      |
+| Claim bar with wrapping badges, filled icons                  | ✓ `flex-wrap`, `fontVariationSettings: 'FILL' 1` |
+| No border-white                                               | ✓ 0 matches in component tests                   |
+| No heavy-card-inside-card                                     | ✓ InsetWell is recessed, not card-based          |
 
 ## Quality Gate Evidence
 
-| Gate | Decision | Evidence / Justification |
-| --- | --- | --- |
-| Changed files | not applicable | Visual styling was already integrated in Phase 4 components. Phase 5 is a verification gate — no additional file changes needed. |
-| Tests | satisfied | Component tests verify no-white-border (0 matches), decorative icons (aria-hidden), and non-interactivity for all FEAT-006 components. 119 total tests pass. |
-| Gherkin/Playwright E2E | waived | Browser E2E visual validation is deferred to Phase 7 where tagged @FEAT-006 scenarios will run against a live server. Component tests provide sufficient structural coverage for this phase. |
-| Code review | waived | Visual styling is integrated into the same components from Phase 4. Full code review deferred to Phase 8. |
-
+| Gate                   | Decision       | Evidence / Justification                                                                                                                                                                     |
+| ---------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Changed files          | not applicable | Visual styling was already integrated in Phase 4 components. Phase 5 is a verification gate — no additional file changes needed.                                                             |
+| Tests                  | satisfied      | Component tests verify no-white-border (0 matches), decorative icons (aria-hidden), and non-interactivity for all FEAT-006 components. 119 total tests pass.                                 |
+| Gherkin/Playwright E2E | waived         | Browser E2E visual validation is deferred to Phase 7 where tagged @FEAT-006 scenarios will run against a live server. Component tests provide sufficient structural coverage for this phase. |
+| Code review            | waived         | Visual styling is integrated into the same components from Phase 4. Full code review deferred to Phase 8.                                                                                    |
 
 ## Completion gate
 

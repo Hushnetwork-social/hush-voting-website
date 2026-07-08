@@ -2,7 +2,7 @@
 
 **Feature ID**: FEAT-006
 **Parent Epic**: EPIC-001
-**Status**: In Progress
+**Status**: Completed
 
 ## Summary
 
@@ -19,30 +19,34 @@ Implementation must keep the homepage route thin by adding reusable landing comp
 
 ## Hepha Deep-Dive Decisions
 
-Recorded: 2026-07-08T17:31:50.437Z
+Recorded: 2026-07-08T18:55:53.736Z
 
 Hepha applied these saved Deep-Dive answers directly because the full-document model rewrite did not finish.
-Fallback reason: Source document is 13783 characters; deterministic update is used above 12000 characters.
+Fallback reason: Source document is 14299 characters; deterministic update is used above 12000 characters.
 
-### CSS prerequisite gate
+### CSS loading owner
 
-Question: How should FEAT-006 handle the Sovereign Shield CSS loading gap before section implementation starts?
+Question: Which implementation contract should govern the Sovereign Shield CSS prerequisite before FEAT-006 sections are built?
 
-Decision: **Blocking Phase 1 prerequisite** - Fix root layout stylesheet injection first, verify computed CSS tokens/body styles, then proceed to section components.
+Decision: **Root-layout fix with computed-style gate** - Fix stylesheet injection in the TanStack Start root layout/head path, then block section work until dev and production-like checks prove tokens, body color, and heading font resolve.
 
-### Static content contract
+Additional detail: Use the root-layout fix with computed-style gate. FEAT-006 should treat the Sovereign Shield CSS loading gap as a blocking prerequisite before section implementation continues: fix stylesheet injection in the TanStack Start root layout/head path, then verify the CSS tokens, body color, and heading font through dev and production-like checks.
 
-Question: Which source should be authoritative for FEAT-006 labels, descriptions, and Material Symbol names?
+### Component and content structure
 
-Decision: **Freeze typed constants from FeatureDescription** - Treat the current Static Content Contract as final, create typed constants first, and have components/tests consume only that contract.
+Question: How should Protocol Evidence, Platform Readiness, and Claim Boundary content be structured to avoid copy drift and visual-language regressions?
 
-### Validation and E2E scope
+Decision: **Constants-first landing feature module** - Create typed content constants first, then build separate reusable landing components and tests that import the constants, use tonal fills, and export through the landing barrel.
 
-Question: How should FEAT-006 validation be scoped to avoid repeated planning and CI/script failures?
+Additional detail: Use a constants-first landing feature module. Create typed content constants first, then build separate reusable landing components and tests that import those constants. Keep Protocol Evidence, Platform Readiness, and Claim Boundary copy centralized to avoid drift, follow the existing visual language, use tonal fills, and export through the landing barrel.
 
-Decision: **Scoped FEAT-006 validation with canonical scripts** - Audit/reuse existing FEAT-006 Gherkin files, run baseline plus @FEAT-006 E2E blocks, and verify canonical package scripts such as build, unit tests, and format check.
+### Validation scope
 
-#
+Question: What validation plan should FEAT-006 use to prevent repeated CI/script and E2E failures?
+
+Decision: **Scoped E2E plus canonical scripts** - Reuse/audit existing FEAT-006 Gherkin files, run the CSS prerequisite and @FEAT-006 E2E blocks only, and verify canonical package scripts such as build, unit tests, and format check.
+
+Additional detail: Use scoped E2E plus canonical scripts. Reuse or audit the existing FEAT-006 Gherkin files, run only the CSS prerequisite and @FEAT-006 E2E blocks instead of the full suite by default, and verify canonical package scripts such as build, unit tests, and format check.
 
 ## Pre-Requisite
 
@@ -82,42 +86,42 @@ Recommended location:
 
 ### Protocol Evidence Content
 
-| Key | UI Label | Material Symbol | Description Intent |
-| --- | --- | --- | --- |
-| `cryptographicReceipts` | Cryptographic Receipts | `receipt_long` | Evidence that voting activity can produce voter-verifiable receipts without exposing vote choices. |
-| `eligibilityProofs` | Eligibility Proofs | `how_to_reg` | Evidence that voter eligibility can be proven without turning the public result into an identity list. |
-| `anonymousBallots` | Anonymous Ballots | `shield_lock` | Evidence that private ballot handling is a first-class protocol property. |
-| `tamperEvidentRecords` | Tamper-Evident Records | `database` | Evidence that election records are structured for integrity checks and audit review. |
-| `verifiableTally` | Verifiable Tally | `verified` | Evidence that outcomes are designed to be independently checked. |
-| `auditEvidence` | Audit Evidence | `fact_check` | Evidence packages are designed to support organizational review and post-election audit workflows. |
+| Key                     | UI Label               | Material Symbol | Description Intent                                                                                     |
+| ----------------------- | ---------------------- | --------------- | ------------------------------------------------------------------------------------------------------ |
+| `cryptographicReceipts` | Cryptographic Receipts | `receipt_long`  | Evidence that voting activity can produce voter-verifiable receipts without exposing vote choices.     |
+| `eligibilityProofs`     | Eligibility Proofs     | `how_to_reg`    | Evidence that voter eligibility can be proven without turning the public result into an identity list. |
+| `anonymousBallots`      | Anonymous Ballots      | `shield_lock`   | Evidence that private ballot handling is a first-class protocol property.                              |
+| `tamperEvidentRecords`  | Tamper-Evident Records | `database`      | Evidence that election records are structured for integrity checks and audit review.                   |
+| `verifiableTally`       | Verifiable Tally       | `verified`      | Evidence that outcomes are designed to be independently checked.                                       |
+| `auditEvidence`         | Audit Evidence         | `fact_check`    | Evidence packages are designed to support organizational review and post-election audit workflows.     |
 
 Protocol evidence item labels should render uppercase in the UI.
 
 ### Protocol Omega Badge
 
-| Label | Material Symbol | Notes |
-| --- | --- | --- |
-| 100% Mathematically Verifiable | `verified` | Badge appears in the Protocol Evidence left column. |
+| Label                          | Material Symbol | Notes                                               |
+| ------------------------------ | --------------- | --------------------------------------------------- |
+| 100% Mathematically Verifiable | `verified`      | Badge appears in the Protocol Evidence left column. |
 
 ### Deployment Readiness Cards
 
-| Key | Headline | Material Symbol | Description |
-| --- | --- | --- | --- |
-| `pwaFirst` | PWA-First | `install_mobile` | Installable web deployment path designed for fast access, broad device reach, and low operational friction. |
-| `electrobunReady` | Electrobun-Ready | `desktop_windows` | Desktop packaging path prepared for secure organizational environments and dedicated election workstations. |
-| `mobileNative` | Mobile Native | `phone_iphone` | Mobile-native delivery path reserved for future app-store distribution and device-specific voting experiences. |
+| Key               | Headline         | Material Symbol   | Description                                                                                                    |
+| ----------------- | ---------------- | ----------------- | -------------------------------------------------------------------------------------------------------------- |
+| `pwaFirst`        | PWA-First        | `install_mobile`  | Installable web deployment path designed for fast access, broad device reach, and low operational friction.    |
+| `electrobunReady` | Electrobun-Ready | `desktop_windows` | Desktop packaging path prepared for secure organizational environments and dedicated election workstations.    |
+| `mobileNative`    | Mobile Native    | `phone_iphone`    | Mobile-native delivery path reserved for future app-store distribution and device-specific voting experiences. |
 
 ### Claim Boundary Badges
 
 Claim badges must use Material Symbols with `FILL 1`.
 
-| Label | Material Symbol |
-| --- | --- |
-| Designed for organizational remote voting | `groups` |
-| Privacy-first | `privacy_tip` |
-| Verifiable outcomes | `verified` |
-| Audit-ready evidence packages | `fact_check` |
-| Enabled by HushNetwork | `hub` |
+| Label                                     | Material Symbol |
+| ----------------------------------------- | --------------- |
+| Designed for organizational remote voting | `groups`        |
+| Privacy-first                             | `privacy_tip`   |
+| Verifiable outcomes                       | `verified`      |
+| Audit-ready evidence packages             | `fact_check`    |
+| Enabled by HushNetwork                    | `hub`           |
 
 ## Acceptance Criteria
 

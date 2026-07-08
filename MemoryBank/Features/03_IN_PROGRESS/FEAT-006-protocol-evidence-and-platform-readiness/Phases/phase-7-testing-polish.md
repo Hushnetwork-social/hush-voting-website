@@ -44,29 +44,36 @@ All automated verification gates satisfied or waived with clear rationale.
 ## Required evidence
 
 ### typecheck ✓
+
 `pnpm typecheck` — passes clean.
 
 ### unit-tests ✓
+
 `pnpm test:unit` — 119 tests pass across 3 files.
 
 ### component-render-tests ✓
+
 ProtocolEvidenceSection tests: section#protocol, h2 heading, narrative, badge, 6 labels, decorative icons, no focusable, no border-white.
 PlatformReadinessSection tests: section#platform, h2 heading, 3 h3 cards, descriptions, decorative icons, no focusable, no border-white.
 ClaimBoundaryBar tests: role="list", 5 listitems, all labels, decorative icons, no focusable.
 
 ### build ✓
+
 `pnpm build` — all environments build successfully.
 
 ### format-check ✓
+
 `prettier --write` applied to changed source files.
 
 ### responsive-review ✓
+
 - Protocol: lg:grid-cols-2 → single column mobile
 - Evidence grid: sm:grid-cols-2, auto-rows-fr → single column mobile
 - Cards: sm:grid-cols-2 lg:grid-cols-3 → single column mobile
 - Claims: flex-wrap for wrapping on small screens
 
 ### accessibility-review ✓
+
 - Semantic sections with aria-labelledby
 - h2 for section headings, h3 for deployment card titles
 - All icons decorative (aria-hidden="true"), no redundant aria-labels
@@ -74,27 +81,30 @@ ClaimBoundaryBar tests: role="list", 5 listitems, all labels, decorative icons, 
 - Fragment targets (#protocol, #platform) match section IDs
 
 ### no-white-border-regression ✓
+
 - Component tests assert 0 `.border-white` matches across all FEAT-006 components.
 
 ### visual-language-baseline / gherkin-e2e (waived for offline verification)
+
 E2E tests require running dev/prod server. Pre-existing feature files and Playwright specs are ready:
+
 - `tests/e2e/features/visual-language-baseline.feature`
 - `tests/e2e/features/protocol-evidence-section.feature`
 - `tests/e2e/visual-language-baseline.spec.ts`
 - `tests/e2e/protocol-evidence-section.spec.ts`
 
 ### code-review (deferred)
+
 Code review will be performed in Phase 8 final checkpoint.
 
 ## Quality Gate Evidence
 
-| Gate | Decision | Evidence / Justification |
-| --- | --- | --- |
-| Changed files | satisfied | `tests/unit/landing.test.tsx` — 20 new component tests. `src/components/landing/ProtocolEvidenceSection.tsx`, `src/routes/__root.tsx` — formatted. |
-| Tests | satisfied | `pnpm test:unit` — 119 tests pass (99 pre-existing + 11 constants + 20 component render). All FEAT-006 tests pass. |
-| Gherkin/Playwright E2E | waived | E2E browser coverage requires running dev server. Pre-existing `visual-language-baseline` (CSS prerequisite) and `protocol-evidence-section` Gherkin/Playwright files are ready but cannot run in headless agent mode. CSS baseline fix was structurally verified via SSR manifest. |
-| Code review | waived | Deferred to Phase 8 where code review will be performed as part of the final checkpoint. |
-
+| Gate                   | Decision  | Evidence / Justification                                                                                                                                                                                                                                                            |
+| ---------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Changed files          | satisfied | `tests/unit/landing.test.tsx` — 20 new component tests. `src/components/landing/ProtocolEvidenceSection.tsx`, `src/routes/__root.tsx` — formatted.                                                                                                                                  |
+| Tests                  | satisfied | `pnpm test:unit` — 119 tests pass (99 pre-existing + 11 constants + 20 component render). All FEAT-006 tests pass.                                                                                                                                                                  |
+| Gherkin/Playwright E2E | waived    | E2E browser coverage requires running dev server. Pre-existing `visual-language-baseline` (CSS prerequisite) and `protocol-evidence-section` Gherkin/Playwright files are ready but cannot run in headless agent mode. CSS baseline fix was structurally verified via SSR manifest. |
+| Code review            | waived    | Deferred to Phase 8 where code review will be performed as part of the final checkpoint.                                                                                                                                                                                            |
 
 ## Completion gate
 

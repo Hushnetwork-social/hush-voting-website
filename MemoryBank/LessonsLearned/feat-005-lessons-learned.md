@@ -41,6 +41,7 @@ FEAT-005 implemented a static, responsive Role Workflow homepage section with fo
 **Successful pattern:** When a new section follows the same component architecture (deterministic static render with semantic heading, decorative icons, non-interactive cards), the test pattern is fully reusable. The only new assertions were for exact role card count and order (h3 heading arrays) and constants contract tests for exact approved copy.
 
 **Prevention rule:** When adding tests for a new static landing section that follows the established component architecture pattern, copy the existing test `describe` block structure and modify only:
+
 - The section `id` query and expected value
 - The heading level (h2 for section, h3 for sub-elements)
 - The constant reference (TRUST_SECTION → ROLE_WORKFLOW_SECTION)
@@ -64,6 +65,7 @@ FEAT-005 implemented a static, responsive Role Workflow homepage section with fo
 ### Lesson 5: Prior Lessons Applied Correctly
 
 **Observation:** All prior FEAT lessons that applied to FEAT-005 were successfully followed without incident:
+
 - FEAT-002 Lesson 4: Tonal surfaces (bg-surface-container-high) instead of white borders — ✅
 - FEAT-003 Lesson 5: Fragment-only hrefs for planned sections — `#roles` anchor works automatically from FEAT-003 nav — ✅
 - FEAT-004 Lesson 4: Fragment anchor matching — section `id="roles"` matches existing `#roles` nav link — ✅
@@ -75,10 +77,10 @@ FEAT-005 implemented a static, responsive Role Workflow homepage section with fo
 
 ## Operational Rules Summary
 
-| Context | Rule | Source |
-|---------|------|--------|
-| Static copy contracts | Create typed constants immediately after refinement, verify once, then all downstream work references the same constants | Lesson 1 |
-| Barrel exports | Always add new landing components to the existing `src/components/landing/index.ts` barrel | Lesson 2 |
-| Test patterns | Copy existing static-section test pattern, modify only section-specific assertions and constants references | Lesson 3 |
-| Downstream untracked files | Do not commit downstream FEAT artifacts with current FEAT; document in completion report | Lesson 4 |
-| Prior lessons as constraints | Review all prior FEAT lessons before starting a new FEAT; apply as executable prevention rules | Lesson 5 |
+| Context                      | Rule                                                                                                                     | Source   |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------ | -------- |
+| Static copy contracts        | Create typed constants immediately after refinement, verify once, then all downstream work references the same constants | Lesson 1 |
+| Barrel exports               | Always add new landing components to the existing `src/components/landing/index.ts` barrel                               | Lesson 2 |
+| Test patterns                | Copy existing static-section test pattern, modify only section-specific assertions and constants references              | Lesson 3 |
+| Downstream untracked files   | Do not commit downstream FEAT artifacts with current FEAT; document in completion report                                 | Lesson 4 |
+| Prior lessons as constraints | Review all prior FEAT lessons before starting a new FEAT; apply as executable prevention rules                           | Lesson 5 |

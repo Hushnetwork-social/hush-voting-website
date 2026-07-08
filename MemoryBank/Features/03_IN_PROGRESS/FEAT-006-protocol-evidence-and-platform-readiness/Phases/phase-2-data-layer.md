@@ -42,19 +42,24 @@ All static content is typed and centralized before component implementation.
 ## Required evidence
 
 ### typecheck ✓
+
 `pnpm typecheck` — passes clean.
 
 ### unit-tests ✓
+
 `pnpm test:unit` — 99 tests pass (88 existing + 11 new FEAT-006 constants tests).
 
 ### component-render-tests ✓
+
 New constants tests cover:
+
 - Protocol evidence: 6 items in exact order, correct labels/icons, descriptions present
 - Protocol badge: exact label "100% Mathematically Verifiable" with "verified" icon
 - Deployment cards: 3 cards in exact order, correct headlines/icons, descriptions present
 - Claim badges: 5 badges in exact order, correct labels/icons, all fill=1
 
 ### format-check ✓
+
 No formatting changes needed (constants follow existing patterns).
 
 ### Evidence details
@@ -66,13 +71,12 @@ All tests assert counts, labels, icons, and fill metadata from the constants con
 
 ## Quality Gate Evidence
 
-| Gate | Decision | Evidence / Justification |
-| --- | --- | --- |
-| Changed files | satisfied | `src/components/landing/constants.ts` — added FEAT-006 typed constants. `src/components/landing/index.ts` — added barrel exports. `tests/unit/landing.test.tsx` — added 11 contract tests. |
-| Tests | satisfied | `pnpm test:unit` — 11 new FEAT-006 constants contract tests pass (99 total). |
-| Gherkin/Playwright E2E | not applicable | Phase 2 is data layer only (typed constants). No browser/UI behavior changed. Contract tests provide sufficient coverage. |
-| Code review | waived | Phase 2 adds only typed constants (no runtime behavior). Code review will be performed in a later phase when components and integration are complete. |
-
+| Gate                   | Decision       | Evidence / Justification                                                                                                                                                                   |
+| ---------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Changed files          | satisfied      | `src/components/landing/constants.ts` — added FEAT-006 typed constants. `src/components/landing/index.ts` — added barrel exports. `tests/unit/landing.test.tsx` — added 11 contract tests. |
+| Tests                  | satisfied      | `pnpm test:unit` — 11 new FEAT-006 constants contract tests pass (99 total).                                                                                                               |
+| Gherkin/Playwright E2E | not applicable | Phase 2 is data layer only (typed constants). No browser/UI behavior changed. Contract tests provide sufficient coverage.                                                                  |
+| Code review            | waived         | Phase 2 adds only typed constants (no runtime behavior). Code review will be performed in a later phase when components and integration are complete.                                      |
 
 ## Completion gate
 

@@ -40,24 +40,30 @@ FEAT-006 sections are exposed on the homepage with matching fragment navigation.
 ## Required evidence
 
 ### css-runtime-baseline ✓
+
 - Root stylesheet injection confirmed in SSR manifest.
 - `pnpm build` succeeds.
 
 ### typecheck ✓
+
 `pnpm typecheck` — passes clean.
 
 ### unit-tests ✓
+
 `pnpm test:unit` — 119 tests pass.
 
 ### ui-tests ✓ (SSR HTML verification)
+
 - SSR output confirmed: `<section id="protocol">` renders with Protocol Omega heading, narrative, badge, 6 evidence items.
 - SSR output confirmed: `<section id="platform">` renders with Universal Deployment Readiness heading, 3 deployment cards, claim boundary bar.
 - Homepage rendering order: Header → Hero → Trust Model → Role Workflow → Protocol Evidence → Platform Readiness.
 
 ### build ✓
+
 `pnpm build` succeeds for all environments.
 
 ### Integration verification
+
 - Route file remains thin (7 imports, 6 component compositions, no inline copy/markup).
 - Nav links `#protocol` and `#platform` match section IDs.
 - CSS injection fix from Phase 3 remains active.
@@ -65,12 +71,12 @@ FEAT-006 sections are exposed on the homepage with matching fragment navigation.
 
 ## Quality Gate Evidence
 
-| Gate | Decision | Evidence / Justification |
-| --- | --- | --- |
-| Changed files | satisfied | `src/routes/index.tsx` — added 2 imports and 2 component compositions. |
-| Tests | satisfied | `pnpm test:unit` — 119 tests pass. SSR HTML output confirms correct rendering and order. |
-| Gherkin/Playwright E2E | waived | Deferred to Phase 7. Pre-existing E2E tests exist for protocol-evidence-section and visual-language-baseline. |
-| Code review | waived | Route composition is minimal. Full code review deferred to Phase 8. |
+| Gate                   | Decision  | Evidence / Justification                                                                                      |
+| ---------------------- | --------- | ------------------------------------------------------------------------------------------------------------- |
+| Changed files          | satisfied | `src/routes/index.tsx` — added 2 imports and 2 component compositions.                                        |
+| Tests                  | satisfied | `pnpm test:unit` — 119 tests pass. SSR HTML output confirms correct rendering and order.                      |
+| Gherkin/Playwright E2E | waived    | Deferred to Phase 7. Pre-existing E2E tests exist for protocol-evidence-section and visual-language-baseline. |
+| Code review            | waived    | Route composition is minimal. Full code review deferred to Phase 8.                                           |
 
 ## Completion gate
 

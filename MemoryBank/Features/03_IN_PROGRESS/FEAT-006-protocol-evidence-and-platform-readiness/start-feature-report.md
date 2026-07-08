@@ -1,15 +1,15 @@
 # Start Feature Report — FEAT-006
 
-| Field | Value |
-| ----- | ----- |
-| **Feature ID** | FEAT-006 |
-| **Feature Name** | Protocol Evidence and Platform Readiness |
-| **Branch** | `feat/FEAT-006-protocol-evidence-and-platform-readiness` |
-| **Source Folder** | `MemoryBank/Features/01_SUBMITTED/FEAT-006-protocol-evidence-and-platform-readiness` |
-| **Target Folder** | `MemoryBank/Features/03_IN_PROGRESS/FEAT-006-protocol-evidence-and-platform-readiness` |
-| **Transition Performed** | Already completed (folder in `03_IN_PROGRESS`, branch exists) |
-| **Date** | 2026-07-08T19:32:00.000Z |
-| **Start Agent** | Pi coding agent (start-feature skill) |
+| Field                    | Value                                                                                  |
+| ------------------------ | -------------------------------------------------------------------------------------- |
+| **Feature ID**           | FEAT-006                                                                               |
+| **Feature Name**         | Protocol Evidence and Platform Readiness                                               |
+| **Branch**               | `feat/FEAT-006-protocol-evidence-and-platform-readiness`                               |
+| **Source Folder**        | `MemoryBank/Features/01_SUBMITTED/FEAT-006-protocol-evidence-and-platform-readiness`   |
+| **Target Folder**        | `MemoryBank/Features/03_IN_PROGRESS/FEAT-006-protocol-evidence-and-platform-readiness` |
+| **Transition Performed** | Already completed (folder in `03_IN_PROGRESS`, branch exists)                          |
+| **Date**                 | 2026-07-08T19:32:00.000Z                                                               |
+| **Start Agent**          | Pi coding agent (start-feature skill)                                                  |
 
 ## Transition Details
 

@@ -146,15 +146,18 @@ Proceed with FEAT-005 as a confirmed static Role Workflow homepage section linke
 FEAT-005 implemented a static, responsive Role Workflow homepage section at `id="roles"` with four role cards (Organizations, Voters, Trustees, Auditors).
 
 **Files Created:**
+
 - `src/components/landing/RoleWorkflowSection.tsx` — Presentation component
 
 **Files Modified:**
+
 - `src/components/landing/constants.ts` — Added `RoleCard` interface and `ROLE_WORKFLOW_SECTION` constant
 - `src/components/landing/index.ts` — Added barrel exports
 - `src/routes/index.tsx` — Composed `<RoleWorkflowSection />` after `<TrustModelSection />`
 - `tests/unit/landing.test.tsx` — Added 18 tests
 
 **Final Validation:**
+
 - `pnpm format:check` — PASS
 - `pnpm typecheck` — PASS
 - `pnpm test:unit` — 88/88 PASS

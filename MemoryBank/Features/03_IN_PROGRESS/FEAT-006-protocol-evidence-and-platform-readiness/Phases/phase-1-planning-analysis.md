@@ -38,6 +38,7 @@ Create the canonical `planning-analysis-report.md` and lock the implementation c
 ## Verification intent
 
 All planning contracts are documented in `planning-analysis-report.md`. The report covers:
+
 - Approvied static content contracts (protocol evidence, deployment cards, claim badges)
 - CSS remediation strategy (move import to __root.tsx)
 - File boundaries, component architecture, composition order
@@ -49,6 +50,7 @@ All planning contracts are documented in `planning-analysis-report.md`. The repo
 ## Required evidence
 
 ### planning-analysis-report ✓
+
 - `planning-analysis-report.md` created, 10KB, FEAT-006 specific
 - Names exact approved copy/icon contracts in frozen tables
 - Explains stylesheet injection prerequisite and computed-style validation
@@ -56,30 +58,33 @@ All planning contracts are documented in `planning-analysis-report.md`. The repo
 - States that later phases must update it when contracts change
 
 ### css-runtime-baseline ✓
+
 - CSS remediation plan documented: move import to __root.tsx
 - Validation checks defined (stylesheet link, CSS vars, body/hero computed styles)
 
 ### accessibility-review ✓
+
 - Model defined: aria-labelledby sections, h2/h3 headings, decorative aria-hidden icons, no focus targets
 - Evidence items as list or grid of divs, claim badges as role="list" group
 
 ### responsive-review ✓
+
 - Desktop: 2col protocol + 2x3 grid + 3col cards + horizontal claims
 - Tablet: 2col/stacked protocol + 2col cards + wrapping claims
 - Mobile: single column stack for all sections
 
 ### manual-review-ready ✓
+
 - No remaining ambiguity. All contracts, remediation, and strategies are documented.
 
 ## Quality Gate Evidence
 
-| Gate | Decision | Evidence / Justification |
-| --- | --- | --- |
-| Changed files | satisfied | `planning-analysis-report.md` created (10KB). `Phases/phase-1-planning-analysis.md` updated with completion evidence. |
-| Tests | not applicable | Phase 1 is planning-only; it does not change executable behavior. |
-| Gherkin/Playwright E2E | not applicable | Phase 1 is planning-only and has no browser/UI behavior change. |
-| Code review | not applicable | Phase 1 produces planning documentation only; implementation review begins when code changes. |
-
+| Gate                   | Decision       | Evidence / Justification                                                                                              |
+| ---------------------- | -------------- | --------------------------------------------------------------------------------------------------------------------- |
+| Changed files          | satisfied      | `planning-analysis-report.md` created (10KB). `Phases/phase-1-planning-analysis.md` updated with completion evidence. |
+| Tests                  | not applicable | Phase 1 is planning-only; it does not change executable behavior.                                                     |
+| Gherkin/Playwright E2E | not applicable | Phase 1 is planning-only and has no browser/UI behavior change.                                                       |
+| Code review            | not applicable | Phase 1 produces planning documentation only; implementation review begins when code changes.                         |
 
 ## Completion gate
 
