@@ -12,43 +12,43 @@ The feature must not implement downstream landing-page sections, footer/legal/co
 
 ## Linked EPIC / Acceptance Traceability
 
-| Source | Requirement | Planned Evidence Labels |
-| --- | --- | --- |
-| FEAT-003 AC 1-5 | Fixed blurred top navigation with brand identity, section anchors, and prominent Pilot Access CTA | build, static-analysis, unit-tests, ui-tests, accessibility-review, manual-review-ready |
-| FEAT-003 AC 6-10 | Hero brand treatment, approved headline/subheadline, two CTAs, and purple glow | build, unit-tests, ui-tests, design-review-ready, manual-review-ready |
-| FEAT-003 AC 11-12 | Responsive desktop/tablet/mobile states and usable mobile navigation | ui-tests, accessibility-review, manual-review-ready |
-| FEAT-003 AC 13-14 | Semantic landmarks, heading hierarchy, keyboard reachability, accessible names, menu state | unit-tests, ui-tests, accessibility-review |
-| FEAT-003 AC 15-16 | Use FEAT-002 tokens/components and avoid default bright border separation | static-analysis, design-review-ready, manual-review-ready |
-| FEAT-003 AC 17 | Verify through the project verification profile and canonical package-script labels | build, static-analysis, typecheck, unit-tests, affected-tests, ui-tests, full-verification |
-| EPIC-001 Success Criteria | Landing page communicates product value proposition and exposes anchors for Trust Model, Roles, Protocol Evidence, Platform | ui-tests, manual-review-ready |
-| EPIC-001 Dependency Flow | FEAT-003 depends on FEAT-002 and provides nav/hero foundation for FEAT-007 and FEAT-008 | integration-contract-review, manual-review-ready |
-| FEAT-001/002 Lessons Learned | Use canonical verification labels, keep Tailwind import/script contracts stable, prefer tonal surfaces over borders | static-analysis, design-review-ready, full-verification |
+| Source                       | Requirement                                                                                                                 | Planned Evidence Labels                                                                    |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| FEAT-003 AC 1-5              | Fixed blurred top navigation with brand identity, section anchors, and prominent Pilot Access CTA                           | build, static-analysis, unit-tests, ui-tests, accessibility-review, manual-review-ready    |
+| FEAT-003 AC 6-10             | Hero brand treatment, approved headline/subheadline, two CTAs, and purple glow                                              | build, unit-tests, ui-tests, design-review-ready, manual-review-ready                      |
+| FEAT-003 AC 11-12            | Responsive desktop/tablet/mobile states and usable mobile navigation                                                        | ui-tests, accessibility-review, manual-review-ready                                        |
+| FEAT-003 AC 13-14            | Semantic landmarks, heading hierarchy, keyboard reachability, accessible names, menu state                                  | unit-tests, ui-tests, accessibility-review                                                 |
+| FEAT-003 AC 15-16            | Use FEAT-002 tokens/components and avoid default bright border separation                                                   | static-analysis, design-review-ready, manual-review-ready                                  |
+| FEAT-003 AC 17               | Verify through the project verification profile and canonical package-script labels                                         | build, static-analysis, typecheck, unit-tests, affected-tests, ui-tests, full-verification |
+| EPIC-001 Success Criteria    | Landing page communicates product value proposition and exposes anchors for Trust Model, Roles, Protocol Evidence, Platform | ui-tests, manual-review-ready                                                              |
+| EPIC-001 Dependency Flow     | FEAT-003 depends on FEAT-002 and provides nav/hero foundation for FEAT-007 and FEAT-008                                     | integration-contract-review, manual-review-ready                                           |
+| FEAT-001/002 Lessons Learned | Use canonical verification labels, keep Tailwind import/script contracts stable, prefer tonal surfaces over borders         | static-analysis, design-review-ready, full-verification                                    |
 
 ## Refinement Decisions and Contracts
 
-| Topic | Decision |
-| --- | --- |
-| Pilot Access interim target | Use `#pilot-access` as the documented temporary CTA target. FEAT-003 must not create a fake form or imply submission success. FEAT-007 owns the real contact section/path and will add the matching target or replace the href. |
-| Hero secondary CTA target | Use `#protocol` for `View verifier model`; FEAT-006 owns the eventual Protocol Evidence section. |
-| Section anchor targets | Navigation links target `#trust`, `#roles`, `#protocol`, and `#platform`. FEAT-003 must not implement the downstream sections. Missing anchors must not crash or throw route errors. |
-| Brand asset | Use a token-based HushVoting brand mark fallback. Do not load external prototype image URLs. Do not copy prototype assets into production unless an approved local asset is supplied and recorded during planning. |
-| Mobile navigation pattern | Use a simple accessible non-modal disclosure panel by default. The trigger must expose `aria-expanded` and `aria-controls`; links must remain keyboard reachable and close the menu after activation. |
-| Fixed-header anchor strategy | Add or document a shared scroll-margin/scroll-padding strategy so later section headings are not hidden by the fixed header. |
-| Component boundary | Prefer FEAT-002 `Button` for true buttons; use native anchors styled consistently for links/CTAs. If a reusable link-button primitive is introduced, document the contract in the planning report and avoid breaking existing `Button` semantics. |
+| Topic                        | Decision                                                                                                                                                                                                                                          |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Pilot Access interim target  | Use `#pilot-access` as the documented temporary CTA target. FEAT-003 must not create a fake form or imply submission success. FEAT-007 owns the real contact section/path and will add the matching target or replace the href.                   |
+| Hero secondary CTA target    | Use `#protocol` for `View verifier model`; FEAT-006 owns the eventual Protocol Evidence section.                                                                                                                                                  |
+| Section anchor targets       | Navigation links target `#trust`, `#roles`, `#protocol`, and `#platform`. FEAT-003 must not implement the downstream sections. Missing anchors must not crash or throw route errors.                                                              |
+| Brand asset                  | Use a token-based HushVoting brand mark fallback. Do not load external prototype image URLs. Do not copy prototype assets into production unless an approved local asset is supplied and recorded during planning.                                |
+| Mobile navigation pattern    | Use a simple accessible non-modal disclosure panel by default. The trigger must expose `aria-expanded` and `aria-controls`; links must remain keyboard reachable and close the menu after activation.                                             |
+| Fixed-header anchor strategy | Add or document a shared scroll-margin/scroll-padding strategy so later section headings are not hidden by the fixed header.                                                                                                                      |
+| Component boundary           | Prefer FEAT-002 `Button` for true buttons; use native anchors styled consistently for links/CTAs. If a reusable link-button primitive is introduced, document the contract in the planning report and avoid breaking existing `Button` semantics. |
 
 ## Phase Inventory
 
-| Phase | Name | Status | Primary Output |
-| --- | --- | --- | --- |
-| 0 | Health Check | COMPLETED | Baseline repo, FEAT, design-system, and scope sanity check |
-| 1 | Planning Analysis | COMPLETED | `planning-analysis-report.md` with final implementation contracts |
-| 2 | Data Layer | COMPLETED | Static content/link constants, anchor contract, brand asset/fallback decision record |
-| 3 | Business Logic | COMPLETED | Navigation/menu state behavior and CTA/link interaction contracts |
-| 4 | Presentation Logic | COMPLETED | Semantic route/component structure and accessibility behavior |
-| 5 | User Interface | COMPLETED | Responsive nav/hero visuals, glow, tonal surfaces, and focus/touch states |
-| 6 | Integration | COMPLETED | Homepage integration, future-section anchor compatibility, stable exports/imports |
-| 7 | Testing & Polish | COMPLETED | Unit/UI/E2E coverage and responsive/accessibility polish evidence |
-| 8 | Final Checkpoint | COMPLETED | Acceptance traceability, quality-gate review, and implementation handoff |
+| Phase | Name               | Status    | Primary Output                                                                       |
+| ----- | ------------------ | --------- | ------------------------------------------------------------------------------------ |
+| 0     | Health Check       | COMPLETED | Baseline repo, FEAT, design-system, and scope sanity check                           |
+| 1     | Planning Analysis  | COMPLETED | `planning-analysis-report.md` with final implementation contracts                    |
+| 2     | Data Layer         | COMPLETED | Static content/link constants, anchor contract, brand asset/fallback decision record |
+| 3     | Business Logic     | COMPLETED | Navigation/menu state behavior and CTA/link interaction contracts                    |
+| 4     | Presentation Logic | COMPLETED | Semantic route/component structure and accessibility behavior                        |
+| 5     | User Interface     | COMPLETED | Responsive nav/hero visuals, glow, tonal surfaces, and focus/touch states            |
+| 6     | Integration        | COMPLETED | Homepage integration, future-section anchor compatibility, stable exports/imports    |
+| 7     | Testing & Polish   | COMPLETED | Unit/UI/E2E coverage and responsive/accessibility polish evidence                    |
+| 8     | Final Checkpoint   | COMPLETED | Acceptance traceability, quality-gate review, and implementation handoff             |
 
 ## Task Inventory by Phase
 

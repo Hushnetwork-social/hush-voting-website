@@ -17,7 +17,6 @@ Implement or update static in-repo content/link contracts for the nav and hero w
 - FEAT-003 approved copy and navigation labels.
 - FEAT-002 component/style contracts.
 
-
 ## Concrete Tasks
 
 - [x] Define navigation labels and hrefs for Trust Model, Roles, Protocol Evidence, and Platform.
@@ -38,12 +37,10 @@ Implement or update static in-repo content/link contracts for the nav and hero w
 - `src/components/landing/BrandMark.tsx` — Token-based brand mark fallback (57 lines)
 - `src/components/landing/index.ts` — Barrel exports (16 lines)
 
-
 ## Expected Files / Components / Contracts
 
 - Static constants near the landing/nav/hero components or route, as decided by planning.
 - No API client, persistence, environment, CMS, or analytics files.
-
 
 ## Verification Intent
 
@@ -55,12 +52,12 @@ static-analysis, unit-tests, data-contract-review, manual-review-ready
 
 ## Quality Gate Evidence
 
-| Gate | Decision | Evidence / Justification |
-| --- | --- | --- |
-| Changed files | recorded | `src/components/landing/constants.ts`, `src/components/landing/BrandMark.tsx`, `src/components/landing/index.ts` — static data contracts and token-based SVG component. |
-| Tests | waived | Static data and presentational SVG component only. Data contract is validated by TypeScript typecheck (passed: `pnpm typecheck`). Phase 7 will add focused unit tests for copy/link rendering. |
-| Gherkin/Playwright E2E | not applicable | No browser/UI behavior introduced during this phase. Data layer phase — only constants and a pure SVG component. |
-| Code review | waived | Static data constants and a CSS-only SVG component — no executable logic, no state, no interactivity, no branching. TypeScript typecheck and existing design-system test suite (34/34 passing) validate correctness. Code review will be applied in Phases 3–7 where interactive and visual behavior is implemented. |
+| Gate                   | Decision       | Evidence / Justification                                                                                                                                                                                                                                                                                             |
+| ---------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Changed files          | recorded       | `src/components/landing/constants.ts`, `src/components/landing/BrandMark.tsx`, `src/components/landing/index.ts` — static data contracts and token-based SVG component.                                                                                                                                              |
+| Tests                  | waived         | Static data and presentational SVG component only. Data contract is validated by TypeScript typecheck (passed: `pnpm typecheck`). Phase 7 will add focused unit tests for copy/link rendering.                                                                                                                       |
+| Gherkin/Playwright E2E | not applicable | No browser/UI behavior introduced during this phase. Data layer phase — only constants and a pure SVG component.                                                                                                                                                                                                     |
+| Code review            | waived         | Static data constants and a CSS-only SVG component — no executable logic, no state, no interactivity, no branching. TypeScript typecheck and existing design-system test suite (34/34 passing) validate correctness. Code review will be applied in Phases 3–7 where interactive and visual behavior is implemented. |
 
 ## Acceptance Criteria
 
@@ -68,7 +65,6 @@ static-analysis, unit-tests, data-contract-review, manual-review-ready
 - Hrefs match the refinement contract.
 - No backend/API/data-loading behavior is introduced.
 - No external prototype asset URL is referenced.
-
 
 ## Completion Gate
 

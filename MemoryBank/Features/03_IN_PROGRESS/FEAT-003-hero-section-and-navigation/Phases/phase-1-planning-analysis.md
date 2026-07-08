@@ -18,7 +18,6 @@ Create the canonical `planning-analysis-report.md` that locks implementation con
 - FEAT-002 public component API and current tests.
 - HushVoting visual-language and border-restraint lessons.
 
-
 ## Concrete Tasks
 
 - [x] Create `planning-analysis-report.md` in the FEAT-003 folder.
@@ -34,13 +33,11 @@ Create the canonical `planning-analysis-report.md` that locks implementation con
 - [x] Document that later phases must read and update this report when implementation reality changes a contract consumed by future phases.
   - Report Section 6 covers update rules with explicit deviation categories.
 
-
 ## Expected Files / Components / Contracts
 
 - `planning-analysis-report.md`.
 - Planned contracts for components such as `TopNavigation`, `HeroSection`, and `BrandMark` if implementation keeps them separate.
 - Planned route/homepage integration contract.
-
 
 ## Verification Intent
 
@@ -52,19 +49,18 @@ planning-analysis-report, component-contract-review, accessibility-plan, test-pl
 
 ## Quality Gate Evidence
 
-| Gate | Decision | Evidence / Justification |
-| --- | --- | --- |
-| Changed files | not applicable | Planning phase — no production or test files changed. Created `planning-analysis-report.md` (documentation artifact) only. |
-| Tests | not applicable | Planning/documentation phase — no automated test files exist or are required. |
-| Gherkin/Playwright E2E | not applicable | No browser/UI behavior introduced during this phase. |
-| Code review | not applicable | No production code changed. Planning report is a documentation artifact, not production code. Code review will be applied to implementation phases (2–7). |
+| Gate                   | Decision       | Evidence / Justification                                                                                                                                  |
+| ---------------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Changed files          | not applicable | Planning phase — no production or test files changed. Created `planning-analysis-report.md` (documentation artifact) only.                                |
+| Tests                  | not applicable | Planning/documentation phase — no automated test files exist or are required.                                                                             |
+| Gherkin/Playwright E2E | not applicable | No browser/UI behavior introduced during this phase.                                                                                                      |
+| Code review            | not applicable | No production code changed. Planning report is a documentation artifact, not production code. Code review will be applied to implementation phases (2–7). |
 
 ## Acceptance Criteria
 
 - `planning-analysis-report.md` exists and is non-empty.
 - Report names all contracts later phases consume.
 - Report explains update rules for future phase deviations.
-
 
 ## Completion Gate
 

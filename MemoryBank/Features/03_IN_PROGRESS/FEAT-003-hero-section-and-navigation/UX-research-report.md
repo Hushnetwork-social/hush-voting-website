@@ -14,13 +14,13 @@ Primary design references:
 
 ## Target Users and Jobs
 
-| User | Job to be Done | Hero/Nav UX Need |
-| --- | --- | --- |
-| Organization representative | Quickly understand whether HushVoting fits serious organizational remote elections. | Immediate value proposition, trustworthy tone, obvious `Request pilot access` path. |
-| Security/privacy evaluator | Find trust, role, protocol evidence, and platform-readiness explanations without searching. | Clear anchor navigation and secondary CTA toward verifier/evidence content. |
-| Auditor/compliance stakeholder | Confirm the product exposes auditability and evidence boundaries. | Navigation labels that map to `Trust Model`, `Roles`, `Protocol Evidence`, and `Platform`. |
-| Returning visitor | Re-enter the page and jump directly to a section. | Fixed navigation, stable anchors, keyboard-reachable links. |
-| Mobile visitor | Learn the product from a phone without losing navigation or CTAs. | Compact header, accessible mobile menu/drawer, stacked CTA rhythm, 48px touch targets. |
+| User                           | Job to be Done                                                                              | Hero/Nav UX Need                                                                           |
+| ------------------------------ | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| Organization representative    | Quickly understand whether HushVoting fits serious organizational remote elections.         | Immediate value proposition, trustworthy tone, obvious `Request pilot access` path.        |
+| Security/privacy evaluator     | Find trust, role, protocol evidence, and platform-readiness explanations without searching. | Clear anchor navigation and secondary CTA toward verifier/evidence content.                |
+| Auditor/compliance stakeholder | Confirm the product exposes auditability and evidence boundaries.                           | Navigation labels that map to `Trust Model`, `Roles`, `Protocol Evidence`, and `Platform`. |
+| Returning visitor              | Re-enter the page and jump directly to a section.                                           | Fixed navigation, stable anchors, keyboard-reachable links.                                |
+| Mobile visitor                 | Learn the product from a phone without losing navigation or CTAs.                           | Compact header, accessible mobile menu/drawer, stacked CTA rhythm, 48px touch targets.     |
 
 ## Primary Workflow and Entry Points
 
@@ -63,29 +63,29 @@ Open homepage
 
 ### Navigation labels and anchor targets
 
-| Label | Target | Ownership Note |
-| --- | --- | --- |
-| Trust Model | `#trust` | FEAT-004 owns section content. |
-| Roles | `#roles` | FEAT-005 owns section content. |
-| Protocol Evidence | `#protocol` | FEAT-006 owns section content. |
-| Platform | `#platform` | FEAT-006 owns platform-readiness section content. |
+| Label             | Target      | Ownership Note                                    |
+| ----------------- | ----------- | ------------------------------------------------- |
+| Trust Model       | `#trust`    | FEAT-004 owns section content.                    |
+| Roles             | `#roles`    | FEAT-005 owns section content.                    |
+| Protocol Evidence | `#protocol` | FEAT-006 owns section content.                    |
+| Platform          | `#platform` | FEAT-006 owns platform-readiness section content. |
 
 FEAT-003 may introduce anchor links to planned IDs but must not implement unrelated downstream sections.
 
 ## State Coverage
 
-| State | UX Requirement |
-| --- | --- |
-| Default desktop | Header fixed at top; brand left, anchors centered, Pilot Access CTA right; hero centered with brand mark, headline, subheadline, and two CTAs. |
-| Default tablet | Preserve nav if space allows; avoid cramped anchors. Header padding may reduce and hero content remains centered. |
-| Default mobile | Header remains usable with brand and a menu control. Menu opens to section links and Pilot Access CTA. Hero stacks vertically with full-width or comfortably wrapped CTAs. |
-| Mobile nav closed | Menu button has accessible name such as `Open navigation`; header still exposes brand and Pilot Access if space permits or exposes CTA inside menu. |
-| Mobile nav open | Links and CTA are readable, keyboard reachable, dismissible, and do not trap users without an exit. Menu button changes accessible name/state (`aria-expanded`). |
-| Loading/hydration | Static SSR content should render immediately. If a skeleton is used, it must preserve approximate nav/hero layout and avoid layout shift. |
-| Empty | No data-empty state is expected because this is static marketing content. If logo asset is absent, render a deterministic brand mark fallback rather than an empty image. |
-| Disabled/future target | If FEAT-007 contact path is not implemented, CTA must use a documented placeholder behavior and visible copy must not imply a working backend form. |
-| Error/not found | Out of FEAT-003 page scope, but root route should not break if anchor targets are not yet present. Missing anchors should safely no-op until later FEATs add sections. |
-| Reduced motion | Purple glow and menu transitions should not require motion. Respect reduced-motion preferences where animation is added. |
+| State                  | UX Requirement                                                                                                                                                             |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Default desktop        | Header fixed at top; brand left, anchors centered, Pilot Access CTA right; hero centered with brand mark, headline, subheadline, and two CTAs.                             |
+| Default tablet         | Preserve nav if space allows; avoid cramped anchors. Header padding may reduce and hero content remains centered.                                                          |
+| Default mobile         | Header remains usable with brand and a menu control. Menu opens to section links and Pilot Access CTA. Hero stacks vertically with full-width or comfortably wrapped CTAs. |
+| Mobile nav closed      | Menu button has accessible name such as `Open navigation`; header still exposes brand and Pilot Access if space permits or exposes CTA inside menu.                        |
+| Mobile nav open        | Links and CTA are readable, keyboard reachable, dismissible, and do not trap users without an exit. Menu button changes accessible name/state (`aria-expanded`).           |
+| Loading/hydration      | Static SSR content should render immediately. If a skeleton is used, it must preserve approximate nav/hero layout and avoid layout shift.                                  |
+| Empty                  | No data-empty state is expected because this is static marketing content. If logo asset is absent, render a deterministic brand mark fallback rather than an empty image.  |
+| Disabled/future target | If FEAT-007 contact path is not implemented, CTA must use a documented placeholder behavior and visible copy must not imply a working backend form.                        |
+| Error/not found        | Out of FEAT-003 page scope, but root route should not break if anchor targets are not yet present. Missing anchors should safely no-op until later FEATs add sections.     |
+| Reduced motion         | Purple glow and menu transitions should not require motion. Respect reduced-motion preferences where animation is added.                                                   |
 
 ## Accessibility and Keyboard/Focus Considerations
 

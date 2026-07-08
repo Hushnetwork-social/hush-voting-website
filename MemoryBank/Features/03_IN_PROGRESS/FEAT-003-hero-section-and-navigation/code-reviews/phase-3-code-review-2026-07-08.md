@@ -3,6 +3,7 @@
 **Phase:** 3 — Business Logic  
 **Feature:** FEAT-003 — Hero Section and Navigation  
 **Files Reviewed:**
+
 - `src/components/landing/MobileNavDisclosure.tsx`
 - `src/components/landing/Header.tsx`
 - `src/components/landing/index.ts` (barrel exports)
@@ -37,23 +38,23 @@ The panel initially used `max-h-0 opacity-0 pointer-events-none` when closed, wh
 
 ## Contract Verification
 
-| Contract | Status | Evidence |
-| --- | --- | --- |
-| Native `<button>` trigger | ✅ | `MobileNavDisclosure.tsx` line 93 |
-| `aria-expanded` and `aria-controls` | ✅ | `aria-expanded={open}` and `aria-controls={panelId}` |
-| Accessible name ("Open/Close navigation") | ✅ | `aria-label={open ? "Close navigation" : "Open navigation"}` |
-| Menu closes on link/CTA activation | ✅ | `handleLinkActivation` calls `close()` |
-| Escape closes and focuses trigger | ✅ | `handleKeyDown` for Escape key, `triggerRef.current?.focus()` |
-| Outside click closes menu | ✅ | `handleClick` with `contains()` checks |
-| Touch targets ≥ 48px | ✅ | `h-12` = 48px on all mobile interactive elements |
-| Reduced-motion safe transitions | ✅ | All transitions prefixed with `motion-safe:` |
-| CSS-only hamburger/close icon | ✅ | Three CSS spans with `aria-hidden="true"` |
-| Fixed backdrop-blur header | ✅ | `bg-surface/80 backdrop-blur-md` |
-| Desktop: brand + nav links + CTA | ✅ | `hidden md:flex` nav + `hidden md:inline-flex` CTA |
-| Mobile: brand + disclosure trigger | ✅ | `md:hidden` disclosure — brand always visible |
-| Brand link to `/` with accessible name | ✅ | `aria-label="HushVoting home"` |
-| BrandMark decorative when adjacent to text | ✅ | `decorative` prop = true |
-| No form/backend/analytics | ✅ | All CTAs are native anchors with `href` only |
-| Missing anchors are safe | ✅ | All hrefs are fragment-only — no route errors possible |
-| FEAT-002 tokens used | ✅ | All tokens from Sovereign Shield (`bg-surface`, `text-primary`, etc.) |
-| No white outline borders | ✅ | Uses `border-outline-variant` (tonal) |
+| Contract                                   | Status | Evidence                                                              |
+| ------------------------------------------ | ------ | --------------------------------------------------------------------- |
+| Native `<button>` trigger                  | ✅     | `MobileNavDisclosure.tsx` line 93                                     |
+| `aria-expanded` and `aria-controls`        | ✅     | `aria-expanded={open}` and `aria-controls={panelId}`                  |
+| Accessible name ("Open/Close navigation")  | ✅     | `aria-label={open ? "Close navigation" : "Open navigation"}`          |
+| Menu closes on link/CTA activation         | ✅     | `handleLinkActivation` calls `close()`                                |
+| Escape closes and focuses trigger          | ✅     | `handleKeyDown` for Escape key, `triggerRef.current?.focus()`         |
+| Outside click closes menu                  | ✅     | `handleClick` with `contains()` checks                                |
+| Touch targets ≥ 48px                       | ✅     | `h-12` = 48px on all mobile interactive elements                      |
+| Reduced-motion safe transitions            | ✅     | All transitions prefixed with `motion-safe:`                          |
+| CSS-only hamburger/close icon              | ✅     | Three CSS spans with `aria-hidden="true"`                             |
+| Fixed backdrop-blur header                 | ✅     | `bg-surface/80 backdrop-blur-md`                                      |
+| Desktop: brand + nav links + CTA           | ✅     | `hidden md:flex` nav + `hidden md:inline-flex` CTA                    |
+| Mobile: brand + disclosure trigger         | ✅     | `md:hidden` disclosure — brand always visible                         |
+| Brand link to `/` with accessible name     | ✅     | `aria-label="HushVoting home"`                                        |
+| BrandMark decorative when adjacent to text | ✅     | `decorative` prop = true                                              |
+| No form/backend/analytics                  | ✅     | All CTAs are native anchors with `href` only                          |
+| Missing anchors are safe                   | ✅     | All hrefs are fragment-only — no route errors possible                |
+| FEAT-002 tokens used                       | ✅     | All tokens from Sovereign Shield (`bg-surface`, `text-primary`, etc.) |
+| No white outline borders                   | ✅     | Uses `border-outline-variant` (tonal)                                 |

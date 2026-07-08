@@ -17,10 +17,5 @@ export type { HeroSectionProps } from "./HeroSection";
 
 export { MobileNavDisclosure } from "./MobileNavDisclosure";
 
-export {
-  BRAND_TEXT,
-  NAV_LINKS,
-  HERO_COPY,
-  CTAS,
-} from "./constants";
+export { BRAND_TEXT, NAV_LINKS, HERO_COPY, CTAS } from "./constants";
 export type { CtaDefinition } from "./constants";

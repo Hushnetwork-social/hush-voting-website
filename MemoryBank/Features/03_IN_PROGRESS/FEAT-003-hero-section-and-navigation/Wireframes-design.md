@@ -145,17 +145,17 @@ Viewport: <= 767px
 
 ## Interaction Behavior
 
-| Element | Behavior | Notes |
-| --- | --- | --- |
-| Brand | Prefer link to `/` if the nav component is reusable; static text is acceptable on home-only MVP. | Accessible name should be `HushVoting home` if linked. |
-| Trust Model link | Anchor to `#trust`. | Later FEAT-004 owns the target section. |
-| Roles link | Anchor to `#roles`. | Later FEAT-005 owns the target section. |
-| Protocol Evidence link | Anchor to `#protocol`. | Hero secondary CTA may share this target. |
-| Platform link | Anchor to `#platform`. | Later FEAT-006 owns target content. |
-| Pilot Access | Navigate to contact path or safe interim mailto/anchor. | Final path owned by FEAT-007; refinement must decide interim behavior. |
-| Request pilot access | Same target as nav CTA. | Primary hero action. |
-| View verifier model | Anchor to `#protocol`. | Secondary action; no backend verifier integration in FEAT-003. |
-| Menu button | Toggle mobile nav. | Use native `button`; `aria-controls`, `aria-expanded`. |
+| Element                | Behavior                                                                                         | Notes                                                                  |
+| ---------------------- | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------- |
+| Brand                  | Prefer link to `/` if the nav component is reusable; static text is acceptable on home-only MVP. | Accessible name should be `HushVoting home` if linked.                 |
+| Trust Model link       | Anchor to `#trust`.                                                                              | Later FEAT-004 owns the target section.                                |
+| Roles link             | Anchor to `#roles`.                                                                              | Later FEAT-005 owns the target section.                                |
+| Protocol Evidence link | Anchor to `#protocol`.                                                                           | Hero secondary CTA may share this target.                              |
+| Platform link          | Anchor to `#platform`.                                                                           | Later FEAT-006 owns target content.                                    |
+| Pilot Access           | Navigate to contact path or safe interim mailto/anchor.                                          | Final path owned by FEAT-007; refinement must decide interim behavior. |
+| Request pilot access   | Same target as nav CTA.                                                                          | Primary hero action.                                                   |
+| View verifier model    | Anchor to `#protocol`.                                                                           | Secondary action; no backend verifier integration in FEAT-003.         |
+| Menu button            | Toggle mobile nav.                                                                               | Use native `button`; `aria-controls`, `aria-expanded`.                 |
 
 ## Validation and Error States
 
@@ -197,12 +197,12 @@ User has prefers-reduced-motion
 
 ## Responsive Size Expectations
 
-| Breakpoint | Header | Hero | CTAs |
-| --- | --- | --- | --- |
-| Mobile | Brand + menu; disclosure links. | Single-column, centered or slightly left-balanced copy; generous top padding. | Stack vertically; full-width or min 48px height. |
-| Tablet | Full nav if it fits; otherwise mobile menu. | Centered, narrower line lengths. | Side-by-side when comfortable. |
-| Desktop | Full fixed nav with centered anchors. | Min-height around 80vh; hero content centered within 1200px. | Side-by-side. |
-| Wide desktop | Do not stretch text beyond readable max widths. | Keep content max-width bounded; glow may extend decoratively. | Keep CTA row compact. |
+| Breakpoint   | Header                                          | Hero                                                                          | CTAs                                             |
+| ------------ | ----------------------------------------------- | ----------------------------------------------------------------------------- | ------------------------------------------------ |
+| Mobile       | Brand + menu; disclosure links.                 | Single-column, centered or slightly left-balanced copy; generous top padding. | Stack vertically; full-width or min 48px height. |
+| Tablet       | Full nav if it fits; otherwise mobile menu.     | Centered, narrower line lengths.                                              | Side-by-side when comfortable.                   |
+| Desktop      | Full fixed nav with centered anchors.           | Min-height around 80vh; hero content centered within 1200px.                  | Side-by-side.                                    |
+| Wide desktop | Do not stretch text beyond readable max widths. | Keep content max-width bounded; glow may extend decoratively.                 | Keep CTA row compact.                            |
 
 ## Visual Treatment Details
 

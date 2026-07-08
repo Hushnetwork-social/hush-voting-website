@@ -17,7 +17,6 @@ Compose semantic homepage, header/nav, and hero rendering with accessible HTML s
 - Phase 2 static contracts and Phase 3 interaction behavior.
 - FEAT-002 components and current route structure.
 
-
 ## Concrete Tasks
 
 - [x] Replace scaffold homepage structure with a production-ready landing shell for nav + hero only.
@@ -50,12 +49,10 @@ Compose semantic homepage, header/nav, and hero rendering with accessible HTML s
 - Report: `code-reviews/phase-4-code-review-2026-07-08.md`
 - Verdict: APPROVED
 
-
 ## Expected Files / Components / Contracts
 
 - Homepage route and/or landing components selected in planning.
 - Accessible markup contracts for nav links, CTA anchors, menu button, hero heading, brand mark, and glow.
-
 
 ## Verification Intent
 
@@ -67,12 +64,12 @@ unit-tests, accessibility-review, static-analysis, manual-review-ready
 
 ## Quality Gate Evidence
 
-| Gate | Decision | Evidence / Justification |
-| --- | --- | --- |
-| Changed files | recorded | Production: `src/components/landing/HeroSection.tsx`, `src/routes/index.tsx`, `src/components/landing/index.ts`. No test files changed. |
-| Tests | waived | Phase 7 will add focused unit tests for hero copy rendering, landmark presence, and link/CTA labels. This phase establishes static semantic structure — no dynamic behavior to test. Typecheck passes (`pnpm typecheck`). |
-| Gherkin/Playwright E2E | not applicable | Semantic structure changes only — no new browser-specific interactive behavior. Unit tests in Phase 7 are sufficient to verify copy, landmarks, and link contracts. |
-| Code review | satisfied | `code-reviews/phase-4-code-review-2026-07-08.md` — APPROVED verdict. All semantic/accessibility contracts verified. |
+| Gate                   | Decision       | Evidence / Justification                                                                                                                                                                                                  |
+| ---------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Changed files          | recorded       | Production: `src/components/landing/HeroSection.tsx`, `src/routes/index.tsx`, `src/components/landing/index.ts`. No test files changed.                                                                                   |
+| Tests                  | waived         | Phase 7 will add focused unit tests for hero copy rendering, landmark presence, and link/CTA labels. This phase establishes static semantic structure — no dynamic behavior to test. Typecheck passes (`pnpm typecheck`). |
+| Gherkin/Playwright E2E | not applicable | Semantic structure changes only — no new browser-specific interactive behavior. Unit tests in Phase 7 are sufficient to verify copy, landmarks, and link contracts.                                                       |
+| Code review            | satisfied      | `code-reviews/phase-4-code-review-2026-07-08.md` — APPROVED verdict. All semantic/accessibility contracts verified.                                                                                                       |
 
 ## Acceptance Criteria
 
@@ -80,7 +77,6 @@ unit-tests, accessibility-review, static-analysis, manual-review-ready
 - Exactly one page-level hero heading exists.
 - Controls expose accessible names and logical tab order.
 - FEAT-003 scope remains nav/hero only.
-
 
 ## Completion Gate
 

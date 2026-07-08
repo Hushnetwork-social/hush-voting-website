@@ -54,10 +54,7 @@ export function Header({ className }: HeaderProps) {
         </a>
 
         {/* Desktop nav links */}
-        <nav
-          aria-label="Primary"
-          className="hidden md:flex items-center gap-1"
-        >
+        <nav aria-label="Primary" className="hidden md:flex items-center gap-1">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}

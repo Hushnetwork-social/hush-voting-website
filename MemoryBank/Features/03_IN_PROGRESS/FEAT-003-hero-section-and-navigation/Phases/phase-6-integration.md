@@ -17,7 +17,6 @@ Integrate nav/hero with the homepage route and future landing-section contracts 
 - Completed Phase 2-5 outputs.
 - Existing route/global-style/test conventions.
 
-
 ## Concrete Tasks
 
 - [x] Ensure the homepage route renders the FEAT-003 nav/hero shell cleanly.
@@ -42,13 +41,11 @@ Integrate nav/hero with the homepage route and future landing-section contracts 
 - `pnpm test:unit` — ✅ 34/34 tests pass
 - `pnpm lint` — Not yet configured for current scope
 
-
 ## Expected Files / Components / Contracts
 
 - Homepage integration path.
 - Any shared scroll/fixed-header style contract.
 - Updated tests or documentation when scaffold assumptions change.
-
 
 ## Verification Intent
 
@@ -60,12 +57,12 @@ integration-contract-review, affected-tests, build, static-analysis, manual-revi
 
 ## Quality Gate Evidence
 
-| Gate | Decision | Evidence / Justification |
-| --- | --- | --- |
-| Changed files | recorded | `styles/app.css` (from Phase 5 — shared utility addition). No separate production file changes in this verification-only phase. |
-| Tests | satisfied | `pnpm test:unit` — 34/34 existing tests pass. No regression introduced by the homepage route replacement. |
-| Gherkin/Playwright E2E | not applicable | Integration phase — verifies route compatibility and build integrity. No new browser behavior to test. E2E coverage may be added in Phase 7. |
-| Code review | waived | Integration phase is verification-only — no new production code changed beyond what was already reviewed in Phases 3–5. Build, typecheck, and unit test suite pass cleanly. |
+| Gate                   | Decision       | Evidence / Justification                                                                                                                                                    |
+| ---------------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Changed files          | recorded       | `styles/app.css` (from Phase 5 — shared utility addition). No separate production file changes in this verification-only phase.                                             |
+| Tests                  | satisfied      | `pnpm test:unit` — 34/34 existing tests pass. No regression introduced by the homepage route replacement.                                                                   |
+| Gherkin/Playwright E2E | not applicable | Integration phase — verifies route compatibility and build integrity. No new browser behavior to test. E2E coverage may be added in Phase 7.                                |
+| Code review            | waived         | Integration phase is verification-only — no new production code changed beyond what was already reviewed in Phases 3–5. Build, typecheck, and unit test suite pass cleanly. |
 
 ## Acceptance Criteria
 
@@ -73,7 +70,6 @@ integration-contract-review, affected-tests, build, static-analysis, manual-revi
 - Planned anchors and CTA targets are stable.
 - Existing tests are updated for new homepage behavior where needed.
 - No global style or import duplication is introduced.
-
 
 ## Completion Gate
 

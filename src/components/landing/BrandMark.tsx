@@ -30,7 +30,9 @@ export function BrandMark({
         "inline-flex items-center justify-center text-primary",
         className,
       )}
-      {...(decorative ? { "aria-hidden": true as const } : { role: "img", "aria-label": "HushVoting shield mark" })}
+      {...(decorative
+        ? { "aria-hidden": true as const }
+        : { role: "img", "aria-label": "HushVoting shield mark" })}
       {...props}
     >
       <svg

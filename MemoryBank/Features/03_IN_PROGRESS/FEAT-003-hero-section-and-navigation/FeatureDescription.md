@@ -2,7 +2,7 @@
 
 **Feature ID**: FEAT-003  
 **Parent Epic**: EPIC-001  
-**Status**: In Progress
+**Status**: Completed
 
 ## Summary
 
@@ -65,34 +65,34 @@ Out of scope:
 
 ### Brand Identity
 
-| Placement | Text / Treatment | Target | Notes |
-| --- | --- | --- | --- |
-| Header brand | `HushVoting!` | `/` | Prefer a home link with accessible name `HushVoting home`. Static text is acceptable only if the header is strictly home-page scoped. |
-| Hero brand mark | Approved HushVoting mark, or token-based brand mark fallback | None required | If adjacent visible text already identifies HushVoting, the mark may be decorative. Do not load external prototype image URLs. |
+| Placement       | Text / Treatment                                             | Target        | Notes                                                                                                                                 |
+| --------------- | ------------------------------------------------------------ | ------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| Header brand    | `HushVoting!`                                                | `/`           | Prefer a home link with accessible name `HushVoting home`. Static text is acceptable only if the header is strictly home-page scoped. |
+| Hero brand mark | Approved HushVoting mark, or token-based brand mark fallback | None required | If adjacent visible text already identifies HushVoting, the mark may be decorative. Do not load external prototype image URLs.        |
 
 ### Hero Copy
 
-| Element | Approved Copy |
-| --- | --- |
-| Headline | `Governed remote voting for serious organizations.` |
+| Element     | Approved Copy                                                                                                                               |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| Headline    | `Governed remote voting for serious organizations.`                                                                                         |
 | Subheadline | `HushVoting! helps organizations run private, auditable, protocol-bound votes with clear roles for voters, owners, trustees, and auditors.` |
 
 ### Navigation Links
 
-| Label | Href | Ownership |
-| --- | --- | --- |
-| Trust Model | `#trust` | FEAT-004 owns the target section content. |
-| Roles | `#roles` | FEAT-005 owns the target section content. |
-| Protocol Evidence | `#protocol` | FEAT-006 owns the target section content. |
-| Platform | `#platform` | FEAT-006 owns the platform-readiness target content. |
-| Pilot Access | `#pilot-access` | FEAT-007 owns the real contact path/section. FEAT-003 only provides the stable interim link target. |
+| Label             | Href            | Ownership                                                                                           |
+| ----------------- | --------------- | --------------------------------------------------------------------------------------------------- |
+| Trust Model       | `#trust`        | FEAT-004 owns the target section content.                                                           |
+| Roles             | `#roles`        | FEAT-005 owns the target section content.                                                           |
+| Protocol Evidence | `#protocol`     | FEAT-006 owns the target section content.                                                           |
+| Platform          | `#platform`     | FEAT-006 owns the platform-readiness target content.                                                |
+| Pilot Access      | `#pilot-access` | FEAT-007 owns the real contact path/section. FEAT-003 only provides the stable interim link target. |
 
 ### Hero CTAs
 
-| Label | Emphasis | Href | Notes |
-| --- | --- | --- | --- |
-| Request pilot access | Primary | `#pilot-access` | Same target as the nav Pilot Access CTA. Do not imply a working form or completed submission path. |
-| View verifier model | Secondary | `#protocol` | Anchors to the planned Protocol Evidence section. No verifier execution or backend integration is included. |
+| Label                | Emphasis  | Href            | Notes                                                                                                       |
+| -------------------- | --------- | --------------- | ----------------------------------------------------------------------------------------------------------- |
+| Request pilot access | Primary   | `#pilot-access` | Same target as the nav Pilot Access CTA. Do not imply a working form or completed submission path.          |
+| View verifier model  | Secondary | `#protocol`     | Anchors to the planned Protocol Evidence section. No verifier execution or backend integration is included. |
 
 ## Responsive Navigation Contract
 
@@ -193,10 +193,10 @@ The exact MVP copy and hrefs are locked in this document. FEAT-003 may link to p
 
 ## Hepha Deep-Dive Decisions
 
-| Topic | Decision |
-| --- | --- |
-| Acceptance Criteria | Use the “Responsive static hero/nav MVP” acceptance scope: fixed blurred navigation, section anchors, Pilot Access CTA, brand mark, headline, subheadline, two hero CTAs, purple glow, responsive states, accessible semantics, and verification through canonical package scripts. |
-| Validation | Keep FEAT-003 limited to the top navigation and hero section. Use FEAT-002 design-system components/tokens and tonal surface separation without default bright borders. |
-| Copy and Link Contract | Freeze explicit MVP copy and hrefs before task planning. Use `HushVoting!`, `Governed remote voting for serious organizations.`, the approved subheadline, nav targets `#trust`, `#roles`, `#protocol`, `#platform`, Pilot Access target `#pilot-access`, and secondary verifier CTA target `#protocol`. |
-| Mobile Navigation Pattern | Use an accessible disclosure menu with a tonal dropdown/sheet, keyboard support, accessible names, `aria-expanded`, `aria-controls`, focus handling, and dismiss behavior. |
-| Implementation and Verification Contract | Create focused Header/Hero landing components using FEAT-002 tokens/components, add React Testing Library coverage for landmarks, links, CTAs, and accessibility basics, then verify via canonical package scripts. |
+| Topic                                    | Decision                                                                                                                                                                                                                                                                                                 |
+| ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Acceptance Criteria                      | Use the “Responsive static hero/nav MVP” acceptance scope: fixed blurred navigation, section anchors, Pilot Access CTA, brand mark, headline, subheadline, two hero CTAs, purple glow, responsive states, accessible semantics, and verification through canonical package scripts.                      |
+| Validation                               | Keep FEAT-003 limited to the top navigation and hero section. Use FEAT-002 design-system components/tokens and tonal surface separation without default bright borders.                                                                                                                                  |
+| Copy and Link Contract                   | Freeze explicit MVP copy and hrefs before task planning. Use `HushVoting!`, `Governed remote voting for serious organizations.`, the approved subheadline, nav targets `#trust`, `#roles`, `#protocol`, `#platform`, Pilot Access target `#pilot-access`, and secondary verifier CTA target `#protocol`. |
+| Mobile Navigation Pattern                | Use an accessible disclosure menu with a tonal dropdown/sheet, keyboard support, accessible names, `aria-expanded`, `aria-controls`, focus handling, and dismiss behavior.                                                                                                                               |
+| Implementation and Verification Contract | Create focused Header/Hero landing components using FEAT-002 tokens/components, add React Testing Library coverage for landmarks, links, CTAs, and accessibility basics, then verify via canonical package scripts.                                                                                      |

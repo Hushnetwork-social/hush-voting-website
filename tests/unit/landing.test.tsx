@@ -4,7 +4,12 @@ import { Header } from "~/components/landing/Header";
 import { HeroSection } from "~/components/landing/HeroSection";
 import { MobileNavDisclosure } from "~/components/landing/MobileNavDisclosure";
 import { BrandMark } from "~/components/landing/BrandMark";
-import { HERO_COPY, NAV_LINKS, CTAS, BRAND_TEXT } from "~/components/landing/constants";
+import {
+  HERO_COPY,
+  NAV_LINKS,
+  CTAS,
+  BRAND_TEXT,
+} from "~/components/landing/constants";
 
 /* ── BrandMark ── */
 
@@ -55,7 +60,9 @@ describe("Header", () => {
     for (const link of NAV_LINKS) {
       const anchors = screen.getAllByRole("link", { name: link.label });
       // At least one anchor matches in the desktop nav
-      const matchingAnchor = anchors.find((a) => a.getAttribute("href") === link.href);
+      const matchingAnchor = anchors.find(
+        (a) => a.getAttribute("href") === link.href,
+      );
       expect(matchingAnchor).toBeTruthy();
       expect(matchingAnchor).toHaveAttribute("href", link.href);
     }
@@ -63,8 +70,12 @@ describe("Header", () => {
 
   it("renders Pilot Access CTA in nav with correct href", () => {
     render(<Header />);
-    const pilotLinks = screen.getAllByRole("link", { name: CTAS.navPilotAccess.label });
-    const navCta = pilotLinks.find((l) => l.getAttribute("href") === CTAS.navPilotAccess.href);
+    const pilotLinks = screen.getAllByRole("link", {
+      name: CTAS.navPilotAccess.label,
+    });
+    const navCta = pilotLinks.find(
+      (l) => l.getAttribute("href") === CTAS.navPilotAccess.href,
+    );
     expect(navCta).toBeInTheDocument();
   });
 });
@@ -144,7 +155,9 @@ describe("MobileNavDisclosure", () => {
     }
 
     // Pilot Access CTA should be available
-    const pilotLinks = screen.getAllByRole("link", { name: CTAS.navPilotAccess.label });
+    const pilotLinks = screen.getAllByRole("link", {
+      name: CTAS.navPilotAccess.label,
+    });
     expect(pilotLinks.length).toBeGreaterThanOrEqual(1);
   });
 
@@ -157,7 +170,9 @@ describe("MobileNavDisclosure", () => {
     expect(button).toHaveAttribute("aria-expanded", "true");
 
     // Click a nav link
-    const firstLink = screen.getAllByRole("link", { name: NAV_LINKS[0].label })[0];
+    const firstLink = screen.getAllByRole("link", {
+      name: NAV_LINKS[0].label,
+    })[0];
     fireEvent.click(firstLink);
 
     // Menu should be closed
@@ -169,7 +184,9 @@ describe("MobileNavDisclosure", () => {
 
 describe("Constants contract", () => {
   it("HERO_COPY has exact approved headline", () => {
-    expect(HERO_COPY.headline).toBe("Governed remote voting for serious organizations.");
+    expect(HERO_COPY.headline).toBe(
+      "Governed remote voting for serious organizations.",
+    );
   });
 
   it("HERO_COPY has exact approved subheadline", () => {

@@ -71,30 +71,30 @@
 
 ## UI States Phase Planning Must Preserve
 
-| State | Requirement |
-| --- | --- |
-| Desktop default | Fixed blurred header with brand, four anchors, Pilot Access CTA; centered hero with brand mark, headline, subheadline, two CTAs, and purple glow. |
-| Tablet | Header remains readable; switch to menu if anchors crowd. Hero remains centered with comfortable line lengths. |
-| Mobile closed nav | Brand and menu control visible; hero stacks; CTAs are full-width or otherwise 48px touch targets. |
-| Mobile open nav | Section links and Pilot Access CTA are visible, keyboard reachable, and dismissible. `aria-expanded` reflects state. |
-| Focus | All interactive controls use visible primary focus treatment. |
-| Hover/active | Hover and active states are enhancements only; no information is hover-only. |
-| Loading/hydration | SSR/static content should be available immediately; any skeleton must avoid layout shift. |
-| Missing logo | Token-based brand mark fallback renders without broken image state. |
-| Missing downstream anchors | Link activation must not crash; downstream FEATs add matching target sections later. |
-| CTA target pending FEAT-007 | Use only approved placeholder/mailto behavior; do not imply a completed form submission path. |
-| Reduced motion | Decorative effects and menu transitions remain usable with reduced motion. |
+| State                       | Requirement                                                                                                                                       |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Desktop default             | Fixed blurred header with brand, four anchors, Pilot Access CTA; centered hero with brand mark, headline, subheadline, two CTAs, and purple glow. |
+| Tablet                      | Header remains readable; switch to menu if anchors crowd. Hero remains centered with comfortable line lengths.                                    |
+| Mobile closed nav           | Brand and menu control visible; hero stacks; CTAs are full-width or otherwise 48px touch targets.                                                 |
+| Mobile open nav             | Section links and Pilot Access CTA are visible, keyboard reachable, and dismissible. `aria-expanded` reflects state.                              |
+| Focus                       | All interactive controls use visible primary focus treatment.                                                                                     |
+| Hover/active                | Hover and active states are enhancements only; no information is hover-only.                                                                      |
+| Loading/hydration           | SSR/static content should be available immediately; any skeleton must avoid layout shift.                                                         |
+| Missing logo                | Token-based brand mark fallback renders without broken image state.                                                                               |
+| Missing downstream anchors  | Link activation must not crash; downstream FEATs add matching target sections later.                                                              |
+| CTA target pending FEAT-007 | Use only approved placeholder/mailto behavior; do not imply a completed form submission path.                                                     |
+| Reduced motion              | Decorative effects and menu transitions remain usable with reduced motion.                                                                        |
 
 ## Risks and Mitigations
 
-| Risk | Impact | Mitigation |
-| --- | --- | --- |
-| Final pilot-access destination is not ready | CTA could mislead visitors | Refinement must choose and document a safe interim target; FEAT-007 owns final contact path. |
-| Prototype external logo URL leaks into production | Privacy/performance/reliability issue | Use local approved asset or token-based fallback. |
-| Header fixed positioning obscures anchor targets | Navigation feels broken once later sections exist | Add scroll-margin strategy during FEAT-003 or document a shared section class for later FEATs. |
-| Mobile menu becomes inaccessible | Blocks mobile users from primary sections/CTA | Use native button, explicit aria state, keyboard tests, and 48px touch targets. |
-| Border-heavy prototype details are copied directly | Violates HushVoting visual language | Use FEAT-002 Button/components and tonal surfaces; avoid default outline separators. |
-| FEAT-003 expands into downstream landing content | Scope creep and ownership conflict | Keep implementation limited to nav/hero; only reference planned anchors. |
+| Risk                                               | Impact                                            | Mitigation                                                                                     |
+| -------------------------------------------------- | ------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| Final pilot-access destination is not ready        | CTA could mislead visitors                        | Refinement must choose and document a safe interim target; FEAT-007 owns final contact path.   |
+| Prototype external logo URL leaks into production  | Privacy/performance/reliability issue             | Use local approved asset or token-based fallback.                                              |
+| Header fixed positioning obscures anchor targets   | Navigation feels broken once later sections exist | Add scroll-margin strategy during FEAT-003 or document a shared section class for later FEATs. |
+| Mobile menu becomes inaccessible                   | Blocks mobile users from primary sections/CTA     | Use native button, explicit aria state, keyboard tests, and 48px touch targets.                |
+| Border-heavy prototype details are copied directly | Violates HushVoting visual language               | Use FEAT-002 Button/components and tonal surfaces; avoid default outline separators.           |
+| FEAT-003 expands into downstream landing content   | Scope creep and ownership conflict                | Keep implementation limited to nav/hero; only reference planned anchors.                       |
 
 ## Assumptions
 

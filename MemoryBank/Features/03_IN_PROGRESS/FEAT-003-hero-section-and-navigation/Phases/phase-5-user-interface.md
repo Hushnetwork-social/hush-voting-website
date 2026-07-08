@@ -18,7 +18,6 @@ Apply Sovereign Shield visual styling, responsive layout, glow, focus, and mobil
 - FEAT-002 tokens/components and STYLEGUIDE guidance.
 - HushVoting visual-language lessons.
 
-
 ## Concrete Tasks
 
 - [x] Apply fixed translucent/backdrop-blur header styling with tonal separation.
@@ -45,12 +44,10 @@ Apply Sovereign Shield visual styling, responsive layout, glow, focus, and mobil
 - Report: `code-reviews/phase-5-code-review-2026-07-08.md`
 - Verdict: APPROVED
 
-
 ## Expected Files / Components / Contracts
 
 - Styling in route/components and global CSS only where shared scroll/focus behavior is needed.
 - Optional reusable classes documented in the planning report if future FEATs consume them.
-
 
 ## Verification Intent
 
@@ -62,12 +59,12 @@ build, static-analysis, ui-tests, design-review-ready, accessibility-review, man
 
 ## Quality Gate Evidence
 
-| Gate | Decision | Evidence / Justification |
-| --- | --- | --- |
-| Changed files | recorded | Production: `styles/app.css` (added `.section-anchor` utility). Visual styling was integrated into components from Phases 3–4. No test files changed. |
-| Tests | waived | Visual/UI styling phase — no behavior to test directly. Typecheck passes (`pnpm typecheck`). Phase 7 will add visual/accessibility unit tests. |
-| Gherkin/Playwright E2E | not applicable | Style-only phase — no new browser-interactive behavior introduced. Unit tests in Phase 7 are sufficient. |
-| Code review | satisfied | `code-reviews/phase-5-code-review-2026-07-08.md` — APPROVED verdict. All visual and responsive contracts verified across Header, HeroSection, MobileNavDisclosure, and BrandMark components. |
+| Gate                   | Decision       | Evidence / Justification                                                                                                                                                                     |
+| ---------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Changed files          | recorded       | Production: `styles/app.css` (added `.section-anchor` utility). Visual styling was integrated into components from Phases 3–4. No test files changed.                                        |
+| Tests                  | waived         | Visual/UI styling phase — no behavior to test directly. Typecheck passes (`pnpm typecheck`). Phase 7 will add visual/accessibility unit tests.                                               |
+| Gherkin/Playwright E2E | not applicable | Style-only phase — no new browser-interactive behavior introduced. Unit tests in Phase 7 are sufficient.                                                                                     |
+| Code review            | satisfied      | `code-reviews/phase-5-code-review-2026-07-08.md` — APPROVED verdict. All visual and responsive contracts verified across Header, HeroSection, MobileNavDisclosure, and BrandMark components. |
 
 ## Acceptance Criteria
 
@@ -75,7 +72,6 @@ build, static-analysis, ui-tests, design-review-ready, accessibility-review, man
 - Hero copy and CTAs remain readable at target breakpoints.
 - Glow is decorative and does not reduce contrast.
 - Styling uses tokens/components and avoids default bright separators.
-
 
 ## Completion Gate
 
