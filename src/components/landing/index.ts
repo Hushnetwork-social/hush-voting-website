@@ -26,5 +26,6 @@ export {
   HERO_COPY,
   CTAS,
   TRUST_SECTION,
+  ROLE_WORKFLOW_SECTION,
 } from "./constants";
-export type { CtaDefinition, CapabilityChip } from "./constants";
+export type { CtaDefinition, CapabilityChip, RoleCard } from "./constants";

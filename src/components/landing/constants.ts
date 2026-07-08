@@ -93,3 +93,47 @@ export const TRUST_SECTION = {
     ] as const satisfies readonly string[],
   },
 } as const;
+
+/* ── FEAT-005: Role Workflow Section ── */
+
+/** A single role card in the role workflow section. */
+export interface RoleCard {
+  readonly role: string;
+  readonly icon: string;
+  readonly description: string;
+}
+
+/** Role workflow section copy and card data. */
+export const ROLE_WORKFLOW_SECTION = {
+  eyebrow: "Role Workflow",
+  heading: "Four roles, one protocol-bound election flow.",
+  description:
+    "HushVoting separates election governance, private participation, trustee safeguards, and audit review into clear responsibilities.",
+
+  roles: [
+    {
+      role: "Organizations",
+      icon: "corporate_fare",
+      description:
+        "Create and govern election parameters, define voter rolls, and establish timing protocols.",
+    },
+    {
+      role: "Voters",
+      icon: "groups",
+      description:
+        "Securely claim eligibility through private ID providers and cast cryptographically masked ballots.",
+    },
+    {
+      role: "Trustees",
+      icon: "key",
+      description:
+        "Approve governed actions and manage distributed decryption keys.",
+    },
+    {
+      role: "Auditors",
+      icon: "rule",
+      description:
+        "Review protocol evidence and package integrity through the standalone verifier suite.",
+    },
+  ] as const satisfies readonly RoleCard[],
+} as const;
