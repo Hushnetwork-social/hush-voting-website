@@ -73,7 +73,7 @@ export function MobileNavDisclosure({ className }: MobileNavDisclosureProps) {
   }, [close]);
 
   return (
-    <div className={cn("md:hidden", className)}>
+    <div className={cn("lg:hidden", className)}>
       {/* Trigger */}
       <button
         ref={triggerRef}

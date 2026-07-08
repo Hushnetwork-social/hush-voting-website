@@ -4,6 +4,14 @@ import { cn } from "~/components/ui/cn";
 export interface BrandMarkProps extends ComponentPropsWithoutRef<"span"> {
   /** When true, the mark is purely decorative and hidden from assistive tech. */
   decorative?: boolean;
+  /**
+   * Size variant for the SVG icon.
+   *
+   * - `"sm"` (default): 32x32px — compact header usage.
+   * - `"md"`: 48x48px — hero or larger context.
+   * - `"lg"`: 64x64px — standalone hero brand emphasis.
+   */
+  size?: "sm" | "md" | "lg";
 }
 
 /**
@@ -19,8 +27,15 @@ export interface BrandMarkProps extends ComponentPropsWithoutRef<"span"> {
  *
  * Props: All standard span props plus `decorative`.
  */
+const SVG_SIZE_MAP = {
+  sm: "h-8 w-8",
+  md: "h-12 w-12",
+  lg: "h-16 w-16",
+} as const;
+
 export function BrandMark({
   decorative = false,
+  size = "sm",
   className,
   ...props
 }: BrandMarkProps) {
@@ -36,7 +51,7 @@ export function BrandMark({
       {...props}
     >
       <svg
-        className="inline-block h-8 w-8"
+        className={cn("inline-block", SVG_SIZE_MAP[size])}
         viewBox="0 0 24 24"
         fill="none"
         aria-hidden="true"
