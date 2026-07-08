@@ -68,7 +68,7 @@ export function Footer({ className }: FooterProps) {
                 <a
                   href={link.href}
                   className={cn(
-                    "inline-block px-[var(--spacing-xs)] py-[var(--spacing-xs)]",
+                    "inline-flex items-center min-h-12 px-[var(--spacing-xs)] py-[var(--spacing-xs)]",
                     "text-[var(--font-size-label-sm)] font-[var(--font-weight-label-sm)]",
                     "leading-[var(--line-height-label-sm)]",
                     "tracking-[var(--letter-spacing-label-sm)]",

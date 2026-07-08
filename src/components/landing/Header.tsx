@@ -54,13 +54,13 @@ export function Header({ className }: HeaderProps) {
         </a>
 
         {/* Desktop nav links */}
-        <nav aria-label="Primary" className="hidden md:flex items-center gap-1">
+        <nav aria-label="Primary" className="hidden lg:flex items-center gap-1">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
               className={cn(
-                "inline-flex items-center h-10 px-3 rounded-default",
+                "inline-flex items-center h-12 px-3 rounded-default",
                 "text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high",
                 "text-sm font-medium",
                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface",
@@ -76,8 +76,8 @@ export function Header({ className }: HeaderProps) {
         <a
           href={CTAS.navPilotAccess.href}
           className={cn(
-            "hidden md:inline-flex items-center justify-center",
-            "h-10 px-4 rounded-default",
+            "hidden lg:inline-flex items-center justify-center",
+            "h-12 px-4 rounded-default",
             "bg-primary text-on-primary text-sm font-medium",
             "hover:brightness-110 active:scale-[0.98]",
             "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface",

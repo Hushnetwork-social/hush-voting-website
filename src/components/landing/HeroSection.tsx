@@ -40,7 +40,7 @@ export function HeroSection({ className }: HeroSectionProps) {
 
       <div className="relative z-10 flex flex-col items-center gap-6 max-w-3xl">
         {/* Brand mark (decorative — adjacent headline identifies HushVoting) */}
-        <BrandMark decorative />
+        <BrandMark decorative size="md" />
 
         {/* Headline */}
         <h1
