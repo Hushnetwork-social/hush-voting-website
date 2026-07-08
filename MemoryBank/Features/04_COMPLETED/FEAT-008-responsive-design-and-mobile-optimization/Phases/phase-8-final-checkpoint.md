@@ -49,12 +49,12 @@ FEAT-008 can proceed to complete-feature with durable evidence and no hidden acc
 
 ## Quality Gate Evidence
 
-| Gate                   | Decision   | Evidence / Justification                                                                                                                                                                                       |
-| ---------------------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Changed files          | recorded   | This phase file. |
-| Tests                  | satisfied  | `pnpm test:unit` — 197 tests pass. `pnpm typecheck` passes. |
-| Gherkin/Playwright E2E | satisfied  | 10 Gherkin scenarios in `tests/e2e/features/responsive-layout.feature`. Focused Playwright spec at `tests/e2e/responsive-layout.spec.ts`. Runnable via `test:e2e:responsive` (requires dev server). CSS baseline via `test:e2e:visual-baseline`. |
-| Code review            | satisfied  | `code-reviews/phase-4-5-6-code-review.md` — APPROVED. No blocking findings. |
+| Gate                   | Decision  | Evidence / Justification                                                                                                                                                                                                                         |
+| ---------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Changed files          | recorded  | This phase file.                                                                                                                                                                                                                                 |
+| Tests                  | satisfied | `pnpm test:unit` — 197 tests pass. `pnpm typecheck` passes.                                                                                                                                                                                      |
+| Gherkin/Playwright E2E | satisfied | 10 Gherkin scenarios in `tests/e2e/features/responsive-layout.feature`. Focused Playwright spec at `tests/e2e/responsive-layout.spec.ts`. Runnable via `test:e2e:responsive` (requires dev server). CSS baseline via `test:e2e:visual-baseline`. |
+| Code review            | satisfied | `code-reviews/phase-4-5-6-code-review.md` — APPROVED. No blocking findings.                                                                                                                                                                      |
 
 ## Acceptance criteria
 

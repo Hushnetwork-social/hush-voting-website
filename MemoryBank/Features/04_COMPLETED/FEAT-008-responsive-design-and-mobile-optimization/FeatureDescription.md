@@ -2,7 +2,7 @@
 
 **Feature ID**: FEAT-008
 **Parent Epic**: EPIC-001
-**Status**: In Progress
+**Status**: Completed
 
 ## Summary
 
@@ -16,31 +16,32 @@ FEAT-008 is an **audit and patch pass over the existing website sections**, not 
 - Created by Hepha unnamed FEAT discovery from the current EPIC document.
 
 **Started**: 2026-07-09
+**Completed**: 2026-07-09
 
 ## Hepha Deep-Dive Decisions
 
-Recorded: 2026-07-08T22:39:59.256Z
+Recorded: 2026-07-08T23:22:07.226Z
 
 Hepha applied these saved Deep-Dive answers directly because the full-document model rewrite did not finish.
-Fallback reason: Source document is 13533 characters; deterministic update is used above 12000 characters.
+Fallback reason: Source document is 13399 characters; deterministic update is used above 12000 characters.
 
-### validation scripts
+### validation script contract
 
-Question: How should FEAT-008 expose the CSS baseline and responsive viewport checks for repeatable validation?
+Question: How should FEAT-008 expose repeatable responsive validation without repeating prior canonical-script failures?
 
-Decision: **dedicated canonical scripts** - Add package.json scripts that run the visual-language CSS baseline first, then the FEAT-008 viewport scenarios; implementation and review use only these scripts.
+Decision: **dedicated canonical scripts** - Add package.json scripts that run the CSS baseline first and then the FEAT-008 responsive scenarios; refinement, implementation, and review use only these scripts.
 
-### patch boundaries
+### patch boundary
 
-Question: What is the allowed implementation boundary when responsive defects are found in existing sections?
+Question: When the audit finds responsive defects, what implementation boundary should FEAT-008 follow?
 
-Decision: **focused component patches** - Patch existing components, classes, spacing, touch targets, and tests only where the audit finds responsive or visual-language defects.
+Decision: **focused component patches** - Patch existing components, spacing, classes, touch targets, and tests only where responsive, accessibility, or visual-language defects are found.
 
-### viewport matrix
+### viewport evidence matrix
 
-Question: Which viewport set should be automated versus left for manual responsive validation?
+Question: Which viewport coverage should be automated versus handled as manual responsive evidence?
 
-Decision: **targeted automated matrix plus manual device sweep** - Automate representative 320, 375, 768, 1024, and 1440 checks with bounding-box/computed-style assertions; manually verify named phones, tablets, 1920 desktop.
+Decision: **targeted automated matrix plus manual device sweep** - Automate 320, 375, 768, 1024, and 1440 checks with bounding-box and computed-style assertions; manually verify named phones, tablets, and 1920 desktop.
 
 ## Pre-Requisite
 
@@ -74,58 +75,58 @@ The Gherkin baseline scenario in `tests/e2e/features/visual-language-baseline.fe
 
 ### CSS Loading Prerequisite
 
-- [ ] The Gherkin baseline test "Sovereign Shield CSS is loaded by the browser" passes before FEAT-008-specific scenarios are evaluated.
+- [x] The Gherkin baseline test "Sovereign Shield CSS is loaded by the browser" passes before FEAT-008-specific scenarios are evaluated.
 
 ### Navigation Responsiveness
 
-- [ ] On mobile viewport (≤ 767px): navigation links are hidden behind a hamburger menu button.
-- [ ] On mobile: hamburger menu button is visible and clickable.
-- [ ] On mobile: clicking hamburger menu reveals navigation links and Pilot Access button.
-- [ ] On tablet (768px-1023px): navigation uses the same hamburger disclosure model as mobile.
-- [ ] On desktop (≥ 1024px): navigation links are visible inline and the hamburger is hidden.
-- [ ] On desktop: Pilot Access CTA button is visible inline in the nav bar.
-- [ ] Mobile nav uses `bg-surface-container-low` background with a subtle `border-t border-outline-variant` divider for disclosure separation.
-- [ ] Mobile nav does not use `border-white`.
-- [ ] Mobile nav links have touch target height ≥ 48px, using `h-12` or equivalent spacing.
+- [x] On mobile viewport (≤ 767px): navigation links are hidden behind a hamburger menu button.
+- [x] On mobile: hamburger menu button is visible and clickable.
+- [x] On mobile: clicking hamburger menu reveals navigation links and Pilot Access button.
+- [x] On tablet (768px-1023px): navigation uses the same hamburger disclosure model as mobile.
+- [x] On desktop (≥ 1024px): navigation links are visible inline and the hamburger is hidden.
+- [x] On desktop: Pilot Access CTA button is visible inline in the nav bar.
+- [x] Mobile nav uses `bg-surface-container-low` background with a subtle `border-t border-outline-variant` divider for disclosure separation.
+- [x] Mobile nav does not use `border-white`.
+- [x] Mobile nav links have touch target height ≥ 48px, using `h-12` or equivalent spacing.
 
 ### Layout Responsiveness
 
-- [ ] Trust Model Hierarchy: cards stack vertically on mobile and preserve side-by-side indicators on desktop.
-- [ ] Role Workflow: 4 cards render in a single column on mobile, 2 columns on tablet, and 4 columns on desktop.
-- [ ] Protocol Evidence: 6 items render in a single column on mobile and 2 columns on desktop.
-- [ ] Platform Readiness: 3 cards render in a single column on mobile and 3 columns on desktop.
-- [ ] Claim Boundary bar wraps cleanly on mobile and renders as a single row on desktop.
-- [ ] Footer stacks on mobile and renders side-by-side on desktop.
-- [ ] Existing content and component structure are preserved unless a focused responsive patch is required.
+- [x] Trust Model Hierarchy: cards stack vertically on mobile and preserve side-by-side indicators on desktop.
+- [x] Role Workflow: 4 cards render in a single column on mobile, 2 columns on tablet, and 4 columns on desktop.
+- [x] Protocol Evidence: 6 items render in a single column on mobile and 2 columns on desktop.
+- [x] Platform Readiness: 3 cards render in a single column on mobile and 3 columns on desktop.
+- [x] Claim Boundary bar wraps cleanly on mobile and renders as a single row on desktop.
+- [x] Footer stacks on mobile and renders side-by-side on desktop.
+- [x] Existing content and component structure are preserved unless a focused responsive patch is required.
 
 ### Spacing Responsiveness
 
-- [ ] Section padding uses `px-margin-mobile` or equivalent 16px horizontal padding on mobile.
-- [ ] Section padding uses `px-gutter` or equivalent 24px horizontal padding on desktop.
-- [ ] Hero section remains full-width with proportional padding on all viewports.
-- [ ] Logo renders as `w-32 h-32` on mobile and `w-48 h-48` on tablet/desktop, or equivalent computed dimensions.
+- [x] Section padding uses `px-margin-mobile` or equivalent 16px horizontal padding on mobile.
+- [x] Section padding uses `px-gutter` or equivalent 24px horizontal padding on desktop.
+- [x] Hero section remains full-width with proportional padding on all viewports.
+- [x] Logo renders as `w-32 h-32` on mobile and `w-48 h-48` on tablet/desktop, or equivalent computed dimensions.
 
 ### Typography Responsiveness
 
-- [ ] Hero heading uses `clamp(2rem, 5vw, var(--font-size-display-lg))` or an equivalent tokenized fluid scaling rule.
-- [ ] Body text uses `clamp(1rem, 2vw, var(--font-size-body-lg))` or an equivalent tokenized fluid scaling rule.
-- [ ] Section headings use `clamp(1.5rem, 4vw, var(--font-size-headline-lg))` or an equivalent tokenized fluid scaling rule.
-- [ ] All text remains readable at 320px viewport width.
+- [x] Hero heading uses `clamp(2rem, 5vw, var(--font-size-display-lg))` or an equivalent tokenized fluid scaling rule.
+- [x] Body text uses `clamp(1rem, 2vw, var(--font-size-body-lg))` or an equivalent tokenized fluid scaling rule.
+- [x] Section headings use `clamp(1.5rem, 4vw, var(--font-size-headline-lg))` or an equivalent tokenized fluid scaling rule.
+- [x] All text remains readable at 320px viewport width.
 
 ### Touch Targets
 
-- [ ] All interactive elements have minimum touch target height of 48px.
-- [ ] All interactive elements have minimum touch target width of 48px or equivalent padding that creates a 48px interactive area.
-- [ ] Focus-visible rings are visible on all interactive elements across mobile, tablet, and desktop viewports.
+- [x] All interactive elements have minimum touch target height of 48px.
+- [x] All interactive elements have minimum touch target width of 48px or equivalent padding that creates a 48px interactive area.
+- [x] Focus-visible rings are visible on all interactive elements across mobile, tablet, and desktop viewports.
 
 ### Visual Language Compliance
 
-- [ ] No `border-white` appears at any viewport width.
-- [ ] Surface fill hierarchy is preserved at all breakpoints.
-- [ ] Mobile layouts do not collapse tonal contrast between section surfaces.
-- [ ] The HushVoting Visual Language rule "no heavy card stacking" is preserved on mobile.
-- [ ] Mobile uses the same visual language as desktop, expressed through stacked rhythm rather than alternate styling.
-- [ ] Borders are used primarily for focus, selected, warning, error, or subtle disclosure separation states, not as default section separators.
+- [x] No `border-white` appears at any viewport width.
+- [x] Surface fill hierarchy is preserved at all breakpoints.
+- [x] Mobile layouts do not collapse tonal contrast between section surfaces.
+- [x] The HushVoting Visual Language rule "no heavy card stacking" is preserved on mobile.
+- [x] Mobile uses the same visual language as desktop, expressed through stacked rhythm rather than alternate styling.
+- [x] Borders are used primarily for focus, selected, warning, error, or subtle disclosure separation states, not as default section separators.
 
 ## Canonical Validation Matrix
 
