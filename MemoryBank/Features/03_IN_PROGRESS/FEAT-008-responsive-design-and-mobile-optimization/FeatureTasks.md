@@ -64,7 +64,7 @@ Out of scope: new marketing copy, new product sections, replacing the design sys
 | ------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
 | Phase 0 | Health check       | Inspect git status, FEAT artifacts, current source/tests, CSS import placement, existing responsive E2E files, and known tooling debt                               | COMPLETED |
 | Phase 1 | Planning analysis  | Create `planning-analysis-report.md`; document current responsive defects, source contracts, target files, acceptance mapping, and test strategy                    | COMPLETED |
-| Phase 2 | Data layer         | Add/update typed viewport, selector, breakpoint, and responsive validation metadata/constants used by tests or components                                           | PENDING |
+| Phase 2 | Data layer         | Add/update typed viewport, selector, breakpoint, and responsive validation metadata/constants used by tests or components                                           | COMPLETED |
 | Phase 3 | Business logic     | Add/update pure helper logic for responsive test assertions, class composition, touch-target measurement support, and safe breakpoint mapping where needed          | PENDING |
 | Phase 4 | Presentation logic | Patch component behavior and semantic markup, especially `Header`, `MobileNavDisclosure`, `HeroSection`, link semantics, IDs, and accessibility state               | PENDING |
 | Phase 5 | User interface     | Patch tokenized classes for grids, gutters, typography, hero/logo sizing, wrapping, touch targets, focus states, and approved mobile disclosure surface             | PENDING |
