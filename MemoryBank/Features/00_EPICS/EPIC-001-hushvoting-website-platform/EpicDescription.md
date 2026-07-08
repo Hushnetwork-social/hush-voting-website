@@ -55,7 +55,7 @@ The design exists as a high-fidelity HTML prototype ([`code.html`](../../../Over
 | FEAT-005   | Role Workflow Section                           | COMPLETED   |              |          |
 | FEAT-006   | Protocol Evidence and Platform Readiness        | COMPLETED   |              |          |
 | FEAT-007   | Footer, Utility Pages and Contact Path          | COMPLETED   |              |          |
-| FEAT-008   | Responsive Design and Mobile Optimization       | SUBMITTED   |              |          |
+| FEAT-008   | Responsive Design and Mobile Optimization       | IN PROGRESS |              |          |
 | TBD        | CI/CD and AWS Deployment Pipeline               | SUBMITTED   | FEAT-001     | P1       |
 
 > Feature IDs are assigned when created via the future `create-epic-features` or `submit-feature` workflow.
@@ -63,14 +63,14 @@ The design exists as a high-fidelity HTML prototype ([`code.html`](../../../Over
 ## Epic Progress
 
 **State:** InProgress
-**Progress:** 87% (7/8 features complete)
+**Progress:** 88% (7/8 features complete)
 
-| Status      | Count | Features                                                                                                                                                                                                     |
-| ----------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Status      | Count | Features                                                                                                                                                                                                                                                      |
+| ----------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Completed   | 7     | FEAT-001 Project Scaffolding, FEAT-002 Design System, FEAT-003 Hero Section and Nav, FEAT-004 Trust Model Hierarchy Section, FEAT-005 Role Workflow Section, FEAT-006 Protocol Evidence & Platform Readiness, FEAT-007 Footer, Utility Pages and Contact Path |
-| In Progress | 0     | -                                                                                                                                                                                                                                                                 |
-| Ready       | 0     | -                                                                                                                                                                                                            |
-| Submitted   | 1     | Protocol Evidence, Footer/Utility, Responsive, CI/CD                                                                                                                                                         |
+| In Progress | 1     | -                                                                                                                                                                                                                                                             |
+| Ready       | 0     | -                                                                                                                                                                                                                                                             |
+| Submitted   | 0     | Protocol Evidence, Footer/Utility, Responsive, CI/CD                                                                                                                                                                                                          |
 
 ## Dependency Flow Diagram
 
@@ -133,7 +133,7 @@ flowchart TD
     class F5 completed
     class F6 completed
     class F7 completed
-    class F8 notStarted
+    class F8 inProgress
     class F9 designed
 ```
 
@@ -578,7 +578,7 @@ This EPIC follows the landing page design established in the prototype at `Memor
 | FEAT-005   | COMPLETED   | 2026-07-08 | 2026-07-08 | Role Workflow section implementation       |
 | FEAT-006   | COMPLETED   | 2026-07-08 | 2026-07-08 |                                            |
 | FEAT-007   | COMPLETED   | 2026-07-08 | 2026-07-08 |                                            |
-| FEAT-008   | SUBMITTED   | 2026-07-08 |            |                                            |
+| FEAT-008   | IN PROGRESS | 2026-07-08 |            |                                            |
 
 **Overall Progress:** 7/9 features complete (77%)
 
