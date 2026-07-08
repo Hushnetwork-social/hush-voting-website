@@ -16,9 +16,9 @@
     "allowImportingTsExtensions": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./app/*"]
+      "~/*": ["./src/*"]
     }
   },
-  "include": ["app", "tests", "vite.config.ts", "app.config.ts", "env.d.ts"],
+  "include": ["src", "tests", "vite.config.ts", "env.d.ts"],
   "exclude": ["node_modules", "dist", "public"]
 }
