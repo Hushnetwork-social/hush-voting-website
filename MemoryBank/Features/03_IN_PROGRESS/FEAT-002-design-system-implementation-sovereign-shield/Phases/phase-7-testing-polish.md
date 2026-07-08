@@ -20,6 +20,7 @@ Add focused automated coverage and polish the implementation so the design-syste
 ## Concrete Tasks
 
 ### Task 1: Add unit tests for components
+
 - [x] Created `tests/unit/design-system.test.tsx` with 31 tests covering:
   - Button: renders children, native element, variant classes (primary/secondary/ghost), size classes (sm/lg), disabled behavior, loading state (spinner + aria-busy), HTML prop forwarding, custom className
   - Section: renders children, section element default, div when `as="div"`, eyebrow, title as heading, description, optional props omitted cleanly
@@ -30,22 +31,26 @@ Add focused automated coverage and polish the implementation so the design-syste
   - IconLabel: renders icon with aria-hidden and visible text
 
 ### Task 2: Token contract tests
+
 - [n/a] Not added — token contract tests proved difficult to implement without brittle CSS parsing. The CSS variables are validated through:
   - Build-time verification (`pnpm build` passes with all tokens defined)
   - Component tests verify tokens are applied via className assertions
   - Token audit in `planning-analysis-report.md` confirms all DESIGN.md tokens are present
 
 ### Task 3: Run canonical verification
+
 - [x] `pnpm build` — ✅ succeeds
 - [x] `pnpm test:unit` — ✅ 34 tests pass (3 scaffold + 31 component)
 - [x] `pnpm format:check` — ✅ all files use Prettier style
 - [x] Static analysis — ✅ TypeScript strict mode, no type errors
 
 ### Task 4: Browser-level UI evidence decision
+
 - [x] Decision: not required
 - [x] Rationale: FEAT-002 is a design-system component library with no routed interactive behavior. All component behavior is verified through 31 unit tests covering render contracts, variants, states, and accessibility expectations. E2E coverage belongs to downstream FEATs.
 
 ### Task 5: Polish
+
 - [x] Added testing dependencies: @testing-library/react, @testing-library/jest-dom, jsdom
 - [x] Updated vitest config to support jsdom environment and .tsx test files
 - [x] Created `tests/unit/setup.ts` with jest-dom matchers and auto-cleanup
@@ -76,12 +81,12 @@ Add focused automated coverage and polish the implementation so the design-syste
 
 ## Quality Gate Evidence
 
-| Gate | Decision | Evidence / Justification |
-| --- | --- | --- |
-| Changed files | recorded | Test: `tests/unit/design-system.test.tsx` (new), `tests/unit/setup.ts` (new). Config: `vitest.config.ts` (updated), `package.json` (added deps). Documentation: this phase file. |
-| Tests | satisfied | 31 component tests + 3 scaffold tests = 34 total. Command: `pnpm test:unit` (34/34 pass). All 7 components have coverage. |
-| Gherkin/Playwright E2E | not applicable | FEAT-002 is a design-system component library with no routed interactive behavior. All component behavior verified through 31 unit tests. |
-| Code review | waived | This phase added tests and config only, no production code changes. Component code was already reviewed and APPROVED in Phase 3 code review. |
+| Gate                   | Decision       | Evidence / Justification                                                                                                                                                         |
+| ---------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Changed files          | recorded       | Test: `tests/unit/design-system.test.tsx` (new), `tests/unit/setup.ts` (new). Config: `vitest.config.ts` (updated), `package.json` (added deps). Documentation: this phase file. |
+| Tests                  | satisfied      | 31 component tests + 3 scaffold tests = 34 total. Command: `pnpm test:unit` (34/34 pass). All 7 components have coverage.                                                        |
+| Gherkin/Playwright E2E | not applicable | FEAT-002 is a design-system component library with no routed interactive behavior. All component behavior verified through 31 unit tests.                                        |
+| Code review            | waived         | This phase added tests and config only, no production code changes. Component code was already reviewed and APPROVED in Phase 3 code review.                                     |
 
 ## Acceptance Criteria
 
