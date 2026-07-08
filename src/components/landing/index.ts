@@ -32,6 +32,18 @@ export type { PlatformReadinessSectionProps } from "./PlatformReadinessSection";
 export { ClaimBoundaryBar } from "./ClaimBoundaryBar";
 export type { ClaimBoundaryBarProps } from "./ClaimBoundaryBar";
 
+export { FinalCtaSection } from "./FinalCtaSection";
+export type { FinalCtaSectionProps } from "./FinalCtaSection";
+
+export { Footer } from "./Footer";
+export type { FooterProps } from "./Footer";
+
+export { UtilityPageShell } from "./UtilityPageShell";
+export type { UtilityPageShellProps } from "./UtilityPageShell";
+
+export { buildMailtoHref } from "./mailto";
+export type { MailtoParams } from "./mailto";
+
 export {
   BRAND_TEXT,
   NAV_LINKS,
@@ -41,6 +53,11 @@ export {
   ROLE_WORKFLOW_SECTION,
   PROTOCOL_EVIDENCE_SECTION,
   PLATFORM_READINESS_SECTION,
+  FINAL_CTA_SECTION,
+  PILOT_ACCESS_MAILTO,
+  DOWNLOAD_OVERVIEW_CTA,
+  FOOTER,
+  UTILITY_PAGES,
 } from "./constants";
 export type {
   CtaDefinition,
@@ -49,4 +66,9 @@ export type {
   ProtocolEvidenceItem,
   DeploymentCard,
   ClaimBadge,
+  FinalCtaSectionConfig,
+  PilotAccessMailto,
+  DownloadOverviewCta,
+  FooterLink,
+  UtilityPageConfig,
 } from "./constants";

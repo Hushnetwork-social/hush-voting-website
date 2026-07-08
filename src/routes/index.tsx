@@ -5,6 +5,8 @@ import { TrustModelSection } from "~/components/landing/TrustModelSection";
 import { RoleWorkflowSection } from "~/components/landing/RoleWorkflowSection";
 import { ProtocolEvidenceSection } from "~/components/landing/ProtocolEvidenceSection";
 import { PlatformReadinessSection } from "~/components/landing/PlatformReadinessSection";
+import { FinalCtaSection } from "~/components/landing/FinalCtaSection";
+import { Footer } from "~/components/landing/Footer";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
@@ -20,7 +22,9 @@ function HomePage() {
         <RoleWorkflowSection />
         <ProtocolEvidenceSection />
         <PlatformReadinessSection />
+        <FinalCtaSection />
       </main>
+      <Footer />
     </>
   );
 }

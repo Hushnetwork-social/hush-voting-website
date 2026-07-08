@@ -282,3 +282,143 @@ export const PLATFORM_READINESS_SECTION = {
     },
   ] as const satisfies readonly ClaimBadge[],
 } as const;
+
+/* ── FEAT-007: Final CTA Section ── */
+
+/** Configuration for the final CTA (pilot access) section above the footer. */
+export interface FinalCtaSectionConfig {
+  readonly id: string;
+  readonly heading: string;
+  readonly description: string;
+  readonly placeholderNote: string;
+  readonly primaryActionLabel: string;
+  readonly secondaryActionLabel: string;
+}
+
+/** Final CTA section copy and configuration. */
+export const FINAL_CTA_SECTION = {
+  id: "pilot-access",
+  heading: "Bring protocol-bound voting to your organization.",
+  description:
+    "Secure, private, and mathematically verifiable governance at scale.",
+  placeholderNote:
+    "Pilot access requests currently open an email draft while onboarding is reviewed.",
+  primaryActionLabel: "Request pilot access",
+  secondaryActionLabel: "Download overview",
+} as const satisfies FinalCtaSectionConfig;
+
+/* ── FEAT-007: Pilot Access Mailto ── */
+
+/** Configuration for the pilot access mailto link. */
+export interface PilotAccessMailto {
+  readonly to: string;
+  readonly subject: string;
+  readonly body: string;
+}
+
+/** Pilot access mailto configuration (owner-approved placeholder). */
+export const PILOT_ACCESS_MAILTO = {
+  to: "hello@hushvoting.com",
+  subject: "HushVoting pilot access request",
+  body: [
+    "Hello HushVoting team,",
+    "",
+    "I am interested in pilot access to HushVoting for our organization. Please let me know the next steps.",
+    "",
+    "Organization:",
+    "Name:",
+    "Role:",
+    "Use case:",
+  ].join("\n"),
+} as const satisfies PilotAccessMailto;
+
+/* ── FEAT-007: Download Overview CTA ── */
+
+/** Configuration for the Download overview secondary CTA. */
+export interface DownloadOverviewCta {
+  readonly label: string;
+  readonly href: string;
+  readonly pendingNote: string;
+}
+
+/**
+ * Download overview CTA configuration.
+ * Uses #protocol as the safe interim target until an approved asset is supplied.
+ */
+export const DOWNLOAD_OVERVIEW_CTA = {
+  label: "Download overview",
+  href: "#protocol",
+  pendingNote:
+    "Overview asset pending — interim target is the Protocol Evidence section.",
+} as const satisfies DownloadOverviewCta;
+
+/* ── FEAT-007: Footer ── */
+
+/** A single footer link definition. */
+export interface FooterLink {
+  readonly label: string;
+  readonly href: string;
+}
+
+/** Footer brand context and link definitions. */
+export const FOOTER = {
+  brand: "HushVoting!",
+  tagline: "HushVoting! is a product of HushNetwork.",
+  links: [
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Terms of Service", href: "/terms" },
+    { label: "Security Audit", href: "/security" },
+  ] as const satisfies readonly FooterLink[],
+} as const;
+
+/* ── FEAT-007: Utility Pages ── */
+
+/** Configuration for a single utility page (Privacy, Terms, Security). */
+export interface UtilityPageConfig {
+  readonly route: string;
+  readonly title: string;
+  readonly status: string;
+  readonly bodyCopy: string;
+  readonly backToHomeLabel: string;
+  readonly backToHomeHref: string;
+}
+
+/** Utility page configurations for Privacy, Terms, and Security pages. */
+export const UTILITY_PAGES = [
+  {
+    route: "/privacy",
+    title: "Privacy Policy",
+    status: "Launch placeholder — final review pending.",
+    bodyCopy:
+      "The HushVoting privacy policy is currently under legal and privacy review. " +
+      "This placeholder page provides a structural scaffold and does not represent " +
+      "finalized privacy approval, data processing terms, or completed legal review. " +
+      "Please check back once the final policy is published.",
+    backToHomeLabel: "Return home",
+    backToHomeHref: "/",
+  },
+  {
+    route: "/terms",
+    title: "Terms of Service",
+    status: "Launch placeholder — final review pending.",
+    bodyCopy:
+      "The HushVoting Terms of Service are currently under legal review. " +
+      "This placeholder page provides a structural scaffold and does not represent " +
+      "a finalized service agreement, binding terms, or completed legal review. " +
+      "Please check back once the final terms are published.",
+    backToHomeLabel: "Return home",
+    backToHomeHref: "/",
+  },
+  {
+    route: "/security",
+    title: "Security Audit",
+    status: "Launch placeholder — final review pending.",
+    bodyCopy:
+      "HushVoting security audit references are currently pending review. " +
+      "This placeholder page provides a structural scaffold and does not represent " +
+      "completed audit certification, final security approval, or production-ready " +
+      "security posture. Please check back once the final audit information is published.",
+    backToHomeLabel: "Return home",
+    backToHomeHref: "/",
+  },
+] as const satisfies readonly UtilityPageConfig[];

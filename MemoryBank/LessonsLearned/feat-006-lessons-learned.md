@@ -31,6 +31,7 @@ FEAT-006 resolved the Sovereign Shield CSS loading gap then implemented Protocol
 **Root cause:** TanStack Start uses progressive streaming SSR. HTTP response headers are sent immediately, but the full HTML content (including sections rendered after suspense boundaries) arrives over a stream. A quick curl that reads until EOF without waiting for the stream to finish gets truncated output.
 
 **Successful fix:** When verifying SSR output in agent context, either:
+
 1. Use `curl --max-time 10 --retry 3` with adequate timeout (≥5s), or
 2. Use the build output manifest (`.output/nitro.json`, SSR route tree) to verify structural correctness, or
 3. Verify CSS runtime behavior via the SSR build manifest rather than streaming HTML.
@@ -82,6 +83,7 @@ FEAT-006 resolved the Sovereign Shield CSS loading gap then implemented Protocol
 **Observation:** Phase 4 (Presentation Logic) code review was performed by the continue-implementation agent as a post-verification step. The review found no blocking issues and was recorded as APPROVED with only NOTE-level findings (font-family inline style pattern, uppercase via CSS class, claim boundary list semantics). These findings were accepted as consistent with existing project conventions.
 
 **Prevention rule:** Deferred code review (performed after implementation, before complete-feature) is acceptable when:
+
 1. The implementation phases include structural verification (typecheck, unit tests, component tests, no-white-border regression)
 2. The code review is explicitly scoped and the findings are documented with severity (BLOCKER/REQUIRED/NOTE)
 3. NOTE-level findings have documented dispositions (accepted/deferred/refactored)
@@ -90,11 +92,11 @@ FEAT-006 resolved the Sovereign Shield CSS loading gap then implemented Protocol
 
 ## Operational Rules Summary
 
-| Context | Rule | Source |
-| --- | --- | --- |
-| TanStack Start CSS | Import global CSS in `__root.tsx`, not route-level files | Lesson 1 |
-| SSR verification | Use build-manifest inspection or `curl --max-time 10` for streaming SSR | Lesson 2 |
-| Format check | Run `prettier --check` at each phase boundary, not just complete-feature | Lesson 3 |
-| CSS custom properties | Prefer Tailwind arbitrary-value utilities over inline styles when stable | Lesson 4 |
-| Static content | Create typed constants before component implementation, in dedicated Data Layer phase | Lesson 5 |
-| Code review | Deferred review is acceptable with structural evidence and documented findings | Lesson 6 |
+| Context               | Rule                                                                                  | Source   |
+| --------------------- | ------------------------------------------------------------------------------------- | -------- |
+| TanStack Start CSS    | Import global CSS in `__root.tsx`, not route-level files                              | Lesson 1 |
+| SSR verification      | Use build-manifest inspection or `curl --max-time 10` for streaming SSR               | Lesson 2 |
+| Format check          | Run `prettier --check` at each phase boundary, not just complete-feature              | Lesson 3 |
+| CSS custom properties | Prefer Tailwind arbitrary-value utilities over inline styles when stable              | Lesson 4 |
+| Static content        | Create typed constants before component implementation, in dedicated Data Layer phase | Lesson 5 |
+| Code review           | Deferred review is acceptable with structural evidence and documented findings        | Lesson 6 |

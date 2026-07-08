@@ -18,6 +18,11 @@ import {
   ROLE_WORKFLOW_SECTION,
   PROTOCOL_EVIDENCE_SECTION,
   PLATFORM_READINESS_SECTION,
+  FINAL_CTA_SECTION,
+  PILOT_ACCESS_MAILTO,
+  DOWNLOAD_OVERVIEW_CTA,
+  FOOTER,
+  UTILITY_PAGES,
 } from "~/components/landing/constants";
 
 /* ── BrandMark ── */
@@ -739,5 +744,334 @@ describe("ClaimBoundaryBar", () => {
       'button, a, [tabindex]:not([tabindex="-1"])',
     );
     expect(focusable.length).toBe(0);
+  });
+});
+
+/* ── FEAT-007 Constants Contract ── */
+
+describe("FEAT-007 Constants contract", () => {
+  it("FINAL_CTA_SECTION has exact approved id", () => {
+    expect(FINAL_CTA_SECTION.id).toBe("pilot-access");
+  });
+
+  it("FINAL_CTA_SECTION has exact approved heading", () => {
+    expect(FINAL_CTA_SECTION.heading).toBe(
+      "Bring protocol-bound voting to your organization.",
+    );
+  });
+
+  it("FINAL_CTA_SECTION has exact approved description", () => {
+    expect(FINAL_CTA_SECTION.description).toBe(
+      "Secure, private, and mathematically verifiable governance at scale.",
+    );
+  });
+
+  it("FINAL_CTA_SECTION has exact approved placeholder note", () => {
+    expect(FINAL_CTA_SECTION.placeholderNote).toBe(
+      "Pilot access requests currently open an email draft while onboarding is reviewed.",
+    );
+  });
+
+  it("FINAL_CTA_SECTION has exact approved CTA labels", () => {
+    expect(FINAL_CTA_SECTION.primaryActionLabel).toBe("Request pilot access");
+    expect(FINAL_CTA_SECTION.secondaryActionLabel).toBe("Download overview");
+  });
+
+  it("PILOT_ACCESS_MAILTO has correct to field", () => {
+    expect(PILOT_ACCESS_MAILTO.to).toBe("hello@hushvoting.com");
+  });
+
+  it("PILOT_ACCESS_MAILTO has subject", () => {
+    expect(PILOT_ACCESS_MAILTO.subject).toBe("HushVoting pilot access request");
+  });
+
+  it("PILOT_ACCESS_MAILTO has a non-empty body", () => {
+    expect(PILOT_ACCESS_MAILTO.body.length).toBeGreaterThan(50);
+  });
+
+  it("DOWNLOAD_OVERVIEW_CTA has correct label and href", () => {
+    expect(DOWNLOAD_OVERVIEW_CTA.label).toBe("Download overview");
+    expect(DOWNLOAD_OVERVIEW_CTA.href).toBe("#protocol");
+  });
+
+  it("DOWNLOAD_OVERVIEW_CTA has a pending note", () => {
+    expect(DOWNLOAD_OVERVIEW_CTA.pendingNote.length).toBeGreaterThan(10);
+  });
+
+  it("DOWNLOAD_OVERVIEW_CTA href is not broken empty fragment", () => {
+    // Prevent silent href="#" behavior
+    expect(DOWNLOAD_OVERVIEW_CTA.href).not.toBe("#");
+    expect(DOWNLOAD_OVERVIEW_CTA.href).not.toBe("");
+  });
+
+  it("FOOTER has brand and tagline", () => {
+    expect(FOOTER.brand).toBe("HushVoting!");
+    expect(FOOTER.tagline).toBe("HushVoting! is a product of HushNetwork.");
+  });
+
+  it("FOOTER has three utility links with correct labels and hrefs", () => {
+    const links = FOOTER.links;
+    expect(links.length).toBe(3);
+    expect(links[0].label).toBe("Privacy Policy");
+    expect(links[0].href).toBe("/privacy");
+    expect(links[1].label).toBe("Terms of Service");
+    expect(links[1].href).toBe("/terms");
+    expect(links[2].label).toBe("Security Audit");
+    expect(links[2].href).toBe("/security");
+  });
+
+  it("UTILITY_PAGES has exactly three pages in correct order", () => {
+    expect(UTILITY_PAGES.length).toBe(3);
+    expect(UTILITY_PAGES[0].route).toBe("/privacy");
+    expect(UTILITY_PAGES[0].title).toBe("Privacy Policy");
+    expect(UTILITY_PAGES[1].route).toBe("/terms");
+    expect(UTILITY_PAGES[1].title).toBe("Terms of Service");
+    expect(UTILITY_PAGES[2].route).toBe("/security");
+    expect(UTILITY_PAGES[2].title).toBe("Security Audit");
+  });
+
+  it("UTILITY_PAGES each have pending-review status", () => {
+    for (const page of UTILITY_PAGES) {
+      expect(page.status).toContain("pending");
+      expect(page.status).toContain("review");
+    }
+  });
+
+  it("UTILITY_PAGES each have non-empty body copy", () => {
+    for (const page of UTILITY_PAGES) {
+      expect(page.bodyCopy.length).toBeGreaterThan(50);
+    }
+  });
+
+  it("UTILITY_PAGES each have back-to-home link", () => {
+    for (const page of UTILITY_PAGES) {
+      expect(page.backToHomeLabel).toBeTruthy();
+      expect(page.backToHomeHref).toBe("/");
+    }
+  });
+});
+
+/* ── FEAT-007 Mailto Helper ── */
+
+import { buildMailtoHref } from "~/components/landing/mailto";
+
+describe("buildMailtoHref", () => {
+  const testParams = {
+    to: "hello@hushvoting.com",
+    subject: "HushVoting pilot access request",
+    body: "Hello team,\n\nI would like pilot access.",
+  };
+
+  it("returns a string starting with mailto:", () => {
+    const href = buildMailtoHref(testParams);
+    expect(href).toMatch(/^mailto:/);
+  });
+
+  it("includes the recipient email", () => {
+    const href = buildMailtoHref(testParams);
+    expect(href).toContain("hello@hushvoting.com");
+  });
+
+  it("includes encoded subject parameter", () => {
+    const href = buildMailtoHref(testParams);
+    expect(href).toContain("?subject=");
+    expect(href).toContain(encodeURIComponent(testParams.subject));
+  });
+
+  it("includes encoded body parameter", () => {
+    const href = buildMailtoHref(testParams);
+    expect(href).toContain("&body=");
+    expect(href).toContain(encodeURIComponent(testParams.body));
+  });
+
+  it("produces a valid mailto href from PILOT_ACCESS_MAILTO constants", () => {
+    const href = buildMailtoHref({
+      to: PILOT_ACCESS_MAILTO.to,
+      subject: PILOT_ACCESS_MAILTO.subject,
+      body: PILOT_ACCESS_MAILTO.body,
+    });
+    expect(href).toMatch(/^mailto:hello@hushvoting.com/);
+    expect(href).toContain(encodeURIComponent(PILOT_ACCESS_MAILTO.subject));
+    expect(href).toContain(encodeURIComponent(PILOT_ACCESS_MAILTO.body));
+  });
+
+  it("encodes special characters in subject and body", () => {
+    const special = {
+      to: "test@example.com",
+      subject: "Subject with spaces & special chars!",
+      body: "Body with newlines\nand & ampersands.",
+    };
+    const href = buildMailtoHref(special);
+    expect(href).toContain(encodeURIComponent(special.subject));
+    expect(href).toContain(encodeURIComponent(special.body));
+    // The href should not contain raw spaces or special chars in query string
+    const queryString = href.split("?")[1] ?? "";
+    expect(queryString).not.toContain(" ");
+  });
+
+  it("returns a string type", () => {
+    const href: string = buildMailtoHref(testParams);
+    expect(typeof href).toBe("string");
+  });
+});
+
+/* ── FEAT-007 Component Render Tests ── */
+
+import { FinalCtaSection } from "~/components/landing/FinalCtaSection";
+import { Footer } from "~/components/landing/Footer";
+import { UtilityPageShell } from "~/components/landing/UtilityPageShell";
+
+describe("FinalCtaSection", () => {
+  it("renders a section landmark with id pilot-access", () => {
+    const { container } = render(<FinalCtaSection />);
+    const section = container.querySelector("section#pilot-access");
+    expect(section).toBeInTheDocument();
+  });
+
+  it("renders the approved heading as h2", () => {
+    render(<FinalCtaSection />);
+    const heading = screen.getByRole("heading", { level: 2 });
+    expect(heading).toHaveTextContent(FINAL_CTA_SECTION.heading);
+  });
+
+  it("renders the approved description", () => {
+    render(<FinalCtaSection />);
+    expect(screen.getByText(FINAL_CTA_SECTION.description)).toBeInTheDocument();
+  });
+
+  it("renders the primary CTA as an anchor with mailto href", () => {
+    render(<FinalCtaSection />);
+    const primaryCta = screen.getByRole("link", {
+      name: FINAL_CTA_SECTION.primaryActionLabel,
+    });
+    expect(primaryCta).toBeInTheDocument();
+    expect(primaryCta).toHaveAttribute("href");
+    expect(primaryCta.getAttribute("href")).toMatch(/^mailto:/);
+  });
+
+  it("renders the secondary CTA as an anchor with overview href", () => {
+    render(<FinalCtaSection />);
+    const secondaryCta = screen.getByRole("link", {
+      name: DOWNLOAD_OVERVIEW_CTA.label,
+    });
+    expect(secondaryCta).toBeInTheDocument();
+    expect(secondaryCta).toHaveAttribute("href", DOWNLOAD_OVERVIEW_CTA.href);
+  });
+
+  it("renders the placeholder note", () => {
+    render(<FinalCtaSection />);
+    expect(
+      screen.getByText(FINAL_CTA_SECTION.placeholderNote),
+    ).toBeInTheDocument();
+  });
+
+  it("does not render border-white classes", () => {
+    const { container } = render(<FinalCtaSection />);
+    const whiteBorders = container.querySelectorAll('[class*="border-white"]');
+    expect(whiteBorders.length).toBe(0);
+  });
+
+  it("does not render button elements (navigational CTAs are anchors)", () => {
+    const { container } = render(<FinalCtaSection />);
+    const buttons = container.querySelectorAll("button");
+    expect(buttons.length).toBe(0);
+  });
+});
+
+describe("Footer", () => {
+  it("renders a footer landmark", () => {
+    const { container } = render(<Footer />);
+    expect(container.querySelector("footer")).toBeInTheDocument();
+  });
+
+  it("renders the brand text", () => {
+    render(<Footer />);
+    expect(screen.getByText(FOOTER.brand)).toBeInTheDocument();
+  });
+
+  it("renders the tagline", () => {
+    render(<Footer />);
+    expect(screen.getByText(FOOTER.tagline)).toBeInTheDocument();
+  });
+
+  it("renders all three footer links as anchors", () => {
+    render(<Footer />);
+    for (const link of FOOTER.links) {
+      const anchor = screen.getByRole("link", { name: link.label });
+      expect(anchor).toBeInTheDocument();
+      expect(anchor).toHaveAttribute("href", link.href);
+    }
+  });
+
+  it("renders a navigation landmark for footer links", () => {
+    render(<Footer />);
+    const nav = screen.getByRole("navigation", { name: "Footer legal links" });
+    expect(nav).toBeInTheDocument();
+  });
+
+  it("does not render border-white classes", () => {
+    const { container } = render(<Footer />);
+    const whiteBorders = container.querySelectorAll('[class*="border-white"]');
+    expect(whiteBorders.length).toBe(0);
+  });
+});
+
+describe("UtilityPageShell", () => {
+  it("renders the page title as h1", () => {
+    render(<UtilityPageShell config={UTILITY_PAGES[0]} />);
+    const heading = screen.getByRole("heading", { level: 1 });
+    expect(heading).toHaveTextContent(UTILITY_PAGES[0].title);
+  });
+
+  it("renders the pending-review status", () => {
+    render(<UtilityPageShell config={UTILITY_PAGES[0]} />);
+    expect(screen.getByText(UTILITY_PAGES[0].status)).toBeInTheDocument();
+  });
+
+  it("renders the body copy", () => {
+    render(<UtilityPageShell config={UTILITY_PAGES[0]} />);
+    expect(screen.getByText(UTILITY_PAGES[0].bodyCopy)).toBeInTheDocument();
+  });
+
+  it("renders a back-to-home link", () => {
+    render(<UtilityPageShell config={UTILITY_PAGES[1]} />);
+    const homeLink = screen.getByRole("link", {
+      name: UTILITY_PAGES[1].backToHomeLabel,
+    });
+    expect(homeLink).toBeInTheDocument();
+    expect(homeLink).toHaveAttribute("href", UTILITY_PAGES[1].backToHomeHref);
+  });
+
+  it("renders correct content for each utility page", () => {
+    for (const page of UTILITY_PAGES) {
+      const { unmount } = render(<UtilityPageShell config={page} />);
+      expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
+        page.title,
+      );
+      expect(screen.getByText(page.status)).toBeInTheDocument();
+      expect(screen.getByText(page.bodyCopy)).toBeInTheDocument();
+      expect(
+        screen.getByRole("link", { name: page.backToHomeLabel }),
+      ).toHaveAttribute("href", page.backToHomeHref);
+      unmount();
+    }
+  });
+
+  it("marks the back icon as decorative with aria-hidden", () => {
+    const { container } = render(
+      <UtilityPageShell config={UTILITY_PAGES[0]} />,
+    );
+    const backIcons = container.querySelectorAll(
+      '.material-symbols-outlined[aria-hidden="true"]',
+    );
+    expect(backIcons.length).toBeGreaterThanOrEqual(1);
+  });
+
+  it("does not render border-white classes", () => {
+    const { container } = render(
+      <UtilityPageShell config={UTILITY_PAGES[0]} />,
+    );
+    const whiteBorders = container.querySelectorAll('[class*="border-white"]');
+    expect(whiteBorders.length).toBe(0);
   });
 });
