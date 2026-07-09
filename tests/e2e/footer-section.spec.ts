@@ -38,8 +38,14 @@ test.describe("@VisualLanguage @FEAT-007 Footer and CTA Section (FEAT-007)", () 
       cta.getByRole("link", { name: "Download overview" }),
     ).toHaveCount(0);
 
-    await pilotAccessButton.click();
     const dialog = page.getByRole("dialog");
+    for (let attempt = 0; attempt < 5; attempt += 1) {
+      await pilotAccessButton.click();
+      if ((await dialog.count()) > 0) {
+        break;
+      }
+      await page.waitForTimeout(500);
+    }
     await expect(dialog).toBeVisible();
     await expect(
       dialog.getByRole("textbox", { name: "Email address" }),

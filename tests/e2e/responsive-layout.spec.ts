@@ -218,12 +218,18 @@ test.describe("@VisualLanguage @FEAT-008 Responsive Layout (FEAT-008)", () => {
       (el) => getComputedStyle(el).fontSize,
     );
 
-    // On a 1440px viewport, clamp(2rem, 5vw, 48px) should resolve
-    // to something between 32px and 48px
+    const headingBox = await page.locator("#hero-heading").boundingBox();
+    const viewport = page.viewportSize();
+
+    // The HushNetwork-aligned hero deliberately uses a large display title
+    // occupying roughly two thirds of the desktop viewport.
     const fontSizeNum = parsePxValue(heroFontSize);
     expect(Number.isNaN(fontSizeNum)).toBe(false);
-    expect(fontSizeNum).toBeGreaterThanOrEqual(32);
-    expect(fontSizeNum).toBeLessThanOrEqual(48);
+    expect(fontSizeNum).toBeGreaterThanOrEqual(64);
+    expect(fontSizeNum).toBeLessThanOrEqual(110);
+    expect(headingBox).not.toBeNull();
+    expect(viewport).not.toBeNull();
+    expect(headingBox!.width / viewport!.width).toBeGreaterThanOrEqual(0.6);
   });
 
   /* ── Touch Targets ── */
