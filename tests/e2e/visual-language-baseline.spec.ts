@@ -24,14 +24,16 @@ import { test, expect } from "@playwright/test";
 
 const BASE_URL = process.env.BASE_URL ?? "http://localhost:3000";
 
-test.describe("Visual Language Baseline", () => {
-  test("Sovereign Shield CSS is loaded by the browser", async ({ page }) => {
+test.describe("@VisualLanguage @Prerequisite Visual Language Baseline", () => {
+  test("@Prerequisite Sovereign Shield CSS is loaded by the browser", async ({ page }) => {
     await page.goto(BASE_URL);
     await page.waitForTimeout(2000);
 
-    // 1. Verify a <link rel="stylesheet"> exists in the document head
-    const stylesheets = await page.$$('link[rel="stylesheet"]');
-    expect(stylesheets.length).toBeGreaterThanOrEqual(1);
+    // 1. Verify the browser has registered at least one stylesheet.
+    // TanStack/Vite dev can keep CSS as a <link> or transform it during hydration,
+    // so the gate checks the browser stylesheet registry instead of only <link> nodes.
+    const stylesheetCount = await page.evaluate(() => document.styleSheets.length);
+    expect(stylesheetCount).toBeGreaterThanOrEqual(1);
 
     // 2. Verify CSS custom property --color-surface resolves on :root
     const colorSurface = await page.evaluate(() => {

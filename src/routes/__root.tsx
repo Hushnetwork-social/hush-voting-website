@@ -1,7 +1,20 @@
-import { createRootRoute, Outlet } from "@tanstack/react-router";
+import type { ReactNode } from "react";
+import {
+  createRootRoute,
+  HeadContent,
+  Outlet,
+  Scripts,
+} from "@tanstack/react-router";
 import "../../styles/app.css";
 
 export const Route = createRootRoute({
+  head: () => ({
+    meta: [
+      { charSet: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { title: "HushVoting" },
+    ],
+  }),
   component: RootLayout,
   notFoundComponent: NotFound,
   errorComponent: ErrorBoundary,
@@ -9,9 +22,23 @@ export const Route = createRootRoute({
 
 function RootLayout() {
   return (
-    <>
+    <RootDocument>
       <Outlet />
-    </>
+    </RootDocument>
+  );
+}
+
+function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
+  return (
+    <html lang="en" className="dark">
+      <head>
+        <HeadContent />
+      </head>
+      <body className="selection:bg-primary-container selection:text-on-primary-container">
+        {children}
+        <Scripts />
+      </body>
+    </html>
   );
 }
 

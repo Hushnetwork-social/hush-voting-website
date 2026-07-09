@@ -27,10 +27,10 @@ import {
 
 const BASE_URL = process.env.BASE_URL ?? "http://localhost:3000";
 
-test.describe("Responsive Layout (FEAT-008)", () => {
+test.describe("@VisualLanguage @FEAT-008 Responsive Layout (FEAT-008)", () => {
   /* ── Navigation ── */
 
-  test("Navigation switches to hamburger on mobile viewport", async ({
+  test("@FEAT-008 Navigation switches to hamburger on mobile viewport", async ({
     page,
   }) => {
     await page.setViewportSize({
@@ -40,29 +40,22 @@ test.describe("Responsive Layout (FEAT-008)", () => {
     await page.goto(BASE_URL);
     await page.waitForTimeout(1000);
 
-    // Inline nav links should NOT be visible on mobile
-    const inlineNav = page.locator("header nav.hidden");
-    const isHidden = await inlineNav.evaluate(
-      (el) =>
-        getComputedStyle(el).display === "none" ||
-        getComputedStyle(el).visibility === "hidden",
-    );
-    expect(isHidden).toBeTruthy();
+    // Inline desktop nav should NOT be visible on mobile
+    await expect(page.locator("header nav").first()).toBeHidden();
 
     // Hamburger button should be visible
-    const hamburger = page.locator("header button").first();
+    const hamburger = page.getByRole("button", { name: "Open navigation" });
     await expect(hamburger).toBeVisible();
 
     // Click hamburger to open nav
     await hamburger.click();
     await page.waitForTimeout(500);
 
-    // Nav links should now be visible
-    const mobileNavLinks = page.locator(
-      'header a:has-text("Trust Model"), header a:has-text("Roles")',
-    );
-    const firstVisible = await mobileNavLinks.first().isVisible();
-    expect(firstVisible).toBeTruthy();
+    // Nav links should now be visible in the disclosure panel
+    const mobileNav = page.locator("header nav:visible");
+    const mobileNavLinks = mobileNav.getByRole("link");
+    await expect(mobileNav.getByRole("link", { name: "Trust Model" })).toBeVisible();
+    await expect(mobileNav.getByRole("link", { name: "Roles" })).toBeVisible();
 
     // Touch targets >= 48px
     const navLinkHeight = await mobileNavLinks.first().evaluate((el) => {
@@ -92,7 +85,7 @@ test.describe("Responsive Layout (FEAT-008)", () => {
     await page.waitForTimeout(1000);
 
     // Hamburger should be visible (tablet = hamburger)
-    const hamburger = page.locator("header button").first();
+    const hamburger = page.getByRole("button", { name: "Open navigation" });
     await expect(hamburger).toBeVisible();
 
     // Click hamburger to open
@@ -100,15 +93,14 @@ test.describe("Responsive Layout (FEAT-008)", () => {
     await page.waitForTimeout(500);
 
     // Nav links should be visible
-    const mobileNavLinks = page.locator('header a:has-text("Trust Model")');
-    await expect(mobileNavLinks.first()).toBeVisible();
+    const mobileNav = page.locator("header nav:visible");
+    await expect(mobileNav.getByRole("link", { name: "Trust Model" })).toBeVisible();
 
     // Pilot Access CTA should be visible in disclosure
-    const pilotCta = page.locator('header a:has-text("Pilot Access")');
-    await expect(pilotCta.first()).toBeVisible();
+    await expect(mobileNav.getByRole("link", { name: "Pilot Access" })).toBeVisible();
   });
 
-  test("Navigation shows inline links on desktop viewport", async ({
+  test("@FEAT-008 Navigation shows inline links on desktop viewport", async ({
     page,
   }) => {
     await page.setViewportSize({
@@ -119,24 +111,23 @@ test.describe("Responsive Layout (FEAT-008)", () => {
     await page.waitForTimeout(1000);
 
     // Inline nav links visible
+    const desktopNav = page.locator("header nav:visible");
+    await expect(desktopNav.getByRole("link", { name: "Trust Model" })).toBeVisible();
+    await expect(desktopNav.getByRole("link", { name: "Roles" })).toBeVisible();
     await expect(
-      page.locator('header a:has-text("Trust Model")'),
+      desktopNav.getByRole("link", { name: "Protocol Evidence" }),
     ).toBeVisible();
-    await expect(page.locator('header a:has-text("Roles")')).toBeVisible();
-    await expect(
-      page.locator('header a:has-text("Protocol Evidence")'),
-    ).toBeVisible();
-    await expect(page.locator('header a:has-text("Platform")')).toBeVisible();
+    await expect(desktopNav.getByRole("link", { name: "Platform" })).toBeVisible();
 
-    // Pilot Access button visible in nav
+    // Pilot Access button visible in header
     await expect(
-      page.locator('header a:has-text("Pilot Access")'),
+      page.locator("header").getByRole("link", { name: "Pilot Access" }),
     ).toBeVisible();
   });
 
   /* ── Layout Grids ── */
 
-  test("Role cards display in correct grid at different viewports", async ({
+  test("@FEAT-008 Role cards display in correct grid at different viewports", async ({
     page,
   }) => {
     for (const vp of [VIEWPORT_375, VIEWPORT_768, VIEWPORT_1440]) {
@@ -144,7 +135,7 @@ test.describe("Responsive Layout (FEAT-008)", () => {
       await page.goto(BASE_URL);
       await page.waitForTimeout(1000);
 
-      const cards = page.locator("#roles > div > div > div");
+      const cards = page.locator("#roles > .grid > div");
       const cardCount = await cards.count();
 
       // Expect at least 4 role cards
@@ -170,7 +161,7 @@ test.describe("Responsive Layout (FEAT-008)", () => {
 
   /* ── No White Borders ── */
 
-  test("No white borders at any viewport", async ({ page }) => {
+  test("@FEAT-008 No white borders at any viewport", async ({ page }) => {
     for (const vp of ALL_VIEWPORTS) {
       await page.setViewportSize({ width: vp.width, height: vp.height });
       await page.goto(BASE_URL);
@@ -186,7 +177,7 @@ test.describe("Responsive Layout (FEAT-008)", () => {
 
   /* ── Section Padding ── */
 
-  test("Section padding adjusts for viewport", async ({ page }) => {
+  test("@FEAT-008 Section padding adjusts for viewport", async ({ page }) => {
     // Mobile: 16px
     await page.setViewportSize({
       width: VIEWPORT_375.width,
@@ -196,7 +187,7 @@ test.describe("Responsive Layout (FEAT-008)", () => {
     await page.waitForTimeout(1000);
 
     const mobilePadding = await page.$eval(
-      "section > div",
+      "#protocol > div",
       (el) => getComputedStyle(el).paddingLeft,
     );
     expect(matchesGutter(mobilePadding, "mobile", 2)).toBe(true);
@@ -210,7 +201,7 @@ test.describe("Responsive Layout (FEAT-008)", () => {
     await page.waitForTimeout(1000);
 
     const desktopPadding = await page.$eval(
-      "section > div",
+      "#protocol > div",
       (el) => getComputedStyle(el).paddingLeft,
     );
     expect(matchesGutter(desktopPadding, "desktop", 2)).toBe(true);
@@ -237,7 +228,7 @@ test.describe("Responsive Layout (FEAT-008)", () => {
 
   /* ── Touch Targets ── */
 
-  test("Touch targets meet minimum size", async ({ page }) => {
+  test("@FEAT-008 Touch targets meet minimum size", async ({ page }) => {
     await page.goto(BASE_URL);
     await page.waitForTimeout(1000);
 

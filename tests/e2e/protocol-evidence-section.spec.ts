@@ -13,7 +13,7 @@ import { test, expect } from "@playwright/test";
 
 const BASE_URL = process.env.BASE_URL ?? "http://localhost:3000";
 
-test.describe("Protocol Evidence Section (FEAT-006)", () => {
+test.describe("@VisualLanguage @FEAT-006 Protocol Evidence Section (FEAT-006)", () => {
   test("Protocol Evidence section renders with Sovereign Shield styling", async ({
     page,
   }) => {
@@ -25,10 +25,12 @@ test.describe("Protocol Evidence Section (FEAT-006)", () => {
     expect(protocol).not.toBeNull();
 
     // Heading is visible
-    await expect(page.getByText("Protocol Omega")).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "Protocol Omega" }),
+    ).toBeVisible();
 
     // 6 evidence items in a grid
-    const evidenceItems = await page.$$('#protocol [class*="inset-well"]');
+    const evidenceItems = await page.$$('#protocol [class*="bg-surface-container-lowest"]');
     expect(evidenceItems.length).toBeGreaterThanOrEqual(6);
 
     // No white borders in the section
@@ -58,7 +60,7 @@ test.describe("Protocol Evidence Section (FEAT-006)", () => {
 
     // Heading
     await expect(
-      page.getByText("Universal Deployment Readiness"),
+      page.getByRole("heading", { name: "Universal Deployment Readiness" }),
     ).toBeVisible();
 
     // 3 cards

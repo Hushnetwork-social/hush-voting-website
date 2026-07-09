@@ -1,18 +1,16 @@
 import { createRouter } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
 
+export function getRouter() {
+  return createRouter({
+    routeTree,
+    defaultPreload: "intent",
+  });
+}
+
 // Register the router instance for type safety
 declare module "@tanstack/react-router" {
   interface Register {
-    router: typeof router;
+    router: ReturnType<typeof getRouter>;
   }
-}
-
-export const router = createRouter({
-  routeTree,
-  defaultPreload: "intent",
-});
-
-export function getRouter() {
-  return router;
 }

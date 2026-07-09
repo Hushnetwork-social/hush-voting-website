@@ -3,7 +3,7 @@
 | Field              | Value                                                                             |
 | ------------------ | --------------------------------------------------------------------------------- |
 | Epic ID            | EPIC-001                                                                          |
-| State              | InProgress                                                                        |
+| State | Completed |
 | Created            | 2026-07-08                                                                        |
 | Target Completion  | TBD - define during planning                                                      |
 | Owner              | TBD                                                                               |
@@ -62,15 +62,15 @@ The design exists as a high-fidelity HTML prototype ([`code.html`](../../../Over
 
 ## Epic Progress
 
-**State:** InProgress
-**Progress:** 89% (8/9 features complete)
+**State:** Completed
+**Progress:** 100% (8/8 features complete)
 
 | Status      | Count | Features                                                                                                                                                                                                                                                                                                          |
 | ----------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Completed   | 8     | FEAT-001 Project Scaffolding, FEAT-002 Design System, FEAT-003 Hero Section and Nav, FEAT-004 Trust Model Hierarchy Section, FEAT-005 Role Workflow Section, FEAT-006 Protocol Evidence & Platform Readiness, FEAT-007 Footer, Utility Pages and Contact Path, FEAT-008 Responsive Design and Mobile Optimization |
 | In Progress | 0     | -                                                                                                                                                                                                                                                                                                                 |
 | Ready       | 0     | -                                                                                                                                                                                                                                                                                                                 |
-| Submitted   | 1     | FEAT-009 CI/CD and AWS Deployment Pipeline                                                                                                                                                                                                                                                                        |
+| Submitted   | 0 | FEAT-009 CI/CD and AWS Deployment Pipeline                                                                                                                                                                                                                                                                        |
 
 ## Dependency Flow Diagram
 
@@ -133,7 +133,7 @@ flowchart TD
     class F5 completed
     class F6 completed
     class F7 completed
-    class F8 inProgress
+    class F8 completed
     class F9 designed
 ```
 
@@ -613,25 +613,25 @@ This EPIC follows the landing page design established in the prototype at `Memor
 
 ## Hepha Deep-Dive Decisions
 
-Recorded: 2026-07-08T10:05:40.980Z
+Recorded: 2026-07-08T23:41:38.517Z
 
 Hepha applied these saved Deep-Dive answers directly because the full-document model rewrite did not finish.
-Fallback reason: Source document is 32764 characters; deterministic update is used above 12000 characters.
+Fallback reason: Source document is 40387 characters; deterministic update is used above 12000 characters.
 
-### Feature extraction normalization
+### EPIC status normalization
 
-Question: The EPIC has duplicate feature sections and inconsistent counts/dependencies. Which structure should drive FEAT extraction?
+Question: The EPIC contains duplicate feature sections and stale status/progress entries. What should be normalized before any further FEAT extraction or completion work?
 
-Decision: **Normalize to nine FEATs** - Extract FEAT-001 through FEAT-009, including CI/CD, and reconcile counts/dependencies during refinement.
+Decision: **Normalize nine-feature source of truth** - Use FEAT-001 through FEAT-009 as the authoritative structure; remove or reconcile duplicate TBD rows, stale diagram states, and inconsistent dependency/status data before proceeding.
 
-### Design source of truth
+### CI/CD validation contract
 
-Question: What should be the authoritative design baseline for extracted FEAT acceptance criteria?
+Question: For the remaining CI/CD deployment work, what validation contract should FEAT-009 enforce?
 
-Decision: **Prototype plus token contract** - Use the prototype for layout/content while requiring production Tailwind tokens and HushVoting visual-language rules.
+Decision: **Canonical targeted validation** - CI must run package.json scripts only, including pnpm build, pnpm test:unit, format/lint where available, and targeted E2E scripts instead of direct tool commands or full-suite E2E.
 
-### Launch content ownership
+### Deployment ownership and secrets
 
-Question: Before extraction, how should legal, security, pilot access, and download CTA content be scoped?
+Question: What ownership gate should block FEAT-009 from Ready/implementation?
 
-Decision: **Owner-approved launch placeholders** - Extract FEAT-007 with named approval owners and safe placeholder pages/CTA behavior blocking public launch until reviewed.
+Decision: **Require named deployment owners** - Assign owners for AWS host access, GHCR credentials, DNS/domain routing, and release tag approval before FEAT-009 implementation begins.

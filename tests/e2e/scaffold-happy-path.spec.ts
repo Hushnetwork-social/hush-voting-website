@@ -22,16 +22,16 @@ test.describe("Scaffold Happy Path", () => {
     await page.goto(BASE_URL);
 
     // Verify the page renders with the expected brand name
-    await expect(page.getByText("HushVoting!")).toBeVisible();
-    await expect(page.getByText("HushVoting!")).toHaveText("HushVoting!");
+    await expect(
+      page.getByRole("link", { name: "HushVoting home" }),
+    ).toBeVisible();
 
     // Verify the tagline is rendered
     await expect(
-      page.getByText("Governed remote voting for serious organizations"),
+      page.getByRole("heading", {
+        name: "Governed remote voting for serious organizations",
+      }),
     ).toBeVisible();
-
-    // Verify scaffold ready badge is rendered
-    await expect(page.getByText("SCAFFOLD READY")).toBeVisible();
 
     // Verify the page title
     await expect(page).toHaveTitle(/HushVoting/);
