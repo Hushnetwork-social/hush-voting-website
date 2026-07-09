@@ -1,11 +1,13 @@
 import type { ComponentPropsWithoutRef } from "react";
 import { cn } from "~/components/ui/cn";
 
+export const HUSHVOTING_LOGO_SRC = "/assets/hushvoting-logo.png";
+
 export interface BrandMarkProps extends ComponentPropsWithoutRef<"span"> {
   /** When true, the mark is purely decorative and hidden from assistive tech. */
   decorative?: boolean;
   /**
-   * Size variant for the SVG icon.
+   * Size variant for the official HushVoting logo.
    *
    * - `"sm"` (default): 32x32px — compact header usage.
    * - `"md"`: 48x48px — hero or larger context.
@@ -15,19 +17,14 @@ export interface BrandMarkProps extends ComponentPropsWithoutRef<"span"> {
 }
 
 /**
- * Token-based HushVoting brand mark fallback.
+ * Official HushVoting brand mark.
  *
- * Renders a deterministic CSS-only shield/checkmark icon using Sovereign
- * Shield primary color tokens. When an approved production logo asset
- * becomes available, this component can be swapped via its imports.
- *
- * Uses the `decorative` prop to control `aria-hidden` — decorative is
- * appropriate when adjacent visible text (e.g. BRAND_TEXT in the header)
- * already identifies HushVoting.
- *
- * Props: All standard span props plus `decorative`.
+ * Renders the approved HushVoting logo promoted from the prototype assets into
+ * `public/assets`. The wrapper controls accessibility so the same component can
+ * be decorative when adjacent text already identifies the brand, or announced as
+ * an image when used standalone.
  */
-const SVG_SIZE_MAP = {
+const LOGO_SIZE_MAP = {
   sm: "h-8 w-8",
   md: "h-12 w-12",
   lg: "h-16 w-16",
@@ -41,42 +38,20 @@ export function BrandMark({
 }: BrandMarkProps) {
   return (
     <span
-      className={cn(
-        "inline-flex items-center justify-center text-primary",
-        className,
-      )}
+      className={cn("inline-flex items-center justify-center", className)}
       {...(decorative
         ? { "aria-hidden": true as const }
-        : { role: "img", "aria-label": "HushVoting shield mark" })}
+        : { role: "img", "aria-label": "HushVoting logo" })}
       {...props}
     >
-      <svg
-        className={cn("inline-block", SVG_SIZE_MAP[size])}
-        viewBox="0 0 24 24"
-        fill="none"
+      <img
+        src={HUSHVOTING_LOGO_SRC}
+        alt=""
         aria-hidden="true"
-      >
-        {/* Shield outline */}
-        <path
-          d="M12 2L3 7v6c0 5.25 3.83 10.15 9 11 5.17-.85 9-5.75 9-11V7l-9-5z"
-          fill="currentColor"
-          opacity="0.15"
-        />
-        <path
-          d="M12 2L3 7v6c0 5.25 3.83 10.15 9 11 5.17-.85 9-5.75 9-11V7l-9-5z"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          fill="none"
-        />
-        {/* Checkmark */}
-        <path
-          d="M9 12l2 2 4-4"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
+        className={cn("inline-block object-contain", LOGO_SIZE_MAP[size])}
+        width={64}
+        height={64}
+      />
     </span>
   );
 }

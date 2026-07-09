@@ -3,7 +3,10 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { Header } from "~/components/landing/Header";
 import { HeroSection } from "~/components/landing/HeroSection";
 import { MobileNavDisclosure } from "~/components/landing/MobileNavDisclosure";
-import { BrandMark } from "~/components/landing/BrandMark";
+import {
+  BrandMark,
+  HUSHVOTING_LOGO_SRC,
+} from "~/components/landing/BrandMark";
 import { TrustModelSection } from "~/components/landing/TrustModelSection";
 import { RoleWorkflowSection } from "~/components/landing/RoleWorkflowSection";
 import { ProtocolEvidenceSection } from "~/components/landing/ProtocolEvidenceSection";
@@ -28,17 +31,18 @@ import {
 /* ── BrandMark ── */
 
 describe("BrandMark", () => {
-  it("renders the shield SVG", () => {
+  it("renders the official HushVoting logo image", () => {
     const { container } = render(<BrandMark />);
-    const svg = container.querySelector("svg");
-    expect(svg).toBeInTheDocument();
+    const img = container.querySelector("img");
+    expect(img).toBeInTheDocument();
+    expect(img).toHaveAttribute("src", HUSHVOTING_LOGO_SRC);
   });
 
   it("has role img when non-decorative", () => {
     const { container } = render(<BrandMark />);
     const span = container.firstChild as HTMLElement;
     expect(span).toHaveAttribute("role", "img");
-    expect(span).toHaveAttribute("aria-label", "HushVoting shield mark");
+    expect(span).toHaveAttribute("aria-label", "HushVoting logo");
   });
 
   it("has aria-hidden when decorative", () => {

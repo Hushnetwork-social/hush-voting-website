@@ -21,10 +21,15 @@ test.describe("Scaffold Happy Path", () => {
   }) => {
     await page.goto(BASE_URL);
 
-    // Verify the page renders with the expected brand name
+    // Verify the page renders with the expected brand identity
     await expect(
       page.getByRole("link", { name: "HushVoting home" }),
     ).toBeVisible();
+    const officialLogo = page.locator(
+      'img[src="/assets/hushvoting-logo.png"]',
+    );
+    await expect(officialLogo.first()).toBeVisible();
+    await expect(officialLogo.first()).toHaveJSProperty("complete", true);
 
     // Verify the tagline is rendered
     await expect(
