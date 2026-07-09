@@ -138,8 +138,8 @@ jobs:
           SSH_HOST: ${{ secrets.AWS_HOST }}
           SSH_USER: ${{ secrets.AWS_SSH_USER }}
           IMAGE_TAG: ${{ steps.version.outputs.version }}
-          GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
-          GHCR_USERNAME: ${{ secrets.GHCR_USERNAME || vars.GHCR_USERNAME || github.actor }}
+          GHCR_TOKEN: ${{ github.token }}
+          GHCR_USERNAME: ${{ github.actor }}
           GHCR_IMAGE: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
         run: |
           ssh -i ~/.ssh/lightsail.pem -o ServerAliveInterval=30 -o ServerAliveCountMax=10 "${SSH_USER}@${SSH_HOST}" "IMAGE_TAG=${IMAGE_TAG}" "GHCR_TOKEN=${GHCR_TOKEN}" "GHCR_USERNAME=${GHCR_USERNAME}" "GHCR_IMAGE=${GHCR_IMAGE}" 'bash -s' << 'DEPLOY_SCRIPT'
