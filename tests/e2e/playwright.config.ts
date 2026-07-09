@@ -16,11 +16,10 @@ export default defineConfig({
       use: { browserName: "chromium" },
     },
   ],
-  // Do not run webServer by default — caller starts the server externally
-  // webServer: {
-  //   command: "pnpm start",
-  //   port: 3000,
-  //   timeout: 30000,
-  //   reuseExistingServer: true,
-  // },
+  webServer: {
+    command: "pnpm dev --host 127.0.0.1",
+    url: process.env.BASE_URL ?? "http://localhost:3000",
+    timeout: 120000,
+    reuseExistingServer: !process.env.CI,
+  },
 });
