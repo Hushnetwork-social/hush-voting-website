@@ -35,6 +35,25 @@ run_script() {
   echo "::endgroup::"
 }
 
+install_playwright_browsers() {
+  echo "::group::playwright-browsers"
+  case "${PACKAGE_MANAGER_NAME}" in
+    npm)
+      npx playwright install --with-deps chromium
+      ;;
+    pnpm)
+      pnpm exec playwright install --with-deps chromium
+      ;;
+    yarn)
+      yarn playwright install --with-deps chromium
+      ;;
+    *)
+      fail "Unsupported package manager: ${PACKAGE_MANAGER_NAME}"
+      ;;
+  esac
+  echo "::endgroup::"
+}
+
 if [[ ! -f package.json ]]; then
   notice "No package.json found yet. Skipping frontend build/test until the app scaffold is added."
   exit 0
@@ -96,4 +115,5 @@ else
 fi
 
 has_script test:e2e:happy-path || fail "package.json must define test:e2e:happy-path for Gherkin happy-path E2E integration tests."
+install_playwright_browsers
 run_script test:e2e:happy-path
