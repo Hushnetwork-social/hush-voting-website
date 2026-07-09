@@ -87,7 +87,7 @@ export const sendPilotAccessRequest = createServerFn({ method: "POST" })
     const { default: nodemailer } = await import("nodemailer");
 
     const smtpUser = getRequiredEnv("SMTP_USER");
-    const smtpPass = getRequiredEnv("SMTP_PASS");
+    const smtpPass = getRequiredEnv("SMTP_PASS").replace(/\s+/g, "");
     const toEmail = getRequiredEnv("PILOT_ACCESS_TO_EMAIL");
     const fromEmail = getRequiredEnv("PILOT_ACCESS_FROM_EMAIL");
     const smtpHost = process.env.SMTP_HOST?.trim() || DEFAULT_SMTP_HOST;

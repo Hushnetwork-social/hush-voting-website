@@ -150,10 +150,30 @@ jobs:
           PILOT_ACCESS_FROM_EMAIL: ${{ secrets.PILOT_ACCESS_FROM_EMAIL }}
           PILOT_ACCESS_EMAIL_SUBJECT_PREFIX: ${{ secrets.PILOT_ACCESS_EMAIL_SUBJECT_PREFIX }}
         run: |
-          ssh -i ~/.ssh/lightsail.pem -o ServerAliveInterval=30 -o ServerAliveCountMax=10 "${SSH_USER}@${SSH_HOST}" "IMAGE_TAG=${IMAGE_TAG}" "GHCR_TOKEN=${GHCR_TOKEN}" "GHCR_USERNAME=${GHCR_USERNAME}" "GHCR_IMAGE=${GHCR_IMAGE}" "SMTP_HOST=${SMTP_HOST}" "SMTP_PORT=${SMTP_PORT}" "SMTP_SECURE=${SMTP_SECURE}" "SMTP_USER=${SMTP_USER}" "SMTP_PASS=${SMTP_PASS}" "PILOT_ACCESS_TO_EMAIL=${PILOT_ACCESS_TO_EMAIL}" "PILOT_ACCESS_FROM_EMAIL=${PILOT_ACCESS_FROM_EMAIL}" "PILOT_ACCESS_EMAIL_SUBJECT_PREFIX=${PILOT_ACCESS_EMAIL_SUBJECT_PREFIX}" 'bash -s' << 'DEPLOY_SCRIPT'
+          LOCAL_ENV_FILE="$(mktemp)"
+          trap 'rm -f "${LOCAL_ENV_FILE}"' EXIT
+          chmod 600 "${LOCAL_ENV_FILE}"
+
+          {
+            printf 'SMTP_HOST=%s\n' "${SMTP_HOST}"
+            printf 'SMTP_PORT=%s\n' "${SMTP_PORT}"
+            printf 'SMTP_SECURE=%s\n' "${SMTP_SECURE}"
+            printf 'SMTP_USER=%s\n' "${SMTP_USER}"
+            printf 'SMTP_PASS=%s\n' "${SMTP_PASS}"
+            printf 'PILOT_ACCESS_TO_EMAIL=%s\n' "${PILOT_ACCESS_TO_EMAIL}"
+            printf 'PILOT_ACCESS_FROM_EMAIL=%s\n' "${PILOT_ACCESS_FROM_EMAIL}"
+            printf 'PILOT_ACCESS_EMAIL_SUBJECT_PREFIX=%s\n' "${PILOT_ACCESS_EMAIL_SUBJECT_PREFIX}"
+          } > "${LOCAL_ENV_FILE}"
+
+          REMOTE_ENV_FILE="/tmp/hushvoting-website-${IMAGE_TAG}.env"
+          scp -i ~/.ssh/lightsail.pem -o ServerAliveInterval=30 -o ServerAliveCountMax=10 "${LOCAL_ENV_FILE}" "${SSH_USER}@${SSH_HOST}:${REMOTE_ENV_FILE}"
+
+          ssh -i ~/.ssh/lightsail.pem -o ServerAliveInterval=30 -o ServerAliveCountMax=10 "${SSH_USER}@${SSH_HOST}" "IMAGE_TAG=${IMAGE_TAG}" "GHCR_TOKEN=${GHCR_TOKEN}" "GHCR_USERNAME=${GHCR_USERNAME}" "GHCR_IMAGE=${GHCR_IMAGE}" "REMOTE_ENV_FILE=${REMOTE_ENV_FILE}" 'bash -s' << 'DEPLOY_SCRIPT'
             set -euo pipefail
 
             CONTAINER_NAME="HushVotingWebSite"
+            trap 'rm -f "${REMOTE_ENV_FILE}"' EXIT
+            chmod 600 "${REMOTE_ENV_FILE}"
 
             echo "Starting HushVoting Website deployment of version ${IMAGE_TAG}..."
             echo "${GHCR_TOKEN}" | sudo docker login ghcr.io -u "${GHCR_USERNAME}" --password-stdin
@@ -170,14 +190,7 @@ jobs:
               --name "${CONTAINER_NAME}" \
               --restart always \
               -p 127.0.0.1:3005:80 \
-              -e "SMTP_HOST=${SMTP_HOST}" \
-              -e "SMTP_PORT=${SMTP_PORT}" \
-              -e "SMTP_SECURE=${SMTP_SECURE}" \
-              -e "SMTP_USER=${SMTP_USER}" \
-              -e "SMTP_PASS=${SMTP_PASS}" \
-              -e "PILOT_ACCESS_TO_EMAIL=${PILOT_ACCESS_TO_EMAIL}" \
-              -e "PILOT_ACCESS_FROM_EMAIL=${PILOT_ACCESS_FROM_EMAIL}" \
-              -e "PILOT_ACCESS_EMAIL_SUBJECT_PREFIX=${PILOT_ACCESS_EMAIL_SUBJECT_PREFIX}" \
+              --env-file "${REMOTE_ENV_FILE}" \
               "${GHCR_IMAGE}:${IMAGE_TAG}"
 
             echo "Verifying deployment..."
