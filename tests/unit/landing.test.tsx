@@ -1,5 +1,6 @@
-import { describe, it, expect } from "vitest";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { describe, it, expect, vi } from "vitest";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { FixedLogoBackdrop } from "~/components/landing/FixedLogoBackdrop";
 import { Header } from "~/components/landing/Header";
 import { HeroSection } from "~/components/landing/HeroSection";
 import { MobileNavDisclosure } from "~/components/landing/MobileNavDisclosure";
@@ -22,8 +23,7 @@ import {
   PROTOCOL_EVIDENCE_SECTION,
   PLATFORM_READINESS_SECTION,
   FINAL_CTA_SECTION,
-  PILOT_ACCESS_MAILTO,
-  DOWNLOAD_OVERVIEW_CTA,
+  PILOT_ACCESS_FORM,
   FOOTER,
   UTILITY_PAGES,
 } from "~/components/landing/constants";
@@ -49,6 +49,24 @@ describe("BrandMark", () => {
     const { container } = render(<BrandMark decorative />);
     const span = container.firstChild as HTMLElement;
     expect(span).toHaveAttribute("aria-hidden", "true");
+  });
+});
+
+/* ── FixedLogoBackdrop ── */
+
+describe("FixedLogoBackdrop", () => {
+  it("renders the decorative fixed right-side logo backdrop", () => {
+    const { container } = render(<FixedLogoBackdrop />);
+    const backdrop = container.firstChild as HTMLElement;
+    const img = container.querySelector("img");
+
+    expect(backdrop).toHaveAttribute("aria-hidden", "true");
+    expect(backdrop.className).toContain("fixed");
+    expect(backdrop.className).toContain(
+      "right-[clamp(1rem,3vw,3rem)]",
+    );
+    expect(img).toHaveAttribute("src", HUSHVOTING_LOGO_SRC);
+    expect(img).toHaveAttribute("alt", "");
   });
 });
 
@@ -131,11 +149,15 @@ describe("HeroSection", () => {
     expect(cta).toHaveAttribute("href", CTAS.verifierModel.href);
   });
 
-  it("renders decorative brand mark", () => {
+  it("does not render the small hero logo above the headline", () => {
     const { container } = render(<HeroSection />);
-    const brandMarks = container.querySelectorAll('[aria-hidden="true"]');
-    // The glow div and brand mark should both be decorative
-    expect(brandMarks.length).toBeGreaterThanOrEqual(1);
+    expect(container.querySelector("img")).not.toBeInTheDocument();
+  });
+
+  it("renders decorative hero glow", () => {
+    const { container } = render(<HeroSection />);
+    const decorativeElements = container.querySelectorAll('[aria-hidden="true"]');
+    expect(decorativeElements.length).toBeGreaterThanOrEqual(1);
   });
 });
 
@@ -772,40 +794,20 @@ describe("FEAT-007 Constants contract", () => {
 
   it("FINAL_CTA_SECTION has exact approved placeholder note", () => {
     expect(FINAL_CTA_SECTION.placeholderNote).toBe(
-      "Pilot access requests currently open an email draft while onboarding is reviewed.",
+      "Pilot access requests currently open a form overlay while message sending is being connected.",
     );
   });
 
-  it("FINAL_CTA_SECTION has exact approved CTA labels", () => {
+  it("PILOT_ACCESS_FORM has approved default message and character limit", () => {
+    expect(PILOT_ACCESS_FORM.defaultMessage).toBe(
+      "I want to have pilot access to HushVoting!",
+    );
+    expect(PILOT_ACCESS_FORM.messageMaxLength).toBe(256);
+    expect(PILOT_ACCESS_FORM.sendButtonLabel).toBe("Send message");
+  });
+
+  it("FINAL_CTA_SECTION has exact approved CTA label", () => {
     expect(FINAL_CTA_SECTION.primaryActionLabel).toBe("Request pilot access");
-    expect(FINAL_CTA_SECTION.secondaryActionLabel).toBe("Download overview");
-  });
-
-  it("PILOT_ACCESS_MAILTO has correct to field", () => {
-    expect(PILOT_ACCESS_MAILTO.to).toBe("hello@hushvoting.com");
-  });
-
-  it("PILOT_ACCESS_MAILTO has subject", () => {
-    expect(PILOT_ACCESS_MAILTO.subject).toBe("HushVoting pilot access request");
-  });
-
-  it("PILOT_ACCESS_MAILTO has a non-empty body", () => {
-    expect(PILOT_ACCESS_MAILTO.body.length).toBeGreaterThan(50);
-  });
-
-  it("DOWNLOAD_OVERVIEW_CTA has correct label and href", () => {
-    expect(DOWNLOAD_OVERVIEW_CTA.label).toBe("Download overview");
-    expect(DOWNLOAD_OVERVIEW_CTA.href).toBe("#protocol");
-  });
-
-  it("DOWNLOAD_OVERVIEW_CTA has a pending note", () => {
-    expect(DOWNLOAD_OVERVIEW_CTA.pendingNote.length).toBeGreaterThan(10);
-  });
-
-  it("DOWNLOAD_OVERVIEW_CTA href is not broken empty fragment", () => {
-    // Prevent silent href="#" behavior
-    expect(DOWNLOAD_OVERVIEW_CTA.href).not.toBe("#");
-    expect(DOWNLOAD_OVERVIEW_CTA.href).not.toBe("");
   });
 
   it("FOOTER has brand and tagline", () => {
@@ -834,16 +836,25 @@ describe("FEAT-007 Constants contract", () => {
     expect(UTILITY_PAGES[2].title).toBe("Security Audit");
   });
 
-  it("UTILITY_PAGES each have pending-review status", () => {
+  it("UTILITY_PAGES each have draft or pending-review status", () => {
     for (const page of UTILITY_PAGES) {
-      expect(page.status).toContain("pending");
-      expect(page.status).toContain("review");
+      expect(page.status).toMatch(/draft|pending|independent audit/i);
     }
   });
 
   it("UTILITY_PAGES each have non-empty body copy", () => {
     for (const page of UTILITY_PAGES) {
       expect(page.bodyCopy.length).toBeGreaterThan(50);
+    }
+  });
+
+  it("UTILITY_PAGES each have detailed draft sections", () => {
+    for (const page of UTILITY_PAGES) {
+      expect(page.sections.length).toBeGreaterThanOrEqual(5);
+      for (const section of page.sections) {
+        expect(section.title.length).toBeGreaterThan(3);
+        expect(section.body.length).toBeGreaterThan(80);
+      }
     }
   });
 
@@ -888,17 +899,6 @@ describe("buildMailtoHref", () => {
     expect(href).toContain(encodeURIComponent(testParams.body));
   });
 
-  it("produces a valid mailto href from PILOT_ACCESS_MAILTO constants", () => {
-    const href = buildMailtoHref({
-      to: PILOT_ACCESS_MAILTO.to,
-      subject: PILOT_ACCESS_MAILTO.subject,
-      body: PILOT_ACCESS_MAILTO.body,
-    });
-    expect(href).toMatch(/^mailto:hello@hushvoting.com/);
-    expect(href).toContain(encodeURIComponent(PILOT_ACCESS_MAILTO.subject));
-    expect(href).toContain(encodeURIComponent(PILOT_ACCESS_MAILTO.body));
-  });
-
   it("encodes special characters in subject and body", () => {
     const special = {
       to: "test@example.com",
@@ -922,6 +922,7 @@ describe("buildMailtoHref", () => {
 /* ── FEAT-007 Component Render Tests ── */
 
 import { FinalCtaSection } from "~/components/landing/FinalCtaSection";
+import { PilotAccessOverlay } from "~/components/landing/PilotAccessOverlay";
 import { Footer } from "~/components/landing/Footer";
 import { UtilityPageShell } from "~/components/landing/UtilityPageShell";
 
@@ -943,23 +944,26 @@ describe("FinalCtaSection", () => {
     expect(screen.getByText(FINAL_CTA_SECTION.description)).toBeInTheDocument();
   });
 
-  it("renders the primary CTA as an anchor with mailto href", () => {
+  it("renders the primary CTA as a button that opens the pilot overlay", () => {
     render(<FinalCtaSection />);
-    const primaryCta = screen.getByRole("link", {
+    const primaryCta = screen.getByRole("button", {
       name: FINAL_CTA_SECTION.primaryActionLabel,
     });
     expect(primaryCta).toBeInTheDocument();
-    expect(primaryCta).toHaveAttribute("href");
-    expect(primaryCta.getAttribute("href")).toMatch(/^mailto:/);
+
+    fireEvent.click(primaryCta);
+
+    expect(screen.getByRole("dialog")).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: PILOT_ACCESS_FORM.dialogTitle }),
+    ).toBeInTheDocument();
   });
 
-  it("renders the secondary CTA as an anchor with overview href", () => {
+  it("does not render a public download overview CTA", () => {
     render(<FinalCtaSection />);
-    const secondaryCta = screen.getByRole("link", {
-      name: DOWNLOAD_OVERVIEW_CTA.label,
-    });
-    expect(secondaryCta).toBeInTheDocument();
-    expect(secondaryCta).toHaveAttribute("href", DOWNLOAD_OVERVIEW_CTA.href);
+    expect(
+      screen.queryByRole("link", { name: "Download overview" }),
+    ).not.toBeInTheDocument();
   });
 
   it("renders the placeholder note", () => {
@@ -975,10 +979,84 @@ describe("FinalCtaSection", () => {
     expect(whiteBorders.length).toBe(0);
   });
 
-  it("does not render button elements (navigational CTAs are anchors)", () => {
-    const { container } = render(<FinalCtaSection />);
-    const buttons = container.querySelectorAll("button");
-    expect(buttons.length).toBe(0);
+  it("renders the pilot overlay form fields with default message and limit", () => {
+    render(<FinalCtaSection />);
+    fireEvent.click(
+      screen.getByRole("button", {
+        name: FINAL_CTA_SECTION.primaryActionLabel,
+      }),
+    );
+
+    expect(
+      screen.getByRole("textbox", { name: PILOT_ACCESS_FORM.emailLabel }),
+    ).toHaveAttribute("type", "email");
+    expect(
+      screen.getByRole("textbox", { name: PILOT_ACCESS_FORM.messageLabel }),
+    ).toHaveValue(PILOT_ACCESS_FORM.defaultMessage);
+    expect(
+      screen.getByRole("textbox", { name: PILOT_ACCESS_FORM.messageLabel }),
+    ).toHaveAttribute(
+      "maxLength",
+      PILOT_ACCESS_FORM.messageMaxLength.toString(),
+    );
+    expect(
+      screen.getByRole("button", { name: PILOT_ACCESS_FORM.sendButtonLabel }),
+    ).toBeInTheDocument();
+  });
+
+  it("submits pilot overlay data and closes after send succeeds", async () => {
+    const submitRequest = vi.fn().mockResolvedValue(undefined);
+    const closeOverlay = vi.fn();
+
+    render(
+      <PilotAccessOverlay
+        open
+        onClose={closeOverlay}
+        onSubmitRequest={submitRequest}
+      />,
+    );
+
+    fireEvent.change(
+      screen.getByRole("textbox", { name: PILOT_ACCESS_FORM.emailLabel }),
+      { target: { value: "pilot@example.com" } },
+    );
+    fireEvent.click(
+      screen.getByRole("button", { name: PILOT_ACCESS_FORM.sendButtonLabel }),
+    );
+
+    await waitFor(() => {
+      expect(submitRequest).toHaveBeenCalledWith({
+        email: "pilot@example.com",
+        message: PILOT_ACCESS_FORM.defaultMessage,
+      });
+      expect(closeOverlay).toHaveBeenCalled();
+    });
+  });
+
+  it("closes the pilot overlay with the close button", () => {
+    render(<FinalCtaSection />);
+    fireEvent.click(
+      screen.getByRole("button", {
+        name: FINAL_CTA_SECTION.primaryActionLabel,
+      }),
+    );
+    fireEvent.click(
+      screen.getByRole("button", { name: PILOT_ACCESS_FORM.closeButtonLabel }),
+    );
+
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+  });
+
+  it("closes the pilot overlay when Escape is pressed", () => {
+    render(<FinalCtaSection />);
+    fireEvent.click(
+      screen.getByRole("button", {
+        name: FINAL_CTA_SECTION.primaryActionLabel,
+      }),
+    );
+    fireEvent.keyDown(document, { key: "Escape" });
+
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
   });
 });
 
@@ -1032,9 +1110,13 @@ describe("UtilityPageShell", () => {
     expect(screen.getByText(UTILITY_PAGES[0].status)).toBeInTheDocument();
   });
 
-  it("renders the body copy", () => {
+  it("renders the body copy and page sections", () => {
     render(<UtilityPageShell config={UTILITY_PAGES[0]} />);
     expect(screen.getByText(UTILITY_PAGES[0].bodyCopy)).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: UTILITY_PAGES[0].sections[0].title }),
+    ).toBeInTheDocument();
+    expect(screen.getByText(UTILITY_PAGES[0].sections[0].body)).toBeInTheDocument();
   });
 
   it("renders a back-to-home link", () => {

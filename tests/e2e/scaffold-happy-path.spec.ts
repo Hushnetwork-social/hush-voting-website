@@ -38,7 +38,11 @@ test.describe("Scaffold Happy Path", () => {
       }),
     ).toBeVisible();
 
-    // Verify the page title
+    // Verify the page title and favicon
     await expect(page).toHaveTitle(/HushVoting/);
+    await expect(page.locator('link[rel="icon"]')).toHaveAttribute(
+      "href",
+      "/assets/hushvoting-logo.png",
+    );
   });
 });

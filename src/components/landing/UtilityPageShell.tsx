@@ -51,7 +51,7 @@ export function UtilityPageShell({ config }: UtilityPageShellProps) {
           {config.status}
         </p>
 
-        {/* Body copy */}
+        {/* Intro copy */}
         <p
           className={cn(
             "mb-8 text-on-surface-variant",
@@ -62,6 +62,47 @@ export function UtilityPageShell({ config }: UtilityPageShellProps) {
         >
           {config.bodyCopy}
         </p>
+
+        {/* Draft policy sections */}
+        <div className="mb-8 grid gap-[var(--spacing-md)]">
+          {config.sections.map((section) => (
+            <section key={section.title} aria-labelledby={`${config.route}-${section.title}`}>
+              <h2
+                id={`${config.route}-${section.title}`}
+                className={cn(
+                  "mb-2 font-semibold text-on-surface",
+                  "text-[var(--font-size-headline-md)]",
+                  "leading-[var(--line-height-headline-md)]",
+                )}
+                style={{ fontFamily: "var(--font-family-hanken)" }}
+              >
+                {section.title}
+              </h2>
+              <p
+                className={cn(
+                  "text-on-surface-variant",
+                  "text-[var(--font-size-body-md)]",
+                  "leading-[var(--line-height-body-md)]",
+                )}
+                style={{ fontFamily: "var(--font-family-hanken)" }}
+              >
+                {section.body}
+              </p>
+              {section.items && (
+                <ul className="mt-3 grid gap-2 pl-5 text-on-surface-variant">
+                  {section.items.map((item) => (
+                    <li
+                      key={item}
+                      className="list-disc text-[var(--font-size-body-md)] leading-[var(--line-height-body-md)]"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </section>
+          ))}
+        </div>
 
         {/* Back-to-home link */}
         <a

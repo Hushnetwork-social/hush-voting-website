@@ -1,5 +1,4 @@
 import { cn } from "~/components/ui/cn";
-import { BrandMark } from "./BrandMark";
 import { HERO_COPY, CTAS } from "./constants";
 
 export interface HeroSectionProps {
@@ -22,8 +21,9 @@ export function HeroSection({ className }: HeroSectionProps) {
     <section
       aria-labelledby="hero-heading"
       className={cn(
-        "relative flex flex-col items-center justify-center",
-        "min-h-[80vh] px-4 text-center",
+        "relative flex flex-col justify-center",
+        "min-h-[calc(100vh-4.5rem)] pt-[72px] text-left",
+        "max-sm:text-center",
         "overflow-hidden",
         className,
       )}
@@ -38,17 +38,20 @@ export function HeroSection({ className }: HeroSectionProps) {
         )}
       />
 
-      <div className="relative z-10 flex flex-col items-center gap-6 max-w-3xl">
-        {/* Brand mark (decorative — adjacent headline identifies HushVoting) */}
-        <BrandMark decorative size="md" />
-
+      <div
+        className={cn(
+          "relative z-10 mx-auto flex w-full max-w-[var(--spacing-max-width-content)] flex-col items-start gap-6 px-4",
+          "max-sm:items-center max-sm:px-[var(--spacing-margin-mobile)]",
+        )}
+      >
         {/* Headline */}
         <h1
           id="hero-heading"
           className={cn(
-            "font-bold tracking-tight",
-            "text-[clamp(2rem,5vw,var(--font-size-display-lg))]",
-            "leading-[clamp(2.5rem,5.5vw,var(--line-height-display-lg))]",
+            "max-w-[min(68rem,68vw)] font-bold tracking-tight",
+            "max-lg:max-w-4xl",
+            "text-[clamp(3.5rem,7.2vw,6.5rem)] max-md:text-[clamp(2.75rem,11vw,5rem)]",
+            "leading-[0.95]",
           )}
           style={{
             fontFamily: "var(--font-family-hanken)",
@@ -61,7 +64,7 @@ export function HeroSection({ className }: HeroSectionProps) {
         {/* Subheadline */}
         <p
           className={cn(
-            "text-on-surface-variant max-w-2xl",
+            "text-on-surface-variant max-w-3xl",
             "text-[clamp(1rem,2vw,var(--font-size-body-lg))]",
             "leading-[clamp(1.5rem,2.5vw,var(--line-height-body-lg))]",
           )}
@@ -73,7 +76,7 @@ export function HeroSection({ className }: HeroSectionProps) {
         </p>
 
         {/* CTA row */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 mt-2">
+        <div className="mt-2 flex flex-col items-center gap-4 sm:flex-row">
           {/* Primary CTA — Request pilot access */}
           <a
             href={CTAS.pilotAccess.href}

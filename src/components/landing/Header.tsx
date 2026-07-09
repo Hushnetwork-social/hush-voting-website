@@ -31,7 +31,7 @@ export function Header({ className }: HeaderProps) {
       <div
         className={cn(
           "mx-auto flex items-center justify-between",
-          "h-16 px-4",
+          "h-[72px] px-4",
           "max-w-[var(--spacing-max-width-content)]",
         )}
       >
@@ -39,14 +39,14 @@ export function Header({ className }: HeaderProps) {
         <a
           href="/"
           className={cn(
-            "flex items-center gap-2 no-underline",
+            "flex items-center gap-3 no-underline",
             "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface rounded-md",
           )}
           aria-label="HushVoting home"
         >
-          <BrandMark decorative />
+          <BrandMark decorative size="md" />
           <span
-            className="font-bold text-xl tracking-tight text-on-surface hidden sm:inline"
+            className="hidden text-2xl font-bold tracking-tight text-on-surface sm:inline"
             style={{ fontFamily: "var(--font-family-hanken)" }}
           >
             {BRAND_TEXT}
@@ -60,9 +60,9 @@ export function Header({ className }: HeaderProps) {
               key={link.href}
               href={link.href}
               className={cn(
-                "inline-flex items-center h-12 px-3 rounded-default",
+                "inline-flex h-12 items-center rounded-default px-4",
                 "text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high",
-                "text-sm font-medium",
+                "text-base font-medium",
                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface",
                 "transition-colors motion-safe:transition-colors",
               )}
@@ -77,8 +77,8 @@ export function Header({ className }: HeaderProps) {
           href={CTAS.navPilotAccess.href}
           className={cn(
             "hidden lg:inline-flex items-center justify-center",
-            "h-12 px-4 rounded-default",
-            "bg-primary text-on-primary text-sm font-medium",
+            "h-12 rounded-default px-5",
+            "bg-primary text-on-primary text-base font-medium",
             "hover:brightness-110 active:scale-[0.98]",
             "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface",
             "transition-all motion-safe:transition-all",

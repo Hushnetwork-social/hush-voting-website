@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { FixedLogoBackdrop } from "~/components/landing/FixedLogoBackdrop";
 import { Header } from "~/components/landing/Header";
 import { HeroSection } from "~/components/landing/HeroSection";
 import { TrustModelSection } from "~/components/landing/TrustModelSection";
@@ -14,9 +15,10 @@ export const Route = createFileRoute("/")({
 
 function HomePage() {
   return (
-    <>
+    <div className="relative isolate min-h-screen overflow-x-clip">
+      <FixedLogoBackdrop />
       <Header />
-      <main>
+      <main className="relative z-10">
         <HeroSection />
         <TrustModelSection />
         <RoleWorkflowSection />
@@ -24,7 +26,7 @@ function HomePage() {
         <PlatformReadinessSection />
         <FinalCtaSection />
       </main>
-      <Footer />
-    </>
+      <Footer className="relative z-10" />
+    </div>
   );
 }

@@ -1,10 +1,8 @@
+import { useState } from "react";
 import { cn } from "~/components/ui/cn";
-import {
-  FINAL_CTA_SECTION,
-  PILOT_ACCESS_MAILTO,
-  DOWNLOAD_OVERVIEW_CTA,
-} from "./constants";
-import { buildMailtoHref } from "./mailto";
+import { FINAL_CTA_SECTION } from "./constants";
+import { sendPilotAccessRequest } from "~/server/pilotAccess";
+import { PilotAccessOverlay } from "./PilotAccessOverlay";
 
 export interface FinalCtaSectionProps {
   /** Optional class name for the outer `<section>` element. */
@@ -14,20 +12,14 @@ export interface FinalCtaSectionProps {
 /**
  * Final CTA (pilot access) section rendered above the footer.
  *
- * Renders a glow card with heading, description, two CTA links (primary
- * mailto and secondary overview anchor), and a visible placeholder notice.
+ * Renders a glow card with heading, description, a primary button that opens
+ * the pilot access form overlay, and a visible placeholder notice.
  *
- * The primary CTA is a native `<a>` with a constants-backed mailto href.
- * The secondary CTA is a native `<a>` with the safe interim `#protocol` target.
- *
- * Static content only — no interactive state, API calls, or server actions.
+ * The overlay designs the capture flow only; message sending is intentionally
+ * not connected yet.
  */
 export function FinalCtaSection({ className }: FinalCtaSectionProps) {
-  const mailtoHref = buildMailtoHref({
-    to: PILOT_ACCESS_MAILTO.to,
-    subject: PILOT_ACCESS_MAILTO.subject,
-    body: PILOT_ACCESS_MAILTO.body,
-  });
+  const [isPilotOverlayOpen, setIsPilotOverlayOpen] = useState(false);
 
   return (
     <section
@@ -86,48 +78,28 @@ export function FinalCtaSection({ className }: FinalCtaSectionProps) {
               {FINAL_CTA_SECTION.description}
             </p>
 
-            {/* CTA actions */}
-            <div
+            {/*
+              Primary CTA — opens pilot access overlay.
+              Future: a secondary Protocol Omega overview download can return
+              when an approved public PDF exists.
+            */}
+            <button
+              type="button"
               className={cn(
-                "flex flex-wrap items-center justify-center gap-[var(--spacing-sm)]",
+                "inline-flex items-center justify-center",
+                "rounded-[var(--radius-default)]",
+                "px-7 py-3.5 text-base font-medium",
+                "bg-primary text-on-primary",
+                "hover:brightness-110 active:scale-[0.98]",
+                "transition-all select-none",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary",
+                "focus-visible:ring-offset-2 focus-visible:ring-offset-surface-container",
               )}
+              aria-label={FINAL_CTA_SECTION.primaryActionLabel}
+              onClick={() => setIsPilotOverlayOpen(true)}
             >
-              {/* Primary CTA — mailto link styled as primary button */}
-              <a
-                href={mailtoHref}
-                className={cn(
-                  "inline-flex items-center justify-center",
-                  "rounded-[var(--radius-default)]",
-                  "px-7 py-3.5 text-base font-medium",
-                  "bg-primary text-on-primary",
-                  "hover:brightness-110 active:scale-[0.98]",
-                  "transition-all select-none",
-                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary",
-                  "focus-visible:ring-offset-2 focus-visible:ring-offset-surface-container",
-                )}
-                aria-label={FINAL_CTA_SECTION.primaryActionLabel}
-              >
-                {FINAL_CTA_SECTION.primaryActionLabel}
-              </a>
-
-              {/* Secondary CTA — overview link styled as secondary button */}
-              <a
-                href={DOWNLOAD_OVERVIEW_CTA.href}
-                className={cn(
-                  "inline-flex items-center justify-center",
-                  "rounded-[var(--radius-default)]",
-                  "px-7 py-3.5 text-base font-medium",
-                  "bg-surface-container-high text-on-surface",
-                  "hover:bg-surface-container-highest active:scale-[0.98]",
-                  "transition-all select-none",
-                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary",
-                  "focus-visible:ring-offset-2 focus-visible:ring-offset-surface-container",
-                )}
-                aria-label={DOWNLOAD_OVERVIEW_CTA.label}
-              >
-                {DOWNLOAD_OVERVIEW_CTA.label}
-              </a>
-            </div>
+              {FINAL_CTA_SECTION.primaryActionLabel}
+            </button>
 
             {/* Visible placeholder notice */}
             <p
@@ -144,6 +116,14 @@ export function FinalCtaSection({ className }: FinalCtaSectionProps) {
           </div>
         </div>
       </div>
+
+      <PilotAccessOverlay
+        open={isPilotOverlayOpen}
+        onClose={() => setIsPilotOverlayOpen(false)}
+        onSubmitRequest={async (data) => {
+          await sendPilotAccessRequest({ data });
+        }}
+      />
     </section>
   );
 }

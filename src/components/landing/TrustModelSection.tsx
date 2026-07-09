@@ -79,7 +79,7 @@ export function TrustModelSection({ className }: TrustModelSectionProps) {
       </div>
 
       {/* Trust hierarchy cards */}
-      <div className="relative mx-auto flex max-w-2xl flex-col items-center">
+      <div className="relative mx-auto flex w-full max-w-4xl flex-col items-center">
         {/* ── HushVoting! layer (upper card) ── */}
         <div className="relative w-full">
           {/* Subtle glow behind the HushVoting! card */}

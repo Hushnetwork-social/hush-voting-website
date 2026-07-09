@@ -141,8 +141,16 @@ jobs:
           GHCR_TOKEN: ${{ github.token }}
           GHCR_USERNAME: ${{ github.actor }}
           GHCR_IMAGE: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_SECURE: ${{ secrets.SMTP_SECURE }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          PILOT_ACCESS_TO_EMAIL: ${{ secrets.PILOT_ACCESS_TO_EMAIL }}
+          PILOT_ACCESS_FROM_EMAIL: ${{ secrets.PILOT_ACCESS_FROM_EMAIL }}
+          PILOT_ACCESS_EMAIL_SUBJECT_PREFIX: ${{ secrets.PILOT_ACCESS_EMAIL_SUBJECT_PREFIX }}
         run: |
-          ssh -i ~/.ssh/lightsail.pem -o ServerAliveInterval=30 -o ServerAliveCountMax=10 "${SSH_USER}@${SSH_HOST}" "IMAGE_TAG=${IMAGE_TAG}" "GHCR_TOKEN=${GHCR_TOKEN}" "GHCR_USERNAME=${GHCR_USERNAME}" "GHCR_IMAGE=${GHCR_IMAGE}" 'bash -s' << 'DEPLOY_SCRIPT'
+          ssh -i ~/.ssh/lightsail.pem -o ServerAliveInterval=30 -o ServerAliveCountMax=10 "${SSH_USER}@${SSH_HOST}" "IMAGE_TAG=${IMAGE_TAG}" "GHCR_TOKEN=${GHCR_TOKEN}" "GHCR_USERNAME=${GHCR_USERNAME}" "GHCR_IMAGE=${GHCR_IMAGE}" "SMTP_HOST=${SMTP_HOST}" "SMTP_PORT=${SMTP_PORT}" "SMTP_SECURE=${SMTP_SECURE}" "SMTP_USER=${SMTP_USER}" "SMTP_PASS=${SMTP_PASS}" "PILOT_ACCESS_TO_EMAIL=${PILOT_ACCESS_TO_EMAIL}" "PILOT_ACCESS_FROM_EMAIL=${PILOT_ACCESS_FROM_EMAIL}" "PILOT_ACCESS_EMAIL_SUBJECT_PREFIX=${PILOT_ACCESS_EMAIL_SUBJECT_PREFIX}" 'bash -s' << 'DEPLOY_SCRIPT'
             set -euo pipefail
 
             CONTAINER_NAME="HushVotingWebSite"
@@ -162,6 +170,14 @@ jobs:
               --name "${CONTAINER_NAME}" \
               --restart always \
               -p 127.0.0.1:3005:80 \
+              -e "SMTP_HOST=${SMTP_HOST}" \
+              -e "SMTP_PORT=${SMTP_PORT}" \
+              -e "SMTP_SECURE=${SMTP_SECURE}" \
+              -e "SMTP_USER=${SMTP_USER}" \
+              -e "SMTP_PASS=${SMTP_PASS}" \
+              -e "PILOT_ACCESS_TO_EMAIL=${PILOT_ACCESS_TO_EMAIL}" \
+              -e "PILOT_ACCESS_FROM_EMAIL=${PILOT_ACCESS_FROM_EMAIL}" \
+              -e "PILOT_ACCESS_EMAIL_SUBJECT_PREFIX=${PILOT_ACCESS_EMAIL_SUBJECT_PREFIX}" \
               "${GHCR_IMAGE}:${IMAGE_TAG}"
 
             echo "Verifying deployment..."

@@ -292,7 +292,6 @@ export interface FinalCtaSectionConfig {
   readonly description: string;
   readonly placeholderNote: string;
   readonly primaryActionLabel: string;
-  readonly secondaryActionLabel: string;
 }
 
 /** Final CTA section copy and configuration. */
@@ -302,55 +301,36 @@ export const FINAL_CTA_SECTION = {
   description:
     "Secure, private, and mathematically verifiable governance at scale.",
   placeholderNote:
-    "Pilot access requests currently open an email draft while onboarding is reviewed.",
+    "Pilot access requests currently open a form overlay while message sending is being connected.",
   primaryActionLabel: "Request pilot access",
-  secondaryActionLabel: "Download overview",
 } as const satisfies FinalCtaSectionConfig;
 
-/* ── FEAT-007: Pilot Access Mailto ── */
+/* ── FEAT-007: Pilot Access Form ── */
 
-/** Configuration for the pilot access mailto link. */
-export interface PilotAccessMailto {
-  readonly to: string;
-  readonly subject: string;
-  readonly body: string;
+/** Configuration for the pilot access overlay form. */
+export interface PilotAccessFormConfig {
+  readonly dialogTitle: string;
+  readonly intro: string;
+  readonly emailLabel: string;
+  readonly messageLabel: string;
+  readonly defaultMessage: string;
+  readonly messageMaxLength: number;
+  readonly sendButtonLabel: string;
+  readonly closeButtonLabel: string;
 }
 
-/** Pilot access mailto configuration (owner-approved placeholder). */
-export const PILOT_ACCESS_MAILTO = {
-  to: "hello@hushvoting.com",
-  subject: "HushVoting pilot access request",
-  body: [
-    "Hello HushVoting team,",
-    "",
-    "I am interested in pilot access to HushVoting for our organization. Please let me know the next steps.",
-    "",
-    "Organization:",
-    "Name:",
-    "Role:",
-    "Use case:",
-  ].join("\n"),
-} as const satisfies PilotAccessMailto;
-
-/* ── FEAT-007: Download Overview CTA ── */
-
-/** Configuration for the Download overview secondary CTA. */
-export interface DownloadOverviewCta {
-  readonly label: string;
-  readonly href: string;
-  readonly pendingNote: string;
-}
-
-/**
- * Download overview CTA configuration.
- * Uses #protocol as the safe interim target until an approved asset is supplied.
- */
-export const DOWNLOAD_OVERVIEW_CTA = {
-  label: "Download overview",
-  href: "#protocol",
-  pendingNote:
-    "Overview asset pending — interim target is the Protocol Evidence section.",
-} as const satisfies DownloadOverviewCta;
+/** Pilot access overlay form copy and constraints. */
+export const PILOT_ACCESS_FORM = {
+  dialogTitle: "Request pilot access",
+  intro:
+    "Share the best email for your organization and adjust the message before sending.",
+  emailLabel: "Email address",
+  messageLabel: "Message",
+  defaultMessage: "I want to have pilot access to HushVoting!",
+  messageMaxLength: 256,
+  sendButtonLabel: "Send message",
+  closeButtonLabel: "Close pilot access form",
+} as const satisfies PilotAccessFormConfig;
 
 /* ── FEAT-007: Footer ── */
 
@@ -374,11 +354,18 @@ export const FOOTER = {
 /* ── FEAT-007: Utility Pages ── */
 
 /** Configuration for a single utility page (Privacy, Terms, Security). */
+export interface UtilityPageSection {
+  readonly title: string;
+  readonly body: string;
+  readonly items?: readonly string[];
+}
+
 export interface UtilityPageConfig {
   readonly route: string;
   readonly title: string;
   readonly status: string;
   readonly bodyCopy: string;
+  readonly sections: readonly UtilityPageSection[];
   readonly backToHomeLabel: string;
   readonly backToHomeHref: string;
 }
@@ -388,36 +375,136 @@ export const UTILITY_PAGES = [
   {
     route: "/privacy",
     title: "Privacy Policy",
-    status: "Launch placeholder — final review pending.",
+    status: "Draft policy — legal and privacy review pending.",
     bodyCopy:
-      "The HushVoting privacy policy is currently under legal and privacy review. " +
-      "This placeholder page provides a structural scaffold and does not represent " +
-      "finalized privacy approval, data processing terms, or completed legal review. " +
-      "Please check back once the final policy is published.",
+      "This draft summarizes the intended privacy posture for HushVoting! and HushNetwork public website and pilot-access workflows. " +
+      "It is written for Switzerland-first launch planning and is not a finalized legal privacy notice, data-processing agreement, or jurisdiction-specific compliance statement.",
+    sections: [
+      {
+        title: "Website and pilot-access information",
+        body:
+          "The public website is designed to collect only the information needed to explain HushVoting! and respond to pilot requests. When a visitor requests pilot access, the form asks for an email address and a short message; the destination address is not published on the page to reduce spam harvesting. Standard server, browser, and security logs may also be processed to keep the site available, diagnose issues, and protect against abuse.",
+      },
+      {
+        title: "Election privacy model",
+        body:
+          "HushVoting is built around Protocol Omega's election-mode separation between eligibility/checkoff records and ballot-choice records. The product direction is the digital equivalent of a named checkoff in the electoral roll and an anonymous ballot in the ballot box: an organization may need to know that a voting right was used, while the ballot transaction and vote choice must not become attributable to the named voter.",
+        items: [
+          "Named roster, eligibility, and checkoff evidence is treated separately from ballot-choice material.",
+          "Ballot packages, tally inputs, and publication artifacts are designed to avoid plaintext option labels and direct named-voter joins.",
+          "Audit and reporting artifacts should expose verification evidence without turning voter identity into ballot-choice evidence.",
+        ],
+      },
+      {
+        title: "Information that must remain private",
+        body:
+          "The Protocol Omega privacy model requires plaintext vote choices, trustee share material, tally private material, ballot-decrypting keys, and voter-to-choice joins to stay out of durable blockchain payloads, server storage, Redis, report packages, ordinary runtime logs, metrics, traces, backups, and support artifacts.",
+      },
+      {
+        title: "Customer and organizational responsibilities",
+        body:
+          "Organizations using HushVoting! remain responsible for their own lawful authority to run an election, voter notices, roster sources, member eligibility rules, retention obligations, and jurisdiction-specific privacy requirements. Switzerland is the first target jurisdiction for review. HushVoting! can provide privacy-preserving voting and evidence mechanics, but it does not replace a customer's legal, governance, or compliance review.",
+      },
+      {
+        title: "Cookies and analytics",
+        body:
+          "The current website does not use analytics or marketing cookies. If analytics are introduced later, the privacy notice and consent behavior should be updated before those tools are enabled, especially for Switzerland-first and later EU/EEA review.",
+      },
+      {
+        title: "Current limits",
+        body:
+          "HushVoting! should not be described as providing total anonymity against all observers. Current documentation distinguishes validated implementation evidence from formal certification, and it does not claim protection against compromised user devices, colluding threshold trustees, live process-memory inspection, timing/metadata correlation, or jurisdiction-specific public-election requirements.",
+      },
+    ],
     backToHomeLabel: "Return home",
     backToHomeHref: "/",
   },
   {
     route: "/terms",
     title: "Terms of Service",
-    status: "Launch placeholder — final review pending.",
+    status: "Draft terms — legal review pending.",
     bodyCopy:
-      "The HushVoting Terms of Service are currently under legal review. " +
-      "This placeholder page provides a structural scaffold and does not represent " +
-      "a finalized service agreement, binding terms, or completed legal review. " +
-      "Please check back once the final terms are published.",
+      "These draft terms describe the intended use boundaries for the HushVoting website and early pilot conversations. " +
+      "They are not a finalized service agreement and should be reviewed before any production, paid, or legally binding deployment.",
+    sections: [
+      {
+        title: "Informational website",
+        body:
+          "The current public website is an informational surface for HushVoting! and HushNetwork. Content about protocol design, readiness, privacy, and verification reflects the project's documented engineering posture, but it is not legal, election-administration, compliance, investment, or security-audit advice.",
+      },
+      {
+        title: "Pilot access",
+        body:
+          "Submitting a pilot-access request does not create a contract, guarantee acceptance into a pilot, or authorize use for a live binding election. Pilot participation, scope, support level, data-processing terms, and operational responsibilities must be agreed separately before use.",
+      },
+      {
+        title: "Appropriate use boundaries",
+        body:
+          "HushVoting! is positioned first for controlled organizational remote voting conversations, with Switzerland as the first jurisdictional focus. Public/state elections, high-stakes statutory elections, regulated shareholder votes, or other legally sensitive deployments require explicit review, written approval, applicable legal authority, and evidence that the relevant readiness and certification gates have been satisfied.",
+      },
+      {
+        title: "Customer responsibilities",
+        body:
+          "Each organization remains responsible for confirming its authority to run an election and for managing non-software governance requirements such as voter notices, quorum, proxy rules, minutes, dispute windows, challenge procedures, retention schedules, and acceptance of results.",
+      },
+      {
+        title: "Verification and evidence",
+        body:
+          "HushVoting's intended assurance model is based on protocol specifications, canonical election records, cryptographic transcripts, verifier output, publication proof, trustee evidence, release integrity, and audit packages. Verifier output supports review, but it does not replace independent legal, operational, or cryptographic assessment where those are required.",
+      },
+      {
+        title: "No finalized warranty language yet",
+        body:
+          "Final warranty disclaimers, limitation-of-liability terms, acceptable-use restrictions, support commitments, service-level terms, data-processing terms, Switzerland-specific legal wording, and intellectual-property notices are still pending legal review.",
+      },
+    ],
     backToHomeLabel: "Return home",
     backToHomeHref: "/",
   },
   {
     route: "/security",
     title: "Security Audit",
-    status: "Launch placeholder — final review pending.",
+    status: "Security status — independent audit evidence pending.",
     bodyCopy:
-      "HushVoting security audit references are currently pending review. " +
-      "This placeholder page provides a structural scaffold and does not represent " +
-      "completed audit certification, final security approval, or production-ready " +
-      "security posture. Please check back once the final audit information is published.",
+      "This page summarizes the current documented security and audit posture for HushVoting. " +
+      "It is not a completed external security audit, formal cryptographic proof, certification, or public-election readiness claim.",
+    sections: [
+      {
+        title: "Validated implementation baseline",
+        body:
+          "The current documented baseline says protected non-dev Admin-Only and Trustee-threshold elections have demonstrated encrypted ballot persistence, separation between vote-grant/eligibility/participation evidence and ballot choice, aggregate-only result release, correct circuit/profile truth in reports, and no observed persisted leakage of tally keys or trustee shares in inspected fresh-election runs.",
+      },
+      {
+        title: "Auditability model",
+        body:
+          "HushVoting's audit model is designed around replayable evidence rather than trust in a private backend log. Auditors should be able to inspect election setup, trustee configuration, threshold policy, ballot transaction history, close-election records, trustee finalization approvals, decryption-share evidence, release integrity, and verifier output.",
+        items: [
+          "Canonical election records and deterministic serializers support reproducible review.",
+          "Standalone verifier packages are intended to replay accepted ballots, nullifier uniqueness, publication proof, trustee evidence, and final result binding.",
+          "Public and restricted evidence boundaries are maintained so auditability does not become voter-choice disclosure.",
+        ],
+      },
+      {
+        title: "Trustee and key-custody principles",
+        body:
+          "For serious voting, no single actor should hold a full recoverable decryption key. The trustee model uses key shares, threshold participation, final-aggregate-only release, and public verification of finalization evidence. The design avoids workflows for arbitrary per-ballot decryption or frequent intermediate plaintext tally release.",
+      },
+      {
+        title: "What is not yet claimed",
+        body:
+          "The documented baseline does not claim that HushVoting is certified secure, formally proven secure, public-election ready, impossible to compromise, anonymous against all observers, or protected against compromised voter, trustee, owner, or operator devices. It also does not close every timing, network, metadata, collusion, process-memory, or deployment-custody risk.",
+      },
+      {
+        title: "Hardening still required",
+        body:
+          "The remaining hardening roadmap includes independent cryptographic review, independent application and infrastructure security assessment, production HSM/KMS custody for sensitive election material, IAM rotation, stricter process-memory review, retention/log-correlation proof, deployment proof binding, public verifier corpus expansion, and controlled pilot evidence packages.",
+      },
+      {
+        title: "Disclosure posture",
+        body:
+          "Security findings should be documented, classified by whether they affect guarantees or implementation, covered by tests when testable, and patched immediately when they affect active guarantees. A final vulnerability disclosure process should be published before broader production use, without exposing harvestable contact addresses on this page.",
+      },
+    ],
     backToHomeLabel: "Return home",
     backToHomeHref: "/",
   },

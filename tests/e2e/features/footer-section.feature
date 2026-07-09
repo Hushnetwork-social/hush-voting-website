@@ -8,7 +8,8 @@ Feature: Footer Section
     Given the HushVoting website is running
     When I visit the homepage
     Then I should see a CTA section with heading "Bring protocol-bound voting to your organization."
-    And I should see two CTA buttons: "Request pilot access" and "Download overview"
+    And I should see the CTA button "Request pilot access"
+    And I should not see a public "Download overview" CTA until an approved Protocol Omega overview PDF exists
     And the CTA card should use surface-container background without white borders
 
   @VisualLanguage @FEAT-007

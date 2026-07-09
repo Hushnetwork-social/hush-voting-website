@@ -5,6 +5,7 @@ import {
   Outlet,
   Scripts,
 } from "@tanstack/react-router";
+import { HUSHVOTING_LOGO_SRC } from "~/components/landing/BrandMark";
 import "../../styles/app.css";
 
 export const Route = createRootRoute({
@@ -13,6 +14,10 @@ export const Route = createRootRoute({
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "HushVoting" },
+    ],
+    links: [
+      { rel: "icon", type: "image/png", href: HUSHVOTING_LOGO_SRC },
+      { rel: "apple-touch-icon", href: HUSHVOTING_LOGO_SRC },
     ],
   }),
   component: RootLayout,

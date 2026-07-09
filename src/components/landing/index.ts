@@ -15,6 +15,8 @@ export type { HeaderProps } from "./Header";
 export { HeroSection } from "./HeroSection";
 export type { HeroSectionProps } from "./HeroSection";
 
+export { FixedLogoBackdrop } from "./FixedLogoBackdrop";
+
 export { MobileNavDisclosure } from "./MobileNavDisclosure";
 
 export { TrustModelSection } from "./TrustModelSection";
@@ -35,14 +37,14 @@ export type { ClaimBoundaryBarProps } from "./ClaimBoundaryBar";
 export { FinalCtaSection } from "./FinalCtaSection";
 export type { FinalCtaSectionProps } from "./FinalCtaSection";
 
+export { PilotAccessOverlay } from "./PilotAccessOverlay";
+export type { PilotAccessOverlayProps } from "./PilotAccessOverlay";
+
 export { Footer } from "./Footer";
 export type { FooterProps } from "./Footer";
 
 export { UtilityPageShell } from "./UtilityPageShell";
 export type { UtilityPageShellProps } from "./UtilityPageShell";
-
-export { buildMailtoHref } from "./mailto";
-export type { MailtoParams } from "./mailto";
 
 export {
   BRAND_TEXT,
@@ -54,8 +56,7 @@ export {
   PROTOCOL_EVIDENCE_SECTION,
   PLATFORM_READINESS_SECTION,
   FINAL_CTA_SECTION,
-  PILOT_ACCESS_MAILTO,
-  DOWNLOAD_OVERVIEW_CTA,
+  PILOT_ACCESS_FORM,
   FOOTER,
   UTILITY_PAGES,
 } from "./constants";
@@ -67,8 +68,8 @@ export type {
   DeploymentCard,
   ClaimBadge,
   FinalCtaSectionConfig,
-  PilotAccessMailto,
-  DownloadOverviewCta,
+  PilotAccessFormConfig,
   FooterLink,
+  UtilityPageSection,
   UtilityPageConfig,
 } from "./constants";
